@@ -1,11 +1,16 @@
 {
-  "name": "my-app",
+  "name": "lair",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
+    "chart": "^0.1.2",
+    "express": "^4.17.1",
+    "joi": "^14.3.1",
+    "node": "^14.3.0",
+    "nodemon": "^2.0.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1"
