@@ -1,4 +1,6 @@
 import React, {Component} from 'react'
+import Logo from '../Logo'
+import Navigation from "./Navigation";
 
 class Header extends Component{
     // constructor(){
@@ -7,8 +9,8 @@ class Header extends Component{
     render(){
         return (
             <header className="site-header">
-                <img src = "./images/lair-logo.png" alt="Logo"/>
-                <h1>lair</h1>
+                <Logo />
+                <Navigation />
             </header>
         )
     }
