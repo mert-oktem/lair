@@ -1,4 +1,6 @@
 import React, {Component} from 'react'
+import ActionHeading from "./HomeActionComponents/ActionHeading"
+import ActionBlock from "./HomeActionComponents/ActionBlock"
 
 class HomeAction extends Component {
     // constructor(){
@@ -7,7 +9,8 @@ class HomeAction extends Component {
     render() {
         return (
             <div className="home-main-action">
-                <p>Action Goes Here through Components</p>
+                <ActionHeading />
+                <ActionBlock />
             </div>
         )
     }
