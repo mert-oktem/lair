@@ -7,7 +7,7 @@ class DiscoveryNav extends Component {
     render() {
         return (
             <div className="nav-discovery">
-               <h3>Discovery</h3>
+               <a href=""><h3>Discovery</h3></a>
             </div>
         )
     }
