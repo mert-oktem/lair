@@ -3,11 +3,12 @@ import React from 'react';
 import './App.css';
 import Home from './components/classComponents/home/Home'
 import DiscDetails from "./components/classComponents/discoveryDetails/DiscDetails";
+import Discovery from "./components/classComponents/discovery/Discovery";
 
 function App() {
   return (
     <div className="App">
-      <DiscDetails />
+      <Discovery />
     </div>
   );
 }
