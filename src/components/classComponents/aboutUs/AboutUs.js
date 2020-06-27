@@ -1,4 +1,9 @@
 import React, {Component} from 'react'
+import AboutUsIntro from "./AboutUsIntro";
+import AboutUsImage from "./AboutUsImage";
+import AboutUsDesc from "./AboutUsDesc";
+import AboutUsTitle from "./AboutUsTitle";
+import AboutUsCard from "./AboutUsCard";
 
 
 class AboutUs extends Component{
@@ -9,7 +14,11 @@ class AboutUs extends Component{
         return (
             <div className="site-aboutUs">
 
-                <h3>About Us page</h3>
+                <AboutUsIntro />
+                <AboutUsImage />
+                <AboutUsDesc />
+                <AboutUsTitle />
+                <AboutUsCard />
 
             </div>
         )

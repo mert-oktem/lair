@@ -1,4 +1,11 @@
 import React, {Component} from 'react'
+import DonateIntro from "./DonateIntro";
+import DonateImage from "./DonateImage";
+import DonateDesc from "./DonateDesc";
+import DonateHow from "./DonateHow";
+import DonateHowImage from "./DonateHowImage";
+import DonateNowBtn from "../../functionComponents/donateButtons/DonateNowBtn";
+import DonateCard from "./DoanteCard";
 
 class Donate extends Component{
     // constructor(){
@@ -8,7 +15,13 @@ class Donate extends Component{
         return (
             <div className="site-donate">
 
-                <h3>donate page</h3>
+                <DonateIntro />
+                <DonateImage />
+                <DonateDesc />
+                <DonateCard />
+                <DonateHow />
+                <DonateHowImage />
+                <DonateNowBtn />
 
             </div>
         )
