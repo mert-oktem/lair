@@ -11,9 +11,9 @@ class Discovery extends Component{
     render(){
         return (
             <div className="site-home">
-                <Header />
+
                 <DiscMain />
-                <Footer />
+
             </div>
         )
     }

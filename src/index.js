@@ -4,6 +4,11 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+
+import Discovery from "./components/classComponents/discovery/Discovery";
+import DiscDetails from "./components/classComponents/discoveryDetails/DiscDetails";
+
 ReactDOM.render(
   <React.StrictMode>
     <App />

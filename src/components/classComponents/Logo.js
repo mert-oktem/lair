@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import LogoImage from '../../img/lair-logo.png'
 
 class Logo extends Component {
     // constructor(){
@@ -7,7 +8,7 @@ class Logo extends Component {
     render() {
         return (
             <div className="site-logo">
-                <img src="./images/lair-logo.png" alt="Logo"/>
+                <img src={LogoImage} alt="Logo"/>
             </div>
         )
     }
