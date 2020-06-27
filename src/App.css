@@ -43,3 +43,14 @@
   margin: auto;
   border-radius: 50px;
 }
+
+.home-main-action img{
+  max-width: 10rem;
+  height: auto;
+}
+
+.site-logo img{
+  max-width: 4rem;
+  height: auto;
+}
+
