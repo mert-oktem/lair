@@ -1,62 +1,136 @@
-const Joi = require('joi');
+/******************** Core Modules **********************/
 const http = require('http');
 
+/******************** NPM Modules ***********************/
 const express = require('express');
-const app = express();
+const Joi = require('joi');
+const mysql = require('mysql')
+/******************** Custom Modules ********************/
 
+/******************** End of Modules ******************************/
+
+
+const app = express();
 app.use(express.json());
 
 
-const species = [
-    { id: 1, name: "bear"},
-    { id: 2, name: "tiger"},
-    { id: 3, name: "shark"}
-]
+var connection = mysql.createConnection({
+    host: '74.208.228.35',
+    user: 'lairdbadmin',
+    password: '479ghsJO@',
+    database: 'lairdb'
+})
 
+connection.connect()
 
 
 app.get('/api/species', (req, res) => {
+    connection.query('SELECT * FROM NGOsTable', function (err, result) {
+    if (err) throw res.status(400).send(err)
+    species = result
     res.send(species)
+    }) 
 });
 
 app.get('/api/species/:id', (req, res) => {
-    const specie = species.find(s => s.id === parseInt(req.params.id));
+    let species
+
+    connection.query('SELECT * FROM endangeredSpeciesTable', function (err, result) {
+    if (err) throw res.status(400).send(err)
+    species = result
+    const specie = species.find(s => s.ngoID === parseInt(req.params.id));
     if (!specie) res.status(404).send("The specie with given id could not found.");
 
     res.send(specie);
+    }) 
 });
 
 app.post('/api/species', (req, res) => {
-    console.log(req);
     const { error } = ValidateSpecie(req); 
     if (error) { return res.status(400).send(result.error.details[0].message)}
 
+    let lastid = connection.query(`SELECT MAX(speciesID) FROM endangeredSpeciesTable)`, function (err, result) {
+    if (err) throw res.status(400).send(err) 
+    })
 
-    specie = {
-        id: species.length + 1,
-        name: req.body.name
-    };
-
-    species.push(specie);
-    res.send(specie);
+    connection.query(`INSERT INTO endangeredSpeciesTable 
+    (speciesID, statusID, trendID, familyID, name, scientificName, description, threats, image1, image2, icon, averageAge, averageWeight, averageHeight, speciesSignificance, active)
+    VALUES 
+    (${lastid + 1}, 
+    ${req.body.statusID}, 
+    ${req.body.trendID}, 
+    ${req.body.familyID}, 
+    ${req.body.name}, 
+    ${req.body.scientificName}, 
+    ${req.body.description}, 
+    ${req.body.threats}, 
+    ${req.body.image1}, 
+    ${req.body.image2}, ${req.body.icon}, 
+    ${req.body.averageAge}, 
+    ${req.body.averageWeight}, 
+    ${req.body.averageHeight}, 
+    ${req.body.speciesSignificance}, 
+    ${req.body.active});`,
+    function (err, result) {
+        if (err) throw res.status(400).send(err)
+        res.send("ok");
+    })
 });
 
 app.put('/api/species/:id', (req, res) => {
-    let specie = species.find(s => s.id === parseInt(req.params.id));
-    if (!specie) return res.status(404).send("The specie with given id could not found.");
-     
     const { error } = ValidateSpecie(req); 
     if (error) { return res.status(400).send(result.error.details[0].message); }
 
-    specie = {
-        id: req.params.id,
-        name: req.body.name
-    };
+    connection.query('SELECT * FROM endangeredSpeciesTable', function (err, result) {
+        if (err) throw err
+        let species = result
 
-    // Update
-    specie.name = req.body.name;
-    res.send(specie);
+        let specie = species.find(s => s.id === parseInt(req.params.id));
+        if (!specie) return res.status(404).send("The specie with given id could not found.");
+        
+
+
+        connection.query(`UPDATE endangeredSpeciesTable SET 
+        statusID = ${req.body.statusID}
+        trendID = ${req.body.trendID}
+        familyID = ${req.body.familyID}
+        name = ${req.body.name}
+        scientificName = ${req.body.scientificName}
+        description = ${req.body.description}
+        threats = ${req.body.threats}
+        image1 = ${req.body.image1}
+        image2 = ${req.body.image2}
+        icon = ${req.body.icon}
+        averageAge = ${req.body.averageAge}
+        averageWeight = ${req.body.averageWeight}
+        averageHeight = ${req.body.averageHeight}
+        speciesSignificance = ${req.body.speciesSignificance}
+        active = ${req.body.active}
+        WHERE speciesID = ${req.body.id}`, function (err, result) {
+            if (err) throw res.status(400).send(err)
+            res.send("ok");
+            })
+    })
 });
+
+app.delete('/api/species/:id', (req, res) => {
+    const { error } = ValidateSpecie(req); 
+    if (error) { return res.status(400).send(result.error.details[0].message); }
+
+    connection.query('SELECT * FROM endangeredSpeciesTable', function (err, result) {
+        if (err) throw err
+        let species = result
+
+        let specie = species.find(s => s.id === parseInt(req.params.id));
+        if (!specie) return res.status(404).send("The specie with given id could not found.");
+
+        connection.query(`DELETE from endangeredSpeciesTable WHERE speciesID = ${req.body.id}`, function (err, result) {
+            if (err) throw res.status(400).send(err)
+            res.send("ok");
+            })
+    })
+});
+
 
 function ValidateSpecie(req) {
     const schema = {
@@ -66,16 +140,17 @@ function ValidateSpecie(req) {
     return Joi.validate(req.body, schema);
 }
 
-app.delete('/api/species/:id', (req, res) => {
-    const specie = species.find(s => s.id === parseInt(req.params.id));
-    if (!specie) return res.status(404).send("The specie with given id could not found.");
+///////////// NGos ////////////
 
-
-    const index = species.indexOf(course);
-    species.splice(index, 1);
-
-    res.send(specie);
+app.get('/api/ngos', (req, res) => {
+    connection.connect()
+    connection.query('SELECT * FROM NGOsTable', function (err, rows, fields) {
+    if (err) throw err
+    res.send(rows)
+    connection.end()
+    }) 
 });
+
 
 const port = process.env.port || 3000;
 app.listen(port, () => console.log(`Listening on port ${port}...`));
