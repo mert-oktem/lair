@@ -1,9 +1,11 @@
-import React from "react"
+import React, {Component} from "react"
 
-function ActionTitle(){
-    return(
-        <h3>Population Charts</h3>
-    )
+class ActionTitle extends Component {
+    render() {
+        return(
+            <h3>Population Charts</h3>
+        )
+    }
 }
 
 export default ActionTitle

@@ -13,13 +13,21 @@ class Navigation extends Component {
         return (
             <div className="site-navigation">
                 <nav className="site-nav">
-                    <ul className="nav-uo-list">
-                        <li><DiscoveryNav /></li>
-                        <li><ArticlesNav /></li>
-                        <li><AboutNav /></li>
-                        <li><ContactNav /></li>
-                        <li><DonateNav /></li>
-                    </ul>
+                    <div className="menuToggle">
+                        <input type="checkbox" />
+                        <div>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <ul className="nav-uo-list">
+                            <li><DiscoveryNav /></li>
+                            <li><ArticlesNav /></li>
+                            <li><AboutNav /></li>
+                            <li><ContactNav /></li>
+                            <li><DonateNav /></li>
+                        </ul>
+                    </div>
                 </nav>
             </div>
         )
