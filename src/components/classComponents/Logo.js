@@ -8,7 +8,7 @@ class Logo extends Component {
     render() {
         return (
             <div className="site-logo">
-                <img src={LogoImage} alt="Logo"/>
+                <img src="" alt="Logo"/>
             </div>
         )
     }

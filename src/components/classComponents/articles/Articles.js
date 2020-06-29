@@ -1,4 +1,8 @@
 import React, {Component} from 'react'
+import ArticlesIntro from "./ArticlesIntro";
+import ArticlesImage from "./ArticlesImage";
+import ArticlesCard from "./ArticlesCard";
+import ArticlesLoadMoreBtn from "../../functionComponents/articlesButtons/ArticlesLoadMoreBtn";
 
 class Articles extends Component{
     // constructor(){
@@ -8,7 +12,10 @@ class Articles extends Component{
         return (
             <div className="site-articles">
 
-                <h3>Articles page</h3>
+                <ArticlesIntro />
+                <ArticlesImage />
+                <ArticlesCard />
+                <ArticlesLoadMoreBtn />
 
             </div>
         )

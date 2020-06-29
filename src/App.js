@@ -9,6 +9,7 @@ import AboutUs from "./components/classComponents/aboutUs/AboutUs";
 import Articles from "./components/classComponents/articles/Articles";
 import Contact from "./components/classComponents/contact/Contact";
 import Donate from "./components/classComponents/donate/Donate";
+import DiscDetails from "./components/classComponents/discoveryDetails/DiscDetails";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
                 <Route path="/articles" component={Articles} />
                 <Route path="/contact" component={Contact} />
                 <Route path="/donate" component={Donate} />
+                <Route path="/discDetails" component={DiscDetails} />
             </Switch>
             <Footer />
 

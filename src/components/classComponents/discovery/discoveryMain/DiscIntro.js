@@ -7,12 +7,13 @@ class DiscIntro extends Component {
     render() {
         return (
             <div className="disc-main-intro">
-                <div className="intro-heading">Endangered Species List</div>
-                <div className="intro-text">More than 31,000 species are
-                    threatened with extinction.</div>
+                <div className="intro-heading"><h1>Endangered Species List</h1></div>{/*add heading tag*/}
+                <div className="intro-text"><p>More than 31,000 species are{/*add p tag*/}
+                    threatened with extinction.</p></div>
             </div>
         )
     }
 }
 
 export default DiscIntro
+

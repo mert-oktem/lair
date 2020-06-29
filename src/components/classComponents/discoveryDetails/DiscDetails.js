@@ -11,9 +11,9 @@ class DiscDetails extends Component{
     render(){
         return (
             <div className="site-discDet">
-                <Header />
+
                 <DiscDetMain />
-                <Footer />
+
             </div>
         )
     }

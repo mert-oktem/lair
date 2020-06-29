@@ -1,4 +1,14 @@
 import React, {Component} from 'react'
+import AboutUsIntro from "../aboutUs/AboutUsIntro";
+import AboutUsImage from "../aboutUs/AboutUsImage";
+import AboutUsDesc from "../aboutUs/AboutUsDesc";
+import AboutUsTitle from "../aboutUs/AboutUsTitle";
+import AboutUsCard from "../aboutUs/AboutUsCard";
+import ContactIntro from "./ContactIntro";
+import ContactImage from "./ContactImage";
+import ContactDesc from "./ContactDesc";
+import ContactForm from "./ContactForm";
+import ContactLocation from "./ContactLocation";
 
 
 class Contact extends Component{
@@ -8,7 +18,11 @@ class Contact extends Component{
     render(){
         return (
             <div className="site-contact">
-                <h3>Contact page</h3>
+                <ContactIntro />
+                <ContactImage />
+                <ContactDesc />
+                <ContactForm />
+                <ContactLocation />
             </div>
         )
     }
