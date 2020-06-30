@@ -52,8 +52,10 @@ body{
 
 
 .site-logo img{
-  max-width: 4rem;
+  max-width: 3em;
   height: auto;
+
+  margin: 20px;
 
   z-index: 1;
 }
@@ -127,7 +129,7 @@ body{
   position: relative;
   
   
-  background: #47342f;
+  background: #644A53;
   border-radius: 3px;
   
   z-index: 1;
@@ -192,7 +194,7 @@ body{
   top: 0;
   right: -100%;
   
-  background: #f8fbff;
+  background: #F4F8FF;
   list-style-type: none;
   -webkit-font-smoothing: antialiased;
   /* to stop flickering of text in safari */
@@ -215,7 +217,7 @@ body{
 }
 
 .nav-donate a h3{
-  color: #47342f;
+  color: #644A53;
   max-width: 40%;
   margin: auto;
   background-color: #ffeda7;
@@ -233,6 +235,34 @@ body{
 {
   transform: none;
 }
+/* 
+.nav-uo-list a:target ~ ul{
+  transform: 
+} */
+
+h1.intro-heading{
+  color: #ca7342;
+  margin: 10px;
+}
+p.intro-text{
+  color: #644A53;
+  font-weight: 500;
+  font-size: 16pt;
+  letter-spacing: 0.4px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+div.home-LearnMore-button button{
+  color: #644A53;
+  background-color: #fff;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  padding: 10px 25px;
+  border-radius: 50px;
+  border: 5px solid #ffeda7;
+  margin-top: 25px;
+}
 
 /* ***************************************** */
 /* ***************************************** */
@@ -241,7 +271,7 @@ body{
 /* ***************************************** */
 
 .home-main-action{
-  background-color: #f8fbff;
+  background-color: #F4F8FF;
 }
 
 .home-main-action h2{
@@ -259,7 +289,7 @@ body{
 
 
 .home-main-action h3, .home-main-action p{
-  color: #47342f;
+  color: #644A53;
 }
 
 .home-main-action p{
@@ -271,4 +301,78 @@ body{
 .home-main-action img{
   max-width: 10rem;
   height: auto;
+}
+
+p.action-block-desc{
+  margin-bottom: 30px;
+}
+
+.home-main-action .home-main-action-block .action-block-desc:nth-child(3){
+  padding-bottom: 50px;
+}
+
+/* ***************************************** */
+/* ***************************************** */
+/*              Newsletter                   */
+/* ***************************************** */
+/* ***************************************** */
+
+.newsletter-intro h2{
+  color: #ca7342;
+  margin-top: 50px;
+}
+
+.newsletter-image img{
+  max-width: 12rem;
+}
+
+.newsletter-form-email input{
+  min-width: 80%;
+  margin: 20px 10px;
+  padding: 20px;
+  background-color: #F4F8FF;
+  color: #644A53;
+  border: 0;
+  border-radius: 50px;
+}
+
+.newsletter-form-submitBtn button{
+  font-family: Montserrat;
+  background-color: #ffeda7;
+  color: #644A53;
+  padding: 20px 30px;
+  border-radius: 50px;
+  border: 0;
+  font-weight: bold;
+  letter-spacing: 1px;
+  margin-bottom: 70px;
+}
+
+/* ***************************************** */
+/* ***************************************** */
+/*                 Footer                    */
+/* ***************************************** */
+/* ***************************************** */
+
+footer{
+  background-color: #F4F8FF;
+  color: #644A53;
+}
+
+.site-footer1 .site-logo img{
+  max-width: 7rem;
+  padding-top: 20px;
+}
+
+.footer1-text{
+  max-width: 90%;
+  padding: 30px 10px;
+  color: #644A53;
+  border-bottom: 1px solid #644A53;
+  margin: auto;
+
+}
+
+p.footer2-text1{
+  margin-top: 30px;
 }
