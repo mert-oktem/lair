@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import CanadaMap from "../CanadaMap";
 
 class HomeMap extends Component {
     // constructor(){
@@ -7,7 +8,7 @@ class HomeMap extends Component {
     render() {
         return (
             <div className="home-main-map">
-               <p>Map Goes Here</p>
+                    <CanadaMap />
             </div>
         )
     }
