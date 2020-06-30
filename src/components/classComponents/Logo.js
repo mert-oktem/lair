@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import LogoImage from '../../img/lair-logo.png'
+import {Link} from "react-router-dom";
 
 class Logo extends Component {
     // constructor(){
@@ -8,7 +9,7 @@ class Logo extends Component {
     render() {
         return (
             <div className="site-logo">
-                <img src="" alt="Logo"/>
+                <Link to="/"><img src={LogoImage} alt="Logo"/></Link>
             </div>
         )
     }
