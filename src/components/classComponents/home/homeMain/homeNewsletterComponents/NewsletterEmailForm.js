@@ -4,9 +4,7 @@ class NewsletterEmailForm extends Component {
     constructor() {
         super()
         this.state = {
-
             Email: ""
-
         }
         this.handleChange = this.handleChange.bind(this)
     }

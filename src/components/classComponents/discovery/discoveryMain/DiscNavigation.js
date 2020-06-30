@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
-import SearchBtn from "../../../functionComponents/discoveryNavigation/SearchBtn";
 import FilterBtn from "../../../functionComponents/discoveryNavigation/FilterBtn";
+import DiscNavSearch from "./DiscNavSearch";
 
 class DiscNavigation extends Component {
     // constructor(){
@@ -10,7 +10,7 @@ class DiscNavigation extends Component {
         return (
             <div className="disc-main-navigation">
                <div className="disc-navigation">
-                       <SearchBtn />
+                       <DiscNavSearch />
                        <FilterBtn />
                </div>
             </div>

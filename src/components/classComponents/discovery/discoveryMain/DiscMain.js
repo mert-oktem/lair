@@ -16,7 +16,36 @@ class DiscMain extends Component{
                 <DiscIntro />
                 <DiscImage />
                 <DiscNavigation />
-                <AnimalCard />
+                <div className="site-disc-main-animalCards">
+                    <AnimalCard
+                        animal={{name:"Vancouver Marmot",
+                            location:"Yucatan Peninsula",
+                            population:"2000+",
+                            status:"Critical Endangered",
+                            imgUrl: require('../../../../img/img1/atlantic_bluefin_tuna.jpg')}}
+                    />
+                    <AnimalCard
+                        animal={{name:"Bluefin Tuna",
+                            location:"Yucatan Peninsula",
+                            population:"2000+",
+                            status:"Critical Endangered",
+                            imgUrl: require('../../../../img/img1/atlantic_bluefin_tuna.jpg')}}
+                    />
+                    <AnimalCard
+                        animal={{name:"White Rhinoceros",
+                            location:"Yucatan Peninsula",
+                            population:"2000+",
+                            status:"Critical Endangered",
+                            imgUrl: require('../../../../img/img1/atlantic_bluefin_tuna.jpg')}}
+                    />
+                    <AnimalCard
+                        animal={{name:"Callophrys",
+                            location:"Yucatan Peninsula",
+                            population:"2000+",
+                            status:"Critical Endangered",
+                            imgUrl: require('../../../../img/img1/atlantic_bluefin_tuna.jpg')}}
+                    />
+                </div>
                 <DiscLoadMore />
             </main>
         )

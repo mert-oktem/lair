@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import DiscImg from '../../../../img/banners/Owl.jpg'
 
 class DiscImage extends Component {
     // constructor(){
@@ -7,7 +8,7 @@ class DiscImage extends Component {
     render() {
         return (
             <div className="disc-main-image">
-                <img src="" alt="Discovery Image"/>
+                <img src={DiscImg} alt="Discovery Image"/>
             </div>
         )
     }
