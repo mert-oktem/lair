@@ -3,6 +3,7 @@ import AnimalImage from "./AnimalImage";
 import AnimalDet from "./AnimalDet";
 import PopulationChart from "./PopulationChart";
 import WhyMatter from "./WhyMatter";
+import RelatedAnimals from "./RelatedAnimals";
 
 
 class DiscDetMain extends Component{
@@ -16,6 +17,7 @@ class DiscDetMain extends Component{
                 <AnimalDet />
                 <PopulationChart />
                 <WhyMatter />
+                <RelatedAnimals />
 
             </main>
         )

@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import WhyMatterImg from '../../../../img/img2/long_billed_curlew.jpg'
 
 class WhyMatter extends Component {
     // constructor(){
@@ -8,7 +9,7 @@ class WhyMatter extends Component {
         return (
             <div className="discDet-main-whyMatter">
                 <div className="whyMatter-heading"><h3>WHY THEY MATTER</h3></div>
-                <div className="whyMatter-image"><img src="" alt="Animal Image Why Matter"/></div>
+                <div className="whyMatter-image"><img src={WhyMatterImg} alt="Animal Image Why Matter"/></div>
                 <div className="whyMatter-text">The Amur leopard is important ecologically,
                     economically and culturally. Conservation
                     of its habitat benefits other species,
