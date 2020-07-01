@@ -7,7 +7,7 @@ class HomeMap extends Component {
     // }
     render() {
         return (
-            <div className="home-main-map">
+            <div className="home-main-map" style={{ height: 1000 }}>
                     <CanadaMap />
             </div>
         )

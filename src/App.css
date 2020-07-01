@@ -376,3 +376,23 @@ footer{
 p.footer2-text1{
   margin-top: 30px;
 }
+
+svg {
+  background: white;
+}
+
+.state {
+  fill: #F4F8FF;
+  stroke: #B2D8FF;
+  stroke-width: 1;
+}
+
+.selected {
+  fill: #FFEDA7;
+  stroke: #CA7342;
+  stroke-width: 2;
+}
+
+.state-label{
+  font-size: 10pt;
+}
