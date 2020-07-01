@@ -8,7 +8,7 @@ class RelatedAnimals extends Component {
     render() {
         return (
             <div className="discDet-main-relatedAnimals">
-                <h2 className="discDet-main-relatedAnimals-heading">S E E   R E L A T E D   A N I M A L S</h2>
+                <h2 className="discDet-main-relatedAnimals-heading">SEE RELATED ANIMALS</h2>
                 <div className="discDet-main-relatedAnimals-cards">
                     <AnimalCard
                         animal={{name:"Vancouver Marmot",
