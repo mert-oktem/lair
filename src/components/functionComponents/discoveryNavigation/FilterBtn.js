@@ -8,8 +8,10 @@ function handleFilter() {
 function FilterBtn() {
     return (
         <div className="navigation-filter">
-            <div className="navigation-filter-icon"><img src={FilterIconImg} alt="Filter icon Image"/></div>
-            <button onClick={handleFilter}>FILTER</button>
+            <button onClick={handleFilter}>
+                <img src={FilterIconImg} alt="Filter icon Image" />
+                <p>FILTER</p>
+            </button>
         </div>
     )
 }

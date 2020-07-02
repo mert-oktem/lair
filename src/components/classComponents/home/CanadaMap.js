@@ -29,7 +29,7 @@ class CanadaMap extends Component {
       .attr("height", height + margin.top + margin.bottom)
       .attr("width", width + margin.left + margin.right)
       .append("g")
-      .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+      .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 
       var projection = d3.geoOrthographic().clipAngle(90).rotate([98, -60]).scale(600).translate([500,200])

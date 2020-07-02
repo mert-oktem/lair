@@ -7,6 +7,10 @@ body{
   font-family: 'Montserrat', sans-serif;
 
 }
+img{
+  max-width: 100%;
+  height: auto;
+}
 
 .App {
   text-align: center;
@@ -313,6 +317,17 @@ p.action-block-desc{
 
 /* ***************************************** */
 /* ***************************************** */
+/*                   Map                     */
+/* ***************************************** */
+/* ***************************************** */
+
+svg g{
+  max-width: 100%;
+  height: auto;
+}
+
+/* ***************************************** */
+/* ***************************************** */
 /*              Newsletter                   */
 /* ***************************************** */
 /* ***************************************** */
@@ -377,8 +392,17 @@ p.footer2-text1{
   margin-top: 30px;
 }
 
+/* ***************************************** */
+/* ***************************************** */
+/*               Canada Map                  */
+/* ***************************************** */
+/* ***************************************** */
+
+
 svg {
   background: white;
+  max-width: 100%;
+  height: auto;
 }
 
 .state {
@@ -395,4 +419,193 @@ svg {
 
 .state-label{
   font-size: 10pt;
+}
+
+/* ***************************************** */
+/* ***************************************** */
+/*             Discovery Page                */
+/* ***************************************** */
+/* ***************************************** */
+
+
+/* .disc-main-image img{
+  max-width: 100%;
+  height: auto;
+}
+
+.disc-main-image{
+  max-width: 100%;
+  height: auto;
+} */
+
+/* *******************Search and Filter********************* */
+
+.disc-navigation {
+  display: flex;
+  justify-content: space-between;
+}
+
+.disc-nav-search{
+  max-width: 30%;
+  height: auto;
+}
+.navigation-filter{
+  max-width: 50%;
+  height: auto;
+}
+
+.disc-navigation img{
+  max-width: 17%;
+  height: auto;
+}
+
+.navigation-filter button{
+  border: 0;
+  background-color: white;
+  display: flex;
+  justify-content: flex-end;
+  /* margin-left: 50px; */
+}
+
+.navigation-filter button img{
+  max-width: 12%;
+  height: 12%;
+  margin: auto 0px;
+}
+
+.navigation-filter button p{
+  margin-left: 10px;
+  font-size: 14pt;
+  letter-spacing: 2px;
+  color: #CA7342;
+  font-weight: 600;
+  font-family: "Montserrat", sans-serif;
+}
+
+.site-disc-main-animalCards{
+  display: flex;
+  flex-direction: column;
+}
+
+.disc-main-aniCard{
+  max-width: 90%;
+  height: auto;
+  margin: auto;
+  background-color: #F4F8FF;
+  margin-bottom: 40px;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+}
+
+.disc-main-aniCard img{
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+}
+
+.aniCard-name{
+  color: #644A53;
+  font-size: 14pt;
+}
+
+.aniCard-location img, .aniCard-population img, .aniCard-status img{
+  max-height: 25px;
+}
+
+.aniCard-location img{
+  margin-left: 30px;
+}
+.aniCard-population img{
+  max-height: 23px;
+  margin-left: 29px;
+}
+.aniCard-status img{
+  margin-left: 36.5px;
+}
+
+.aniCard-location-text p, .aniCard-population-text p, .aniCard-status-text p{
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  color: #644A53;
+}
+
+.aniCard-location-text p{
+  margin: auto 0 auto 30px;
+}
+
+.aniCard-population-text p{
+  margin: auto 0 auto 29px;
+}
+
+.aniCard-status-text p{
+  margin: auto 0 auto 34px;
+}
+
+.aniCard-location, .aniCard-population, .aniCard-status{
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.aniCard-more-button{
+  display: flex;
+  margin-left: 25px;
+}
+
+#readMoreBtn{
+  margin-bottom: 30px;
+  /* max-width: 50%; */
+  background-color: #F4F8FF;
+  border: 0;
+  font-size: 14pt;
+  letter-spacing: 2px;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
+  color: #CA7342;
+}
+
+.disc-main-discLoadMore button{
+  color: #644A53;
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  background-color: #fff;
+  font-size: 12pt;
+  font-weight: bold;
+  letter-spacing: 1px;
+  padding: 15px 25px;
+  border-radius: 50px;
+  border: 5px solid #ffeda7;
+  margin-top: 25px;
+  margin-bottom: 60px;
+}
+
+.discDet-main-animalDet{
+  text-align: left;
+  max-width: 90%;
+  margin: auto;
+}
+
+.animalDet-heading{
+  color: #CA7342;
+}
+
+.animalDet-name{
+  color: #CA7342;
+}
+
+.animalDet-sciName-text{
+  font-size: 10pt;
+  color: grey;
+}
+
+.animalDet-status-text{
+  font-family: Montserrat;
+  background-color: #ffeda7;
+  color: #644A53;
+  padding: 20px 30px;
+  border-radius: 50px;
+  border: 0;
+  font-weight: bold;
+  letter-spacing: 1px;
+  margin-bottom: 70px;
 }
