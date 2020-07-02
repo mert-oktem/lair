@@ -1,39 +1,72 @@
 import React, {Component} from 'react';
-import {Bar,Line,Pie} from 'react-chartjs-2';
+import Highcharts from 'highcharts'
+import HighchartsReact from 'highcharts-react-official'
 
+const options = {
+    "title": {
+        "text": "Population trend: Decreasing",
+        "align":"left"
+    },
+    "chart": {
+        "type": "line",
+        "backgroundColor": "#F3E9D9"
+    },
+    "xAxis": {
+        type: "year",
+        allowDecimals: false
+    },
+    "series": [
+        {
+            "name": "Years",
+            "data": [
+                {
+                    "x":2014,
+                    "y":345
+                },
+                {
+                    "x":2015,
+                    "y":540
+                },
+                {
+                    "x":2016,
+                    "y":640
+                },
+                {
+                    "x":2017,
+                    "y":940
+                },
+                {
+                    "x":2018,
+                    "y":40
+                }      ,
+                {
+                    "x":2019,
+                    "y":140
+                }
+            ]
+        }
+    ]
+}
 
 class Chart extends Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            chartData : props.chartData
-        }
-    }
+    // constructor(props){
+    //     super(props);
+    //     this.state = {
+    //         chartData : props.chartData
+    //     }
+    // }
 
-    static defaultProps = {
-        displayTitle:true,
-        displayLegend:true,
-        location: 'City'
-    }
+
+
+
 
     render() {
         return (
 
             <div className="chart">
-                <Line
-                    data={this.state.chartData}
-                    options={{
-                        title:{
-                            display:this.props.displayTitle,
-                            // text:'Largest Cities' + this.props.location,
-                            fontSize:25
-                        },
-                        legend:{
-                            text:'population',
-                            display:this.props.displayLegend,
-                            position:this.props.legendPosition
-                        }
-                    }}
+                <HighchartsReact
+                    highcharts={Highcharts}
+                    options={options}
                 />
 
             </div>
