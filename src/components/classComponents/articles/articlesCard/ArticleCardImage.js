@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import ArtCardImg from '../../../../img/img2/long_billed_curlew.jpg'
+import ArtCardImg from '../../../../img/img1/atlantic_bluefin_tuna.jpg'
 
 class ArticleCardImage extends Component {
     // constructor(){
