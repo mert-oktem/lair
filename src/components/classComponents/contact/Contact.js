@@ -1,9 +1,4 @@
 import React, {Component} from 'react'
-import AboutUsIntro from "../aboutUs/AboutUsIntro";
-import AboutUsImage from "../aboutUs/AboutUsImage";
-import AboutUsDesc from "../aboutUs/AboutUsDesc";
-import AboutUsTitle from "../aboutUs/AboutUsTitle";
-import AboutUsCard from "../aboutUs/AboutUsCard";
 import ContactIntro from "./ContactIntro";
 import ContactImage from "./ContactImage";
 import ContactDesc from "./ContactDesc";

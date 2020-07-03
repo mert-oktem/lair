@@ -1,5 +1,4 @@
 import React, {Component} from 'react'
-import DonateCardImg from "../../../img/ngos/iucnredlist.png";
 
 class DonateCard extends Component {
     // constructor(){

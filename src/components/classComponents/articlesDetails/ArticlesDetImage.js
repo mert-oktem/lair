@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import ArtDetImg from '../../../img/banners/Fox.jpg'
+import ArtDetImg from '../../../img/banners/Horse.jpg'
 
 class ArticlesDetImage extends Component {
     // constructor(){
