@@ -8,9 +8,9 @@ function handleReadMore() {
 function ArticlesReadMoreBtn() {
     return (
         <div className="artCard-more-button">
-            {/*<Link to="/DiscDetails">*/}
+            <Link to="/articlesDetails">
             <button id="artReadMoreBtn" onClick={handleReadMore}>Read More</button>
-            {/*</Link>*/}
+            </Link>
         </div>
     )
 }

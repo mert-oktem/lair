@@ -18,7 +18,36 @@ class Donate extends Component{
                 <DonateIntro />
                 <DonateImage />
                 <DonateDesc />
-                <DonateCard />
+                <DonateCard
+                    donate={{name:"IUCN",
+                        desc:"The IUCN Red List of Threatened Species is a critical indicator of the health of the world’s",
+                        imgUrl: require('../../../img/ngos/iucnredlist.png')}}
+                />
+                <DonateCard
+                    donate={{name:"WWF",
+                        desc:"The IUCN Red List of Threatened Species is a critical indicator of the health of the world’s",
+                        imgUrl: require('../../../img/ngos/iucnredlist.png')}}
+                />
+                <DonateCard
+                    donate={{name:"WCS",
+                        desc:"The IUCN Red List of Threatened Species is a critical indicator of the health of the world’s",
+                        imgUrl: require('../../../img/ngos/iucnredlist.png')}}
+                />
+                <DonateCard
+                    donate={{name:"ifaw",
+                        desc:"The IUCN Red List of Threatened Species is a critical indicator of the health of the world’s",
+                        imgUrl: require('../../../img/ngos/iucnredlist.png')}}
+                />
+                <DonateCard
+                    donate={{name:"National Wildlife",
+                        desc:"The IUCN Red List of Threatened Species is a critical indicator of the health of the world’s",
+                        imgUrl: require('../../../img/ngos/iucnredlist.png')}}
+                />
+                <DonateCard
+                    donate={{name:"Ontario Nature",
+                        desc:"The IUCN Red List of Threatened Species is a critical indicator of the health of the world’s",
+                        imgUrl: require('../../../img/ngos/iucnredlist.png')}}
+                />
                 <DonateHow />
                 <DonateHowImage />
                 <DonateNowBtn />

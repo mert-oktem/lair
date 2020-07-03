@@ -1,9 +1,4 @@
 import React, {Component} from 'react'
-import AboutUsCardImage from "./aboutUsCard/AboutUsCardImage";
-import AboutUsCardName from "./aboutUsCard/AboutUsCardName";
-import AboutUsCardRole from "./aboutUsCard/AboutUsCardRole";
-import AboutUsCardDesc from "./aboutUsCard/AboutUsCardDesc";
-import AboutUsCardSocial from "./aboutUsCard/AboutUsCardSocial";
 
 class AboutUsCard extends Component {
     // constructor(){
@@ -12,11 +7,22 @@ class AboutUsCard extends Component {
     render() {
         return (
             <div className="aboutUs-card">
-                <AboutUsCardImage />
-                <AboutUsCardName />
-                <AboutUsCardRole />
-                <AboutUsCardDesc />
-                <AboutUsCardSocial />
+                <div className="aboutUs-card-image">
+                    <img src={this.props.about.imgUrl} alt="About Us Card Image"/>
+                </div>
+                <div className="aboutUs-card-name">
+                    <h3>{this.props.about.name}</h3>
+                </div>
+                <div className="aboutUs-card-role">
+                    <p>{this.props.about.role}</p>
+                </div>
+                <div className="aboutUs-card-desc">
+                    <p>{this.props.about.desc}</p>
+                </div>
+                <div className="aboutUs-card-social">
+                    <img alt="Social Links 1"/>
+                    <img alt="Social Links 2"/>
+                </div>
             </div>
         )
     }

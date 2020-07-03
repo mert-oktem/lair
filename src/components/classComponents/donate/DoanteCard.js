@@ -1,7 +1,5 @@
 import React, {Component} from 'react'
-import DonateCardImage from "./donateCard/DonateCardImage";
-import DonateCardName from "./donateCard/DonateCardName";
-import DonateCardDesc from "./donateCard/DonateCardDesc";
+import DonateCardImg from "../../../img/ngos/iucnredlist.png";
 
 class DonateCard extends Component {
     // constructor(){
@@ -10,9 +8,15 @@ class DonateCard extends Component {
     render() {
         return (
             <div className="donate-card">
-                <DonateCardImage />
-                <DonateCardName />
-                <DonateCardDesc />
+                <div className="donate-card-image">
+                    <img src={this.props.donate.imgUrl} alt="Donate Image"/>
+                </div>
+                <div className="donate-card-name">
+                    <h3>{this.props.donate.name}</h3>
+                </div>
+                <div className="donate-card-desc">
+                    <p>{this.props.donate.desc}</p>
+                </div>
             </div>
         )
     }

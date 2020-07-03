@@ -1,8 +1,4 @@
 import React, {Component} from 'react'
-import ArticleCardDesc from "./articlesCard/ArticleCardDesc";
-import ArticleCardImage from "./articlesCard/ArticleCardImage";
-import ArticleCardName from "./articlesCard/ArticleCardName";
-import ArticleCardAuthor from "./articlesCard/ArticleCardAuthor";
 import ArticlesReadMoreBtn from "../../functionComponents/articlesButtons/ArticlesReadMoreBtn";
 
 class ArticlesCard extends Component {
@@ -12,10 +8,18 @@ class ArticlesCard extends Component {
     render() {
         return (
             <div className="articles-artCard">
-                <ArticleCardImage />
-                <ArticleCardName />
-                <ArticleCardAuthor />
-                <ArticleCardDesc />
+                <div className="artCard-image">
+                    <img src={this.props.article.imgUrl} alt="Article Card Image"/>
+                </div>
+                <div className="artCard-name">
+                    <h2>{this.props.article.name}</h2>
+                </div>
+                <div className="artCard-author">
+                    <p>{this.props.article.author}</p>
+                </div>
+                <div className="artCard-description">
+                    <p>{this.props.article.desc}</p>
+                </div>
                 <ArticlesReadMoreBtn />
             </div>
         )
