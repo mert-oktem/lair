@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import AboutUsImg from '../../../img/img1/atlantic_bluefin_tuna.jpg'
+import AboutUsImg from '../../../img/banners/Squirrel.jpg'
 
 class AboutUsImage extends Component {
     // constructor(){
