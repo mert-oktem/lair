@@ -13,7 +13,7 @@ class PopulationChart extends Component {
         return (
             <div className="discDet-main-popChart">
                 <div className="popChart-heading"><h3>POPULATION GROWTH</h3></div>
-                <div className="popChart-text"><p>Population trend : Decreasing</p></div>
+                <div className="popChart-text"><h2>Population trend: </h2><p>Decreasing</p></div>
                 <div className="popChart-graph"><Chart /></div>
             </div>
         )
