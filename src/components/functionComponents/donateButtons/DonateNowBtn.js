@@ -6,7 +6,7 @@ function handleDonateNow() {
 
 function DonateNowBtn() {
     return (
-        <div className="articles-LoadMore-button">
+        <div className="donate-button">
             <button onClick={handleDonateNow}>Donate Now</button>
         </div>
     )

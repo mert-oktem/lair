@@ -17,8 +17,10 @@ class Donate extends Component{
 
                 <DonateIntro />
                 <DonateImage />
-                <DonateDesc />
-                <DonateCard />
+                <div className="donate-main">
+                    <DonateDesc />
+                    <DonateCard />
+                </div>
                 <DonateHow />
                 <DonateHowImage />
                 <DonateNowBtn />
