@@ -24,8 +24,15 @@ var connection = mysql.createConnection({
 connection.connect()
 
 
+/****************************************************************/
+/******************** GET METHODS *******************************/
+/****************************************************************/
+
+
 app.get('/api/species', (req, res) => {
-    connection.query('SELECT * FROM NGOsTable', function (err, result) {
+    let q = 'SELECT * FROM NGOsTable'
+
+    connection.query(q, function (err, result) {
     if (err) throw res.status(400).send(err)
     species = result
     res.send(species)
@@ -34,16 +41,50 @@ app.get('/api/species', (req, res) => {
 
 app.get('/api/species/:id', (req, res) => {
     let species
+    let q = 'SELECT * FROM endangeredSpeciesTable'
 
-    connection.query('SELECT * FROM endangeredSpeciesTable', function (err, result) {
+    connection.query(q, function (err, result) {
     if (err) throw res.status(400).send(err)
     species = result
-    const specie = species.find(s => s.ngoID === parseInt(req.params.id));
+    const specie = species.find(s => s.speciesID === parseInt(req.params.id));
     if (!specie) res.status(404).send("The specie with given id could not found.");
 
     res.send(specie);
     }) 
 });
+
+app.get('/api/species/population/:id', (req, res) => {
+    let species
+    let q = 'SELECT speciesID, SUM(speciesCount), YEAR(date) FROM ( (SELECT * FROM populationTable AS p LEFT JOIN `location-speciesLink` AS ls ON p.locationSpeciesLinkID = ls.`location-speciesLinkID`) UNION (SELECT * FROM populationTable AS p RIGHT JOIN `location-speciesLink` AS ls ON p.locationSpeciesLinkID = ls.`location-speciesLinkID`) ) as result' + ` WHERE speciesID = ${req.params.id} GROUP BY speciesID, YEAR(date)`;
+
+    connection.query(q, function (err, result) {
+    if (err) throw res.status(400).send(err)
+    species = result
+    const specie = species.find(s => s.speciesID === parseInt(req.params.id));
+    if (!specie) res.status(404).send("The specie with given id could not found.");
+
+    res.send(result);
+    }) 
+});
+
+app.get('/api/species/location/:id', (req, res) => {
+    let species
+    let q = 'SELECT locationID, speciesID FROM `location-speciesLink` WHERE' + ` locationID = ${req.params.idç}`;
+
+    connection.query(q, function (err, result) {
+    if (err) throw res.status(400).send(err)
+    locations = result
+
+    const location = locations.find(l => l.locationID === parseInt(req.params.id));
+    if (!location) res.status(404).send("The location with given id could not found.");
+
+    res.send(result);
+    }) 
+});
+
+/****************************************************************/
+/******************** POST METHODS ******************************/
+/****************************************************************/
 
 app.post('/api/species', (req, res) => {
     const { error } = ValidateSpecie(req); 
@@ -76,6 +117,19 @@ app.post('/api/species', (req, res) => {
         res.send("ok");
     })
 });
+
+app.get('/api/ngos', (req, res) => {
+    connection.connect()
+    connection.query('SELECT * FROM NGOsTable', function (err, rows, fields) {
+    if (err) throw err
+    res.send(rows)
+    connection.end()
+    }) 
+});
+
+/****************************************************************/
+/******************** PUT METHODS *******************************/
+/****************************************************************/
 
 app.put('/api/species/:id', (req, res) => {
     const { error } = ValidateSpecie(req); 
@@ -113,6 +167,10 @@ app.put('/api/species/:id', (req, res) => {
     })
 });
 
+/****************************************************************/
+/******************** DELETE METHODS ****************************/
+/****************************************************************/
+
 app.delete('/api/species/:id', (req, res) => {
     const { error } = ValidateSpecie(req); 
     if (error) { return res.status(400).send(result.error.details[0].message); }
@@ -132,6 +190,8 @@ app.delete('/api/species/:id', (req, res) => {
 });
 
 
+
+//Validates Request
 function ValidateSpecie(req) {
     const schema = {
         name: Joi.string().min(3).required()
@@ -139,18 +199,6 @@ function ValidateSpecie(req) {
 
     return Joi.validate(req.body, schema);
 }
-
-///////////// NGos ////////////
-
-app.get('/api/ngos', (req, res) => {
-    connection.connect()
-    connection.query('SELECT * FROM NGOsTable', function (err, rows, fields) {
-    if (err) throw err
-    res.send(rows)
-    connection.end()
-    }) 
-});
-
 
 const port = process.env.port || 3000;
 app.listen(port, () => console.log(`Listening on port ${port}...`));
