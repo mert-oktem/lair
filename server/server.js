@@ -5,12 +5,14 @@ const http = require('http');
 const express = require('express');
 const Joi = require('joi');
 const mysql = require('mysql')
+const cors = require('cors');
 /******************** Custom Modules ********************/
 
 /******************** End of Modules ******************************/
 
 
 const app = express();
+app.use(cors());
 app.use(express.json());
 
 
@@ -30,7 +32,7 @@ connection.connect()
 
 
 app.get('/api/species', (req, res) => {
-    let q = 'SELECT * FROM NGOsTable'
+    let q = 'SELECT * FROM endangeredSpeciesTable'
 
     connection.query(q, function (err, result) {
     if (err) throw res.status(400).send(err)
@@ -69,7 +71,7 @@ app.get('/api/species/population/:id', (req, res) => {
 
 app.get('/api/species/location/:id', (req, res) => {
     let species
-    let q = 'SELECT locationID, speciesID FROM `location-speciesLink` WHERE' + ` locationID = ${req.params.idç}`;
+    let q = 'SELECT locationID, speciesID FROM `location-speciesLink` WHERE' + ` locationID = ${req.params.id}`;
 
     connection.query(q, function (err, result) {
     if (err) throw res.status(400).send(err)
@@ -79,6 +81,15 @@ app.get('/api/species/location/:id', (req, res) => {
     if (!location) res.status(404).send("The location with given id could not found.");
 
     res.send(result);
+    }) 
+});
+
+app.get('/api/ngos', (req, res) => {
+    connection.connect()
+    connection.query('SELECT * FROM NGOsTable', function (err, rows, fields) {
+    if (err) throw err
+    res.send(rows)
+    connection.end()
     }) 
 });
 
@@ -116,15 +127,6 @@ app.post('/api/species', (req, res) => {
         if (err) throw res.status(400).send(err)
         res.send("ok");
     })
-});
-
-app.get('/api/ngos', (req, res) => {
-    connection.connect()
-    connection.query('SELECT * FROM NGOsTable', function (err, rows, fields) {
-    if (err) throw err
-    res.send(rows)
-    connection.end()
-    }) 
 });
 
 /****************************************************************/
@@ -200,5 +202,5 @@ function ValidateSpecie(req) {
     return Joi.validate(req.body, schema);
 }
 
-const port = process.env.port || 3000;
+const port = process.env.port || 3011;
 app.listen(port, () => console.log(`Listening on port ${port}...`));
