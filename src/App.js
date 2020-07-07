@@ -11,6 +11,7 @@ import Contact from "./components/classComponents/contact/Contact";
 import Donate from "./components/classComponents/donate/Donate";
 import DiscDetails from "./components/classComponents/discoveryDetails/DiscDetails";
 import ArticlesDet from "./components/classComponents/articlesDetails/ArticlesDet";
+import TestConnection from "./components/functionComponents/TestConnection";
 
 function App() {
   return (
@@ -21,13 +22,14 @@ function App() {
             <Header />
             <Switch>
                 <Route path="/" exact component={Home} />
-                <Route path="/discovery" component={Discovery} />
+                <Route path="/discovery" exact component={Discovery} />
                 <Route path="/aboutUs" component={AboutUs} />
                 <Route path="/articles" component={Articles} />
                 <Route path="/contact" component={Contact} />
                 <Route path="/donate" component={Donate} />
                 <Route path="/discDetails" component={DiscDetails} />
                 <Route path="/articlesDetails" component={ArticlesDet} />
+                <Route path="/discovery/:id" component={TestConnection} />
             </Switch>
             <Footer />
 

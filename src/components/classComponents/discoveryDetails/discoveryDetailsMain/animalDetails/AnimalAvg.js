@@ -10,9 +10,9 @@ class AnimalAvg extends Component{
     render(){
         return (
             <div className="animalDet-average">
-                <AvgAge />
-                <AvgHeight />
-                <AvgWeight />
+                <AvgAge age={this.props.avg.avgAge}/>
+                <AvgHeight height={this.props.avg.avgHe}/>
+                <AvgWeight weight={this.props.avg.avgWe}/>
             </div>
         )
     }

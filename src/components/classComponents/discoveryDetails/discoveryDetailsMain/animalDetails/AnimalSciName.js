@@ -7,7 +7,7 @@ class AnimalSciName extends Component{
     render(){
         return (
             <div className="animalDet-sciName">
-                <p className="animalDet-sciName-text">Panthera pardus orientalis</p>
+                <p className="animalDet-sciName-text">{this.props.sciName}</p>
             </div>
         )
     }

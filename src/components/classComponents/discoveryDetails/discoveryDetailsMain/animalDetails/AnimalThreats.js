@@ -8,7 +8,7 @@ class AnimalThreats extends Component{
         return (
             <div className="animalDet-threats">
                 <h3>Threats:</h3>
-                <p className="animalDet-threats-text">Industrial & military effluents</p>
+                <p className="animalDet-threats-text">{this.props.threat}</p>
             </div>
         )
     }

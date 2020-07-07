@@ -16,12 +16,17 @@ class AnimalDet extends Component{
         return (
             <div className="discDet-main-animalDet">
                 <h3 className="animalDet-heading">OVERVIEW</h3>
-                <AnimalName />
-                <AnimalSciName />
-                <AnimalStatus />
-                <AnimalAvg />
-                <AnimalThreats />
-                <AnimalDescription />
+                <AnimalName name={this.props.species.name}/>
+                <AnimalSciName sciName={this.props.species.sciName} />
+                <AnimalStatus status={this.props.species.status}/>
+                <AnimalAvg avg={{
+                    avgAge: `${this.props.species.avgAge}`,
+                    avgWe: `${this.props.species.avgWe}`,
+                    avgHe: `${this.props.species.avgHe}`
+
+                }}/>
+                <AnimalThreats threat={this.props.species.threat}/>
+                <AnimalDescription desc={this.props.species.desc} />
             </div>
         )
     }

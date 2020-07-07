@@ -8,7 +8,7 @@ class AvgWeight extends Component{
         return (
             <div className="animalDet-average-weight">
                 <div className="average-weight-heading"><h3>Avg. Weight</h3></div>
-                <div className="average-weight-text"><p>4.8 Kg</p></div>
+                <div className="average-weight-text"><p>{this.props.weight}</p></div>
             </div>
         )
     }

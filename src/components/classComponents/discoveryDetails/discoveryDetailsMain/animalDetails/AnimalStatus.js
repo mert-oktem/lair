@@ -7,7 +7,7 @@ class AnimalStatus extends Component{
     render(){
         return (
             <div className="animalDet-status">
-                <p className="animalDet-status-text">CRITICALLY ENDANGERED</p>
+                <p className="animalDet-status-text">{this.props.status}</p>
             </div>
         )
     }

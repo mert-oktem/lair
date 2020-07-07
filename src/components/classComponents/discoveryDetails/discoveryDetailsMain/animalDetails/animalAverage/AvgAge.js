@@ -8,7 +8,7 @@ class AvgAge extends Component{
         return (
             <div className="animalDet-average-age">
                 <div className="average-age-heading"><h3>Avg. Age</h3></div>
-                <div className="average-age-text"><p>15 Yrs</p></div>
+                <div className="average-age-text"><p>{this.props.age}</p></div>
             </div>
         )
     }
