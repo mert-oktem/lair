@@ -1,15 +1,12 @@
 import React, {Component} from "react"
-import ActionTitle from "./ActionBlockComponents/ActionTitle"
-import ActionImage from "./ActionBlockComponents/ActionImage"
-import ActionDesc from "./ActionBlockComponents/ActionDesc"
 
 class ActionBlock extends Component{
     render(){
         return (
-        <div>
-            <ActionImage />
-            <ActionTitle />
-            <ActionDesc />
+        <div className="home-main-action-block">
+            <img className="action-block-image" src={this.props.action.imgUrl} alt="Action Image" />
+            <h3 className="action-block-title">{this.props.action.title}</h3>
+            <p className="action-block-desc">{this.props.action.desc}</p>
         </div>
         )
     }

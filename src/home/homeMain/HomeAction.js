@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
-import ActionHeading from "./HomeActionComponents/ActionHeading"
-import ActionBlock from "./HomeActionComponents/ActionBlock"
+import ActionHeading from "./homeActionComponents/ActionHeading"
+import ActionBlock from "./homeActionComponents/ActionBlock"
 import {Link} from "react-router-dom";
 
 class HomeAction extends Component {

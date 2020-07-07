@@ -469,7 +469,7 @@ svg {
 
 .navigation-filter button img{
   max-width: 12%;
-  height: 12%;
+  /* height: 12%; */
   margin: auto 0px;
 }
 
