@@ -32,7 +32,7 @@ connection.connect()
 
 
 app.get('/api/species', (req, res) => {
-    let q = `SELECT e.speciesID, sDT.statusDescription, e.name,
+    let q = `SELECT e.speciesID, sDT.statusDescription, e.name, fT.familyDescription,
                     e.image1, pT.speciesCount
             FROM endangeredSpeciesTable AS e
             LEFT JOIN statusDescriptionTable sDT on e.statusID = sDT.statusID
@@ -92,7 +92,13 @@ app.get('/api/species/population/:id', (req, res) => {
 
 app.get('/api/species/location/:id', (req, res) => {
     let species
-    let q = `SELECT locationID, speciesID FROM locationSpeciesLink WHERE locationID = ${req.params.id};`
+    let q = `SELECT locationID, e.speciesID, e.name, e.icon
+    FROM endangeredSpeciesTable AS e
+    LEFT JOIN locationSpeciesLink on e.speciesID = locationSpeciesLink.speciesID
+    LEFT JOIN populationTable pT on locationSpeciesLink.locationSpeciesLinkID = pT.locationSpeciesLinkID
+    WHERE e.active = TRUE AND locationID = ${req.params.id}
+    GROUP BY e.speciesID`
+    
 
     connection.query(q, function (err, result) {
     if (err) throw res.status(400).send(err)
