@@ -6,6 +6,7 @@ const express = require('express');
 const Joi = require('joi');
 const mysql = require('mysql')
 const cors = require('cors');
+const { stat } = require('fs');
 /******************** Custom Modules ********************/
 
 /******************** End of Modules ******************************/
@@ -70,9 +71,23 @@ app.get('/api/species/:id', (req, res) => {
     }) 
 });
 
-app.get('/api/relatedspecies/:status', (req, res) => {
-    let q = `SELECT e.speciesID, sDT.statusDescription, e.name, fT.familyDescription,
-                    e.image1, pT.speciesCount, lT.habitat
+app.get('/api/relatedspecies/:id', (req, res) => {
+    let q = `SELECT sDT.statusDescription
+            FROM endangeredSpeciesTable AS e
+            LEFT JOIN statusDescriptionTable sDT on e.statusID = sDT.statusID
+            WHERE e.speciesID = '${req.params.id}' `
+
+    let statusDescription; 
+
+    connection.query(q, function (err, result) {
+        if (err) throw res.status(400).send(err)
+        else if ( result == [] ) res.status(404).send("The specie with given id could not found.");
+        else { 
+            statusDescription = JSON.stringify(result[0].statusDescription) 
+            statusDescription = statusDescription.replace(/^"|"$/g, '').toString()
+
+            q = `SELECT e.speciesID, sDT.statusDescription, e.name, fT.familyDescription,
+            e.image1, pT.speciesCount, lT.habitat
             FROM endangeredSpeciesTable AS e
             LEFT JOIN statusDescriptionTable sDT on e.statusID = sDT.statusID
             LEFT JOIN trendDescriptionTable tDT on e.trendID = tDT.trendID
@@ -80,15 +95,17 @@ app.get('/api/relatedspecies/:status', (req, res) => {
             LEFT JOIN familyTable fT on e.familyID = fT.familyID
             LEFT JOIN populationTable pT on locationSpeciesLink.locationSpeciesLinkID = pT.locationSpeciesLinkID
             LEFT JOIN locationTable lT on locationSpeciesLink.locationID = lT.locationID
-            WHERE e.active = TRUE AND sDT.statusDescription = '${req.params.status}'
+            WHERE e.active = TRUE AND sDT.statusDescription = '${statusDescription}'
             GROUP BY e.speciesID
             ORDER BY RAND() LIMIT 3;`
-
-    connection.query(q, function (err, result) {
-        if (err) throw res.status(400).send(err)
-        else if ( result == [] ) res.status(404).send("The given status could not found.");
-        else { res.send(result); }
-    }) 
+    
+            connection.query(q, function (err, result) {
+            if (err) throw res.status(400).send(err)
+            else if ( result == [] ) res.status(404).send("The given status could not found.");
+            else { res.send(result); }
+            }) 
+        }
+    })
 });
 
 app.get('/api/species/population/:id', (req, res) => {
