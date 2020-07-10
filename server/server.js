@@ -78,6 +78,7 @@ app.get('/api/species/population/:id', (req, res) => {
 
     connection.query(q, function (err, result) {
     if (err) throw res.status(400).send(err)
+    if (!result == []) res.status(404).send("The location with given id could not found.");
 
     res.send(result);
     }) 
@@ -96,10 +97,7 @@ app.get('/api/species/location/:id', (req, res) => {
 
     connection.query(q, function (err, result) {
     if (err) throw res.status(400).send(err)
-    locations = result
-
-    const location = locations.find(l => l.locationID === parseInt(req.params.id));
-    if (!location) res.status(404).send("The location with given id could not found.");
+    if (!result == []) res.status(404).send("The location with given id could not found.");
 
     res.send(result);
     }) 
