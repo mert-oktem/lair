@@ -540,8 +540,7 @@ svg {
   margin: auto;
   background-color: #F4F8FF;
   margin-bottom: 40px;
-  border-bottom-left-radius: 30px;
-  border-bottom-right-radius: 30px;
+  border-radius: 30px;
 }
 
 .disc-main-aniCard img{
@@ -829,6 +828,10 @@ svg {
     background-size: 30px;
   }
 
+  .navigation-search-icon{
+    visibility: hidden;
+  }
+
   .disc-nav-search-type input::placeholder{
     font-family: 'Montserrat', sans-serif;
     color: #644A53;
@@ -838,12 +841,15 @@ svg {
   .site-disc-main-animalCards{
     /* display: flex; */
     flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
     max-width: 90%;
     margin: auto;
   }
 
   .disc-main-aniCard{
-    margin: 10px 10px;
+    margin: 10px 20px 10px 0;
+    max-width: 31.5%;
   }
 
   .disc-main-aniCard:first-of-type{
@@ -874,6 +880,15 @@ svg {
     text-align: left;
     max-width: 90%;
     margin: auto;
+  }
+
+  .discDet-main-relatedAnimals-cards{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    max-width: 90%;
+    margin: auto;
+    margin-bottom: 50px;
   }
 
 }
