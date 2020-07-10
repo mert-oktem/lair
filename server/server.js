@@ -33,15 +33,16 @@ connection.connect()
 
 app.get('/api/species', (req, res) => {
     let q = `SELECT e.speciesID, sDT.statusDescription, e.name, fT.familyDescription,
-                    e.image1, pT.speciesCount
+                    e.image1, pT.speciesCount, lT.habitat
             FROM endangeredSpeciesTable AS e
             LEFT JOIN statusDescriptionTable sDT on e.statusID = sDT.statusID
             LEFT JOIN trendDescriptionTable tDT on e.trendID = tDT.trendID
-            LEFT JOIN familyTable fT on e.familyID = fT.familyID
             LEFT JOIN locationSpeciesLink on e.speciesID = locationSpeciesLink.speciesID
+            LEFT JOIN familyTable fT on e.familyID = fT.familyID
             LEFT JOIN populationTable pT on locationSpeciesLink.locationSpeciesLinkID = pT.locationSpeciesLinkID
+            LEFT JOIN locationTable lT on locationSpeciesLink.locationID = lT.locationID
             WHERE e.active = TRUE
-            GROUP BY e.speciesID;`
+            GROUP BY e.speciesID`
 
     connection.query(q, function (err, result) {
     if (err) throw res.status(400).send(err)
@@ -69,37 +70,54 @@ app.get('/api/species/:id', (req, res) => {
     }) 
 });
 
+app.get('/api/relatedspecies/:status', (req, res) => {
+    let q = `SELECT e.speciesID, sDT.statusDescription, e.name, fT.familyDescription,
+                    e.image1, pT.speciesCount, lT.habitat
+            FROM endangeredSpeciesTable AS e
+            LEFT JOIN statusDescriptionTable sDT on e.statusID = sDT.statusID
+            LEFT JOIN trendDescriptionTable tDT on e.trendID = tDT.trendID
+            LEFT JOIN locationSpeciesLink on e.speciesID = locationSpeciesLink.speciesID
+            LEFT JOIN familyTable fT on e.familyID = fT.familyID
+            LEFT JOIN populationTable pT on locationSpeciesLink.locationSpeciesLinkID = pT.locationSpeciesLinkID
+            LEFT JOIN locationTable lT on locationSpeciesLink.locationID = lT.locationID
+            WHERE e.active = TRUE AND sDT.statusDescription = '${req.params.status}'
+            GROUP BY e.speciesID
+            ORDER BY RAND() LIMIT 3;`
+
+    connection.query(q, function (err, result) {
+        if (err) throw res.status(400).send(err)
+        else if ( result == [] ) res.status(404).send("The given status could not found.");
+        else { res.send(result); }
+    }) 
+});
+
 app.get('/api/species/population/:id', (req, res) => {
-    let species
     let q = `SELECT SUM(speciesCount) as y, YEAR(date) as x
         FROM populationTable AS p
         LEFT JOIN locationSpeciesLink ON p.locationSpeciesLinkID = locationSpeciesLink.locationSpeciesLinkID
         WHERE speciesID = ${req.params.id} GROUP BY speciesID, YEAR(date);`;
 
     connection.query(q, function (err, result) {
-    if (err) throw res.status(400).send(err)
-    // if (!result == []) res.status(404).send("The location with given id could not found.");
-
-    res.send(result);
+        if (err) throw res.status(400).send(err)
+        else if (result == []) res.status(404).send("The specie with given id could not found.");
+        else { res.send(result); }
     }) 
 });
 
-app.get('/api/species/location/:id', (req, res) => {
-    let species
+app.get('/api/locations/:location', (req, res) => {
     let q = `SELECT lT.locationID, lT.habitat, e.speciesID, e.name, e.icon
     FROM endangeredSpeciesTable AS e
     LEFT JOIN locationSpeciesLink on e.speciesID = locationSpeciesLink.speciesID
     LEFT JOIN populationTable pT on locationSpeciesLink.locationSpeciesLinkID = pT.locationSpeciesLinkID
     LEFT JOIN locationTable lT on locationSpeciesLink.locationID = lT.locationID
-    WHERE e.active = TRUE AND lT.habitat = '${req.params.id}'
+    WHERE e.active = TRUE AND lT.habitat = '${req.params.location}'
     GROUP BY e.speciesID;`
     
 
     connection.query(q, function (err, result) {
-    if (err) throw res.status(400).send(err)
-    if (!result == []) res.status(404).send("The location with given id could not found.");
-
-    res.send(result);
+        if (err) throw res.status(400).send(err)
+        else if (result == []) res.status(404).send("The location with given id could not found.");
+        else { res.send(result); }
     }) 
 });
 
