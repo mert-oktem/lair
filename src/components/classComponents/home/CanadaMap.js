@@ -59,6 +59,7 @@ class CanadaMap extends Component {
          })
       // .on("click", function(d) {
       //     d3.select(this).classed("selected", true)
+             // App end icons here fetch d.properties.name
       // })
 
       svg.selectAll(".state-label")
