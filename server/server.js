@@ -32,7 +32,16 @@ connection.connect()
 
 
 app.get('/api/species', (req, res) => {
-    let q = 'SELECT * FROM endangeredSpeciesTable'
+    let q = `SELECT e.speciesID, sDT.statusDescription, e.name,
+                    e.image1, pT.speciesCount
+            FROM endangeredSpeciesTable AS e
+            LEFT JOIN statusDescriptionTable sDT on e.statusID = sDT.statusID
+            LEFT JOIN trendDescriptionTable tDT on e.trendID = tDT.trendID
+            LEFT JOIN familyTable fT on e.familyID = fT.familyID
+            LEFT JOIN locationSpeciesLink on e.speciesID = locationSpeciesLink.speciesID
+            LEFT JOIN populationTable pT on locationSpeciesLink.locationSpeciesLinkID = pT.locationSpeciesLinkID
+            WHERE e.active = TRUE
+            GROUP BY e.speciesID;`
 
     connection.query(q, function (err, result) {
     if (err) throw res.status(400).send(err)
@@ -43,7 +52,12 @@ app.get('/api/species', (req, res) => {
 
 app.get('/api/species/:id', (req, res) => {
     let species
-    let q = 'SELECT * FROM endangeredSpeciesTable'
+    let q = `SELECT e.speciesID, sDT.statusDescription, tDT.trendDescription, fT.familyDescription, e.name, e.scientificName, e.description, e.threats,
+                    e.image1, e.image2, e.icon, e.averageAge, e.averageWeight, e.averageHeight, e.speciesSignificance, e.active
+            FROM endangeredSpeciesTable AS e
+            LEFT JOIN statusDescriptionTable sDT on e.statusID = sDT.statusID
+            LEFT JOIN trendDescriptionTable tDT on e.trendID = tDT.trendID
+            LEFT JOIN familyTable fT on e.familyID = fT.familyID;`
 
     connection.query(q, function (err, result) {
     if (err) throw res.status(400).send(err)
@@ -57,7 +71,14 @@ app.get('/api/species/:id', (req, res) => {
 
 app.get('/api/species/population/:id', (req, res) => {
     let species
-    let q = 'SELECT speciesID, SUM(speciesCount), YEAR(date) FROM ( (SELECT * FROM populationTable AS p LEFT JOIN `location-speciesLink` AS ls ON p.locationSpeciesLinkID = ls.`location-speciesLinkID`) UNION (SELECT * FROM populationTable AS p RIGHT JOIN `location-speciesLink` AS ls ON p.locationSpeciesLinkID = ls.`location-speciesLinkID`) ) as result' + ` WHERE speciesID = ${req.params.id} GROUP BY speciesID, YEAR(date)`;
+    let q = `SELECT  SUM(speciesCount) as SpeciesCount, YEAR(date) as Date
+    FROM ( 
+        (SELECT * FROM populationTable AS p LEFT JOIN locationSpeciesLink AS ls 
+        ON p.locationSpeciesLinkID = ls.locationSpeciesLinkID) 
+        UNION 
+        (SELECT * FROM populationTable AS p RIGHT JOIN locationSpeciesLink AS ls 
+        ON p.locationSpeciesLinkID = ls.locationSpeciesLinkID) ) as result 
+        WHERE speciesID = ${req.params.id} GROUP BY speciesID, YEAR(date)`;
 
     connection.query(q, function (err, result) {
     if (err) throw res.status(400).send(err)
@@ -71,7 +92,7 @@ app.get('/api/species/population/:id', (req, res) => {
 
 app.get('/api/species/location/:id', (req, res) => {
     let species
-    let q = 'SELECT locationID, speciesID FROM `location-speciesLink` WHERE' + ` locationID = ${req.params.id}`;
+    let q = `SELECT locationID, speciesID FROM locationSpeciesLink WHERE locationID = ${req.params.id};`
 
     connection.query(q, function (err, result) {
     if (err) throw res.status(400).send(err)
@@ -204,3 +225,6 @@ function ValidateSpecie(req) {
 
 const port = process.env.port || 3011;
 app.listen(port, () => console.log(`Listening on port ${port}...`));
+
+
+
