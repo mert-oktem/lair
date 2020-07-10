@@ -273,17 +273,17 @@ div.home-LearnMore-button button{
 /* ***************************************** */
 
 @media only screen and (min-width: 780px){
-  .menuToggle span{
-    visibility: hidden;
-  }
+  /*.menuToggle span{*/
+  /*  visibility: hidden;*/
+  /*}*/
 
-  .hamburger{
-    visibility: hidden;
-  }
+  /*.hamburger{*/
+  /*  visibility: hidden;*/
+  /*}*/
 
-  .site-header{
-    display: flex;
-  }
+  /*.site-header{*/
+  /*  display: flex;*/
+  /*}*/
 
   .home-main-action h2{
     font-size: 30pt;
