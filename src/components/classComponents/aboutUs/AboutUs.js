@@ -18,31 +18,56 @@ class AboutUs extends Component{
                 <AboutUsImage />
                 <AboutUsDesc />
                 <AboutUsTitle />
-                <AboutUsCard
-                    about={{name:"Mert Oktem",
-                        role:"Lead Developor",
-                        desc:"Lorem ipsum dolore dolor sit amet, consectetur adipisci elit, sedre do eiusmod etru tempor incididunt ut labore et dolore magna aliqua",
-                        imgUrl: require('../../../img/team/IMG_2234.jpeg')}}
-                />
-                <AboutUsCard
-                    about={{name:"Mert Oktem",
-                        role:"Lead Developor",
-                        desc:"Lorem ipsum dolore dolor sit amet, consectetur adipisci elit, sedre do eiusmod etru tempor incididunt ut labore et dolore magna aliqua",
-                        imgUrl: require('../../../img/team/IMG_2234.jpeg')}}
-                />
-                <AboutUsCard
-                    about={{name:"Mert Oktem",
-                        role:"Lead Developor",
-                        desc:"Lorem ipsum dolore dolor sit amet, consectetur adipisci elit, sedre do eiusmod etru tempor incididunt ut labore et dolore magna aliqua",
-                        imgUrl: require('../../../img/team/IMG_2234.jpeg')}}
-                />
-                <AboutUsCard
-                    about={{name:"Mert Oktem",
-                        role:"Lead Developor",
-                        desc:"Lorem ipsum dolore dolor sit amet, consectetur adipisci elit, sedre do eiusmod etru tempor incididunt ut labore et dolore magna aliqua",
-                        imgUrl: require('../../../img/team/IMG_2234.jpeg')}}
-                />
-
+                <div className="aboutUs-block">
+                    <AboutUsCard
+                        about={{name:"Mert Oktem",
+                            role:"Lead Developor",
+                            desc:"Lorem ipsum dolore dolor sit amet, consectetur adipisci elit, sedre do eiusmod etru tempor incididunt ut labore et dolore magna aliqua",
+                            imgUrl: require('../../../img/team/IMG_2234.jpeg')}}
+                    />
+                    <AboutUsCard
+                        about={{name:"Chloe Bui",
+                            role:"Lead Developor",
+                            desc:"Lorem ipsum dolore dolor sit amet, consectetur adipisci elit, sedre do eiusmod etru tempor incididunt ut labore et dolore magna aliqua",
+                            imgUrl: require('../../../img/team/IMG_2234.jpeg')}}
+                    />
+                    <AboutUsCard
+                        about={{name:"Harmanpreet",
+                            role:"Lead Developor",
+                            desc:"Lorem ipsum dolore dolor sit amet, consectetur adipisci elit, sedre do eiusmod etru tempor incididunt ut labore et dolore magna aliqua",
+                            imgUrl: require('../../../img/team/IMG_2234.jpeg')}}
+                    />
+                    <AboutUsCard
+                        about={{name:"Arjun Dhingra",
+                            role:"Lead Developor",
+                            desc:"Lorem ipsum dolore dolor sit amet, consectetur adipisci elit, sedre do eiusmod etru tempor incididunt ut labore et dolore magna aliqua",
+                            imgUrl: require('../../../img/team/IMG_2234.jpeg')}}
+                    />
+                    <AboutUsCard
+                        about={{name:"Milad Mokhtari",
+                            role:"Lead Developor",
+                            desc:"Lorem ipsum dolore dolor sit amet, consectetur adipisci elit, sedre do eiusmod etru tempor incididunt ut labore et dolore magna aliqua",
+                            imgUrl: require('../../../img/team/IMG_2234.jpeg')}}
+                    />
+                    <AboutUsCard
+                        about={{name:"Antriksh Saini",
+                            role:"Lead Developor",
+                            desc:"Lorem ipsum dolore dolor sit amet, consectetur adipisci elit, sedre do eiusmod etru tempor incididunt ut labore et dolore magna aliqua",
+                            imgUrl: require('../../../img/team/IMG_2234.jpeg')}}
+                    />
+                    <AboutUsCard
+                        about={{name:"Bokai Hsu",
+                            role:"Lead Developor",
+                            desc:"Lorem ipsum dolore dolor sit amet, consectetur adipisci elit, sedre do eiusmod etru tempor incididunt ut labore et dolore magna aliqua",
+                            imgUrl: require('../../../img/team/IMG_2234.jpeg')}}
+                    />
+                    <AboutUsCard
+                        about={{name:"Manpreet Kaur",
+                            role:"Lead Developor",
+                            desc:"Lorem ipsum dolore dolor sit amet, consectetur adipisci elit, sedre do eiusmod etru tempor incididunt ut labore et dolore magna aliqua",
+                            imgUrl: require('../../../img/team/IMG_2234.jpeg')}}
+                    />
+                </div>
             </div>
         )
     }

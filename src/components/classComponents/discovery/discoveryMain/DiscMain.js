@@ -13,8 +13,10 @@ class DiscMain extends Component{
     render(){
         return (
             <main className="site-disc-main">
-                <DiscIntro />
-                <DiscImage />
+                <div className="discovery-feature">
+                    <DiscIntro />
+                    <DiscImage />
+                </div>
                 <DiscNavigation />
                 <div className="site-disc-main-animalCards">
                     <AnimalCard
