@@ -9,7 +9,7 @@ class WhyMatter extends Component {
         return (
             <div className="discDet-main-whyMatter">
                 <div className="whyMatter-heading"><h3>WHY THEY MATTER</h3></div>
-                <div className="whyMatter-image"><img src={WhyMatterImg} alt="Animal Image Why Matter"/></div>
+                <div className="whyMatter-image"><img src={process.env.PUBLIC_URL + `${this.props.image.imgurl}`} alt="Animal Image Why Matter"/></div>
                 <div className="whyMatter-text">{this.props.text}</div>
                 <div className="whyMatter-donate"><button type="submit">DONATE</button></div>
             </div>

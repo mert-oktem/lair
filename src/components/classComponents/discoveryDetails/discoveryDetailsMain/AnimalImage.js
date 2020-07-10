@@ -8,7 +8,7 @@ class AnimalImage extends Component {
     render() {
         return (
             <div className="discDet-main-image">
-                <img src={AnimalImg} alt="Animal Image"/>
+                <img src={process.env.PUBLIC_URL + `${this.props.image.imgurl}`} alt="Animal Image"/>
             </div>
         )
     }
