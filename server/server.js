@@ -71,14 +71,14 @@ app.get('/api/species/:id', (req, res) => {
 
 app.get('/api/species/population/:id', (req, res) => {
     let species
-    let q = `SELECT SUM(speciesCount) as SpeciesCount, YEAR(date) as Date
+    let q = `SELECT SUM(speciesCount) as y, YEAR(date) as x
         FROM populationTable AS p
         LEFT JOIN locationSpeciesLink ON p.locationSpeciesLinkID = locationSpeciesLink.locationSpeciesLinkID
         WHERE speciesID = ${req.params.id} GROUP BY speciesID, YEAR(date);`;
 
     connection.query(q, function (err, result) {
     if (err) throw res.status(400).send(err)
-    if (!result == []) res.status(404).send("The location with given id could not found.");
+    // if (!result == []) res.status(404).send("The location with given id could not found.");
 
     res.send(result);
     }) 

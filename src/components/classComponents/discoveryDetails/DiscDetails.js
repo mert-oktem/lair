@@ -46,7 +46,7 @@ class DiscDetails extends Component{
                                    imgUrl: `${this.state.item.image2}`,
                                    aniId:`${this.state.item.speciesID}`
                                }}/>
-                    {/*<PopulationChart id = {this.props.match.params.id}/>*/}
+                    <PopulationChart id = {this.props.match.params.id} trend={this.state.item.trendDescription}/>
                     <WhyMatter text={this.state.item.speciesSignificance}/>
                     <RelatedAnimals />
 
