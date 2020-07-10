@@ -19,7 +19,7 @@ class AnimalCard extends Component {
                 </div>
                 <div className="aniCard-location">
                     <div className="aniCard-location-icon"><img src={LocationIconImg} alt="location icon Image"/></div>
-                    <div className="aniCard-location-text"><p>{this.props.animal.aniId}</p></div>
+                    <div className="aniCard-location-text"><p>{this.props.animal.location}</p></div>
                 </div>
                 <div className="aniCard-population">
                     <div className="aniCard-population-icon"><img src={PopulationIconImg} alt="population icon Image"/></div>

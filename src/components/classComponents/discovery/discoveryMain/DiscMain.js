@@ -48,9 +48,9 @@ class DiscMain extends Component{
                         {items.map(item =>(
                             <AnimalCard key={item.speciesID}
                                 animal={{name:`${item.name}`,
-                                    location:"Yucatan Peninsula",
-                                    population:"2000+",
-                                    status:"Critical Endangered",
+                                    location:`${item.speciesID}`,
+                                    population:`${item.speciesCount}`,
+                                    status:`${item.statusDescription}`,
                                     imgUrl: `${item.image1}`,
                                     aniId:`${item.speciesID}`
                                 }}

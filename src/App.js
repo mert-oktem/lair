@@ -29,7 +29,7 @@ function App() {
                 <Route path="/donate" component={Donate} />
                 <Route path="/discDetails" component={DiscDetails} />
                 <Route path="/articlesDetails" component={ArticlesDet} />
-                <Route path="/discovery/:id" component={TestConnection} />
+                <Route path="/discovery/:id" component={DiscDetails} />
             </Switch>
             <Footer />
 

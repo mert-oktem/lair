@@ -1,5 +1,4 @@
 import React, {Component} from 'react'
-import DiscDetMain from "./discoveryDetailsMain/DiscDetMain";
 import AnimalImage from "./discoveryDetailsMain/AnimalImage";
 import AnimalDet from "./discoveryDetailsMain/AnimalDet";
 import PopulationChart from "./discoveryDetailsMain/PopulationChart";
@@ -9,23 +8,25 @@ import TestConnection from "../../functionComponents/TestConnection";
 
 
 class DiscDetails extends Component{
-    // constructor(props){
-    //     super(props);
-    //     this.state = {
-    //         items: [],
-    //         isLoaded : false,
-    //     }
-    // }
-    // componentDidMount() {
-    //     fetch('http://localhost:3011/api/species')
-    //         .then(res => res.json())
-    //         .then(json => {
-    //             this.setState({
-    //                 isLoaded: true,
-    //                 items:json
-    //             })
-    //         })
-    // }
+    constructor(props){
+        super(props);
+
+        console.log(this.props.match.params.id );
+        this.state = {
+            item: {},
+            isLoaded : false,
+        }
+    }
+    componentDidMount() {
+        fetch(`http://localhost:3011/api/species/${this.props.match.params.id}`)
+            .then(res => res.json())
+            .then(json => {
+                this.setState({
+                    isLoaded: true,
+                    item:json
+                })
+            })
+    }
     render(){
         return (
             <div className="site-discDet">
@@ -33,9 +34,20 @@ class DiscDetails extends Component{
                 <main className="site-discDet-main">
 
                     <AnimalImage />
-                    <AnimalDet />
-                    <PopulationChart />
-                    <WhyMatter />
+                    <AnimalDet key={this.state.item.speciesID}
+                               species={{name:`${this.state.item.name}`,
+                                   sciName:`${this.state.item.scientificName}`,
+                                   avgAge: `${this.state.item.averageAge}`,
+                                   avgWe: `${this.state.item.averageWeight}`,
+                                   avgHe: `${this.state.item.averageHeight}`,
+                                   threat: `${this.state.item.threats}` ,
+                                   desc: `${this.state.item.description}`,
+                                   status:`${this.state.item.statusDescription}`,
+                                   imgUrl: `${this.state.item.image2}`,
+                                   aniId:`${this.state.item.speciesID}`
+                               }}/>
+                    {/*<PopulationChart id = {this.props.match.params.id}/>*/}
+                    <WhyMatter text={this.state.item.speciesSignificance}/>
                     <RelatedAnimals />
 
                 </main>

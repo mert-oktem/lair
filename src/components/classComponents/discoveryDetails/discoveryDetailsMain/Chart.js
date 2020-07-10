@@ -18,44 +18,37 @@ const options = {
     "series": [
         {
             "name": "Years",
-            "data": [
-                {
-                    "x":2014,
-                    "y":345
-                },
-                {
-                    "x":2015,
-                    "y":540
-                },
-                {
-                    "x":2016,
-                    "y":640
-                },
-                {
-                    "x":2017,
-                    "y":940
-                },
-                {
-                    "x":2018,
-                    "y":40
-                }      ,
-                {
-                    "x":2019,
-                    "y":140
-                }
-            ]
+            "data": []
         }
     ]
 }
 
 class Chart extends Component {
-    // constructor(props){
-    //     super(props);
-    //     this.state = {
-    //         chartData : props.chartData
-    //     }
-    // }
+    constructor(props){
+        super(props);
 
+        console.log(this.props.id );
+        this.state = {
+            item: {},
+            isLoaded : false,
+            hOptions : {}
+        }
+    }
+    componentDidMount() {
+        fetch(`http://localhost:3011/api/species/population/${this.props.id}`)
+            .then(res => res.json())
+            .then(json => {
+
+                console.log( json );
+                options.series[0].data = json ;
+                console.log( options.series );
+                this.setState({
+                    isLoaded: true,
+                    item:json,
+                    hOptions:options
+                })
+            })
+    }
 
 
 
@@ -64,10 +57,22 @@ class Chart extends Component {
         return (
 
             <div className="chart">
+
+                { this.state.isLoaded &&
+
                 <HighchartsReact
                     highcharts={Highcharts}
-                    options={options}
+                    options={this.state.hOptions}
                 />
+
+
+                }
+
+                { !this.state.isLoaded &&
+                <div>Chart is loading</div>
+                }
+
+
 
             </div>
 
