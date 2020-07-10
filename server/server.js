@@ -71,20 +71,13 @@ app.get('/api/species/:id', (req, res) => {
 
 app.get('/api/species/population/:id', (req, res) => {
     let species
-    let q = `SELECT  SUM(speciesCount) as SpeciesCount, YEAR(date) as Date
-    FROM ( 
-        (SELECT * FROM populationTable AS p LEFT JOIN locationSpeciesLink AS ls 
-        ON p.locationSpeciesLinkID = ls.locationSpeciesLinkID) 
-        UNION 
-        (SELECT * FROM populationTable AS p RIGHT JOIN locationSpeciesLink AS ls 
-        ON p.locationSpeciesLinkID = ls.locationSpeciesLinkID) ) as result 
-        WHERE speciesID = ${req.params.id} GROUP BY speciesID, YEAR(date)`;
+    let q = `SELECT SUM(speciesCount) as SpeciesCount, YEAR(date) as Date
+        FROM populationTable AS p
+        LEFT JOIN locationSpeciesLink ON p.locationSpeciesLinkID = locationSpeciesLink.locationSpeciesLinkID
+        WHERE speciesID = ${req.params.id} GROUP BY speciesID, YEAR(date);`;
 
     connection.query(q, function (err, result) {
     if (err) throw res.status(400).send(err)
-    species = result
-    const specie = species.find(s => s.speciesID === parseInt(req.params.id));
-    if (!specie) res.status(404).send("The specie with given id could not found.");
 
     res.send(result);
     }) 
@@ -92,12 +85,13 @@ app.get('/api/species/population/:id', (req, res) => {
 
 app.get('/api/species/location/:id', (req, res) => {
     let species
-    let q = `SELECT locationID, e.speciesID, e.name, e.icon
+    let q = `SELECT lT.locationID, lT.habitat, e.speciesID, e.name, e.icon
     FROM endangeredSpeciesTable AS e
     LEFT JOIN locationSpeciesLink on e.speciesID = locationSpeciesLink.speciesID
     LEFT JOIN populationTable pT on locationSpeciesLink.locationSpeciesLinkID = pT.locationSpeciesLinkID
-    WHERE e.active = TRUE AND locationID = ${req.params.id}
-    GROUP BY e.speciesID`
+    LEFT JOIN locationTable lT on locationSpeciesLink.locationID = lT.locationID
+    WHERE e.active = TRUE AND lT.habitat = '${req.params.id}'
+    GROUP BY e.speciesID;`
     
 
     connection.query(q, function (err, result) {
