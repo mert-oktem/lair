@@ -269,6 +269,53 @@ div.home-LearnMore-button button{
 }
 
 /* ***************************************** */
+/*             Media Queries                 */
+/* ***************************************** */
+
+@media only screen and (min-width: 780px){
+  .menuToggle span{
+    visibility: hidden;
+  }
+
+  .hamburger{
+    visibility: hidden;
+  }
+
+  .site-header{
+    display: flex;
+  }
+
+  .home-main-action h2{
+    font-size: 30pt;
+  }
+
+  .action-block{
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .home-main-newsletter{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 1fr 1fr;
+  }
+  .newsletter-image{
+    grid-row: 1/3;
+    align-self: center;
+  }
+
+  .newsletter-intro{
+    font-size: 20pt;
+    justify-self: left;
+  }
+
+  .newsletter-intro h2{
+    align-self: flex-start;
+  }
+
+}
+
+/* ***************************************** */
 /* ***************************************** */
 /*             Action Cards                  */
 /* ***************************************** */
@@ -469,7 +516,7 @@ svg {
 
 .navigation-filter button img{
   max-width: 12%;
-  height: 12%;
+  /* height: 12%; */
   margin: auto 0px;
 }
 
@@ -752,6 +799,85 @@ svg {
   font-size: 12pt;
 }
 
+@media only screen and (min-width: 780px){
+  .disc-main-image{
+    position: relative;
+  }
+
+  .disc-main-intro{
+    position: absolute;
+    z-index: 1;
+    width: 25%;
+    top: 35%;
+    left: 15%;
+    text-align: left;
+  }
+
+  .disc-main-intro .intro-heading{
+    color: #CA7342;
+  }
+
+  .disc-main-intro .intro-text{
+    color: #644A53;
+  }
+  .disc-nav-search-type input{
+    background-image: url(img/ui_icons/PNG/ui_icons_search.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    text-indent: 20px;
+    padding: 20px;
+    background-size: 30px;
+  }
+
+  .disc-nav-search-type input::placeholder{
+    font-family: 'Montserrat', sans-serif;
+    color: #644A53;
+    font-weight: 550;
+  }
+
+  .site-disc-main-animalCards{
+    /* display: flex; */
+    flex-direction: row;
+    max-width: 90%;
+    margin: auto;
+  }
+
+  .disc-main-aniCard{
+    margin: 10px 10px;
+  }
+
+  .disc-main-aniCard:first-of-type{
+    margin-left: 0;
+  }
+
+  .disc-main-aniCard:last-of-type{
+    margin-right: 0;
+  }
+
+  .aniCard-name h2{
+    font-size: 12pt;
+    text-align: left;
+    padding: 0 30px;
+  }
+
+  .aniCard-location-text p, .aniCard-population-text p, .aniCard-status-text p{
+    font-size: 10pt;
+    margin-left: 20px;
+    /* align-self: center; */
+  }
+
+  .aniCard-more-button #readMoreBtn{
+    font-size: 10pt;
+  }
+
+  .discLoadMore-button{
+    text-align: left;
+    max-width: 90%;
+    margin: auto;
+  }
+
+}
+
 
 /* ***************************************** */
 /* ***************************************** */
@@ -833,11 +959,50 @@ svg {
   border: 4px solid #ffeda7;
   margin: 50px auto 50px auto;
 }
+@media only screen and (min-width: 780px){
+  .articles-block{
+    display: flex;
+    flex-wrap: wrap;
+    width: 80%;
+    margin: 0 auto;
+  }
 
+  .articles-image img{
+    width: 100%;
+  }
+
+  .articles-artCard{
+    max-width: 33.3%;
+  }
+
+  .articles-image{
+    position: relative;
+  }
+
+  .articles-intro{
+    position: absolute;
+    z-index: 1;
+    width: 27%;
+    top: 35%;
+    left: 15%;
+    text-align: left;
+  }
+
+  .articles-intro h1, .articles-intro p{
+    color: #fff;
+  }
+
+  .articles-LoadMore-button{
+    text-align: left;
+    max-width: 78%;
+    margin: auto;
+  }
+
+}
 
 /* ***************************************** */
 /* ***************************************** */
-/*              Articles Page                */
+/*              About Us Page                */
 /* ***************************************** */
 /* ***************************************** */
 
@@ -904,9 +1069,51 @@ svg {
   margin-bottom: 100px;
 }
 
+@media only screen and (min-width: 780px){
+  .aboutUs-image{
+    position: relative;
+  }
+
+  .aboutUs-intro{
+    position: absolute;
+    z-index: 1;
+    width: 22%;
+    top: 35%;
+    left: 15%;
+    text-align: left;
+  }
+
+  .aboutUs-desc{
+    /* max-width: 60%; */
+    padding: 20px 20% 50px 20%;
+    background-color: #F4F8FF;
+  }
+
+  .aboutUs-block{
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 80%;
+    margin: auto;
+  }
+
+  .aboutUs-card{
+    max-width: 25%;
+    /* padding: auto 50px; */
+    text-align: left;
+  }
+
+  .aboutUs-card-desc{
+    margin: 0;
+  }
+
+  .aboutUs-card-social{
+    margin-left: 0;
+  }
+}
+
 /* ***************************************** */
 /* ***************************************** */
-/*              Articles Page                */
+/*             Contact Us Page               */
 /* ***************************************** */
 /* ***************************************** */
 
@@ -1029,6 +1236,53 @@ svg {
   color: #644A53;
 }
 
+@media only screen and (min-width: 780px){
+  .contact-image{
+    position: relative;
+    transform: scaleX(-1);
+  }
+
+  .contact-intro{
+    position: absolute;
+    z-index: 1;
+    width: 40%;
+    top: 35%;
+    left: 13.5%;
+    text-align: left;
+  }
+
+  .contact-intro-heading, .contact-intro-text{
+    margin: 0;
+  }
+
+  .contact-intro p{
+    width: 90%;
+  }
+
+  .contact-desc{
+    max-width: 80%;
+    margin: 50px auto;
+  }
+
+  .contact-contactForm{
+    max-width: 73%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .contact-contactForm-firstName, .contact-contactForm-lastName{
+    flex-grow: 1;
+    width: 50%;
+  }
+
+  .contact-contactForm-email, .contact-contactForm-where, .contact-contactForm-details{
+    min-width: 100%;
+    flex-grow: 1;
+    margin-right: 0;
+  }
+}
+
 
 
 /* ***************************************** */
@@ -1124,4 +1378,27 @@ svg {
   letter-spacing: 2px;
   margin-top: 30px;
   margin-bottom: 70px;
+}
+
+@media only screen and (min-width: 780px){
+  .donate-image{
+    position: relative;
+  }
+
+  .donate-intro{
+    position: absolute;
+    z-index: 1;
+    width: 40%;
+    top: 35%;
+    left: 13.5%;
+    text-align: left;
+  }
+
+  .donate-intro h1, .donate-intro p{
+    color: #fff;
+  }
+
+  .donate-intro-heading, .donate-intro-text{
+    margin: 0;
+  }
 }
