@@ -33,6 +33,7 @@ connection.connect()
 
 
 app.get('/api/species', (req, res) => {
+    let species
     let q = `SELECT e.speciesID, sDT.statusDescription, e.name, fT.familyDescription,
                     e.image1, pT.speciesCount, lT.habitat
             FROM endangeredSpeciesTable AS e
@@ -139,12 +140,18 @@ app.get('/api/locations/:location', (req, res) => {
 });
 
 app.get('/api/ngos', (req, res) => {
-    connection.connect()
-    connection.query('SELECT * FROM NGOsTable', function (err, rows, fields) {
-    if (err) throw err
-    res.send(rows)
-    connection.end()
-    }) 
+    // connection.connect()
+    // connection.query('SELECT * FROM NGOsTable', function (err, rows, fields) {
+    // if (err) throw err
+    // res.send(rows)
+    // connection.end()
+    // })
+
+    connection.query('SELECT * FROM NGOsTable', function (err, result) {
+        if (err) throw res.status(400).send(err)
+        res.send(result)
+    })
+
 });
 
 /****************************************************************/

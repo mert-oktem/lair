@@ -4,7 +4,7 @@ import AnimalDet from "./discoveryDetailsMain/AnimalDet";
 import PopulationChart from "./discoveryDetailsMain/PopulationChart";
 import WhyMatter from "./discoveryDetailsMain/WhyMatter";
 import RelatedAnimals from "./discoveryDetailsMain/RelatedAnimals";
-import TestConnection from "../../functionComponents/TestConnection";
+
 
 
 
@@ -34,7 +34,7 @@ class DiscDetails extends Component{
 
                 <main className="site-discDet-main">
 
-                    <AnimalImage key={this.state.item.speciesID} image={{imgurl: '../../../' + `${this.state.item.image1}` + '.jpg'}}/>
+                    <AnimalImage image={{imgUrl: '../../../' + `${this.state.item.image1}` + '.jpg'}}/>
                     <AnimalDet key={this.state.item.speciesID}
                                species={{name:`${this.state.item.name}`,
                                    sciName:`${this.state.item.scientificName}`,
@@ -48,7 +48,7 @@ class DiscDetails extends Component{
                                    aniId:`${this.state.item.speciesID}`
                                }}/>
                     <PopulationChart id = {this.props.match.params.id} trend={this.state.item.trendDescription}/>
-                    <WhyMatter key={this.state.item.speciesID} text={this.state.item.speciesSignificance} image={{imgurl: '../../../' + `${this.state.item.image1}` + '.jpg'}}/>
+                    <WhyMatter text={this.state.item.speciesSignificance} image={{imgUrl: '../../../' + `${this.state.item.image2}` + '.jpg'}}/>
                     <RelatedAnimals id = {this.props.match.params.id}/>
 
                 </main>

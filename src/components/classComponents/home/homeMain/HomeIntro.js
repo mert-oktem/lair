@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import HomeLearnMoreBtn from "../../../functionComponents/homeButtons/HomeLearnMoreBtn";
+
 
 class HomeIntro extends Component {
     // constructor(){
@@ -13,7 +13,7 @@ class HomeIntro extends Component {
                     Taking sustainable actions can help reverse the decline
                     of wildlife across Canada.
                 </p>
-                <HomeLearnMoreBtn />
+                {/*<HomeLearnMoreBtn />*/}
             </div>
         )
     }

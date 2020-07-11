@@ -7,10 +7,8 @@ class DonateDesc extends Component {
     render() {
         return (
             <div className="donate-desc">
-                <div className="donate-desc-heading"><h2>Protect Endangered
-                    Species From Extinction</h2></div>
-                <div className="donate-desc-text"><p>Select the charities below and be
-                    navigated to their donation page.</p></div>
+                <div className="donate-desc-heading"><h2>Protect Endangered Species From Extinction</h2></div>
+                <div className="donate-desc-text"><p>Select from the charities below to navigate to their donation page</p></div>
             </div>
         )
     }

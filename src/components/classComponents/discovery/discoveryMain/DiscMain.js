@@ -6,60 +6,56 @@ import DiscLoadMore from "./DiscLoadMore";
 import DiscNavigation from "./DiscNavigation";
 
 
-
-
-
-class DiscMain extends Component{
-    constructor(props){
+class DiscMain extends Component {
+    constructor(props) {
         super(props);
         this.state = {
             items: [],
-            isLoaded : false,
+            isLoaded: false,
         }
     }
+
     componentDidMount() {
         fetch('http://localhost:3011/api/species')
             .then(res => res.json())
             .then(json => {
                 this.setState({
                     isLoaded: true,
-                    items:json
+                    items: json
                 })
             })
     }
 
-    render(){
+    render() {
 
-        var {isLoaded, items } = this.state;
+        var {isLoaded, items} = this.state;
 
-        if(!isLoaded){
+        if (!isLoaded) {
             return <div>Loading...</div>
-        }
-
-        else{
-            // let url = '../../../../' + `${items.image1}`
+        } else {
             console.log(items);
             return (
                 <main className="site-disc-main">
-                    <DiscIntro />
-                    <DiscImage />
-                    <DiscNavigation />
+                    <DiscIntro/>
+                    <DiscImage/>
+                    <DiscNavigation/>
                     <div className="site-disc-main-animalCards">
 
-                        {items.map(item =>(
+                        {items.map(item => (
                             <AnimalCard key={item.speciesID}
-                                        animal={{name:`${item.name}`,
-                                            location:`${item.habitat}`,
-                                            population:`${item.speciesCount}`,
-                                            status:`${item.statusDescription}`,
-                                            imgUrl: require('../../../../' + `${item.image1}` + '.jpg'),
-                                            aniId:`${item.speciesID}`
+                                        animal={{
+                                            name: `${item.name}`,
+                                            location: `${item.habitat}`,
+                                            population: `${item.speciesCount}`,
+                                            status: `${item.statusDescription}`,
+                                            imgUrl: `${item.image1}` + '.jpg',
+                                            aniId: `${item.speciesID}`
                                         }}
                             />
                         ))}
 
                     </div>
-                    <DiscLoadMore />
+                    <DiscLoadMore/>
                 </main>
             )
 
@@ -69,4 +65,5 @@ class DiscMain extends Component{
 
     }
 }
+
 export default DiscMain
