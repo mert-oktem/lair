@@ -281,9 +281,9 @@ div.home-LearnMore-button button{
   /*  visibility: hidden;*/
   /*}*/
 
-  /*.site-header{*/
-  /*  display: flex;*/
-  /*}*/
+  .site-header{
+    display: flex;
+  }
 
   .home-main-action h2{
     font-size: 30pt;
