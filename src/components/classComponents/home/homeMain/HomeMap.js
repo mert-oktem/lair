@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import CanadaMap from "../CanadaMap";
+import MapClick from "../MapClick";
 
 class HomeMap extends Component {
     // constructor(){
@@ -9,6 +10,7 @@ class HomeMap extends Component {
         return (
             <div className="home-main-map" style={{ height: 1000 }}>
                     <CanadaMap />
+
             </div>
         )
     }
