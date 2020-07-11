@@ -36,17 +36,17 @@ class RelatedAnimals extends Component {
                             <h2 className="discDet-main-relatedAnimals-heading">SEE RELATED ANIMALS</h2>
                             <div className="discDet-main-relatedAnimals-cards">
 
-                        {items.map(item =>(
-                            <AnimalCard key={item.speciesID}
-                                        animal={{name:`${item.name}`,
-                                            location:`${item.habitat}`,
-                                            population:`${item.speciesCount}`,
-                                            status:`${item.statusDescription}`,
-                                            imgUrl: require('../../../../' + `${item.image1}` + '.jpg'),
-                                            aniId:`${item.speciesID}`
-                                        }}
-                            />
-                        ))}
+                                {items.map(item =>(
+                                    <AnimalCard key={item.speciesID}
+                                                animal={{name:`${item.name}`,
+                                                    location:`${item.habitat}`,
+                                                    population:`${item.speciesCount}`,
+                                                    status:`${item.statusDescription}`,
+                                                    imgUrl: require('../../../../' + `${item.image1}` + '.jpg'),
+                                                    aniId:`${item.speciesID}`
+                                                }}
+                                    />
+                                ))}
 
                             </div>
                 </div>

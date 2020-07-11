@@ -11,13 +11,13 @@ import Contact from "./components/classComponents/contact/Contact";
 import Donate from "./components/classComponents/donate/Donate";
 import DiscDetails from "./components/classComponents/discoveryDetails/DiscDetails";
 import ArticlesDet from "./components/classComponents/articlesDetails/ArticlesDet";
+import ScrollToTop from "./components/classComponents/ScrollToTop";
 
 
 function App() {
   return (
-
-
     <Router>
+        <ScrollToTop />
         <div className="App">
             <Header />
             <Switch>
@@ -27,7 +27,6 @@ function App() {
                 <Route path="/articles" component={Articles} />
                 <Route path="/contact" component={Contact} />
                 <Route path="/donate" component={Donate} />
-                {/*<Route path="/discDetails" component={DiscDetails} />*/}
                 <Route path="/articlesDetails" component={ArticlesDet} />
                 <Route path="/discovery/:id" exact component={DiscDetails} />
             </Switch>

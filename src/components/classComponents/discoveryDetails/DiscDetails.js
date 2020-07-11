@@ -5,20 +5,32 @@ import PopulationChart from "./discoveryDetailsMain/PopulationChart";
 import WhyMatter from "./discoveryDetailsMain/WhyMatter";
 import RelatedAnimals from "./discoveryDetailsMain/RelatedAnimals";
 
-
-
-
 class DiscDetails extends Component{
     constructor(props){
         super(props);
 
-        console.log(this.props.match.params.id );
+        //console.log(this.props.match.params.id );
         this.state = {
             item: {},
             isLoaded : false,
         }
     }
+
+
     componentDidMount() {
+
+
+        fetch(`http://localhost:3011/api/species/${this.props.match.params.id}`)
+            .then(res => res.json())
+            .then(json => {
+                this.setState({
+                    isLoaded: true,
+                    item:json
+                })
+            })
+    }
+    componentDidUpdate() {
+
         fetch(`http://localhost:3011/api/species/${this.props.match.params.id}`)
             .then(res => res.json())
             .then(json => {
@@ -30,6 +42,7 @@ class DiscDetails extends Component{
     }
     render(){
         return (
+
             <div className="site-discDet">
 
                 <main className="site-discDet-main">
