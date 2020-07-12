@@ -2,13 +2,6 @@ import React, { Component } from 'react';
 import * as d3 from 'd3'
 import * as topojson from 'topojson-client';
 import MapClick from "./MapClick";
-import HomeIntro from "./homeMain/HomeIntro";
-import HomeMap from "./homeMain/HomeMap";
-import HomeAction from "./homeMain/HomeAction";
-import HomeNewsletter from "./homeMain/HomeNewsletter";
-import HomeMain from "./homeMain/HomeMain";
-import AnimalCard from "../discovery/discoveryMain/AnimalCard";
-
 
 class CanadaMap extends Component {
    constructor() {
@@ -22,11 +15,15 @@ class CanadaMap extends Component {
       }
    }
 
-   handleClick(json){
-      this.state = {
-         mapClick:json
-      }
+   handleClick(d){
+      fetch(`http://localhost:3011/api/locations/${d.properties.name}`)
+      .then(res => res.json())
+      .then(json => {
+         this.setState( { mapClick: true} )
+      })
    }
+
+
    componentDidMount() {
       var files = ["https://gist.githubusercontent.com/Brideau/2391df60938462571ca9/raw/f5a1f3b47ff671eaf2fb7e7b798bacfc6962606a/canadaprovtopo.json"];
 
@@ -72,21 +69,7 @@ class CanadaMap extends Component {
             // Remove class selected
             d3.select(this).classed("selected", false)
          })
-      .on("click", function(d) {
-          // d3.select(this).classed("selected", true)
-            alert(d.properties.name);
-         // var files = [`http://localhost:3011/api/location/${d.properties.name}`];
-         //
-         // Promise.all(files.map(url => d3.json(url))).then(values => this.setState({ data: values[0]}))
-
-         fetch(`http://localhost:3011/api/locations/${d.properties.name}`)
-             .then(res => res.json())
-             .then(json => {
-                console.log(json)
-                this.handleClick(json)
-
-             })
-      })
+         .on("click", (d) => this.handleClick(d) )
 
       svg.selectAll(".state-label")
          .data(states)
@@ -103,38 +86,19 @@ class CanadaMap extends Component {
    }
 
    render() {
-      // var {mapClick, items} = this.state;
-
       if (!this.state.data) {
          return null;
-
       }
-      else if(this.state.data && this.state.mapClick){
+      else if (this.state.mapClick != false){
          return (
              <div>
-                <div ref={this.myRef}></div>
                 <MapClick />
              </div>
-
-
          )
       }
-      else if(this.state.data) {
+      else if (this.state.data) {
          return <div ref={this.myRef}/>;
       }
-
-
-
-      // {json.map(item => (
-      //     <MapClick key={item.speciesID}
-      //               animal={{
-      //                  name: `${item.name}`,
-      //                  habitat: `${item.habitat}`,
-      //                  imgUrl: `${item.icon}` + '.jpg',
-      //                  aniId: `${item.speciesID}`
-      //               }}
-      //     />
-      // ))}
    }
 }
 export default CanadaMap
