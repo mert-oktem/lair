@@ -3,17 +3,35 @@ import ArticlesIntro from "./ArticlesIntro";
 import ArticlesImage from "./ArticlesImage";
 import ArticlesCard from "./ArticlesCard";
 import ArticlesLoadMoreBtn from "../../functionComponents/articlesButtons/ArticlesLoadMoreBtn";
+import TestArticles from "../TestArticles";
 
 class Articles extends Component{
-    // constructor(){
-    //     super()
+    // constructor(props){
+    //     super(props);
+    //     this.state = {
+    //         item: {},
+    //         isLoaded: false,
+    //     }
     // }
+    // componentDidMount() {
+    //     fetch('https://www.retainable.io/assets/retainable/rss-embed/retainable-rss-embed.js')
+    //         .then(res => res.json())
+    //         .then(json => {
+    //             console.log(json);
+    //             this.setState({
+    //                 isLoaded: true,
+    //                 item: json
+    //             })
+    //         })
+    // }
+
     render(){
         return (
             <div className="site-articles">
 
                 <ArticlesIntro />
                 <ArticlesImage />
+                <TestArticles />
                 <div className="articles-block">
                     <ArticlesCard
                         article={{name:"How to treat wild animals",
