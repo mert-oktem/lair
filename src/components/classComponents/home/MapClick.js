@@ -8,10 +8,14 @@ class MapClick extends Component{
     // }
     render(){
         return (
-            <div className="site-map-click"> {/*change name for css*/}
-
-                <p>item</p>
-
+            <div className="canada-map-click-card">
+                <div className="canada-map-click-card-icon">
+                    <img src={process.env.PUBLIC_URL + `${this.props.animal.imgUrl}`} alt="Animal Icon Image"/>
+                </div>
+                <div className="canada-map-click-card-name">
+                    <p>{this.props.animal.name}</p>
+                    <p>{this.props.animal.population}</p>
+                </div>
             </div>
         )
     }

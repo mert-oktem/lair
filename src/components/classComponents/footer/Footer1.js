@@ -10,8 +10,8 @@ class Footer1 extends Component {
             <div className="site-footer1">
                 <Logo/>
                 <p className="footer1-text">
-                    Lair is an interactive data-driven website that is dedicated to
-                    protect endangered species in Canada.
+                    Lair is an interactive and data-driven website, dedicated to protecting
+                    endangered species in Canada.
                 </p>
             </div>
         )

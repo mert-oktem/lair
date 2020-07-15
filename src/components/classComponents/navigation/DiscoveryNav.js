@@ -8,7 +8,7 @@ class DiscoveryNav extends Component {
     render() {
         return (
             <div className="nav-discovery">
-                <Link to="/discovery"><h3>Discovery</h3></Link>
+                <Link to="/discovery"><h3>Explore</h3></Link>
             </div>
         )
     }

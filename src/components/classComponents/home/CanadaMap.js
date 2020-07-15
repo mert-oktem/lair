@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import * as d3 from 'd3'
 import * as topojson from 'topojson-client';
 import MapClick from "./MapClick";
+import {Link} from "react-router-dom";
+
 
 class CanadaMap extends Component {
    constructor() {
@@ -11,7 +13,8 @@ class CanadaMap extends Component {
       this.handleClick = this.handleClick.bind(this)
       this.state = {
          data: false,
-         mapClick:false
+         mapClick:false,
+         items:[]
       }
    }
 
@@ -19,7 +22,10 @@ class CanadaMap extends Component {
       fetch(`http://localhost:3011/api/locations/${d.properties.name}`)
       .then(res => res.json())
       .then(json => {
-         this.setState( { mapClick: true} )
+         this.setState( {
+            mapClick: true,
+            items:json
+         } )
       })
    }
 
@@ -90,14 +96,39 @@ class CanadaMap extends Component {
          return null;
       }
       else if (this.state.mapClick != false){
+         let items = this.state.items
          return (
-             <div>
-                <MapClick />
+             <div className="canada-map-click-active">
+                   <div className="canada-map-click-habitat">
+                      <p>Endangered Species in {items[0].habitat}</p>
+                   </div>
+                   <div className="canada-map-click-icons">
+                      {items.map(item => (
+                          <Link to={`/discovery/${item.speciesID}`}>
+                          <MapClick key={item.speciesID}
+                                    animal={{
+                                       name: `${item.name}`,
+                                       habitat: `${item.habitat}`,
+                                       imgUrl: require('../../../' + `${item.icon}` + '.png'),
+                                       aniId: `${item.speciesID}`,
+                                       population:`${item.speciesCount}`
+                                    }}     />
+                          </Link>
+                      )
+                      )}
+                   </div>
              </div>
          )
       }
       else if (this.state.data) {
-         return <div ref={this.myRef}/>;
+         return (<div className="canada-map">
+                <div style={{ height: 700 }} ref={this.myRef}>
+                </div>
+                {/*<div className="canada-map-click">*/}
+                {/*   Waiting to be clicked..*/}
+                {/*</div>*/}
+         </div>
+         )
       }
    }
 }

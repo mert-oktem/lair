@@ -78,7 +78,7 @@ class ContactForm extends Component {
                     />
 
                 </div>
-                <button>Submit</button>
+                <button>Send Now</button>
 
                 <h4>{this.state.firstName} {this.state.lastName} {this.state.Email} {this.state.where} {this.state.details}</h4>
             </form>

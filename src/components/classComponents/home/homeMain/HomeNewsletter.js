@@ -12,7 +12,7 @@ class HomeNewsletter extends Component {
                 <div className="newsletter-intro">
                     <h2>Get the latest wildlife
                         updates</h2>
-                    <p>Receive our monthly newsletter and be in the loop.</p>
+                    <p>Be in the loop by signing up for our monthly newsletter.</p>
                 </div>
                 <div className="newsletter-image">
                     <img src={NewsletterImg} alt="Newsletter Icon" />

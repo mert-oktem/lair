@@ -123,7 +123,7 @@ app.get('/api/species/population/:id', (req, res) => {
 });
 
 app.get('/api/locations/:location', (req, res) => {
-    let q = `SELECT lT.locationID, lT.habitat, e.speciesID, e.name, e.icon
+    let q = `SELECT lT.locationID, lT.habitat, e.speciesID, e.name, e.icon, pT.speciesCount 
     FROM endangeredSpeciesTable AS e
     LEFT JOIN locationSpeciesLink on e.speciesID = locationSpeciesLink.speciesID
     LEFT JOIN populationTable pT on locationSpeciesLink.locationSpeciesLinkID = pT.locationSpeciesLinkID
@@ -157,100 +157,100 @@ app.get('/api/ngos', (req, res) => {
 /****************************************************************/
 /******************** POST METHODS ******************************/
 /****************************************************************/
-
-app.post('/api/species', (req, res) => {
-    const { error } = ValidateSpecie(req); 
-    if (error) { return res.status(400).send(result.error.details[0].message)}
-
-    let lastid = connection.query(`SELECT MAX(speciesID) FROM endangeredSpeciesTable)`, function (err, result) {
-    if (err) throw res.status(400).send(err) 
-    })
-
-    connection.query(`INSERT INTO endangeredSpeciesTable 
-    (speciesID, statusID, trendID, familyID, name, scientificName, description, threats, image1, image2, icon, averageAge, averageWeight, averageHeight, speciesSignificance, active)
-    VALUES 
-    (${lastid + 1}, 
-    ${req.body.statusID}, 
-    ${req.body.trendID}, 
-    ${req.body.familyID}, 
-    ${req.body.name}, 
-    ${req.body.scientificName}, 
-    ${req.body.description}, 
-    ${req.body.threats}, 
-    ${req.body.image1}, 
-    ${req.body.image2}, ${req.body.icon}, 
-    ${req.body.averageAge}, 
-    ${req.body.averageWeight}, 
-    ${req.body.averageHeight}, 
-    ${req.body.speciesSignificance}, 
-    ${req.body.active});`,
-    function (err, result) {
-        if (err) throw res.status(400).send(err)
-        res.send("ok");
-    })
-});
+//
+// app.post('/api/species', (req, res) => {
+//     const { error } = ValidateSpecie(req);
+//     if (error) { return res.status(400).send(result.error.details[0].message)}
+//
+//     let lastid = connection.query(`SELECT MAX(speciesID) FROM endangeredSpeciesTable)`, function (err, result) {
+//     if (err) throw res.status(400).send(err)
+//     })
+//
+//     connection.query(`INSERT INTO endangeredSpeciesTable
+//     (speciesID, statusID, trendID, familyID, name, scientificName, description, threats, image1, image2, icon, averageAge, averageWeight, averageHeight, speciesSignificance, active)
+//     VALUES
+//     (${lastid + 1},
+//     ${req.body.statusID},
+//     ${req.body.trendID},
+//     ${req.body.familyID},
+//     ${req.body.name},
+//     ${req.body.scientificName},
+//     ${req.body.description},
+//     ${req.body.threats},
+//     ${req.body.image1},
+//     ${req.body.image2}, ${req.body.icon},
+//     ${req.body.averageAge},
+//     ${req.body.averageWeight},
+//     ${req.body.averageHeight},
+//     ${req.body.speciesSignificance},
+//     ${req.body.active});`,
+//     function (err, result) {
+//         if (err) throw res.status(400).send(err)
+//         res.send("ok");
+//     })
+// });
 
 /****************************************************************/
 /******************** PUT METHODS *******************************/
 /****************************************************************/
-
-app.put('/api/species/:id', (req, res) => {
-    const { error } = ValidateSpecie(req); 
-    if (error) { return res.status(400).send(result.error.details[0].message); }
-
-    connection.query('SELECT * FROM endangeredSpeciesTable', function (err, result) {
-        if (err) throw err
-        let species = result
-
-        let specie = species.find(s => s.id === parseInt(req.params.id));
-        if (!specie) return res.status(404).send("The specie with given id could not found.");
-        
-
-
-        connection.query(`UPDATE endangeredSpeciesTable SET 
-        statusID = ${req.body.statusID}
-        trendID = ${req.body.trendID}
-        familyID = ${req.body.familyID}
-        name = ${req.body.name}
-        scientificName = ${req.body.scientificName}
-        description = ${req.body.description}
-        threats = ${req.body.threats}
-        image1 = ${req.body.image1}
-        image2 = ${req.body.image2}
-        icon = ${req.body.icon}
-        averageAge = ${req.body.averageAge}
-        averageWeight = ${req.body.averageWeight}
-        averageHeight = ${req.body.averageHeight}
-        speciesSignificance = ${req.body.speciesSignificance}
-        active = ${req.body.active}
-        WHERE speciesID = ${req.body.id}`, function (err, result) {
-            if (err) throw res.status(400).send(err)
-            res.send("ok");
-            })
-    })
-});
+//
+// app.put('/api/species/:id', (req, res) => {
+//     const { error } = ValidateSpecie(req);
+//     if (error) { return res.status(400).send(result.error.details[0].message); }
+//
+//     connection.query('SELECT * FROM endangeredSpeciesTable', function (err, result) {
+//         if (err) throw err
+//         let species = result
+//
+//         let specie = species.find(s => s.id === parseInt(req.params.id));
+//         if (!specie) return res.status(404).send("The specie with given id could not found.");
+//
+//
+//
+//         connection.query(`UPDATE endangeredSpeciesTable SET
+//         statusID = ${req.body.statusID}
+//         trendID = ${req.body.trendID}
+//         familyID = ${req.body.familyID}
+//         name = ${req.body.name}
+//         scientificName = ${req.body.scientificName}
+//         description = ${req.body.description}
+//         threats = ${req.body.threats}
+//         image1 = ${req.body.image1}
+//         image2 = ${req.body.image2}
+//         icon = ${req.body.icon}
+//         averageAge = ${req.body.averageAge}
+//         averageWeight = ${req.body.averageWeight}
+//         averageHeight = ${req.body.averageHeight}
+//         speciesSignificance = ${req.body.speciesSignificance}
+//         active = ${req.body.active}
+//         WHERE speciesID = ${req.body.id}`, function (err, result) {
+//             if (err) throw res.status(400).send(err)
+//             res.send("ok");
+//             })
+//     })
+// });
 
 /****************************************************************/
 /******************** DELETE METHODS ****************************/
 /****************************************************************/
-
-app.delete('/api/species/:id', (req, res) => {
-    const { error } = ValidateSpecie(req); 
-    if (error) { return res.status(400).send(result.error.details[0].message); }
-
-    connection.query('SELECT * FROM endangeredSpeciesTable', function (err, result) {
-        if (err) throw err
-        let species = result
-
-        let specie = species.find(s => s.id === parseInt(req.params.id));
-        if (!specie) return res.status(404).send("The specie with given id could not found.");
-
-        connection.query(`DELETE from endangeredSpeciesTable WHERE speciesID = ${req.body.id}`, function (err, result) {
-            if (err) throw res.status(400).send(err)
-            res.send("ok");
-            })
-    })
-});
+//
+// app.delete('/api/species/:id', (req, res) => {
+//     const { error } = ValidateSpecie(req);
+//     if (error) { return res.status(400).send(result.error.details[0].message); }
+//
+//     connection.query('SELECT * FROM endangeredSpeciesTable', function (err, result) {
+//         if (err) throw err
+//         let species = result
+//
+//         let specie = species.find(s => s.id === parseInt(req.params.id));
+//         if (!specie) return res.status(404).send("The specie with given id could not found.");
+//
+//         connection.query(`DELETE from endangeredSpeciesTable WHERE speciesID = ${req.body.id}`, function (err, result) {
+//             if (err) throw res.status(400).send(err)
+//             res.send("ok");
+//             })
+//     })
+// });
 
 
 

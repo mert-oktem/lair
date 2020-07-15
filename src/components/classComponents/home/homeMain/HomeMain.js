@@ -3,6 +3,7 @@ import HomeNewsletter from "./HomeNewsletter";
 import HomeAction from "./HomeAction";
 import HomeMap from "./HomeMap";
 import HomeIntro from "./HomeIntro";
+import HomeImage from "./HomeImage";
 
 class HomeMain extends Component{
     // constructor(){
@@ -12,6 +13,7 @@ class HomeMain extends Component{
         return (
                 <main className="site-home-main">
                     <HomeIntro />
+                    <HomeImage />
                     <HomeMap />
                     <HomeAction />
                     <HomeNewsletter />

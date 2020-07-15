@@ -8,10 +8,9 @@ class AboutUsDesc extends Component {
         return (
             <div className="aboutUs-desc">
                 <div className="aboutUs-desc-heading"><h2>About the Project</h2></div>
-                <div className="aboutUs-desc-text"><p>The project aims to solve the problem of endangered species. The leading causes of
-                    extinction are now thought to stem from human activity, with nearly all threatened
-                    species also at risk. That’s why we want to educate people about the of these animals and
-                    spread awareness to help protect them.</p></div>
+                <div className="aboutUs-desc-text"><p>According to WWF Canada, the leading cause of wildlife extinction is human activity. Through
+                    this project, we are striving to educate about animals that are both at-risk and critically
+                    endangered, in order to spread awareness and action towards protecting these species.</p></div>
             </div>
         )
     }

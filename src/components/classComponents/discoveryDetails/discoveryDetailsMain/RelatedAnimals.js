@@ -33,7 +33,7 @@ class RelatedAnimals extends Component {
             console.log(items);
             return (
                 <div className="discDet-main-relatedAnimals">
-                            <h2 className="discDet-main-relatedAnimals-heading">SEE RELATED ANIMALS</h2>
+                            <h2 className="discDet-main-relatedAnimals-heading">SEE RELATED ANIMALS BY EXTINCTION RISKS</h2>
                             <div className="discDet-main-relatedAnimals-cards">
 
                                 {items.map(item =>(
