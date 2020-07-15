@@ -140,19 +140,27 @@ app.get('/api/locations/:location', (req, res) => {
 });
 
 app.get('/api/ngos', (req, res) => {
-    // connection.connect()
-    // connection.query('SELECT * FROM NGOsTable', function (err, rows, fields) {
-    // if (err) throw err
-    // res.send(rows)
-    // connection.end()
-    // })
-
     connection.query('SELECT * FROM NGOsTable', function (err, result) {
         if (err) throw res.status(400).send(err)
         res.send(result)
     })
 
 });
+
+app.get('/medium/rss', (req, res) => {
+    let Parser = require('rss-parser');
+    let parser = new Parser();
+     
+    (async () => {
+     
+      let feed = await parser.parseURL('https://medium.com/feed/wild-without-end');
+     
+      res.send(feed);
+     
+    })();
+});
+
+
 
 /****************************************************************/
 /******************** POST METHODS ******************************/

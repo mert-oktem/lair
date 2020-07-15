@@ -9,7 +9,7 @@ class TestArticles extends Component{
         this.state = { feed: [] };
     }
     async componentDidMount() {
-        const feed = await parser.parseURL('https://medium.com/feed/wild-without-end');
+        const feed = await parser.parseURL('https://www.reddit.com/.rss');
         this.setState({ feed });
     }
     render(){
