@@ -18,7 +18,8 @@ class DonateCard extends Component {
                     <p>{this.props.donate.desc}</p>
                 </div>
                 <div className="donate-card-link">
-                    <Link to={this.props.donate.ngoUrl}><p>DONATE NOW</p></Link>
+                    <Link to={{ pathname: `${this.props.donate.ngoUrl}` }} target="_blank">
+                    <p>DONATE NOW</p></Link>
                 </div>
             </div>
         )
