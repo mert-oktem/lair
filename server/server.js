@@ -149,15 +149,29 @@ app.get('/api/ngos', (req, res) => {
 
 app.get('/medium/rss', (req, res) => {
     let Parser = require('rss-parser');
-    let parser = new Parser();
-     
-    (async () => {
-     
-      let feed = await parser.parseURL('https://medium.com/feed/wild-without-end');
-     
-      res.send(feed);
-     
-    })();
+    let parser = new Parser({
+        customFields: {
+            item: [
+                ['content:encoded', 'content'],
+            ]
+        }
+    });
+    parser.parseURL('https://medium.com/feed/wild-without-end', function(err, feed) {
+        feed.items.forEach(item => {
+            var urls = []
+            var str = item.content
+            var rex = /<img.*?src="([^">]*\/([^">]*?))".*?>/g;
+            var m = rex.exec( str )
+            item.url = m[1];
+            const jsdom = require("jsdom");
+            const dom = new jsdom.JSDOM(item.content);
+            item.firstp = dom.window.document.querySelector("p").textContent;
+            if (item.firstp == "") {
+                item.firstp = item.contentSnippet
+            }
+        })
+        res.send(feed);
+    })
 });
 
 

@@ -3,6 +3,9 @@ import FilterIconImg from '../../../img/ui_icons/PNG/ui_icons_filter.png'
 
 function handleFilter() {
     console.log("Filter clicked")
+    return (
+        <div>Hello Filter</div>
+    )
 }
 
 function FilterBtn() {

@@ -4,6 +4,8 @@ import DiscImage from "./DiscImage";
 import AnimalCard from "./AnimalCard";
 import DiscLoadMore from "./DiscLoadMore";
 import DiscNavigation from "./DiscNavigation";
+import DiscNavSearch from "./DiscNavSearch";
+import FilterBtn from "../../../functionComponents/discoveryNavigation/FilterBtn";
 
 
 class DiscMain extends Component {
@@ -38,7 +40,12 @@ class DiscMain extends Component {
                 <main className="site-disc-main">
                     <DiscIntro/>
                     <DiscImage/>
-                    <DiscNavigation/>
+                    <div className="disc-main-navigation">
+                        <div className="disc-navigation">
+                            <DiscNavSearch />
+                            <FilterBtn />
+                        </div>
+                    </div>
                     <div className="site-disc-main-animalCards">
 
                         {items.map(item => (

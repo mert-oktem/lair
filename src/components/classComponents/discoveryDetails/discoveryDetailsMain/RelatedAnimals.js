@@ -14,7 +14,7 @@ class RelatedAnimals extends Component {
         fetch(`http://localhost:3011/api/relatedspecies/${this.props.id}`)
             .then(res => res.json())
             .then(json => {
-                console.log( json );
+                // console.log( json );
                 this.setState({
                     isLoaded: true,
                     items:json
@@ -30,7 +30,7 @@ class RelatedAnimals extends Component {
         }
 
         else{
-            console.log(items);
+            // console.log(items);
             return (
                 <div className="discDet-main-relatedAnimals">
                             <h2 className="discDet-main-relatedAnimals-heading">SEE RELATED ANIMALS BY EXTINCTION RISKS</h2>
