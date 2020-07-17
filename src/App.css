@@ -130,6 +130,7 @@ img{
 
 .close-button-first-line{
   width: 30px;
+  position: fixed;
   height: 2px;
   background: #644A53;
   transform: rotate(45deg);
@@ -139,6 +140,7 @@ img{
   width: 30px;
   height: 2px;
   background: #644A53;
+  margin-bottom: 10px;
   transform: rotate(-45deg);
 }
 
@@ -200,7 +202,12 @@ img{
 }
 
 button.close-button{
-  margin-right: 10px;
+  margin: 40px 30px;
+  border: none;
+  background-color: transparent;
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 @media only screen and (max-width: 780px) {
@@ -326,6 +333,51 @@ svg g{
   height: auto;
 }
 
+.canada-map-click-habitat p{
+  font-weight: 600;
+  color: #644A53;
+  max-width: 60%;
+  margin: 20px auto;
+  text-align: left;
+}
+
+.canada-map-click-icons{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 60%;
+  margin: auto;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.canada-map-click-icons a{
+  text-decoration: none;
+  align-items: center;
+}
+
+.canada-map-click-card{
+  display: flex;
+  align-items: center;
+}
+
+.canada-map-click-card-icon img{
+  max-width: 50px;
+  margin-right: 20px;
+}
+
+.canada-map-click-card-name{
+  color: #644A53;
+  font-size: 10pt;
+  font-weight: 500;
+  text-align: left;
+}
+
+.canada-map-click-card-name p{
+  margin: 10px;
+  max-width: 100px;
+}
+
 /* ***************************************** */
 /* ***************************************** */
 /*              Newsletter                   */
@@ -390,8 +442,31 @@ footer{
 
 p.footer2-text1{
   margin-top: 30px;
+  /* font-size: 10pt; */
 }
 
+@media (min-width: 781px) {
+  .footer1-text{
+    max-width: 80%;
+    font-size: 10pt;
+  }
+  .site-footer2{
+    display: flex;
+    font-size: 10pt;
+    max-width: 80%;
+    margin: auto;
+    align-items: center;
+    justify-content: space-between;
+  }
+  p.footer2-text1{
+    margin-top: auto;
+    /* font-size: 10pt; */
+  }
+  p.footer1-text{
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
 /* ***************************************** */
 /* ***************************************** */
 /*               Canada Map                  */
@@ -446,7 +521,7 @@ svg {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 80%;
+  max-width: 90%;
   margin: auto;
 }
 
@@ -499,6 +574,7 @@ svg {
   background-color: #F4F8FF;
   margin-bottom: 40px;
   border-radius: 30px;
+  text-align: left;
 }
 
 .disc-main-aniCard img{
@@ -542,7 +618,7 @@ svg {
 }
 
 .aniCard-status-text p{
-  margin: auto 0 auto 34px;
+  margin: auto 0 auto 25px !important;
 }
 
 .aniCard-location, .aniCard-population, .aniCard-status{
@@ -581,6 +657,10 @@ svg {
   border: 5px solid #ffeda7;
   margin-top: 25px;
   margin-bottom: 60px;
+}
+
+.animalDet-sciName-text{
+  color: #644A53;
 }
 
 .discDet-main-animalDet{
@@ -670,6 +750,7 @@ svg {
   display: flex;
   max-width: 90%;
   margin: auto;
+  flex-direction: column;
 }
 
 .popChart-text h2{
@@ -756,6 +837,26 @@ svg {
   font-size: 12pt;
 }
 
+.disc-nav-search-type input{
+  background-image: url(img/ui_icons/PNG/ui_icons_search.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position-x: 15px;
+  background-position-y: 10px;
+  text-indent: 20px;
+  padding: 10px 10px 10px 15px;
+  background-size: 15px;
+  /* width: 150%; */
+  border: none;
+  border-radius: 25px;
+  background-color: #F4F8FF;
+  /* margin-top: 40px; */
+}
+
+.navigation-search-icon{
+  display: none;
+}
+
 @media only screen and (max-width: 780px) {
   .site-logo img{
     margin: 20px;
@@ -781,9 +882,16 @@ svg {
     background-image: url(img/ui_icons/PNG/ui_icons_search.png);
     background-size: contain;
     background-repeat: no-repeat;
+    background-position-x: 20px;
+    background-position-y: 20px;
     text-indent: 20px;
-    padding: 20px;
-    background-size: 30px;
+    padding: 20px 20px 20px 30px;
+    background-size: 15px;
+    width: 150%;
+    border: none;
+    border-radius: 25px;
+    background-color: #F4F8FF;
+    margin-top: 40px;
   }
 
   .navigation-search-icon{
@@ -799,15 +907,15 @@ svg {
   .site-disc-main-animalCards{
     /* display: flex; */
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-between;
     flex-wrap: wrap;
-    max-width: 90%;
+    max-width: 80%;
     margin: auto;
   }
 
   .disc-main-aniCard{
-    margin: 10px 20px 10px 0;
-    max-width: 31.5%;
+    margin: 40px 20px 10px 0;
+    max-width: 22%;
   }
 
   .disc-main-aniCard:first-of-type{
@@ -836,7 +944,7 @@ svg {
 
   .discLoadMore-button{
     text-align: left;
-    max-width: 90%;
+    max-width: 80%;
     margin: auto;
   }
 
@@ -849,6 +957,67 @@ svg {
     margin-bottom: 50px;
   }
 
+}
+
+@media (min-width: 781px){
+  .discDetails-overview{
+    display: flex;
+    max-width: 85%;
+    margin: 50px auto;
+    text-align: left;
+    justify-content: space-between;
+  }
+
+  .discDet-main-image{
+    max-width: 45%; 
+  }
+
+  .animalDet-threats{
+    display: none;
+  }
+
+  .discDet-main-animalDet{
+    max-width: 45%;
+    margin-right: 0;;
+  }
+
+  .animalDet-description-text{
+    margin-top: 0;
+  }
+
+  .animalDet-heading{
+    margin-top: 0;
+    font-size: 12pt;
+  }
+
+  .animalDet-status-text{
+    margin: 20px 0;
+  }
+
+  .discDet-main-popChart{
+    padding: 50px 10%;
+  }
+
+  .discDet-main-whyMatter{
+    display: grid;
+    max-width: 80%;
+    margin: auto;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 0.35fr 1fr 0.35fr;
+  }
+  .whyMatter-image{
+    grid-column: 2/3;
+    grid-row: 1/4;
+    margin: 0;
+  }
+  .whyMatter-heading h3, .whyMatter-text, .whyMatter-donate{
+    margin: 0;
+  }
+  .discDet-main-relatedAnimals-heading{
+    max-width: 80%;
+    margin-top: 50px;
+    margin-bottom: 0;
+  }
 }
 
 
@@ -972,6 +1141,8 @@ svg {
   }
 
 }
+
+
 
 /* ***************************************** */
 /* ***************************************** */
@@ -1413,8 +1584,14 @@ svg {
     margin-top: 0;
   }
 
+  .donate-how-text{
+    max-width: 54%;
+    margin: auto;
+  }
+
   .donate-how-amount{
     display: flex;
+    max-width: 70%;
     justify-content: space-between;
   }
 
@@ -1429,7 +1606,9 @@ svg {
 
   .donate-main{
     display: flex;
+    max-width: 80%;
     flex-wrap: wrap;
+    justify-content: space-evenly;
     margin: auto;
     align-items: flex-end;
   }
