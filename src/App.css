@@ -59,260 +59,218 @@ img{
   max-width: 3em;
   height: auto;
 
-  margin: 20px;
+  margin: 20px 20px 20px 0;
 
   z-index: 1;
 }
 
 /* *******************  NAVIGATION  ********************* */
 
-.site-header{
-  display: flex;
-}
-
-.menuToggle
-{
-  display: block;
-  position: absolute;
-  top: 2em;
-  right: 2em;
-  
-  z-index: 1;
-  
-  -webkit-user-select: none;
-  user-select: none;
-}
-
-.menuToggle ul li
-{
-  
-  
-  transition: color 0.3s ease;
-}
-
-.menuToggle ul li:hover
-{
-  color: tomato;
-}
-
-
-.menuToggle input
-{
-  display: block;
-  width: 40px;
-  height: 32px;
-  position: absolute;
-  top: -0.5em;
-  /* right: 0.01em; */
-  
-  cursor: pointer;
-  
-  opacity: 0; /* hide this */
-  z-index: 2; /* and place it over the hamburger */
-  
-  -webkit-touch-callout: none;
-}
-
-/*
- * Just a quick hamburger
- */
-
-.hamburger{
-  position: relative;
-  top: 0.75em;
-  right: 5em;
-}
-
-
-.menuToggle  span
-{
-  display: block;
-  width: 33px;
-  height: 4px;
-  margin-bottom: 5px;
-  position: relative;
-  
-  
-  background: #644A53;
-  border-radius: 3px;
-  
-  z-index: 1;
-  
-  transform-origin: 4px 0px;
-  
-  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
-              background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
-              opacity 0.55s ease;
-}
-
-.menuToggle .hamburger span:first-child
-{
-  transform-origin: 0% 0%;
-}
-
-.menuToggle .hamburger span:nth-last-child(2)
-{
-  transform-origin: 0% 100%;
-}
-
-/* 
- * Transform all the slices of hamburger
- * into a crossmark.
- */
-.menuToggle input:checked ~.hamburger span
-{
-  opacity: 1;
-  transform: rotate(45deg) translate(-2px, -1px);
-  background: #232323;
-}
-
-/*
- * But let's hide the middle one.
- */
-.menuToggle input:checked ~.hamburger span:nth-last-child(3)
-{
-  opacity: 0;
-  transform: rotate(0deg) scale(0.2, 0.2);
-}
-
-/*
- * Ohyeah and the last one should go the other direction
- */
-.menuToggle input:checked ~.hamburger span:nth-last-child(2)
-{
-  transform: rotate(-45deg) translate(0, -1px);
-}
-
-/*
- * Make this absolute positioned
- * at the top left of the screen
- */
-.nav-uo-list
-{
-  position: absolute;
-  min-width: 300px;
-  height: 100vh;
-  margin: -100px 0 0 70px;
-  padding: 50px;
-  padding-top: 125px;
+.toolbar {
+  /* position: fixed; */
+  width: 100%;
   top: 0;
-  right: -100%;
-  
-  background: #F4F8FF;
-  list-style-type: none;
-  -webkit-font-smoothing: antialiased;
-  /* to stop flickering of text in safari */
-  
-  transform-origin: 0% 0%;
-  transform: translateX(100%);
-  
-  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+  left: 0;
 }
 
-.nav-uo-list li
-{
-  padding: 10px 0;
+.toolbar-nav{
+  display: flex;
+  align-items: center;
+}
+
+.toolbar-nav-items a{
+  color: #644A53;
+  text-decoration: none;
   font-size: 22px;
 }
 
-.nav-uo-list a{
-  text-decoration: none;
-  color: #ca7342;
+.toolbar-nav-items ul{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  /* justify-content: space-around; */
+}
+.spacer{
+  flex: 1;
 }
 
-.nav-donate a h3{
-  color: #644A53;
+.toolbar-nav-items li{
+  padding: 0 1rem;
+}
+
+.toggle-button{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 24px;
+  width: 30px;
+  margin: 1rem;
+  align-items: flex-end;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.toggle-button:focus{
+  outline: none;
+}
+
+.toggle-line{
+  width: 30px;
+  height: 2px;
+  background: #644A53;
+}
+
+.toggle-middle-line{
+  width: 15px;
+  height: 2px;
+  background: #644A53;
+}
+
+.close-button-first-line{
+  width: 30px;
+  position: fixed;
+  height: 2px;
+  background: #644A53;
+  transform: rotate(45deg);
+}
+
+.close-button-second-line{
+  width: 30px;
+  height: 2px;
+  background: #644A53;
+  margin-bottom: 10px;
+  transform: rotate(-45deg);
+}
+
+.mobile-menu{
+  height: 100%;
+  background-color: #F4F8FF;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+}
+
+.mobile-menu.open{
+  transform: translateX(0);
+}
+
+
+
+.mobile-menu-head .site-logo img{
+  display: flex;
+}
+
+.mobile-menu-nav ul li a{
+  text-decoration: none;
+  color: #CA7342;
+  font-weight: bold;
+  font-size: 18pt
+}
+
+.mobile-menu-nav ul{
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  height: 80%;
+  padding-left: 0;
+}
+
+.mobile-menu-nav ul li{
+  margin-bottom: 45px;
+}
+
+.mobile-menu-nav ul li:first-of-type{
+  margin-top: 50px;
+}
+
+.donate-button a{
+  color: #644A53 !important;
   max-width: 40%;
-  margin: auto;
+  /* margin: auto; */
+  /* margin-top: 100p; */
   background-color: #ffeda7;
   padding: 20px 20px 20px 20px;
   border-radius: 50px;
   text-transform: uppercase;
-  font-size: 12pt;
+  font-size: 12pt !important;
   letter-spacing: 2px;
 }
 
-/*
- * And let's slide it in from the left
- */
-.menuToggle input:checked ~ ul
-{
-  transform: none;
-}
-/* 
-.nav-uo-list a:target ~ ul{
-  transform: 
-} */
-
-h1.intro-heading{
-  color: #ca7342;
-  margin: 10px;
-}
-p.intro-text{
-  color: #644A53;
-  font-weight: 500;
-  font-size: 16pt;
-  letter-spacing: 0.4px;
-  margin-left: 20px;
-  margin-right: 20px;
+button.close-button{
+  margin: 40px 30px;
+  border: none;
+  background-color: transparent;
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
-div.home-LearnMore-button button{
-  color: #644A53;
-  background-color: #fff;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  padding: 10px 25px;
-  border-radius: 50px;
-  border: 5px solid #ffeda7;
-  margin-top: 25px;
+@media only screen and (max-width: 780px) {
+  .toolbar-nav-items{
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 781px) {
+  .mobile-menu, .toggle-button{
+    display: none;
+  }
+
+  .toolbar-nav{
+    max-width: 80%;
+    margin: auto;
+  }
+
+  .toolbar-nav-items a{
+    color: #644A53;
+    text-decoration: none;
+    font-size: 12pt;
+    font-weight: 600;
+  }
+
+  .donate-desktop-button a{
+    color: #644A53 !important;
+    max-width: 40%;
+    background-color: #ffeda7;
+    padding: 15px 20px 15px 20px;
+    border-radius: 50px;
+    text-transform: uppercase;
+    font-size: 12pt !important;
+    font-weight: 600;
+    letter-spacing: 2px;
+  }
 }
 
 /* ***************************************** */
-/*             Media Queries                 */
-/* ***************************************** */
+.home-main-intro{
+  max-width: 75%;
+  margin: auto;
+}
 
-@media only screen and (min-width: 780px){
-  /*.menuToggle span{*/
-  /*  visibility: hidden;*/
-  /*}*/
+.home-main-intro .intro-heading{
+  color: #CA7342;
+}
 
-  /*.hamburger{*/
-  /*  visibility: hidden;*/
-  /*}*/
+.home-main-intro .intro-text{
+  color: #644A53;
+}
 
-  .site-header{
-    display: flex;
-  }
+.home-main-map-title{
+  max-width: 90%;
+  margin: auto;
+}
 
-  .home-main-action h2{
-    font-size: 30pt;
-  }
+.home-main-map-title .home-main-map-title-heading{
+  color: #CA7342;
+}
 
-  .action-block{
-    display: flex;
-    justify-content: space-evenly;
-  }
-
-  .home-main-newsletter{
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    grid-template-rows: 1fr 1fr;
-  }
-  .newsletter-image{
-    grid-row: 1/3;
-    align-self: center;
-  }
-
-  .newsletter-intro{
-    font-size: 20pt;
-    justify-self: left;
-  }
-
-  .newsletter-intro h2{
-    align-self: flex-start;
-  }
-
+.home-main-map-title .home-main-map-title-text{
+  color: #644A53;
 }
 
 /* ***************************************** */
@@ -337,7 +295,9 @@ div.home-LearnMore-button button{
   padding-bottom: 5px;
 }
 
-
+.action-block a{
+  text-decoration: none;
+}
 
 .home-main-action h3, .home-main-action p{
   color: #644A53;
@@ -371,6 +331,51 @@ p.action-block-desc{
 svg g{
   max-width: 100%;
   height: auto;
+}
+
+.canada-map-click-habitat p{
+  font-weight: 600;
+  color: #644A53;
+  max-width: 60%;
+  margin: 20px auto;
+  text-align: left;
+}
+
+.canada-map-click-icons{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 60%;
+  margin: auto;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.canada-map-click-icons a{
+  text-decoration: none;
+  align-items: center;
+}
+
+.canada-map-click-card{
+  display: flex;
+  align-items: center;
+}
+
+.canada-map-click-card-icon img{
+  max-width: 50px;
+  margin-right: 20px;
+}
+
+.canada-map-click-card-name{
+  color: #644A53;
+  font-size: 10pt;
+  font-weight: 500;
+  text-align: left;
+}
+
+.canada-map-click-card-name p{
+  margin: 10px;
+  max-width: 100px;
 }
 
 /* ***************************************** */
@@ -437,8 +442,31 @@ footer{
 
 p.footer2-text1{
   margin-top: 30px;
+  /* font-size: 10pt; */
 }
 
+@media (min-width: 781px) {
+  .footer1-text{
+    max-width: 80%;
+    font-size: 10pt;
+  }
+  .site-footer2{
+    display: flex;
+    font-size: 10pt;
+    max-width: 80%;
+    margin: auto;
+    align-items: center;
+    justify-content: space-between;
+  }
+  p.footer2-text1{
+    margin-top: auto;
+    /* font-size: 10pt; */
+  }
+  p.footer1-text{
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
 /* ***************************************** */
 /* ***************************************** */
 /*               Canada Map                  */
@@ -474,22 +502,27 @@ svg {
 /* ***************************************** */
 /* ***************************************** */
 
-
-/* .disc-main-image img{
-  max-width: 100%;
-  height: auto;
+.disc-main-intro{
+  max-width: 60%;
+  margin: auto;
 }
 
-.disc-main-image{
-  max-width: 100%;
-  height: auto;
-} */
+.disc-main-intro .intro-heading{
+  color: #CA7342;
+}
+
+.disc-main-intro .intro-text{
+  color: #644A53;
+}
 
 /* *******************Search and Filter********************* */
 
 .disc-navigation {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  max-width: 90%;
+  margin: auto;
 }
 
 .disc-nav-search{
@@ -541,6 +574,7 @@ svg {
   background-color: #F4F8FF;
   margin-bottom: 40px;
   border-radius: 30px;
+  text-align: left;
 }
 
 .disc-main-aniCard img{
@@ -584,7 +618,7 @@ svg {
 }
 
 .aniCard-status-text p{
-  margin: auto 0 auto 34px;
+  margin: auto 0 auto 25px !important;
 }
 
 .aniCard-location, .aniCard-population, .aniCard-status{
@@ -623,6 +657,10 @@ svg {
   border: 5px solid #ffeda7;
   margin-top: 25px;
   margin-bottom: 60px;
+}
+
+.animalDet-sciName-text{
+  color: #644A53;
 }
 
 .discDet-main-animalDet{
@@ -712,6 +750,7 @@ svg {
   display: flex;
   max-width: 90%;
   margin: auto;
+  flex-direction: column;
 }
 
 .popChart-text h2{
@@ -798,7 +837,33 @@ svg {
   font-size: 12pt;
 }
 
-@media only screen and (min-width: 780px){
+.disc-nav-search-type input{
+  background-image: url(img/ui_icons/PNG/ui_icons_search.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position-x: 15px;
+  background-position-y: 10px;
+  text-indent: 20px;
+  padding: 10px 10px 10px 15px;
+  background-size: 15px;
+  /* width: 150%; */
+  border: none;
+  border-radius: 25px;
+  background-color: #F4F8FF;
+  /* margin-top: 40px; */
+}
+
+.navigation-search-icon{
+  display: none;
+}
+
+@media only screen and (max-width: 780px) {
+  .site-logo img{
+    margin: 20px;
+  }
+}
+
+@media only screen and (min-width: 781px){
   .disc-main-image{
     position: relative;
   }
@@ -808,28 +873,29 @@ svg {
     z-index: 1;
     width: 25%;
     top: 35%;
-    left: 15%;
+    left: 10%;
     text-align: left;
   }
 
-  .disc-main-intro .intro-heading{
-    color: #CA7342;
-  }
-
-  .disc-main-intro .intro-text{
-    color: #644A53;
-  }
+  
   .disc-nav-search-type input{
     background-image: url(img/ui_icons/PNG/ui_icons_search.png);
     background-size: contain;
     background-repeat: no-repeat;
+    background-position-x: 20px;
+    background-position-y: 20px;
     text-indent: 20px;
-    padding: 20px;
-    background-size: 30px;
+    padding: 20px 20px 20px 30px;
+    background-size: 15px;
+    width: 150%;
+    border: none;
+    border-radius: 25px;
+    background-color: #F4F8FF;
+    margin-top: 40px;
   }
 
   .navigation-search-icon{
-    visibility: hidden;
+    display: none;
   }
 
   .disc-nav-search-type input::placeholder{
@@ -841,15 +907,15 @@ svg {
   .site-disc-main-animalCards{
     /* display: flex; */
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-between;
     flex-wrap: wrap;
-    max-width: 90%;
+    max-width: 80%;
     margin: auto;
   }
 
   .disc-main-aniCard{
-    margin: 10px 20px 10px 0;
-    max-width: 31.5%;
+    margin: 40px 20px 10px 0;
+    max-width: 22%;
   }
 
   .disc-main-aniCard:first-of-type{
@@ -878,7 +944,7 @@ svg {
 
   .discLoadMore-button{
     text-align: left;
-    max-width: 90%;
+    max-width: 80%;
     margin: auto;
   }
 
@@ -891,6 +957,67 @@ svg {
     margin-bottom: 50px;
   }
 
+}
+
+@media (min-width: 781px){
+  .discDetails-overview{
+    display: flex;
+    max-width: 85%;
+    margin: 50px auto;
+    text-align: left;
+    justify-content: space-between;
+  }
+
+  .discDet-main-image{
+    max-width: 45%; 
+  }
+
+  .animalDet-threats{
+    display: none;
+  }
+
+  .discDet-main-animalDet{
+    max-width: 45%;
+    margin-right: 0;;
+  }
+
+  .animalDet-description-text{
+    margin-top: 0;
+  }
+
+  .animalDet-heading{
+    margin-top: 0;
+    font-size: 12pt;
+  }
+
+  .animalDet-status-text{
+    margin: 20px 0;
+  }
+
+  .discDet-main-popChart{
+    padding: 50px 10%;
+  }
+
+  .discDet-main-whyMatter{
+    display: grid;
+    max-width: 80%;
+    margin: auto;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 0.35fr 1fr 0.35fr;
+  }
+  .whyMatter-image{
+    grid-column: 2/3;
+    grid-row: 1/4;
+    margin: 0;
+  }
+  .whyMatter-heading h3, .whyMatter-text, .whyMatter-donate{
+    margin: 0;
+  }
+  .discDet-main-relatedAnimals-heading{
+    max-width: 80%;
+    margin-top: 50px;
+    margin-bottom: 0;
+  }
 }
 
 
@@ -1014,6 +1141,8 @@ svg {
   }
 
 }
+
+
 
 /* ***************************************** */
 /* ***************************************** */
@@ -1325,9 +1454,9 @@ svg {
 }
 
 .donate-main{
-  background-color: #F4F8FF;
+  /* background-color: #F4F8FF; */
   margin-top: -20px;
-  padding-top: 70px;
+  padding-top: 50px;
   padding-bottom: 70px;
 }
 
@@ -1362,15 +1491,44 @@ svg {
   font-size: 10pt;
 }
 
+.donate-how {
+  padding-bottom: 70px;
+  background-color: #F4F8FF;
+}
+
 .donate-how-heading{
   color: #CA7342;
-  margin-top: 70px;
+  /* margin-top: 70px; */
+  max-width: 80%;
+  margin: 70px auto 0 auto;
+}
+
+.donate-card-link{
+  margin-top: 30px;
+  margin-bottom: 70px;
+}
+
+.donate-card-link a{
+  text-decoration: none;
+  color: #CA7342;
+  font-weight: 600;
 }
 
 .donate-how-text{
   font-size: 10pt;
   max-width: 85%;
   margin: auto;
+  color: #644A53;
+}
+
+.donate-how-amount{
+  color: #644A53;
+  width: 82%;
+  margin: auto;
+}
+
+.donate-how-amount-text{
+  font-size: 10pt;
 }
 
 .donate-how-image{
@@ -1405,7 +1563,7 @@ svg {
     z-index: 1;
     width: 40%;
     top: 35%;
-    left: 13.5%;
+    left: 10%;
     text-align: left;
   }
 
@@ -1415,5 +1573,51 @@ svg {
 
   .donate-intro-heading, .donate-intro-text{
     margin: 0;
+    /* margin-top: 0; */
+  }
+
+  .donate-how{
+    padding-top: 70px;
+  }
+
+  .donate-how-heading{
+    margin-top: 0;
+  }
+
+  .donate-how-text{
+    max-width: 54%;
+    margin: auto;
+  }
+
+  .donate-how-amount{
+    display: flex;
+    max-width: 70%;
+    justify-content: space-between;
+  }
+
+  .donate-how-amount-desc .donate-how-amount-text{
+    max-width: 65%;
+    margin: auto;
+  }
+
+  .donate-how-image img{
+    max-width: 60%;
+  }
+
+  .donate-main{
+    display: flex;
+    max-width: 80%;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin: auto;
+    align-items: flex-end;
+  }
+
+  .donate-desc{
+    width: 100%;
+    flex-grow: 1;
+  }
+  .donate-card{
+    max-width: 30%;
   }
 }

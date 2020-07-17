@@ -18,23 +18,23 @@ class DonateHow extends Component {
                     and welfare of animals below:</p>
                 </div>
                 <div className="donate-how-amount">
-                    <div className="donate-how-amount1">
-                        <div className="donate-how-amount1-head"><p>$50</p></div>
-                        <div className="donate-how-amount1-text"><p>
+                    <div className="donate-how-amount-desc">
+                        <div className="donate-how-amount-head"><h1>$50</h1></div>
+                        <div className="donate-how-amount-text"><p>
                             Provides for adequate medical care,
                             vaccination and neutering of a stray.
                         </p></div>
                     </div>
-                    <div className="donate-how-amount2">
-                        <div className="donate-how-amount2-head"><p>$100</p></div>
-                        <div className="donate-how-amount2-text"><p>
+                    <div className="donate-how-amount-desc">
+                        <div className="donate-how-amount-head"><h1>$100</h1></div>
+                        <div className="donate-how-amount-text"><p>
                             Provides emergency medicine for up to
                             7,550 animals in a disaster.
                         </p></div>
                     </div>
-                    <div className="donate-how-amount3">
-                        <div className="donate-how-amount3-head"><p>$500</p></div>
-                        <div className="donate-how-amount3-text"><p>
+                    <div className="donate-how-amount-desc">
+                        <div className="donate-how-amount-head"><h1>$500</h1></div>
+                        <div className="donate-how-amount-text"><p>
                             Finances all monthly costs of caring and
                             nurturing of an orphaned orangutan.
                         </p></div>
