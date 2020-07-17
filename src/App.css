@@ -323,11 +323,13 @@ p.action-block-desc{
 }
 @media only screen and (min-width: 781px) {
   .action-block {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
 
   }
   .action-block a{
-    flex-grow: 1;
+    margin: auto;
   }
 }
 /* ***************************************** */
@@ -397,6 +399,10 @@ svg g{
   margin-top: 50px;
 }
 
+.newsletter-intro p{
+  color: #644A53;
+}
+
 .newsletter-image img{
   max-width: 12rem;
 }
@@ -421,6 +427,62 @@ svg g{
   font-weight: bold;
   letter-spacing: 1px;
   margin-bottom: 70px;
+}
+
+@media only screen and (min-width: 781px) {
+  .home-main-newsletter{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 1fr 1fr;
+    width: 60%;
+    margin: 50px auto;
+  }
+
+  .newsletter-image{
+    grid-column: 1/2;
+    grid-row: 1/3;
+    margin: auto;
+  }
+
+  .newsletter-intro{
+    text-align: left;
+    margin-bottom: 0;
+    align-self: end;
+  }
+
+  .newsletter-intro h2{
+    font-size: 22pt;
+    font-weight: 600;
+    margin-bottom: 0;
+  }
+
+  .newsletter-intro p{
+    color: #644A53;
+    font-size: 14pt;
+    font-weight: 500;
+    margin-top: 10px;
+  }
+
+  .newsletter-form{
+    display: flex;
+    text-align: left;
+    align-items: center;
+    /* margin-right: 100px; */
+  }
+
+  .newsletter-form-email{
+    flex-grow: 1;
+  }
+
+  .newsletter-form-email input{
+    margin: 0;
+    /* padding-right: 40px; */
+  }
+
+  .newsletter-form-submitBtn button{
+    margin-bottom: 0;
+    /* margin-right: 100px; */
+  }
 }
 
 /* ***************************************** */
@@ -922,7 +984,7 @@ svg {
   }
 
   .disc-main-aniCard{
-    margin: 40px 20px 10px 0;
+    margin: 40px 0 10px 0;
     max-width: 22%;
   }
 
@@ -1416,6 +1478,11 @@ svg {
     margin: 50px auto;
   }
 
+  .contact-location-heading, .contact-location-text{
+    max-width: 73%;
+    margin: auto;
+  }
+
   .contact-contactForm{
     max-width: 73%;
     margin: auto;
@@ -1432,6 +1499,16 @@ svg {
     min-width: 100%;
     flex-grow: 1;
     margin-right: 0;
+  }
+
+  .contact-location-info-add{
+    width: 73%;
+    margin: auto;
+  }
+
+  .contact-location-info-phone{
+    width: 74%;
+    margin: 10px auto 40px auto;
   }
 }
 
