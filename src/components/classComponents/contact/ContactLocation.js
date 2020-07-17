@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import ContactLocationImg from "../../../img/langara-map.png";
 import LocIcon from '../../../img/ui_icons/PNG/ui_icons_location.png'
-import PhoneIcon from '../../../img/ui_icons/PNG/ui_icons_risk status.png'
+import PhoneIcon from '../../../img/ui_icons/PNG/ui_icons_phone.png'
 
 class ContactLocation extends Component {
     // constructor(){

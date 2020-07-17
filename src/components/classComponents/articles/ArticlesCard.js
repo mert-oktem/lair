@@ -7,7 +7,7 @@ class ArticlesCard extends Component {
     // }
     render() {
         return (
-            <div>
+
 
 
                 <div className="articles-artCard">
@@ -26,7 +26,7 @@ class ArticlesCard extends Component {
                     </div>
                     <ArticlesReadMoreBtn item={this.props.article.link} />
                 </div>
-            </div>
+
 
         )
     }

@@ -74,7 +74,7 @@ class Articles extends Component{
                             />
                         ))}
                     </div>
-                    <ArticlesLoadMoreBtn />
+                    {/*<ArticlesLoadMoreBtn />*/}
 
                 </div>
 

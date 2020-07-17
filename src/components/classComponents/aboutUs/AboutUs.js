@@ -45,7 +45,7 @@ class AboutUs extends Component{
                     />
                     <AboutUsCard
                         about={{name:"Antriksh Saini",
-                            role:"Front-end Developer",
+                            role:"Full-stack Developer",
                             desc:"Bachelor’s Degree in Computer Science and Engineering. One year experience as Software Developer in India I never hesitate to learn new skills.",
                             imgUrl: require('../../../img/teamImg/Antrix.jpg')}}
                     />
