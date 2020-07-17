@@ -321,7 +321,15 @@ p.action-block-desc{
 .home-main-action .home-main-action-block .action-block-desc:nth-child(3){
   padding-bottom: 50px;
 }
+@media only screen and (min-width: 781px) {
+  .action-block {
+    display: flex;
 
+  }
+  .action-block a{
+    flex-grow: 1;
+  }
+}
 /* ***************************************** */
 /* ***************************************** */
 /*                   Map                     */
@@ -644,7 +652,7 @@ svg {
   color: #CA7342;
 }
 
-.disc-main-discLoadMore button{
+.discLoadMore-button button{
   color: #644A53;
   font-family: 'Montserrat', sans-serif;
   text-transform: uppercase;
