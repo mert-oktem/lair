@@ -214,21 +214,12 @@ app.get('/medium/rss', (req, res) => {
 
 app.post('/api/contact', (req, res) => {
     const { error } = ValidateForm(req);
-    if (error) { return res.status(400).send(result.error.details[0].message)}
+    if (error) { return res.status(400).send(res.error.details[0].message)}
 
-    let lastid = connection.query(`SELECT MAX(contactID) FROM endangeredSpeciesTable)`, function (err, result) {
-    if (err) throw res.status(400).send(err)
-    })
-
-    connection.query(`INSERT INTO contactFormTable
-    (contactID, contactFirstName, contactLastName, contactEmail, contactWhere, contactDetails)
-    VALUES
-    (${lastid + 1},
-    ${req.body.contactFirstName},
-    ${req.body.contactLastName},
-    ${req.body.contactEmail},
-    ${req.body.contactWhere},
-    ${req.body.contactDetails},);`,
+    connection.query(`INSERT INTO contactFormTable 
+        (contactFirstName, contactLastName, contactEmail, placeOfObservation, observationDetails) 
+        VALUES 
+        ('${req.body.contactFirstName}', '${req.body.contactLastName}', '${req.body.contactEmail}', '${req.body.placeOfObservation}', '${req.body.observationDetails}');`,
     function (err, result) {
         if (err) throw res.status(400).send(err)
         res.send("ok");
@@ -313,8 +304,8 @@ function ValidateForm(req) {
         contactFirstName: Joi.string().min(3).required(),
         contactLastName: Joi.string().min(3).required(),
         contactEmail: Joi.string().min(3).required(),
-        contactWhere: Joi.string().min(3).required(),
-        contactDetails: Joi.string().min(3).required()
+        placeOfObservation: Joi.string().min(3).required(),
+        observationDetails: Joi.string().min(3).required()
     };
 
     return Joi.validate(req.body, schema);
