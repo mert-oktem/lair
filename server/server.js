@@ -183,11 +183,11 @@ app.get('/medium/rss', (req, res) => {
 // app.post('/api/species', (req, res) => {
 //     const { error } = ValidateSpecie(req);
 //     if (error) { return res.status(400).send(result.error.details[0].message)}
-//
+
 //     let lastid = connection.query(`SELECT MAX(speciesID) FROM endangeredSpeciesTable)`, function (err, result) {
 //     if (err) throw res.status(400).send(err)
 //     })
-//
+
 //     connection.query(`INSERT INTO endangeredSpeciesTable
 //     (speciesID, statusID, trendID, familyID, name, scientificName, description, threats, image1, image2, icon, averageAge, averageWeight, averageHeight, speciesSignificance, active)
 //     VALUES
@@ -211,6 +211,20 @@ app.get('/medium/rss', (req, res) => {
 //         res.send("ok");
 //     })
 // });
+
+app.post('/api/contact', (req, res) => {
+    const { error } = ValidateForm(req);
+    if (error) { return res.status(400).send(res.error.details[0].message)}
+
+    connection.query(`INSERT INTO contactFormTable 
+        (contactFirstName, contactLastName, contactEmail, placeOfObservation, observationDetails) 
+        VALUES 
+        ('${req.body.contactFirstName}', '${req.body.contactLastName}', '${req.body.contactEmail}', '${req.body.placeOfObservation}', '${req.body.observationDetails}');`,
+    function (err, result) {
+        if (err) throw res.status(400).send(err)
+        res.send(result);
+    })
+});
 
 /****************************************************************/
 /******************** PUT METHODS *******************************/
@@ -284,6 +298,19 @@ function ValidateSpecie(req) {
 
     return Joi.validate(req.body, schema);
 }
+
+function ValidateForm(req) {
+    const schema = {
+        contactFirstName: Joi.string().min(3).required(),
+        contactLastName: Joi.string().min(3).required(),
+        contactEmail: Joi.string().min(3).required(),
+        placeOfObservation: Joi.string().min(3).required(),
+        observationDetails: Joi.string().min(3).required()
+    };
+
+    return Joi.validate(req.body, schema);
+}
+
 
 const port = process.env.port || 3011;
 app.listen(port, () => console.log(`Listening on port ${port}...`));

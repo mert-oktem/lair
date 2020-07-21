@@ -4,6 +4,7 @@ import DiscImage from "./DiscImage";
 import AnimalCard from "./AnimalCard";
 import DiscNavSearch from "./DiscNavSearch";
 import FilterIconImg from "../../../../img/ui_icons/PNG/ui_icons_filter.png";
+import SearchIconImg from "../../../../img/ui_icons/PNG/ui_icons_search.png";
 
 
 class DiscMain extends Component {
@@ -21,12 +22,16 @@ class DiscMain extends Component {
             isCriticallyEndangered: false,
             isEndangered: false,
             lessItems:[],
-            isMore:false
+            isMore:false,
+            search: '',
+            searchLoad: false,
+            searchedItems: []
         }
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
         this.handleClear = this.handleClear.bind(this)
         this.handleLoadMore = this.handleLoadMore.bind(this)
+        this.handleInput = this.handleInput.bind(this)
     }
     async handleChange(event) {
         let el = event.target;
@@ -94,6 +99,31 @@ class DiscMain extends Component {
             isFilter:false
         })
     }
+
+    handleInput(event){
+        event.preventDefault()
+        console.log(event.target.value);
+        let value = event.target.value;
+        let name = event.target.name;
+        this.setState(  {
+                [name]: value,
+                searchLoad: true
+
+            }
+        )
+        console.log(this.state.search)
+        let itemSearch = this.state.items.filter((item) => {
+            return item.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
+        });
+        this.setState({
+            searchedItems: itemSearch
+
+        })
+
+        console.log(this.state.searchedItems)
+
+        //this.setState({search: e.target.value})
+    }
     componentDidMount() {
         fetch('http://localhost:3011/api/species')
             .then(res => res.json())
@@ -109,7 +139,12 @@ class DiscMain extends Component {
             })
     }
     render() {
-        var {isLoaded, items, filteredItems, isFilter, lessItems, isMore} = this.state;
+
+
+        var {isLoaded, items, filteredItems, isFilter, lessItems, isMore, searchLoad, searchedItems} = this.state;
+
+
+
         if (!isLoaded) {
             return <div>Loading...</div>
         } else if(isFilter && isLoaded){
@@ -119,7 +154,21 @@ class DiscMain extends Component {
                     <DiscImage/>
                     <div className="disc-main-navigation">
                         <div className="disc-navigation">
-                            <DiscNavSearch />
+                            <form className="disc-nav-search">
+                                <div className="navigation-search-icon"><img src={SearchIconImg} alt="Search icon Image"/></div>
+
+                                <div className="disc-nav-search-type">
+                                    <input
+                                        type="text"
+                                        value={this.state.search}
+                                        name="search"
+                                        placeholder="Search for an animal"
+                                        onChange={this.handleInput}
+                                    />
+
+                                </div>
+
+                            </form>
                             <div className="navigation-filter">
                                 <div className="navigation-filter-icon">
                                     <a href = "/">
@@ -228,7 +277,21 @@ class DiscMain extends Component {
                     <DiscImage/>
                     <div className="disc-main-navigation">
                         <div className="disc-navigation">
-                            <DiscNavSearch />
+                            <form className="disc-nav-search">
+                                <div className="navigation-search-icon"><img src={SearchIconImg} alt="Search icon Image"/></div>
+
+                                <div className="disc-nav-search-type">
+                                    <input
+                                        type="text"
+                                        value={this.state.search}
+                                        name="search"
+                                        placeholder="Search for an animal"
+                                        onChange={this.handleInput}
+                                    />
+
+                                </div>
+
+                            </form>
                             <div className="navigation-filter">
                                 <div className="navigation-filter-icon">
                                     <a href = "/">
@@ -331,6 +394,130 @@ class DiscMain extends Component {
                 </main>
             )
         }
+        else if(searchLoad && isLoaded){
+            return (
+                <main className="site-disc-main">
+                    <DiscIntro/>
+                    <DiscImage/>
+                    <div className="disc-main-navigation">
+                        <div className="disc-navigation">
+                            <form className="disc-nav-search">
+                                <div className="navigation-search-icon"><img src={SearchIconImg} alt="Search icon Image"/></div>
+
+                                <div className="disc-nav-search-type">
+                                    <input
+                                        type="text"
+                                        value={this.state.search}
+                                        name="search"
+                                        placeholder="Search for an animal"
+                                        onChange={this.handleInput}
+                                    />
+
+                                </div>
+
+                            </form>
+                            <div className="navigation-filter">
+                                <div className="navigation-filter-icon">
+                                    <a href = "/">
+                                        <img src={FilterIconImg} alt="Filter icon Image" />
+                                        <p>Filter</p>
+                                    </a>
+                                </div>
+                                <div className="navigation-filter-items">
+                                    <form className="form-filter" >
+                                        <ul>
+                                            <li className="navigation-filter-list-head-species"><a href="/">Species</a></li>
+                                            <li className="filter-species-items">
+                                                <div className="filter-species-items-child1">
+                                                    <label>Mammals</label>
+                                                    <input
+
+                                                        type="checkbox"
+                                                        name="isMammals"
+                                                        id="isMammals"
+                                                        checked={this.state.isMammals}
+                                                        onChange={this.handleChange}
+                                                    />
+                                                </div>
+                                                <div className="filter-species-items-child2">
+                                                    <label>Birds</label>
+                                                    <input
+                                                        type="checkbox"
+                                                        name="isBirds"
+                                                        id="isBirds"
+                                                        checked={this.state.isBirds}
+                                                        onChange={this.handleChange}
+                                                    />
+                                                </div>
+                                                <div className="filter-species-items-child3">
+                                                    <label>Fish</label>
+                                                    <input
+                                                        type="checkbox"
+                                                        name="isFish"
+                                                        id="isFish"
+                                                        checked={this.state.isFish}
+                                                        onChange={this.handleChange}
+                                                    />
+                                                </div>
+                                                <div className="filter-species-items-child4">
+                                                    <label>Reptiles</label>
+                                                    <input
+                                                        type="checkbox"
+                                                        name="isReptiles"
+                                                        id="isReptiles"
+                                                        checked={this.state.isReptiles}
+                                                        onChange={this.handleChange}
+                                                    />
+                                                </div>
+                                            </li>
+                                            <li className="navigation-filter-list-head-risks"><a href="/">Extinction Risk</a></li>
+                                            <li className="filter-risks-items">
+                                                <div className="filter-risks-items-child1">
+                                                    <label>Endangered</label>
+                                                    <input
+                                                        type="checkbox"
+                                                        name="isEndangered"
+                                                        id="isEndangered"
+                                                        checked={this.state.isEndangered}
+                                                        onChange={this.handleChange}
+                                                    />
+                                                </div>
+                                                <div className="filter-risks-items-child2">
+                                                    <label>Critically Endangered</label>
+                                                    <input
+                                                        type="checkbox"
+                                                        name="isCriticallyEndangered"
+                                                        id="isCriticallyEndangered"
+                                                        checked={this.state.isCriticallyEndangered}
+                                                        onChange={this.handleChange}
+                                                    />
+                                                </div>
+                                            </li>
+                                        </ul>
+                                        <button type="button" onClick={this.handleSubmit}>APPLY FILTER</button>
+                                        <button type="button" onClick={this.handleClear}>Clear FILTER</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="site-disc-main-animalCards">
+                        {searchedItems.map(item => (
+                            <AnimalCard key={item.speciesID}
+                                        animal={{
+                                            name: `${item.name}`,
+                                            location: `${item.habitat}`,
+                                            population: `${item.speciesCount}`,
+                                            status: `${item.statusDescription}`,
+                                            imgUrl: `${item.image1}` + '.jpg',
+                                            aniId: `${item.speciesID}`
+                                        }}
+                            />
+                        ))}
+                    </div>
+                </main>
+            )
+        }
         else{
             return (
                 <main className="site-disc-main">
@@ -338,7 +525,21 @@ class DiscMain extends Component {
                     <DiscImage/>
                     <div className="disc-main-navigation">
                         <div className="disc-navigation">
-                            <DiscNavSearch />
+                            <form className="disc-nav-search">
+                                <div className="navigation-search-icon"><img src={SearchIconImg} alt="Search icon Image"/></div>
+
+                                <div className="disc-nav-search-type">
+                                    <input
+                                        type="text"
+                                        value={this.state.search}
+                                        name="search"
+                                        placeholder="Search for an animal"
+                                        onChange={this.handleInput}
+                                    />
+
+                                </div>
+
+                            </form>
                             <div className="navigation-filter">
                                 <div className="navigation-filter-icon">
                                     <a href = "/">

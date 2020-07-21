@@ -3,20 +3,20 @@ import SearchIconImg from "../../../../img/ui_icons/PNG/ui_icons_search.png";
 
 
 class DiscNavSearch extends Component {
-    constructor() {
-        super()
-        this.state = {
-            search: ""
-        }
-        this.handleChange = this.handleChange.bind(this)
+    constructor(props) {
+        super(props)
+        // this.state = {
+        //     search: ""
+        // }
+        // this.handleChange = this.handleChange.bind(this)
     }
 
-    handleChange(event) {
-        const {name, value, type} = event.target
-        this.setState({
-            [name]: value
-        })
-    }
+    // handleChange(event) {
+    //     const {name, value, type} = event.target
+    //     this.setState({
+    //         [name]: value
+    //     })
+    // }
 
     render() {
         return (
@@ -26,10 +26,10 @@ class DiscNavSearch extends Component {
                 <div className="disc-nav-search-type">
                     <input
                         type="text"
-                        value={this.state.search}
-                        name="search"
+                        // value={this.state.search}
+                        // name="search"
                         placeholder="Search for an animal"
-                        onChange={this.handleChange}
+                        onChange={this.props.handleInput}
                     />
 
                 </div>
