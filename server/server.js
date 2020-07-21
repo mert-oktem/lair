@@ -222,7 +222,7 @@ app.post('/api/contact', (req, res) => {
         ('${req.body.contactFirstName}', '${req.body.contactLastName}', '${req.body.contactEmail}', '${req.body.placeOfObservation}', '${req.body.observationDetails}');`,
     function (err, result) {
         if (err) throw res.status(400).send(err)
-        res.send("ok");
+        res.send(result);
     })
 });
 
