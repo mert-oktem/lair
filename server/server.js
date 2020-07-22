@@ -230,10 +230,10 @@ app.post('/api/newsletter', (req, res) => {
     const { error } = ValidateNewsletter(req);
     if (error) { return res.status(400).send(res.error.details[0].message)}
 
-    connection.query(`INSERT INTO newsLetterTable 
-        (email) 
+    connection.query(`INSERT INTO newsletterTable 
+        (subscriberEmail) 
         VALUES 
-        ('${req.body.email}');`,
+        ('${req.body.subscriberEmail}');`,
     function (err, result) {
         if (err) throw res.status(400).send(err)
         res.send(result);
@@ -320,6 +320,15 @@ function ValidateForm(req) {
         contactEmail: Joi.string().min(3).required(),
         placeOfObservation: Joi.string().min(3).required(),
         observationDetails: Joi.string().min(3).required()
+    };
+
+    return Joi.validate(req.body, schema);
+}
+function ValidateNewsletter(req) {
+    const schema = {
+
+        subscriberEmail: Joi.string().min(3).required()
+
     };
 
     return Joi.validate(req.body, schema);

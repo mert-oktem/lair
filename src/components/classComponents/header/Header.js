@@ -6,9 +6,16 @@ import MobileMenu from '../navigation/MobileMenu'
 import CloseButton from '../navigation/closeButton/CloseButton'
 
 class Header extends Component{
-    state = {
-        mobileMenuOpen: false
+    constructor(){
+        super()
+        this.state = {
+            mobileMenuOpen: false
+        }
     }
+
+    // state = {
+    //     mobileMenuOpen: false
+    // }
 
    drawerToggleClickHandler = () => {
        this.setState((prevState) => {
@@ -30,7 +37,7 @@ class Header extends Component{
         return (
             <header className="site-header" style={{height: '100%'}}>
                 <Toolbar drawerClickHandler={this.drawerToggleClickHandler} />
-                <MobileMenu show={this.state.mobileMenuOpen}/>
+                <MobileMenu show={this.state.mobileMenuOpen} close={this.closeButtonClickHandler}/>
                 {closeButton}
             </header>
         )

@@ -19,12 +19,12 @@ const MobileMenu = props => {
             </div>
                 <nav className="mobile-menu-nav">
                     <ul>
-                        <li><Link to="/">Home</Link></li>
-                        <li><Link to="/discovery">Explore</Link></li>
-                        <li><Link to="/articles">Articles</Link></li>
-                        <li><Link to="/aboutUs">About Us</Link></li>
-                        <li><Link to="/contact">Contact</Link></li>
-                        <li className="donate-button"><Link to="/donate">Donate</Link></li>
+                        <li><Link to="/" onClick={props.close}>Home</Link></li>
+                        <li><Link to="/discovery" onClick={props.close}>Explore</Link></li>
+                        <li><Link to="/articles" onClick={props.close}>Articles</Link></li>
+                        <li><Link to="/aboutUs" onClick={props.close}>About Us</Link></li>
+                        <li><Link to="/contact" onClick={props.close}>Contact</Link></li>
+                        <li className="donate-button" onClick={props.close}><Link to="/donate">Donate</Link></li>
                     </ul>
                 </nav>
         </div>
