@@ -46,8 +46,11 @@ class CanadaMap extends Component {
       .append("svg")
       .attr("height", height + margin.top + margin.bottom)
       .attr("width", width + margin.left + margin.right)
+      .attr("viewBox", "0 0 " + width + " " + height )
+      .attr("preserveAspectRatio", "xMinYMin")
       .append("g")
-      .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+      .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+
 
 
       var projection = d3.geoOrthographic().clipAngle(90).rotate([98, -60]).scale(600).translate([500,200])
@@ -87,8 +90,20 @@ class CanadaMap extends Component {
             return path.centroid(d)[0];
          })
          .attr("y", function(d){
-            return  path.centroid(d)[1];
-         })   
+            if (d.properties.name == "Prince Edward Island") {
+               return  path.centroid(d)[1] - 15;
+            }
+            else if (d.properties.name == "Nova Scotia") {
+               return  path.centroid(d)[1] + 40;
+            }
+            else if (d.properties.name == "New Brunswick") {
+               return  path.centroid(d)[1] + 10;
+            }
+            else {
+               return path.centroid(d)[1];
+            }
+         })
+         .attr("text-anchor","middle")
    }
 
    render() {
