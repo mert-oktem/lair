@@ -124,7 +124,7 @@ class DiscMain extends Component {
         //this.setState({search: e.target.value})
     }
     componentDidMount() {
-        fetch('http://localhost:3011/api/species')
+        fetch('https://lair.wmdd.ca/api/species')
             .then(res => res.json())
             .then(json => {
                 // filter json based on selection

@@ -13,7 +13,7 @@ class Articles extends Component{
         }
     }
     componentDidMount() {
-        fetch('http://localhost:3011/medium/rss')
+        fetch('https://lair.wmdd.ca/medium/rss')
             .then(res => res.json())
             .then(json => {
                 // console.log(json);
