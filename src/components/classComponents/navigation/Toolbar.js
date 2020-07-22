@@ -16,11 +16,11 @@ const toolbar = props => (
             <div className="toolbar-nav-items">
                 <ul>
                     {/* <li><a href="/">Home</a></li> */}
-                    <li><a href="/discovery">Explore</a></li>
-                    <li><a href="/articles">Articles</a></li>
-                    <li><a href="/aboutUs">About Us</a></li>
-                    <li><a href="/contact">Contact</a></li>
-                    <li className="donate-desktop-button"><a href="/donate">Donate</a></li>
+                    <li><Link to="/discovery">Explore</Link></li>
+                    <li><Link to="/articles">Articles</Link></li>
+                    <li><Link to="/aboutUs">About Us</Link></li>
+                    <li><Link to="/contact">Contact</Link></li>
+                    <li className="donate-desktop-button"><Link to="/donate">Donate</Link></li>
                 </ul> 
             </div>
         </nav>

@@ -1,6 +1,7 @@
 import React from 'react'
 import CloseButton from './closeButton/CloseButton'
 import Logo from '../Logo'
+import {Link} from 'react-router-dom'
 
 const MobileMenu = props => {
 
@@ -18,12 +19,12 @@ const MobileMenu = props => {
             </div>
                 <nav className="mobile-menu-nav">
                     <ul>
-                        <li><a href="/">Home</a></li>
-                        <li><a href="/discovery">Explore</a></li>
-                        <li><a href="/articles">Articles</a></li>
-                        <li><a href="/aboutUs">About Us</a></li>
-                        <li><a href="/contact">Contact</a></li>
-                        <li className="donate-button"><a href="/donate">Donate</a></li>
+                        <li><Link to="/">Home</Link></li>
+                        <li><Link to="/discovery">Explore</Link></li>
+                        <li><Link to="/articles">Articles</Link></li>
+                        <li><Link to="/aboutUs">About Us</Link></li>
+                        <li><Link to="/contact">Contact</Link></li>
+                        <li className="donate-button"><Link to="/donate">Donate</Link></li>
                     </ul>
                 </nav>
         </div>
