@@ -16,7 +16,7 @@ class Donate extends Component{
         }
     }
     componentDidMount() {
-        fetch('http://localhost:3011/api/ngos')
+        fetch('https://lair.wmdd.ca/api/ngos')
             .then(res => res.json())
             .then(json => {
                 console.log(json);

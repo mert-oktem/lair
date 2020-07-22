@@ -19,7 +19,7 @@ class CanadaMap extends Component {
    }
 
    handleClick(d){
-      fetch(`http://localhost:3011/api/locations/${d.properties.name}`)
+      fetch(`https://lair.wmdd.ca/api/locations/${d.properties.name}`)
       .then(res => res.json())
       .then(json => {
          this.setState( {

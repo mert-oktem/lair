@@ -32,7 +32,7 @@ connection.connect()
 /****************************************************************/
 
 
-app.get('/api/species', (req, res) => {
+app.get(`/api/species`, (req, res) => {
     let species
     let q = `SELECT e.speciesID, sDT.statusDescription, e.name, fT.familyDescription,
                     e.image1, pT.speciesCount, lT.habitat
@@ -220,6 +220,20 @@ app.post('/api/contact', (req, res) => {
         (contactFirstName, contactLastName, contactEmail, placeOfObservation, observationDetails) 
         VALUES 
         ('${req.body.contactFirstName}', '${req.body.contactLastName}', '${req.body.contactEmail}', '${req.body.placeOfObservation}', '${req.body.observationDetails}');`,
+    function (err, result) {
+        if (err) throw res.status(400).send(err)
+        res.send(result);
+    })
+});
+
+app.post('/api/newsletter', (req, res) => {
+    const { error } = ValidateNewsletter(req);
+    if (error) { return res.status(400).send(res.error.details[0].message)}
+
+    connection.query(`INSERT INTO newsLetterTable 
+        (email) 
+        VALUES 
+        ('${req.body.email}');`,
     function (err, result) {
         if (err) throw res.status(400).send(err)
         res.send(result);

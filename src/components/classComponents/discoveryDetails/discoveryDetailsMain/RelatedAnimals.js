@@ -11,7 +11,7 @@ class RelatedAnimals extends Component {
         }
     }
     componentDidMount() {
-        fetch(`http://localhost:3011/api/relatedspecies/${this.props.id}`)
+        fetch(`https://lair.wmdd.ca/api/relatedspecies/${this.props.id}`)
             .then(res => res.json())
             .then(json => {
                 // console.log( json );

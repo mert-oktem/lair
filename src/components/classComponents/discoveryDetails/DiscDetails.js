@@ -20,7 +20,7 @@ class DiscDetails extends Component{
     componentDidMount() {
 
 
-        fetch(`http://localhost:3011/api/species/${this.props.match.params.id}`)
+        fetch(`https://lair.wmdd.ca/api/species/${this.props.match.params.id}`)
             .then(res => res.json())
             .then(json => {
                 this.setState({
@@ -31,7 +31,7 @@ class DiscDetails extends Component{
     }
     componentDidUpdate() {
 
-        fetch(`http://localhost:3011/api/species/${this.props.match.params.id}`)
+        fetch(`https://lair.wmdd.ca/api/species/${this.props.match.params.id}`)
             .then(res => res.json())
             .then(json => {
                 this.setState({

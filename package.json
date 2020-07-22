@@ -17,7 +17,7 @@
     "joi": "^14.3.1",
     "jsdom": "^16.3.0",
     "mysql": "^2.18.1",
-    "node": "^14.3.0",
+    "node": "^12.4.0",
     "nodemon": "^2.0.4",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
@@ -31,9 +31,10 @@
     "topojson-client": "^3.1.0",
     "vanilla-rss": "^1.4.0"
   },
+
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "CI= react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
