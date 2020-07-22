@@ -2,7 +2,6 @@ import React, {Component} from 'react'
 import DiscIntro from "./DiscIntro";
 import DiscImage from "./DiscImage";
 import AnimalCard from "./AnimalCard";
-import DiscNavSearch from "./DiscNavSearch";
 import FilterIconImg from "../../../../img/ui_icons/PNG/ui_icons_filter.png";
 import SearchIconImg from "../../../../img/ui_icons/PNG/ui_icons_search.png";
 
