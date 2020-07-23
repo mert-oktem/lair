@@ -4,6 +4,8 @@ import DonateImage from "./DonateImage";
 import DonateDesc from "./DonateDesc";
 import DonateHow from "./DonateHow";
 import DonateCard from "./DoanteCard";
+import Header from "../header/Header";
+import Footer from "../footer/Footer";
 
 
 
@@ -23,56 +25,54 @@ class Donate extends Component{
                 this.setState({
                     isLoaded: true,
                     items: json
-
                 })
-
             })
-
     }
     render(){
-        // return <div>got it</div>
-
         var { isLoaded, items } = this.state;
-
-        console.log(items);
-        //
         if(!isLoaded){
             return (
                 <div className="site-donate">
-                    <DonateIntro />
-                    <DonateImage />
-                    <DonateHow />
-                    <div className="donate-main">
-                        <DonateDesc />
-                        <div className="donate-not-loading">
-                            Loading......
+                    <Header />
+                    <main>
+                        <DonateIntro />
+                        <DonateImage />
+                        <DonateHow />
+                        <div className="donate-main">
+                            <DonateDesc />
+                            <div className="donate-not-loading">
+                                Loading......
+                            </div>
                         </div>
-                    </div>
+                    </main>
+                    <Footer />
                 </div>
             )
         }
         else{
-            console.log(items);
             return (
-                // <div>Items</div>
                 <div className="site-donate">
-                    <DonateIntro />
-                    <DonateImage />
-                    <DonateHow />
-                    <div className="donate-main">
-                        <DonateDesc />
-                        {items.map(item => (
-                            <DonateCard key={item.ngoID}
-                                        donate={{
-                                            name: `${item.ngoName}`,
-                                            desc: `${item.ngoDescription}`,
-                                            ngoUrl: `${item.ngoLink}`,
-                                            imgUrl: `${item.ngoImage}` + '.png',
-                                            ngoId: `${item.ngoID}`
-                                        }}
-                            />
-                        ))}
-                    </div>
+                    <Header />
+                    <main>
+                        <DonateIntro />
+                        <DonateImage />
+                        <DonateHow />
+                        <div className="donate-main">
+                            <DonateDesc />
+                            {items.map(item => (
+                                <DonateCard key={item.ngoID}
+                                            donate={{
+                                                name: `${item.ngoName}`,
+                                                desc: `${item.ngoDescription}`,
+                                                ngoUrl: `${item.ngoLink}`,
+                                                imgUrl: `${item.ngoImage}` + '.png',
+                                                ngoId: `${item.ngoID}`
+                                            }}
+                                />
+                            ))}
+                        </div>
+                    </main>
+                    <Footer />
                 </div>
             )
         }
