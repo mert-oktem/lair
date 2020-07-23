@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import ArtDetImg2 from "../../../img/img2/long_billed_curlew.jpg";
+import ArtDetImg2 from "../../../img/img2/long_billed_curlew.png";
 
 class ArticlesDetInfo extends Component {
     // constructor(){

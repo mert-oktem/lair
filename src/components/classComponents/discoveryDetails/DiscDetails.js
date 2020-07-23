@@ -4,6 +4,8 @@ import AnimalDet from "./discoveryDetailsMain/AnimalDet";
 import PopulationChart from "./discoveryDetailsMain/PopulationChart";
 import WhyMatter from "./discoveryDetailsMain/WhyMatter";
 import RelatedAnimals from "./discoveryDetailsMain/RelatedAnimals";
+import Header from "../header/Header";
+import Footer from "../footer/Footer";
 
 class DiscDetails extends Component{
     constructor(props){
@@ -44,7 +46,7 @@ class DiscDetails extends Component{
         return (
 
             <div className="site-discDet">
-
+                <Header />
                 <main className="site-discDet-main">
                     <div className="discDetails-overview">
                         <AnimalImage image={{imgUrl: '../../../' + `${this.state.item.image1}` + '.jpg'}}/>
@@ -62,11 +64,11 @@ class DiscDetails extends Component{
                                 }}/>
                     </div>
                     <PopulationChart id = {this.props.match.params.id} trend={this.state.item.trendDescription} threat={this.state.item.threats}/>
-                    <WhyMatter text={this.state.item.speciesSignificance} image={{imgUrl: '../../../' + `${this.state.item.image2}` + '.jpg'}}/>
+                    <WhyMatter text={this.state.item.speciesSignificance} image={{imgUrl: '../../../' + `${this.state.item.image2}` + '.png'}}/>
                     <RelatedAnimals id = {this.props.match.params.id}/>
 
                 </main>
-
+                <Footer />
             </div>
         )
     }

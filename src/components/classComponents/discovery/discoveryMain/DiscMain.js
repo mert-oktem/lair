@@ -171,7 +171,7 @@ class DiscMain extends Component {
         }
 
         if (!isLoaded) {
-            return <div>Loading...</div>
+            return <div className="disc-main-navigation"><p>Loading...</p></div>
         } else if(isFilter && isLoaded){
             return (
                 <main className="site-disc-main">

@@ -19,7 +19,6 @@ function App() {
     <Router>
         <ScrollToTop />
         <div className="App">
-            <Header />
             <Switch>
                 <Route path="/" exact component={Home} />
                 <Route path="/discovery" exact component={Discovery} />
@@ -30,8 +29,6 @@ function App() {
                 <Route path="/articlesDetails" component={ArticlesDet} />
                 <Route path="/discovery/:id" exact component={DiscDetails} />
             </Switch>
-            <Footer />
-
         </div>
     </Router>
   );

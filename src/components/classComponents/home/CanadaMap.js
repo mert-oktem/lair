@@ -139,9 +139,6 @@ class CanadaMap extends Component {
          return (<div className="canada-map">
                 <div style={{ height: 700 }} ref={this.myRef}>
                 </div>
-                {/*<div className="canada-map-click">*/}
-                {/*   Waiting to be clicked..*/}
-                {/*</div>*/}
          </div>
          )
       }
