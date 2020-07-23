@@ -17,9 +17,10 @@ class Articles extends Component{
             .then(res => res.json())
             .then(json => {
                 // console.log(json);
+                const less = json.items.slice(0,9)
                 this.setState({
                     isLoaded: true,
-                    dataSets: json.items
+                    dataSets: less
 
                 })
 
