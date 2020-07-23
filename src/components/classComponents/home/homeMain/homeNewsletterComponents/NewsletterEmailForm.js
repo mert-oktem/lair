@@ -46,6 +46,8 @@ class NewsletterEmailForm extends Component {
                         subscriberEmail: ""
                     }
                 })
+                document.getElementById("newsletter-submit").innerHTML = "Thank you for subscribing";
+
             })
         })
         console.log("form submitted");
@@ -53,24 +55,28 @@ class NewsletterEmailForm extends Component {
 
     render() {
         return (
-            <form className="newsletter-form">
+            <div className="newsletter-form-outerdiv">
+                <form className="newsletter-form">
 
-                <div className="newsletter-form-email">
-                    <input
-                        type="email"
-                        value={this.state.newSub.subscriberEmail}
-                        name="subscriberEmail"
-                        id="subscriberEmail"
-                        placeholder="Please enter your email"
-                        onChange={this.handleChange}
-                    />
+                    <div className="newsletter-form-email">
+                        <input
+                            type="email"
+                            value={this.state.newSub.subscriberEmail}
+                            name="subscriberEmail"
+                            id="subscriberEmail"
+                            placeholder="Please enter your email"
+                            onChange={this.handleChange}
+                        />
 
-                </div>
-                <div className="newsletter-form-submitBtn">
-                    <button type="button" onClick={this.handleSubmit}>JOIN US</button>
-                </div>
+                    </div>
+                    <div className="newsletter-form-submitBtn">
+                        <button type="button" onClick={this.handleSubmit}>JOIN US</button>
+                    </div>
 
-            </form>
+                </form>
+                <div id="newsletter-submit"></div>
+            </div>
+
         )
     }
 }

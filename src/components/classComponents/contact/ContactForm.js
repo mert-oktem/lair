@@ -62,59 +62,60 @@ class ContactForm extends Component {
                 observationDetails: ""
             }
         })
-        document.getElementById("response-submit").innerHTML = "Thank you for submitting your response"
+        document.getElementById("response-submit").innerHTML = "Thank you for submitting your response";
     }
     render() {
         return (
-            <form className="contact-contactForm" id="contact-contactForm">
-                <div className="contact-contactForm-firstName">
-                    <input
-                        type="text"
-                        value={this.state.newUser.contactFirstName}
-                        name="contactFirstName"
-                        id="contactFirstName"
-                        placeholder="First Name"
-                        onChange={this.handleChange}
-                    />
-                </div>
+            <div className="contact-contactForm-outerdiv">
+                <form className="contact-contactForm" id="contact-contactForm">
+                    <div className="contact-contactForm-firstName">
+                        <input
+                            type="text"
+                            value={this.state.newUser.contactFirstName}
+                            name="contactFirstName"
+                            id="contactFirstName"
+                            placeholder="First Name"
+                            onChange={this.handleChange}
+                        />
+                    </div>
 
-                <div className="contact-contactForm-lastName">
-                    <input
-                        type="text"
-                        value={this.state.newUser.contactLastName}
-                        name="contactLastName"
-                        id="contactLastName"
-                        placeholder="Last Name"
-                        onChange={this.handleChange}
-                    />
+                    <div className="contact-contactForm-lastName">
+                        <input
+                            type="text"
+                            value={this.state.newUser.contactLastName}
+                            name="contactLastName"
+                            id="contactLastName"
+                            placeholder="Last Name"
+                            onChange={this.handleChange}
+                        />
 
-                </div>
+                    </div>
 
-                <div className="contact-contactForm-email">
-                    <input
-                        type="email"
-                        value={this.state.newUser.contactEmail}
-                        name="contactEmail"
-                        id="contactEmail"
-                        placeholder="Email"
-                        onChange={this.handleChange}
-                    />
+                    <div className="contact-contactForm-email">
+                        <input
+                            type="email"
+                            value={this.state.newUser.contactEmail}
+                            name="contactEmail"
+                            id="contactEmail"
+                            placeholder="Email"
+                            onChange={this.handleChange}
+                        />
 
-                </div>
+                    </div>
 
-                <div className="contact-contactForm-where">
-                    <input
-                        type="text"
-                        value={this.state.newUser.placeOfObservation}
-                        name="placeOfObservation"
-                        id="placeOfObservation"
-                        placeholder="Where did you encounter the species?"
-                        onChange={this.handleChange}
-                    />
+                    <div className="contact-contactForm-where">
+                        <input
+                            type="text"
+                            value={this.state.newUser.placeOfObservation}
+                            name="placeOfObservation"
+                            id="placeOfObservation"
+                            placeholder="Where did you encounter the species?"
+                            onChange={this.handleChange}
+                        />
 
-                </div>
+                    </div>
 
-                <div className="contact-contactForm-details">
+                    <div className="contact-contactForm-details">
                     <textarea
                         value={this.state.newUser.observationDetails}
                         name="observationDetails"
@@ -122,11 +123,14 @@ class ContactForm extends Component {
                         placeholder="Details"
                         onChange={this.handleChange}
                     />
-                </div>
+                    </div>
 
-                <button type="button" onClick={this.handleSubmit}>Send Now</button>
+                    <button type="button" onClick={this.handleSubmit}>Send Now</button>
 
                 </form>
+                <div id="response-submit"></div>
+            </div>
+
         )
     }
 }
