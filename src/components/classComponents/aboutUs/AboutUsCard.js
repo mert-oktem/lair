@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import {Link} from "react-router-dom";
 
 class AboutUsCard extends Component {
     // constructor(){
@@ -20,8 +21,10 @@ class AboutUsCard extends Component {
                     <p>{this.props.about.desc}</p>
                 </div>
                 <div className="aboutUs-card-social">
-                    <img alt="Social Links 1"/>
-                    <img alt="Social Links 2"/>
+                    <Link to={{ pathname: `${this.props.about.socialLink1}` }} target="_blank">
+                        <img src={this.props.about.socialIcon1} alt="Social Links 1"/></Link>
+                        <Link to={{ pathname: `${this.props.about.socailLink2}` }} target="_blank">
+                            <img src={this.props.about.socialIcon2} alt="Social Links 2"/></Link>
                 </div>
             </div>
         )
