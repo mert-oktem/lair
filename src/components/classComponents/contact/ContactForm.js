@@ -122,7 +122,6 @@ class ContactForm extends Component {
                         placeholder="Details"
                         onChange={this.handleChange}
                     />
-
                 </div>
 
                 <button type="button" onClick={this.handleSubmit}>Send Now</button>

@@ -4,6 +4,7 @@ import DiscImage from "./DiscImage";
 import AnimalCard from "./AnimalCard";
 import FilterIconImg from "../../../../img/ui_icons/PNG/ui_icons_filter.png";
 import SearchIconImg from "../../../../img/ui_icons/PNG/ui_icons_search.png";
+import CloseButton from "../../navigation/closeButton/CloseButton";
 
 
 class DiscMain extends Component {
@@ -24,13 +25,16 @@ class DiscMain extends Component {
             isMore:false,
             search: '',
             searchLoad: false,
-            searchedItems: []
+            searchedItems: [],
+            mobileFilterOpen: false
         }
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
         this.handleClear = this.handleClear.bind(this)
         this.handleLoadMore = this.handleLoadMore.bind(this)
         this.handleInput = this.handleInput.bind(this)
+        this.filterToggleClickHandler=this.filterToggleClickHandler.bind(this)
+        this.filterCloseButtonClickHandler=this.filterCloseButtonClickHandler.bind(this)
     }
     async handleChange(event) {
         let el = event.target;
@@ -137,12 +141,34 @@ class DiscMain extends Component {
                 })
             })
     }
+
+    // filter handlers  for mobile //////////////////////////////////////////
+    filterToggleClickHandler = () => {
+        this.setState((prevState) => {
+            return{mobileFilterOpen: !prevState.mobileFilterOpen}
+        })
+    }
+
+    filterCloseButtonClickHandler = () => {
+        this.setState({mobileFilterOpen: false})
+    }
+
+
+    ////////////////////////////////////////////////////////////
     render() {
 
 
         var {isLoaded, items, filteredItems, isFilter, lessItems, isMore, searchLoad, searchedItems} = this.state;
 
+        let closeButton;
+        if (this.state.mobileFilterOpen){
+            closeButton = <CloseButton click={this.filterCloseButtonClickHandler} />;
+        }
 
+        let mobileFilterMenuClasses = 'mobile-filter-menu'
+        if (this.state.mobileFilterOpen) {
+            mobileFilterMenuClasses = 'mobile-filter-menu open'
+        }
 
         if (!isLoaded) {
             return <div>Loading...</div>
@@ -152,105 +178,112 @@ class DiscMain extends Component {
                     <DiscIntro/>
                     <DiscImage/>
                     <div className="disc-main-navigation">
-                        <div className="disc-navigation">
-                            <form className="disc-nav-search">
-                                <div className="navigation-search-icon"><img src={SearchIconImg} alt="Search icon Image"/></div>
-
-                                <div className="disc-nav-search-type">
-                                    <input
-                                        type="text"
-                                        value={this.state.search}
-                                        name="search"
-                                        placeholder="Search for an animal"
-                                        onChange={this.handleInput}
-                                    />
-
-                                </div>
-
-                            </form>
-                            <div className="navigation-filter">
-                                <div className="navigation-filter-icon">
-                                    <a href = "/">
-                                        <img src={FilterIconImg} alt="Filter icon Image" />
-                                        <p>Filter</p>
-                                    </a>
-                                </div>
-                                <div className="navigation-filter-items">
-                                    <form className="form-filter" >
-                                        <ul>
-                                            <li className="navigation-filter-list-head-species"><a href="/">Species</a></li>
-                                            <li className="filter-species-items">
-                                                <div className="filter-species-items-child1">
-                                                    <label>Mammals</label>
-                                                    <input
-                                                        type="checkbox"
-                                                        name="isMammals"
-                                                        id="isMammals"
-                                                        checked={this.state.isMammals}
-                                                        onChange={this.handleChange}
-                                                    />
-                                                </div>
-                                                <div className="filter-species-items-child2">
-                                                    <label>Birds</label>
-                                                    <input
-                                                        type="checkbox"
-                                                        name="isBirds"
-                                                        id="isBirds"
-                                                        checked={this.state.isBirds}
-                                                        onChange={this.handleChange}
-                                                    />
-                                                </div>
-                                                <div className="filter-species-items-child3">
-                                                    <label>Fish</label>
-                                                    <input
-                                                        type="checkbox"
-                                                        name="isFish"
-                                                        id="isFish"
-                                                        checked={this.state.isFish}
-                                                        onChange={this.handleChange}
-                                                    />
-                                                </div>
-                                                <div className="filter-species-items-child4">
-                                                    <label>Reptiles</label>
-                                                    <input
-                                                        type="checkbox"
-                                                        name="isReptiles"
-                                                        id="isReptiles"
-                                                        checked={this.state.isReptiles}
-                                                        onChange={this.handleChange}
-                                                    />
-                                                </div>
-                                            </li>
-                                            <li className="navigation-filter-list-head-risks"><a href="/">Extinction Risk</a></li>
-                                            <li className="filter-risks-items">
-                                                <div className="filter-risks-items-child1">
-                                                    <label>Endangered</label>
-                                                    <input
-                                                        type="checkbox"
-                                                        name="isEndangered"
-                                                        id="isEndangered"
-                                                        checked={this.state.isEndangered}
-                                                        onChange={this.handleChange}
-                                                    />
-                                                </div>
-                                                <div className="filter-risks-items-child2">
-                                                    <label>Critically Endangered</label>
-                                                    <input
-                                                        type="checkbox"
-                                                        name="isCriticallyEndangered"
-                                                        id="isCriticallyEndangered"
-                                                        checked={this.state.isCriticallyEndangered}
-                                                        onChange={this.handleChange}
-                                                    />
-                                                </div>
-                                            </li>
-                                        </ul>
-                                        <button type="button" onClick={this.handleSubmit}>APPLY FILTER</button>
-                                        <button type="button" onClick={this.handleClear}>Clear FILTER</button>
-                                    </form>
-                                </div>
+                        <nav className="disc-main-nav">
+                            <div className="disc-main-navigation-search">
+                                <form className="disc-nav-search">
+                                    <div className="navigation-search-icon">
+                                        <img src={SearchIconImg} alt="Search icon Image"/>
+                                    </div>
+                                    <div className="disc-nav-search-type">
+                                        <input
+                                            type="text"
+                                            value={this.state.search}
+                                            name="search"
+                                            placeholder="Search for an animal"
+                                            onChange={this.handleInput}
+                                        />
+                                    </div>
+                                </form>
                             </div>
+                            <div className="filter-spacer" />
+                            <div className="disc-main-navigation-filter-button">
+                                <button className="toggle-filter-button" onClick={this.filterToggleClickHandler}>Filter
+                                    <img src={FilterIconImg} alt="Filter icon Image" />
+                                    <div className="toggle-filter-line"></div>
+                                    <div className="toggle-filter-middle-line"></div>
+                                    <div className="toggle-filter-line"></div>
+                                </button>
+                            </div>
+                        </nav>
+                    </div>
+                    <div className={mobileFilterMenuClasses}>
+                        <div className="mobile-filter-menu-head">
+                            <p>Filter</p>
+                            {closeButton}
                         </div>
+                        <form className="mobile-filter-menu-form" >
+                            <ul>
+                                <li className="navigation-filter-list-head-species"><a href="/">Species</a></li>
+                                <li className="filter-species-items">
+                                    <div className="filter-species-items-child1">
+                                        <label>Mammals</label>
+                                        <input
+
+                                            type="checkbox"
+                                            name="isMammals"
+                                            id="isMammals"
+                                            checked={this.state.isMammals}
+                                            onChange={this.handleChange}
+                                        />
+                                    </div>
+                                    <div className="filter-species-items-child2">
+                                        <label>Birds</label>
+                                        <input
+                                            type="checkbox"
+                                            name="isBirds"
+                                            id="isBirds"
+                                            checked={this.state.isBirds}
+                                            onChange={this.handleChange}
+                                        />
+                                    </div>
+                                    <div className="filter-species-items-child3">
+                                        <label>Fish</label>
+                                        <input
+                                            type="checkbox"
+                                            name="isFish"
+                                            id="isFish"
+                                            checked={this.state.isFish}
+                                            onChange={this.handleChange}
+                                        />
+                                    </div>
+                                    <div className="filter-species-items-child4">
+                                        <label>Reptiles</label>
+                                        <input
+                                            type="checkbox"
+                                            name="isReptiles"
+                                            id="isReptiles"
+                                            checked={this.state.isReptiles}
+                                            onChange={this.handleChange}
+                                        />
+                                    </div>
+                                </li>
+                                <li className="navigation-filter-list-head-risks"><a href="/">Extinction Risk</a></li>
+                                <li className="filter-risks-items">
+                                    <div className="filter-risks-items-child1">
+                                        <label>Endangered</label>
+                                        <input
+                                            type="checkbox"
+                                            name="isEndangered"
+                                            id="isEndangered"
+                                            checked={this.state.isEndangered}
+                                            onChange={this.handleChange}
+                                        />
+                                    </div>
+                                    <div className="filter-risks-items-child2">
+                                        <label>Critically Endangered</label>
+                                        <input
+                                            type="checkbox"
+                                            name="isCriticallyEndangered"
+                                            id="isCriticallyEndangered"
+                                            checked={this.state.isCriticallyEndangered}
+                                            onChange={this.handleChange}
+                                        />
+                                    </div>
+                                </li>
+                            </ul>
+                            <button type="button" onClick={this.handleSubmit}>APPLY FILTER</button>
+                            <button type="button" onClick={this.handleClear}>DELETE FILTER</button>
+                        </form>
                     </div>
                     <div className="site-disc-main-animalCards">
                         {filteredItems.map(item => (
@@ -275,107 +308,116 @@ class DiscMain extends Component {
                     <DiscIntro/>
                     <DiscImage/>
                     <div className="disc-main-navigation">
-                        <div className="disc-navigation">
-                            <form className="disc-nav-search">
-                                <div className="navigation-search-icon"><img src={SearchIconImg} alt="Search icon Image"/></div>
-
-                                <div className="disc-nav-search-type">
-                                    <input
-                                        type="text"
-                                        value={this.state.search}
-                                        name="search"
-                                        placeholder="Search for an animal"
-                                        onChange={this.handleInput}
-                                    />
-
-                                </div>
-
-                            </form>
-                            <div className="navigation-filter">
-                                <div className="navigation-filter-icon">
-                                    <a href = "/">
-                                        <img src={FilterIconImg} alt="Filter icon Image" />
-                                        <p>Filter</p>
-                                    </a>
-                                </div>
-                                <div className="navigation-filter-items">
-                                    <form className="form-filter" >
-                                        <ul>
-                                            <li className="navigation-filter-list-head-species"><a href="/">Species</a></li>
-                                            <li className="filter-species-items">
-                                                <div className="filter-species-items-child1">
-                                                    <label>Mammals</label>
-                                                    <input
-
-                                                        type="checkbox"
-                                                        name="isMammals"
-                                                        id="isMammals"
-                                                        checked={this.state.isMammals}
-                                                        onChange={this.handleChange}
-                                                    />
-                                                </div>
-                                                <div className="filter-species-items-child2">
-                                                    <label>Birds</label>
-                                                    <input
-                                                        type="checkbox"
-                                                        name="isBirds"
-                                                        id="isBirds"
-                                                        checked={this.state.isBirds}
-                                                        onChange={this.handleChange}
-                                                    />
-                                                </div>
-                                                <div className="filter-species-items-child3">
-                                                    <label>Fish</label>
-                                                    <input
-                                                        type="checkbox"
-                                                        name="isFish"
-                                                        id="isFish"
-                                                        checked={this.state.isFish}
-                                                        onChange={this.handleChange}
-                                                    />
-                                                </div>
-                                                <div className="filter-species-items-child4">
-                                                    <label>Reptiles</label>
-                                                    <input
-                                                        type="checkbox"
-                                                        name="isReptiles"
-                                                        id="isReptiles"
-                                                        checked={this.state.isReptiles}
-                                                        onChange={this.handleChange}
-                                                    />
-                                                </div>
-                                            </li>
-                                            <li className="navigation-filter-list-head-risks"><a href="/">Extinction Risk</a></li>
-                                            <li className="filter-risks-items">
-                                                <div className="filter-risks-items-child1">
-                                                    <label>Endangered</label>
-                                                    <input
-                                                        type="checkbox"
-                                                        name="isEndangered"
-                                                        id="isEndangered"
-                                                        checked={this.state.isEndangered}
-                                                        onChange={this.handleChange}
-                                                    />
-                                                </div>
-                                                <div className="filter-risks-items-child2">
-                                                    <label>Critically Endangered</label>
-                                                    <input
-                                                        type="checkbox"
-                                                        name="isCriticallyEndangered"
-                                                        id="isCriticallyEndangered"
-                                                        checked={this.state.isCriticallyEndangered}
-                                                        onChange={this.handleChange}
-                                                    />
-                                                </div>
-                                            </li>
-                                        </ul>
-                                        <button type="button" onClick={this.handleSubmit}>APPLY FILTER</button>
-                                        <button type="button" onClick={this.handleClear}>Clear FILTER</button>
-                                    </form>
-                                </div>
+                        <nav className="disc-main-nav">
+                            <div className="disc-main-navigation-search">
+                                <form className="disc-nav-search">
+                                    <div className="navigation-search-icon">
+                                        <img src={SearchIconImg} alt="Search icon Image"/>
+                                    </div>
+                                    <div className="disc-nav-search-type">
+                                        <input
+                                            type="text"
+                                            value={this.state.search}
+                                            name="search"
+                                            placeholder="Search for an animal"
+                                            onChange={this.handleInput}
+                                        />
+                                    </div>
+                                </form>
                             </div>
-                        </div>
+                            <div className="filter-spacer" />
+                            <div className="disc-main-navigation-filter-button">
+                                <button className="toggle-filter-button" onClick={this.filterToggleClickHandler}>Filter
+                                    <img src={FilterIconImg} alt="Filter icon Image" />
+                                    <div className="toggle-filter-line"></div>
+                                    <div className="toggle-filter-middle-line"></div>
+                                    <div className="toggle-filter-line"></div>
+                                </button>
+                            </div>
+                        </nav>
                     </div>
+
+
+                    <div className={mobileFilterMenuClasses}>
+                        <div className="mobile-filter-menu-head">
+                            <p>Filter</p>
+                            {closeButton}
+                        </div>
+                        <form className="mobile-filter-menu-form" >
+                            <ul>
+                                <li className="navigation-filter-list-head-species"><a href="/">Species</a></li>
+                                <li className="filter-species-items">
+                                    <div className="filter-species-items-child1">
+                                        <label>Mammals</label>
+                                        <input
+
+                                            type="checkbox"
+                                            name="isMammals"
+                                            id="isMammals"
+                                            checked={this.state.isMammals}
+                                            onChange={this.handleChange}
+                                        />
+                                    </div>
+                                    <div className="filter-species-items-child2">
+                                        <label>Birds</label>
+                                        <input
+                                            type="checkbox"
+                                            name="isBirds"
+                                            id="isBirds"
+                                            checked={this.state.isBirds}
+                                            onChange={this.handleChange}
+                                        />
+                                    </div>
+                                    <div className="filter-species-items-child3">
+                                        <label>Fish</label>
+                                        <input
+                                            type="checkbox"
+                                            name="isFish"
+                                            id="isFish"
+                                            checked={this.state.isFish}
+                                            onChange={this.handleChange}
+                                        />
+                                    </div>
+                                    <div className="filter-species-items-child4">
+                                        <label>Reptiles</label>
+                                        <input
+                                            type="checkbox"
+                                            name="isReptiles"
+                                            id="isReptiles"
+                                            checked={this.state.isReptiles}
+                                            onChange={this.handleChange}
+                                        />
+                                    </div>
+                                </li>
+                                <li className="navigation-filter-list-head-risks"><a href="/">Extinction Risk</a></li>
+                                <li className="filter-risks-items">
+                                    <div className="filter-risks-items-child1">
+                                        <label>Endangered</label>
+                                        <input
+                                            type="checkbox"
+                                            name="isEndangered"
+                                            id="isEndangered"
+                                            checked={this.state.isEndangered}
+                                            onChange={this.handleChange}
+                                        />
+                                    </div>
+                                    <div className="filter-risks-items-child2">
+                                        <label>Critically Endangered</label>
+                                        <input
+                                            type="checkbox"
+                                            name="isCriticallyEndangered"
+                                            id="isCriticallyEndangered"
+                                            checked={this.state.isCriticallyEndangered}
+                                            onChange={this.handleChange}
+                                        />
+                                    </div>
+                                </li>
+                            </ul>
+                            <button type="button" onClick={this.handleSubmit}>APPLY FILTER</button>
+                            <button type="button" onClick={this.handleClear}>DELETE FILTER</button>
+                        </form>
+                    </div>
+
                     <div className="site-disc-main-animalCards">
                         {items.map(item => (
                             <AnimalCard key={item.speciesID}
@@ -399,106 +441,112 @@ class DiscMain extends Component {
                     <DiscIntro/>
                     <DiscImage/>
                     <div className="disc-main-navigation">
-                        <div className="disc-navigation">
-                            <form className="disc-nav-search">
-                                <div className="navigation-search-icon"><img src={SearchIconImg} alt="Search icon Image"/></div>
-
-                                <div className="disc-nav-search-type">
-                                    <input
-                                        type="text"
-                                        value={this.state.search}
-                                        name="search"
-                                        placeholder="Search for an animal"
-                                        onChange={this.handleInput}
-                                    />
-
-                                </div>
-
-                            </form>
-                            <div className="navigation-filter">
-                                <div className="navigation-filter-icon">
-                                    <a href = "/">
-                                        <img src={FilterIconImg} alt="Filter icon Image" />
-                                        <p>Filter</p>
-                                    </a>
-                                </div>
-                                <div className="navigation-filter-items">
-                                    <form className="form-filter" >
-                                        <ul>
-                                            <li className="navigation-filter-list-head-species"><a href="/">Species</a></li>
-                                            <li className="filter-species-items">
-                                                <div className="filter-species-items-child1">
-                                                    <label>Mammals</label>
-                                                    <input
-
-                                                        type="checkbox"
-                                                        name="isMammals"
-                                                        id="isMammals"
-                                                        checked={this.state.isMammals}
-                                                        onChange={this.handleChange}
-                                                    />
-                                                </div>
-                                                <div className="filter-species-items-child2">
-                                                    <label>Birds</label>
-                                                    <input
-                                                        type="checkbox"
-                                                        name="isBirds"
-                                                        id="isBirds"
-                                                        checked={this.state.isBirds}
-                                                        onChange={this.handleChange}
-                                                    />
-                                                </div>
-                                                <div className="filter-species-items-child3">
-                                                    <label>Fish</label>
-                                                    <input
-                                                        type="checkbox"
-                                                        name="isFish"
-                                                        id="isFish"
-                                                        checked={this.state.isFish}
-                                                        onChange={this.handleChange}
-                                                    />
-                                                </div>
-                                                <div className="filter-species-items-child4">
-                                                    <label>Reptiles</label>
-                                                    <input
-                                                        type="checkbox"
-                                                        name="isReptiles"
-                                                        id="isReptiles"
-                                                        checked={this.state.isReptiles}
-                                                        onChange={this.handleChange}
-                                                    />
-                                                </div>
-                                            </li>
-                                            <li className="navigation-filter-list-head-risks"><a href="/">Extinction Risk</a></li>
-                                            <li className="filter-risks-items">
-                                                <div className="filter-risks-items-child1">
-                                                    <label>Endangered</label>
-                                                    <input
-                                                        type="checkbox"
-                                                        name="isEndangered"
-                                                        id="isEndangered"
-                                                        checked={this.state.isEndangered}
-                                                        onChange={this.handleChange}
-                                                    />
-                                                </div>
-                                                <div className="filter-risks-items-child2">
-                                                    <label>Critically Endangered</label>
-                                                    <input
-                                                        type="checkbox"
-                                                        name="isCriticallyEndangered"
-                                                        id="isCriticallyEndangered"
-                                                        checked={this.state.isCriticallyEndangered}
-                                                        onChange={this.handleChange}
-                                                    />
-                                                </div>
-                                            </li>
-                                        </ul>
-                                        <button type="button" onClick={this.handleSubmit}>APPLY FILTER</button>
-                                        <button type="button" onClick={this.handleClear}>Clear FILTER</button>
-                                    </form>
-                                </div>
+                        <nav className="disc-main-nav">
+                            <div className="disc-main-navigation-search">
+                                <form className="disc-nav-search">
+                                    <div className="navigation-search-icon">
+                                        <img src={SearchIconImg} alt="Search icon Image"/>
+                                    </div>
+                                    <div className="disc-nav-search-type">
+                                        <input
+                                            type="text"
+                                            value={this.state.search}
+                                            name="search"
+                                            placeholder="Search for an animal"
+                                            onChange={this.handleInput}
+                                        />
+                                    </div>
+                                </form>
                             </div>
+                            <div className="filter-spacer" />
+                            <div className="disc-main-navigation-filter-button">
+                                <button className="toggle-filter-button" onClick={this.filterToggleClickHandler}>Filter
+                                    <img src={FilterIconImg} alt="Filter icon Image" />
+                                    <div className="toggle-filter-line"></div>
+                                    <div className="toggle-filter-middle-line"></div>
+                                    <div className="toggle-filter-line"></div>
+                                </button>
+                            </div>
+                        </nav>
+                    </div>
+                    <div className={mobileFilterMenuClasses}>
+                        <div className="mobile-filter-menu-head">
+                            <p>Filter</p>
+                            {closeButton}
                         </div>
+                        <form className="mobile-filter-menu-form" >
+                            <ul>
+                                <li className="navigation-filter-list-head-species"><a href="/">Species</a></li>
+                                <li className="filter-species-items">
+                                    <div className="filter-species-items-child1">
+                                        <label>Mammals</label>
+                                        <input
+
+                                            type="checkbox"
+                                            name="isMammals"
+                                            id="isMammals"
+                                            checked={this.state.isMammals}
+                                            onChange={this.handleChange}
+                                        />
+                                    </div>
+                                    <div className="filter-species-items-child2">
+                                        <label>Birds</label>
+                                        <input
+                                            type="checkbox"
+                                            name="isBirds"
+                                            id="isBirds"
+                                            checked={this.state.isBirds}
+                                            onChange={this.handleChange}
+                                        />
+                                    </div>
+                                    <div className="filter-species-items-child3">
+                                        <label>Fish</label>
+                                        <input
+                                            type="checkbox"
+                                            name="isFish"
+                                            id="isFish"
+                                            checked={this.state.isFish}
+                                            onChange={this.handleChange}
+                                        />
+                                    </div>
+                                    <div className="filter-species-items-child4">
+                                        <label>Reptiles</label>
+                                        <input
+                                            type="checkbox"
+                                            name="isReptiles"
+                                            id="isReptiles"
+                                            checked={this.state.isReptiles}
+                                            onChange={this.handleChange}
+                                        />
+                                    </div>
+                                </li>
+                                <li className="navigation-filter-list-head-risks"><a href="/">Extinction Risk</a></li>
+                                <li className="filter-risks-items">
+                                    <div className="filter-risks-items-child1">
+                                        <label>Endangered</label>
+                                        <input
+                                            type="checkbox"
+                                            name="isEndangered"
+                                            id="isEndangered"
+                                            checked={this.state.isEndangered}
+                                            onChange={this.handleChange}
+                                        />
+                                    </div>
+                                    <div className="filter-risks-items-child2">
+                                        <label>Critically Endangered</label>
+                                        <input
+                                            type="checkbox"
+                                            name="isCriticallyEndangered"
+                                            id="isCriticallyEndangered"
+                                            checked={this.state.isCriticallyEndangered}
+                                            onChange={this.handleChange}
+                                        />
+                                    </div>
+                                </li>
+                            </ul>
+                            <button type="button" onClick={this.handleSubmit}>APPLY FILTER</button>
+                            <button type="button" onClick={this.handleClear}>DELETE FILTER</button>
+                        </form>
                     </div>
                     <div className="site-disc-main-animalCards">
                         {searchedItems.map(item => (
@@ -523,106 +571,112 @@ class DiscMain extends Component {
                     <DiscIntro/>
                     <DiscImage/>
                     <div className="disc-main-navigation">
-                        <div className="disc-navigation">
-                            <form className="disc-nav-search">
-                                <div className="navigation-search-icon"><img src={SearchIconImg} alt="Search icon Image"/></div>
-
-                                <div className="disc-nav-search-type">
-                                    <input
-                                        type="text"
-                                        value={this.state.search}
-                                        name="search"
-                                        placeholder="Search for an animal"
-                                        onChange={this.handleInput}
-                                    />
-
-                                </div>
-
-                            </form>
-                            <div className="navigation-filter">
-                                <div className="navigation-filter-icon">
-                                    <a href = "/">
-                                        <img src={FilterIconImg} alt="Filter icon Image" />
-                                        <p>Filter</p>
-                                    </a>
-                                </div>
-                                <div className="navigation-filter-items">
-                                    <form className="form-filter" >
-                                        <ul>
-                                            <li className="navigation-filter-list-head-species"><a href="/">Species</a></li>
-                                            <li className="filter-species-items">
-                                                <div className="filter-species-items-child1">
-                                                    <label>Mammals</label>
-                                                    <input
-
-                                                        type="checkbox"
-                                                        name="isMammals"
-                                                        id="isMammals"
-                                                        checked={this.state.isMammals}
-                                                        onChange={this.handleChange}
-                                                    />
-                                                </div>
-                                                <div className="filter-species-items-child2">
-                                                    <label>Birds</label>
-                                                    <input
-                                                        type="checkbox"
-                                                        name="isBirds"
-                                                        id="isBirds"
-                                                        checked={this.state.isBirds}
-                                                        onChange={this.handleChange}
-                                                    />
-                                                </div>
-                                                <div className="filter-species-items-child3">
-                                                    <label>Fish</label>
-                                                    <input
-                                                        type="checkbox"
-                                                        name="isFish"
-                                                        id="isFish"
-                                                        checked={this.state.isFish}
-                                                        onChange={this.handleChange}
-                                                    />
-                                                </div>
-                                                <div className="filter-species-items-child4">
-                                                    <label>Reptiles</label>
-                                                    <input
-                                                        type="checkbox"
-                                                        name="isReptiles"
-                                                        id="isReptiles"
-                                                        checked={this.state.isReptiles}
-                                                        onChange={this.handleChange}
-                                                    />
-                                                </div>
-                                            </li>
-                                            <li className="navigation-filter-list-head-risks"><a href="/">Extinction Risk</a></li>
-                                            <li className="filter-risks-items">
-                                                <div className="filter-risks-items-child1">
-                                                    <label>Endangered</label>
-                                                    <input
-                                                        type="checkbox"
-                                                        name="isEndangered"
-                                                        id="isEndangered"
-                                                        checked={this.state.isEndangered}
-                                                        onChange={this.handleChange}
-                                                    />
-                                                </div>
-                                                <div className="filter-risks-items-child2">
-                                                    <label>Critically Endangered</label>
-                                                    <input
-                                                        type="checkbox"
-                                                        name="isCriticallyEndangered"
-                                                        id="isCriticallyEndangered"
-                                                        checked={this.state.isCriticallyEndangered}
-                                                        onChange={this.handleChange}
-                                                    />
-                                                </div>
-                                            </li>
-                                        </ul>
-                                        <button type="button" onClick={this.handleSubmit}>APPLY FILTER</button>
-                                        <button type="button" onClick={this.handleClear}>Clear FILTER</button>
-                                    </form>
-                                </div>
+                        <nav className="disc-main-nav">
+                            <div className="disc-main-navigation-search">
+                                <form className="disc-nav-search">
+                                    <div className="navigation-search-icon">
+                                        <img src={SearchIconImg} alt="Search icon Image"/>
+                                    </div>
+                                    <div className="disc-nav-search-type">
+                                        <input
+                                            type="text"
+                                            value={this.state.search}
+                                            name="search"
+                                            placeholder="Search for an animal"
+                                            onChange={this.handleInput}
+                                        />
+                                    </div>
+                                </form>
                             </div>
+                            <div className="filter-spacer" />
+                            <div className="disc-main-navigation-filter-button">
+                                <button className="toggle-filter-button" onClick={this.filterToggleClickHandler}>Filter
+                                    <img src={FilterIconImg} alt="Filter icon Image" />
+                                    <div className="toggle-filter-line"></div>
+                                    <div className="toggle-filter-middle-line"></div>
+                                    <div className="toggle-filter-line"></div>
+                                </button>
+                            </div>
+                        </nav>
+                    </div>
+                    <div className={mobileFilterMenuClasses}>
+                        <div className="mobile-filter-menu-head">
+                            <p>Filter</p>
+                            {closeButton}
                         </div>
+                        <form className="mobile-filter-menu-form" >
+                                <ul>
+                                    <li className="navigation-filter-list-head-species"><a href="/">Species</a></li>
+                                    <li className="filter-species-items">
+                                        <div className="filter-species-items-child1">
+                                            <label>Mammals</label>
+                                            <input
+
+                                                type="checkbox"
+                                                name="isMammals"
+                                                id="isMammals"
+                                                checked={this.state.isMammals}
+                                                onChange={this.handleChange}
+                                            />
+                                        </div>
+                                        <div className="filter-species-items-child2">
+                                            <label>Birds</label>
+                                            <input
+                                                type="checkbox"
+                                                name="isBirds"
+                                                id="isBirds"
+                                                checked={this.state.isBirds}
+                                                onChange={this.handleChange}
+                                            />
+                                        </div>
+                                        <div className="filter-species-items-child3">
+                                            <label>Fish</label>
+                                            <input
+                                                type="checkbox"
+                                                name="isFish"
+                                                id="isFish"
+                                                checked={this.state.isFish}
+                                                onChange={this.handleChange}
+                                            />
+                                        </div>
+                                        <div className="filter-species-items-child4">
+                                            <label>Reptiles</label>
+                                            <input
+                                                type="checkbox"
+                                                name="isReptiles"
+                                                id="isReptiles"
+                                                checked={this.state.isReptiles}
+                                                onChange={this.handleChange}
+                                            />
+                                        </div>
+                                    </li>
+                                    <li className="navigation-filter-list-head-risks"><a href="/">Extinction Risk</a></li>
+                                    <li className="filter-risks-items">
+                                        <div className="filter-risks-items-child1">
+                                            <label>Endangered</label>
+                                            <input
+                                                type="checkbox"
+                                                name="isEndangered"
+                                                id="isEndangered"
+                                                checked={this.state.isEndangered}
+                                                onChange={this.handleChange}
+                                            />
+                                        </div>
+                                        <div className="filter-risks-items-child2">
+                                            <label>Critically Endangered</label>
+                                            <input
+                                                type="checkbox"
+                                                name="isCriticallyEndangered"
+                                                id="isCriticallyEndangered"
+                                                checked={this.state.isCriticallyEndangered}
+                                                onChange={this.handleChange}
+                                            />
+                                        </div>
+                                    </li>
+                                </ul>
+                                <button type="button" onClick={this.handleSubmit}>APPLY FILTER</button>
+                                <button type="button" onClick={this.handleClear}>DELETE FILTER</button>
+                            </form>
                     </div>
                     <div className="site-disc-main-animalCards">
                         {lessItems.map(item => (

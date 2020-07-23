@@ -1,5 +1,4 @@
 import React from 'react'
-import CloseButton from './closeButton/CloseButton'
 import Logo from '../Logo'
 import {Link} from 'react-router-dom'
 
@@ -9,8 +8,6 @@ const MobileMenu = props => {
     if (props.show) {
         mobileMenuClasses = 'mobile-menu open'
     }
-
-    
 
     return(
         <div className={mobileMenuClasses}>

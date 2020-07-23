@@ -1,6 +1,4 @@
 import React, {Component} from 'react'
-import Logo from '../Logo'
-// import Navigation from "./Navigation";
 import Toolbar from '../navigation/Toolbar'
 import MobileMenu from '../navigation/MobileMenu'
 import CloseButton from '../navigation/closeButton/CloseButton'
