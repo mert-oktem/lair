@@ -8,12 +8,16 @@ class DonateCard extends Component {
     render() {
         return (
             <div className="donate-card">
+                <Link to={{ pathname: `${this.props.donate.ngoUrl}` }} target="_blank">
                 <div className="donate-card-image">
                     <img src={process.env.PUBLIC_URL + `${this.props.donate.imgUrl}`} alt="Donate Image"/>
                 </div>
+                </Link>
+                <Link to={{ pathname: `${this.props.donate.ngoUrl}` }} target="_blank">
                 <div className="donate-card-name">
                     <h3>{this.props.donate.name}</h3>
                 </div>
+                </Link>
                 <div className="donate-card-desc">
                     <p>{this.props.donate.desc}</p>
                 </div>
