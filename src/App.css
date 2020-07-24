@@ -7,9 +7,14 @@ body{
   font-family: 'Montserrat', sans-serif;
 
 }
+
 img{
   max-width: 100%;
   height: auto;
+}
+
+a{
+  text-decoration: none;
 }
 
 .App {
@@ -116,6 +121,7 @@ img{
   background: transparent;
   border: none;
   cursor: pointer;
+  z-index: 1;
 }
 
 .toggle-button:focus{
@@ -163,6 +169,7 @@ img{
 
 .mobile-menu.open{
   transform: translateX(0);
+  z-index: 2;
 }
 
 
@@ -213,6 +220,7 @@ button.close-button{
   background-color: transparent;
   position: absolute;
   top: 0;
+  z-index: 2;
   right: 0;
 }
 
@@ -352,6 +360,14 @@ svg g{
   height: auto;
 }
 
+.canada-map{
+  height: 200px;
+}
+
+svg g text{
+  visibility: hidden;
+}
+
 .canada-map-click-habitat p{
   font-weight: 600;
   color: #644A53;
@@ -364,6 +380,7 @@ svg g{
   display: flex;
   /* flex-wrap: wrap; */
   justify-content: space-around;
+  flex-direction: column;
   max-width: 90%;
   margin: auto;
   align-items: center;
@@ -453,7 +470,7 @@ svg g{
   }
 
   .home-main-intro .intro-heading{
-    font-size: 26pt;
+    font-size: 2.1rem;
     width: 40%;
     margin-bottom: 10px;
   }
@@ -467,6 +484,17 @@ svg g{
   
   .home-main-map{
     margin-top: 50px;
+  }
+
+  .canada-map-click-icons{
+    display: flex;
+    /* flex-wrap: wrap; */
+    justify-content: space-around;
+    flex-direction: row;
+    max-width: 90%;
+    margin: auto;
+    align-items: center;
+    margin-bottom: 50px;
   }
 
   .home-main-map-title{
@@ -774,6 +802,9 @@ svg {
   justify-content: space-between;
 }
 
+main{
+  margin-top: 100px;
+}
 
 .site-disc-main-animalCards{
   display: flex;
@@ -957,6 +988,7 @@ svg {
   letter-spacing: 1px;
   max-width: 90%;
   margin: auto;
+  margin-bottom: 10px;
 }
 
 .popChart-text{
@@ -1080,6 +1112,7 @@ svg {
   .disc-main-image{
     position: relative;
   }
+  
 
   .disc-main-intro{
     position: absolute;
@@ -1240,6 +1273,18 @@ svg {
     grid-column: 2/3;
 
   }
+  
+  .popChart-heading h3{
+    margin-left: 4%;
+  }
+
+  .popChart-text{
+    margin-left: 4%;
+  }
+
+  .popChart-text-threat, .popChart-text-trend{
+    display: flex;
+  }
 
   .discDet-main-relatedAnimals-cards{
     display: flex;
@@ -1250,13 +1295,22 @@ svg {
     margin-bottom: 50px;
   }
 
+  #highcharts-rqgz9ty-0{
+    margin-right: 0;
+  }
+
+  /* .chart{
+    width: 90%
+  } */
+
 }
 
 @media (min-width: 781px){
   .discDetails-overview{
     display: flex;
     max-width: 85%;
-    margin: 50px auto;
+    margin: 20px auto;
+    margin-top: 150px;
     text-align: left;
     justify-content: space-between;
   }
@@ -1288,7 +1342,7 @@ svg {
   }
 
   .discDet-main-popChart{
-    padding: 50px 10%;
+    padding: 50px 5%;
   }
 
   .discDet-main-whyMatter{
@@ -1312,13 +1366,22 @@ svg {
     margin-bottom: 0;
   }
 
+  .discDet-main-relatedAnimals .discDet-main-relatedAnimals-cards{
+    max-width: 80%;
+    justify-content: space-between;
+  }
+
+  .discDet-main-relatedAnimals .discDet-main-relatedAnimals-cards .disc-main-aniCard{
+    min-width: 30%;
+  }
+
 
 }
 
 
 /* ***************************************** */
 /* ***************************************** */
-/*             Discovery Page                */
+/*             Articles Page                */
 /* ***************************************** */
 /* ***************************************** */
 
@@ -1349,7 +1412,7 @@ svg {
 }
 
 .artCard-image{
-  max-height: 163px;
+  max-height: 141px;
   overflow: hidden;
   /* margin-bottom: 10px; */
 }
@@ -1362,6 +1425,7 @@ svg {
   /* white-space: nowrap; */
   /* max-height: 100px; */
   overflow: hidden;
+  min-height: 60px;
   text-overflow: ellipsis;
   color: #CA7342;
   margin-bottom: 10px;
@@ -1392,6 +1456,8 @@ svg {
   text-align: left;
   max-width: 90%;
   margin: auto;
+  margin-top: 10px;
+  margin-bottom: 50px;
 }
 
 .artCard-more-button button{
@@ -1427,6 +1493,19 @@ svg {
     margin: 0 auto;
   }
 
+  .articles-intro .articles-intro-heading{
+    font-size: 20px;
+  }
+
+  .articles-intro .articles-intro-heading h1{
+    margin-bottom: 10px;
+  }
+
+  .articles-intro .articles-intro-text{
+    font-size: 18px;
+    font-weight: 500;
+  }
+
   .articles-image img{
     width: 100%;
   }
@@ -1442,8 +1521,8 @@ svg {
   .articles-intro{
     position: absolute;
     z-index: 1;
-    width: 27%;
-    top: 15%;
+    width: 35%;
+    top: 28%;
     left: 10%;
     text-align: left;
   }
@@ -1479,6 +1558,7 @@ svg {
 
 .aboutUs-intro-text{
   color: #644A53;
+  font-weight: 500;
 }
 
 .aboutUs-desc-heading{
@@ -1491,11 +1571,17 @@ svg {
   margin: auto;
   font-size: 10pt;
   color: #644A53;
+  /* font-weight: 500; */
 }
 
 .aboutUs-title{
   color: #CA7342;
   margin: 50px 0;
+}
+
+.aboutUs-card{
+  position: relative;
+  margin-bottom: 50px;
 }
 
 .aboutUs-card-image img{
@@ -1504,16 +1590,17 @@ svg {
   border-radius: 30px;
 }
 
-.aboutUs-card-name{
+.aboutUs-card-name h3{
   color: #CA7342;
   font-size: 16pt;
   margin-bottom: 0;
 }
 
-.aboutUs-card-role{
+.aboutUs-card-role p{
   color: #644A53;
-  font-size: 14pt;
-  margin-top: -10px;
+  font-size: 8pt;
+  font-weight: 500;
+  margin-top: 0;
 }
 
 .aboutUs-card-desc{
@@ -1528,7 +1615,19 @@ svg {
   margin: auto;
   font-size: 12pt;
   color: #644A53;
-  margin-bottom: 100px;
+  margin-bottom: 0px;
+  display: flex;
+  justify-content: center;
+  /* position: absolute; */
+  /* bottom: -23px; */
+}
+
+.aboutUs-card-social a img{
+  max-width: 25px;
+}
+
+.aboutUs-card-social a:first-of-type{
+  margin-right: 30px;
 }
 
 @media only screen and (min-width: 780px){
@@ -1539,10 +1638,23 @@ svg {
   .aboutUs-intro{
     position: absolute;
     z-index: 1;
-    width: 22%;
-    top: 35%;
-    left: 15%;
+    width: 28%;
+    top: 22%;
+    left: 10%;
     text-align: left;
+  }
+
+  .aboutUs-intro .aboutUs-intro-heading{
+    font-size: 20px;
+  }
+  
+  .aboutUs-intro .aboutUs-intro-heading h1{
+    margin-bottom: 10px;
+  }
+
+  .aboutUs-intro .aboutUs-intro-text{
+    font-size: 18px;
+    font-weight: 500;
   }
 
   .aboutUs-desc{
@@ -1556,12 +1668,16 @@ svg {
     flex-wrap: wrap;
     max-width: 80%;
     margin: auto;
+    justify-content: space-between;
+    margin-bottom: 50px;
   }
 
   .aboutUs-card{
-    max-width: 25%;
+    max-width: 20%;
     /* padding: auto 50px; */
     text-align: left;
+    margin: 30px 2.5%;
+    margin-bottom: 70px;
   }
 
   .aboutUs-card-desc{
@@ -1570,6 +1686,14 @@ svg {
 
   .aboutUs-card-social{
     margin-left: 0;
+    max-width: 90%;
+    margin: auto;
+    font-size: 12pt;
+    color: #644A53;
+    margin-bottom: 0px;
+    display: flex;
+    position: absolute;
+    bottom: -23px;
   }
 }
 
@@ -1680,14 +1804,16 @@ svg {
   margin: auto 0 auto 30px;
 }
 
-.contact-location-info-phone img{
-  margin-left: 36.5px;
+
+.contact-location-info-phone-icon img{
+  margin-left: 30px;
   max-height: 25px;
 }
 
-.contact-location-info-phone p{
-  margin: auto 0 auto 25px;
+.contact-location-info-phone-text p{
+  margin: auto 0 auto 19px;
 }
+
 
 .contact-location-info-add p, .contact-location-info-phone p{
   font-family: 'Montserrat', sans-serif;
@@ -1709,7 +1835,7 @@ svg {
     z-index: 1;
     width: 40%;
     top: 35%;
-    left: 13.5%;
+    left: 10%;
     text-align: left;
   }
 
@@ -1717,7 +1843,12 @@ svg {
     margin: 0;
   }
 
+  .contact-intro-heading h1{
+    font-size: 26pt;
+  }
+
   .contact-intro p{
+    font-size: 14pt;
     width: 90%;
   }
 
@@ -1726,36 +1857,82 @@ svg {
     margin: 50px auto;
   }
 
+  .contact-desc-heading, .contact-desc-text{
+    margin-left: 0;
+  }
+
+  .contact-desc-heading{
+    font-size: 18pt;
+  }
+
+  .contact-desc-text{
+    font-size: 14pt;
+    font-weight: 500;
+  }
+
   .contact-location-heading, .contact-location-text{
-    max-width: 73%;
+    max-width: 80%;
     margin: auto;
   }
 
   .contact-contactForm{
-    max-width: 73%;
+    max-width: 80%;
     margin: auto;
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
   }
 
   .contact-contactForm-firstName, .contact-contactForm-lastName{
-    flex-grow: 1;
+    /* flex-grow: 1; */
     width: 50%;
   }
 
-  .contact-contactForm-email, .contact-contactForm-where, .contact-contactForm-details{
-    min-width: 100%;
+  .contact-contactForm-firstName{
     flex-grow: 1;
+  }
+
+  .contact-contactForm-email, .contact-contactForm-where, .contact-contactForm-details{
+    width: 96.5%;
+    /* flex-grow: 1; */
     margin-right: 0;
   }
 
+  .contact-contactForm-lastName input{
+    margin-left: 0px;
+    margin-right: 0;
+
+  }
+
+  .contact-contactForm-lastName{
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .contact-contactForm-email input, .contact-contactForm-where input, .contact-contactForm-details textarea{
+    width: 100%
+  }
+
   .contact-location-info-add{
-    width: 73%;
+    width: 80%;
     margin: auto;
   }
 
+  .contact-location-info-add-icon img{
+    margin-left: 0;
+  }
+
+  .contact-location-info-phone-icon img{
+    margin-left: 0px;
+    max-height: 25px;
+  }
+
+  .contact-location-info-phone-text p{
+    margin: auto 0 auto 26px;
+  }
+
   .contact-location-info-phone{
-    width: 74%;
+    width: 80%;
     margin: 10px auto 40px auto;
   }
 }
@@ -1825,6 +2002,7 @@ svg {
 }
 
 .donate-how {
+  padding-top: 50px;
   padding-bottom: 70px;
   background-color: #F4F8FF;
 }
@@ -1833,18 +2011,23 @@ svg {
   color: #CA7342;
   /* margin-top: 70px; */
   max-width: 80%;
-  margin: 70px auto 0 auto;
+  margin: 0 auto 0 auto;
 }
 
 .donate-card-link{
-  margin-top: 30px;
+  margin-top: 10px;
   margin-bottom: 70px;
+}
+
+.donate-card:last-of-type .donate-card-link{
+  margin-bottom: 0;
 }
 
 .donate-card-link a{
   text-decoration: none;
   color: #CA7342;
   font-weight: 600;
+  letter-spacing: 1px;
 }
 
 .donate-how-text{
@@ -1886,6 +2069,8 @@ svg {
   margin-bottom: 70px;
 }
 
+
+
 @media only screen and (min-width: 780px){
   .donate-image{
     position: relative;
@@ -1894,14 +2079,23 @@ svg {
   .donate-intro{
     position: absolute;
     z-index: 1;
-    width: 40%;
-    top: 11%;
+    width: 45%;
+    top: 29%;
     left: 10%;
     text-align: left;
   }
 
   .donate-intro h1, .donate-intro p{
     color: #fff;
+  }
+
+  .donate-intro h1{
+    font-size: 26pt;
+  }
+
+  .donate-intro p{
+    font-size: 16pt;
+
   }
 
   .donate-intro-heading, .donate-intro-text{
@@ -1952,5 +2146,9 @@ svg {
   }
   .donate-card{
     max-width: 30%;
+  }
+
+  .donate-card:last-of-type .donate-card-link{
+    margin-bottom: 70px;
   }
 }
