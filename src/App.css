@@ -75,7 +75,7 @@ img{
   background: transparent;
   z-index: 1;
   min-width: 100%;
-  padding: auto;
+  /*padding: auto;*/
 }
 
 .toolbar-nav{
@@ -250,6 +250,40 @@ button.close-button{
     font-weight: 600;
     letter-spacing: 2px;
   }
+
+  /********************************************************************************************************** ***/
+  /*************************************** header for articles ******************************************************************* ***/
+
+  .site-articles .site-header .toolbar{
+    position: relative;
+    background: transparent;
+  }
+  .site-articles main{
+    position: absolute;
+    top: 0;
+  }
+  .site-articles .site-header .toolbar-nav-items li a{
+    color: white;
+  }
+
+  /********************************************************************************************************** ***/
+  /*************************************** header for donate ******************************************************************* ***/
+  .site-donate .site-header .toolbar{
+    position: relative;
+    background: transparent;
+  }
+  .site-donate main{
+    position: absolute;
+    top: 0;
+  }
+  .site-donate .site-header .toolbar-nav-items li a{
+    color: white;
+  }
+
+
+  /********************************************************************************************************** ***/
+  /********************************************************************************************************** ***/
+
 }
 
 /* ***************************************** */
@@ -1129,7 +1163,7 @@ svg {
   .disc-nav-search-type input::placeholder{
     font-family: 'Montserrat', sans-serif;
     color: #644A53;
-    font-weight: 550;
+    font-weight: 600;
   }
 
   .disc-main-filter-anicard.open{
@@ -1310,6 +1344,15 @@ svg {
     margin-top: 50px;
     margin-bottom: 0;
   }
+
+
+  /********************************************************************************************************/
+  .site-discDet .site-discDet-main{
+    margin-top: 7rem;
+  }
+  /********************************************************************************************************/
+
+
 }
 
 
@@ -1440,8 +1483,8 @@ svg {
     position: absolute;
     z-index: 1;
     width: 27%;
-    top: 35%;
-    left: 15%;
+    top: 15%;
+    left: 10%;
     text-align: left;
   }
 
@@ -1779,7 +1822,7 @@ svg {
 }
 
 .donate-image{
-  margin-top: 50px;
+  /*margin-top: 50px;*/
   margin-bottom: 0;
 }
 
@@ -1892,7 +1935,7 @@ svg {
     position: absolute;
     z-index: 1;
     width: 40%;
-    top: 35%;
+    top: 11%;
     left: 10%;
     text-align: left;
   }

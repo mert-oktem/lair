@@ -1,6 +1,6 @@
 import React from 'react';
 import HamburgerButton from './Hamburger'
-import LogoImage from '../../../img/lair-logo.png'
+import LogoImage from '../../../img/lair-logo-white.png'
 import {Link} from "react-router-dom";
 
 const toolbar2 = props => (
@@ -15,7 +15,6 @@ const toolbar2 = props => (
             </div>
             <div className="toolbar-nav-items">
                 <ul>
-                    <li><Link to="/">Home</Link></li>
                     <li><Link to="/discovery">Explore</Link></li>
                     <li><Link to="/articles">Articles</Link></li>
                     <li><Link to="/aboutUs">About Us</Link></li>
