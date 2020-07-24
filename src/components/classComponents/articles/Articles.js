@@ -3,8 +3,8 @@ import ArticlesIntro from "./ArticlesIntro";
 import ArticlesImage from "./ArticlesImage";
 import ArticlesCard from "./ArticlesCard";
 import ArticlesLoadMoreBtn from "../../functionComponents/articlesButtons/ArticlesLoadMoreBtn";
-import Header from "../header/Header";
 import Footer from "../footer/Footer";
+import Header2 from "../header/Header2";
 
 class Articles extends Component{
     constructor(props) {
@@ -36,7 +36,7 @@ class Articles extends Component{
         if(!isLoaded){
             return (
                 <div className="site-articles">
-                    <Header />
+                    <Header2 />
                     <main>
                         <ArticlesIntro />
                         <ArticlesImage />
@@ -56,7 +56,7 @@ class Articles extends Component{
 
             return (
                 <div className="site-articles">
-                    <Header />
+                    <Header2 />
                     <main>
                         <ArticlesIntro />
                         <ArticlesImage />

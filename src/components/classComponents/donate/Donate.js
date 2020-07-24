@@ -4,8 +4,8 @@ import DonateImage from "./DonateImage";
 import DonateDesc from "./DonateDesc";
 import DonateHow from "./DonateHow";
 import DonateCard from "./DoanteCard";
-import Header from "../header/Header";
 import Footer from "../footer/Footer";
+import Header2 from "../header/Header2";
 
 
 
@@ -33,7 +33,7 @@ class Donate extends Component{
         if(!isLoaded){
             return (
                 <div className="site-donate">
-                    <Header />
+                    <Header2 />
                     <main>
                         <DonateIntro />
                         <DonateImage />
@@ -52,7 +52,7 @@ class Donate extends Component{
         else{
             return (
                 <div className="site-donate">
-                    <Header />
+                    <Header2 />
                     <main>
                         <DonateIntro />
                         <DonateImage />

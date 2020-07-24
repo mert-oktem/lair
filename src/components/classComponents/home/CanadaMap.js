@@ -6,16 +6,18 @@ import {Link} from "react-router-dom";
 
 
 class CanadaMap extends Component {
-   constructor() {
-      super()
+   constructor(props) {
+      super(props)
       this.myRef = React.createRef()
       this.aniIcons = React.createRef()
       this.handleClick = this.handleClick.bind(this)
       this.state = {
          data: false,
          mapClick:false,
-         items:[]
+         items:[],
+         mapAdded:false
       }
+      // this.dismiss = this.dismiss.bind(this);
    }
 
    handleClick(d){
@@ -28,12 +30,18 @@ class CanadaMap extends Component {
          } )
       })
    }
-
+   // dismiss() {
+   //    this.props.unmountMe();
+   // }
 
    componentDidMount() {
+
       var files = ["https://gist.githubusercontent.com/Brideau/2391df60938462571ca9/raw/f5a1f3b47ff671eaf2fb7e7b798bacfc6962606a/canadaprovtopo.json"];
 
-      Promise.all(files.map(url => d3.json(url))).then(values => this.setState({ data: values[0]}))
+      Promise.all(files.map(url => d3.json(url))).then(values => this.setState({
+         data: values[0]
+      }))
+
    }
 
    componentDidUpdate() {
@@ -136,11 +144,12 @@ class CanadaMap extends Component {
          )
       }
       else if (this.state.data) {
-         return (<div className="canada-map">
-                <div style={{ height: 700 }} ref={this.myRef}>
+            return (<div className="canada-map">
+                   <div style={{ height: 700 }} ref={this.myRef}>
+                   </div>
                 </div>
-         </div>
-         )
+            )
+
       }
    }
 }
