@@ -42,7 +42,7 @@ class RelatedAnimals extends Component {
                                                     location:`${item.habitat}`,
                                                     population:`${item.speciesCount}`,
                                                     status:`${item.statusDescription}`,
-                                                    imgUrl: require('../../../../' + `${item.image1}` + '.jpg'),
+                                                    imgUrl: require('../../../../' + `${item.image1}` + '.png'),
                                                     aniId:`${item.speciesID}`
                                                 }}
                                     />

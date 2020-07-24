@@ -3,8 +3,6 @@ import ArticlesIntro from "./ArticlesIntro";
 import ArticlesImage from "./ArticlesImage";
 import ArticlesCard from "./ArticlesCard";
 import ArticlesLoadMoreBtn from "../../functionComponents/articlesButtons/ArticlesLoadMoreBtn";
-import Footer from "../footer/Footer";
-import Header2 from "../header/Header2";
 
 class Articles extends Component{
     constructor(props) {
@@ -35,9 +33,7 @@ class Articles extends Component{
 
         if(!isLoaded){
             return (
-                <div className="site-articles">
-                    <Header2 />
-                    <main>
+                <main className="site-articles">
                         <ArticlesIntro />
                         <ArticlesImage />
                         <div className="articles-block">
@@ -46,18 +42,13 @@ class Articles extends Component{
 
                         </div>
                         <ArticlesLoadMoreBtn />
-
-                    </main>
-                    <Footer />
-                </div>
+                </main>
             )
         }
         else {
 
             return (
-                <div className="site-articles">
-                    <Header2 />
-                    <main>
+                <main className="site-articles">
                         <ArticlesIntro />
                         <ArticlesImage />
                         <div className="articles-block">
@@ -75,9 +66,7 @@ class Articles extends Component{
                                 />
                             ))}
                         </div>
-                    </main>
-                    <Footer />
-                </div>
+                </main>
 
             )
         }

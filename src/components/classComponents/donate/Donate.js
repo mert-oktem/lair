@@ -4,10 +4,6 @@ import DonateImage from "./DonateImage";
 import DonateDesc from "./DonateDesc";
 import DonateHow from "./DonateHow";
 import DonateCard from "./DoanteCard";
-import Footer from "../footer/Footer";
-import Header2 from "../header/Header2";
-
-
 
 class Donate extends Component{
     constructor(props) {
@@ -32,9 +28,7 @@ class Donate extends Component{
         var { isLoaded, items } = this.state;
         if(!isLoaded){
             return (
-                <div className="site-donate">
-                    <Header2 />
-                    <main>
+                <main className="site-donate">
                         <DonateIntro />
                         <DonateImage />
                         <DonateHow />
@@ -44,16 +38,12 @@ class Donate extends Component{
                                 Loading......
                             </div>
                         </div>
-                    </main>
-                    <Footer />
-                </div>
+                </main>
             )
         }
         else{
             return (
-                <div className="site-donate">
-                    <Header2 />
-                    <main>
+                <main className="site-donate">
                         <DonateIntro />
                         <DonateImage />
                         <DonateHow />
@@ -71,9 +61,7 @@ class Donate extends Component{
                                 />
                             ))}
                         </div>
-                    </main>
-                    <Footer />
-                </div>
+                </main>
             )
         }
     }

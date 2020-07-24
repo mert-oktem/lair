@@ -307,7 +307,7 @@ class DiscMain extends Component {
                                         location: `${item.habitat}`,
                                         population: `${item.speciesCount}`,
                                         status: `${item.statusDescription}`,
-                                        imgUrl: `${item.image1}` + '.jpg',
+                                        imgUrl: `${item.image1}` + '.png',
                                         aniId: `${item.speciesID}`
                                     }}
                                 />
@@ -436,7 +436,7 @@ class DiscMain extends Component {
                                         location: `${item.habitat}`,
                                         population: `${item.speciesCount}`,
                                         status: `${item.statusDescription}`,
-                                        imgUrl: `${item.image1}` + '.jpg',
+                                        imgUrl: `${item.image1}` + '.png',
                                         aniId: `${item.speciesID}`
                                     }}
                                 />
@@ -563,7 +563,7 @@ class DiscMain extends Component {
                                         location: `${item.habitat}`,
                                         population: `${item.speciesCount}`,
                                         status: `${item.statusDescription}`,
-                                        imgUrl: `${item.image1}` + '.jpg',
+                                        imgUrl: `${item.image1}` + '.png',
                                         aniId: `${item.speciesID}`
                                     }}
                                 />
@@ -690,7 +690,7 @@ class DiscMain extends Component {
                                         location: `${item.habitat}`,
                                         population: `${item.speciesCount}`,
                                         status: `${item.statusDescription}`,
-                                        imgUrl: `${item.image1}` + '.jpg',
+                                        imgUrl: `${item.image1}` + '.png',
                                         aniId: `${item.speciesID}`
                                     }}
                                 />
