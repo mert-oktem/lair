@@ -361,7 +361,7 @@ svg g{
 }
 
 .canada-map{
-  height: 200px;
+  height: 300px;
 }
 
 svg g text{
@@ -458,6 +458,9 @@ svg g text{
 @media only screen and (min-width: 781px) {
   .home-main-image{
     position: relative;
+  }
+  .canada-map {
+     height: 700px;
   }
 
   .home-main-intro{
