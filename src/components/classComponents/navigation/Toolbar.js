@@ -3,6 +3,10 @@ import HamburgerButton from './Hamburger'
 import LogoImage from '../../../img/lair-logo.png'
 import {Link} from "react-router-dom";
 
+function refreshPage() {
+    window.location.reload(false);
+}
+
 const toolbar = props => (
     <header className="toolbar">
         <nav className="toolbar-nav">
@@ -15,7 +19,7 @@ const toolbar = props => (
             </div>
             <div className="toolbar-nav-items">
                 <ul>
-                    <li><Link to="/">Home</Link></li>
+                    <li onClick={refreshPage}><Link to="/">Home</Link></li>
                     <li><Link to="/discovery">Explore</Link></li>
                     <li><Link to="/articles">Articles</Link></li>
                     <li><Link to="/aboutUs">About Us</Link></li>
