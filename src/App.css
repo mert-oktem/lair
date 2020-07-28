@@ -8,6 +8,11 @@ body{
 
 }
 
+
+input::placeholder{
+  font-family: "Montserrat", sans-serif;
+}
+
 img{
   max-width: 100%;
   height: auto;
@@ -278,6 +283,7 @@ button.close-button{
 .home-main-map-title{
   max-width: 90%;
   margin: auto;
+  margin-top: 40px;
 }
 
 .home-main-map-title .home-main-map-title-heading{
@@ -395,10 +401,12 @@ svg g{
 .canada-map-click-card{
   display: flex;
   align-items: center;
+  margin-bottom: 20px;
 }
 
 .canada-map-click-card-icon img{
   max-width: 60px;
+  margin-left: 30px;
   /* margin-right: px; */
 }
 
@@ -420,6 +428,11 @@ svg g{
 /* ***************************************** */
 /* ***************************************** */
 
+.newsletter-intro{
+  max-width: 80%;
+  margin: auto;
+}
+
 .newsletter-intro h2{
   color: #ca7342;
   margin-top: 50px;
@@ -431,6 +444,10 @@ svg g{
 
 .newsletter-image img{
   max-width: 12rem;
+}
+
+.newsletter-form{
+  margin-top: 20px;
 }
 
 .newsletter-form-email input{
@@ -451,7 +468,7 @@ svg g{
   border-radius: 50px;
   border: 0;
   font-weight: bold;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
   margin-bottom: 70px;
 }
 
@@ -467,22 +484,24 @@ svg g{
     position: absolute;
     z-index: 1;
     /* width: 30%; */
-    top: 22%;
+    top: 38%;
     left: 10%;
     text-align: left;
   }
 
   .home-main-intro .intro-heading{
-    font-size: 2.1rem;
-    width: 40%;
+    font-size: 3.5vw;
+    width: 60%;
     margin-bottom: 10px;
+    margin-top: 0;
   }
 
   .home-main-intro .intro-text{
-    font-size: 15pt;
+    font-size: 1.5vw;
     font-weight: 500;
     width: 52%;
     margin-top: 10px;
+    margin-bottom: 0;
   }
   
   .home-main-map{
@@ -492,7 +511,7 @@ svg g{
   .canada-map-click-icons{
     display: flex;
     /* flex-wrap: wrap; */
-    justify-content: space-around;
+    justify-content: center;
     flex-direction: row;
     max-width: 90%;
     margin: auto;
@@ -511,6 +530,7 @@ svg g{
   .home-main-map-title-text{
     font-size: 15pt;
     font-weight: 500;
+    line-height: 1.5;
   }
 
   .home-main-newsletter{
@@ -530,6 +550,7 @@ svg g{
   .newsletter-intro{
     text-align: left;
     margin-bottom: 0;
+    margin-left: 0;
     align-self: end;
   }
 
@@ -566,6 +587,7 @@ svg g{
     /* padding-right: 40px; */
   }
 
+
   .newsletter-form-submitBtn button{
     margin-bottom: 0;
     /* margin-right: 100px; */
@@ -581,6 +603,8 @@ svg g{
 footer{
   background-color: #F4F8FF;
   color: #644A53;
+  padding-bottom: 10px;
+  margin-top: 50px;
 }
 
 .site-footer1 .site-logo img{
@@ -594,7 +618,13 @@ footer{
   color: #644A53;
   border-bottom: 1px solid #644A53;
   margin: auto;
+  /* line-height: 1.5; */
+}
 
+.footer2-text2{
+  max-width: 80%;
+  margin: auto;
+  /* line-height: 1.5; */
 }
 
 p.footer2-text1{
@@ -611,6 +641,7 @@ p.footer2-text1{
     max-width: 40%;
     font-size: 10pt;
     font-weight: 500;
+    line-height: 1.5;
   }
   .site-footer2{
     display: flex;
@@ -750,6 +781,7 @@ svg {
 .mobile-filter-menu-form button{
   display: block;
   margin: 20px auto;
+  /* letter-spacing: 2px; */
 }
 
 .mobile-filter-menu-form button:first-of-type{
@@ -762,7 +794,7 @@ svg {
   text-transform: uppercase;
   font-size: 12pt !important;
   font-weight: 600;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
 }
 
 .mobile-filter-menu-form button:last-of-type{
@@ -772,7 +804,7 @@ svg {
   background-color: #fff;
   font-size: 12pt;
   font-weight: bold;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
   padding: 12px 22px;
   border-radius: 50px;
   border: 3px solid #ffeda7;
@@ -824,6 +856,7 @@ main{
   text-align: left;
 }
 
+
 .disc-main-aniCard img{
   border-top-left-radius: 30px;
   border-top-right-radius: 30px;
@@ -832,6 +865,8 @@ main{
 .aniCard-name{
   color: #644A53;
   font-size: 14pt;
+  max-width: 82%;
+  margin: auto;
 }
 
 .aniCard-location img, .aniCard-population img, .aniCard-status img{
@@ -1152,7 +1187,7 @@ main{
     text-indent: 20px;
     padding: 20px 20px 20px 30px;
     background-size: 15px;
-    width: 150%;
+    width: 19vw;
     border: none;
     border-radius: 25px;
     background-color: #F4F8FF;
@@ -1241,8 +1276,13 @@ main{
 
   .disc-main-aniCard{
     margin: 40px 0 10px 0;
-    max-width: 22%;
+    max-width: 30%;
   }
+
+  .anicard-spacer{
+    width: 30%;
+  }
+
 
   .disc-main-aniCard:first-of-type{
     margin-left: 0;
@@ -1252,16 +1292,29 @@ main{
     margin-right: 0;
   }
 
+  .aniCard-name{
+    max-width: 75%;
+    /* min-height: 40px; */
+    margin: auto;
+  }
+
   .aniCard-name h2{
     font-size: 12pt;
     text-align: left;
-    padding: 0 30px;
+    height: 36px;
+    /* padding: 0 15px; */
   }
 
   .aniCard-location-text p, .aniCard-population-text p, .aniCard-status-text p{
     font-size: 9pt;
     margin-left: 20px;
+    max-width: 90%;
     /* align-self: center; */
+  }
+
+  .aniCard-location-text{
+    max-width: 80%;
+    /* margin: auto; */
   }
 
   .aniCard-more-button #readMoreBtn{
@@ -1306,6 +1359,21 @@ main{
     width: 90%
   } */
 
+}
+
+@media only screen and (min-width: 1200px){
+  .disc-main-aniCard{
+    margin: 40px 0 10px 0;
+    max-width: 22%;
+  }
+
+  .anicard-spacer{
+    width: 22%;
+  }
+
+  .disc-nav-search-type input{
+    width: 34.5vw;
+  }
 }
 
 @media (min-width: 781px){
