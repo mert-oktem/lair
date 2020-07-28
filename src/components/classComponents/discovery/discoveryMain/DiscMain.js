@@ -214,12 +214,12 @@ class DiscMain extends Component {
                                 </form>
                             </div>
                             <div className="filter-spacer" />
-                            
-                                <button className="toggle-filter-button" onClick={this.filterToggleClickHandler}>
-                                    <img src={FilterIconImg} alt="Filter icon Image" />
-                                    <p>Filter</p>
-                                </button>
-                            
+
+                            <button className="toggle-filter-button" onClick={this.filterToggleClickHandler}>
+                                <img src={FilterIconImg} alt="Filter icon Image" />
+                                <p>Filter</p>
+                            </button>
+
                         </nav>
                     </div>
 
@@ -312,6 +312,7 @@ class DiscMain extends Component {
                                     }}
                                 />
                             ))}
+                            <div className="anicard-spacer"></div>
                         </div>
                     </div>
                 </main>
@@ -341,12 +342,12 @@ class DiscMain extends Component {
                                 </form>
                             </div>
                             <div className="filter-spacer" />
-                            
-                                <button className="toggle-filter-button" onClick={this.filterToggleClickHandler}>
-                                    <img src={FilterIconImg} alt="Filter icon Image" />
-                                    <p>Filter</p>
-                                </button>
-                            
+
+                            <button className="toggle-filter-button" onClick={this.filterToggleClickHandler}>
+                                <img src={FilterIconImg} alt="Filter icon Image" />
+                                <p>Filter</p>
+                            </button>
+
                         </nav>
                     </div>
 
@@ -441,6 +442,8 @@ class DiscMain extends Component {
                                     }}
                                 />
                             ))}
+
+                            <div className="anicard-spacer"></div>
                         </div>
                     </div>
                 </main>
@@ -470,12 +473,12 @@ class DiscMain extends Component {
                                 </form>
                             </div>
                             <div className="filter-spacer" />
-                            
-                                <button className="toggle-filter-button" onClick={this.filterToggleClickHandler}>
-                                    <img src={FilterIconImg} alt="Filter icon Image" />
-                                    <p>Filter</p>
-                                </button>
-                            
+
+                            <button className="toggle-filter-button" onClick={this.filterToggleClickHandler}>
+                                <img src={FilterIconImg} alt="Filter icon Image" />
+                                <p>Filter</p>
+                            </button>
+
                         </nav>
                     </div>
                     <div className={discMainClasses}>
@@ -568,6 +571,8 @@ class DiscMain extends Component {
                                     }}
                                 />
                             ))}
+
+                            <div className="anicard-spacer"></div>
                         </div>
                     </div>
                 </main>
@@ -597,12 +602,12 @@ class DiscMain extends Component {
                                 </form>
                             </div>
                             <div className="filter-spacer" />
-                            
-                                <button className="toggle-filter-button" onClick={this.filterToggleClickHandler}>
-                                    <img src={FilterIconImg} alt="Filter icon Image" />
-                                    <p>Filter</p>
-                                </button>
-                            
+
+                            <button className="toggle-filter-button" onClick={this.filterToggleClickHandler}>
+                                <img src={FilterIconImg} alt="Filter icon Image" />
+                                <p>Filter</p>
+                            </button>
+
                         </nav>
                     </div>
                     <div className={discMainClasses}>
@@ -695,12 +700,14 @@ class DiscMain extends Component {
                                     }}
                                 />
                             ))}
+
+                            <div className="anicard-spacer"></div>
                         </div>
                         <div className="discLoadMore-button">
                             <button type="button" onClick={this.handleLoadMore}>Load More</button>
                         </div>
                     </div>
-                    
+
                 </main>
             )
         }
