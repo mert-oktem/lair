@@ -10,8 +10,8 @@ function refreshPage() {
 const toolbar = props => (
     <header className="toolbar">
         <nav className="toolbar-nav">
-            <div className="site-logo">
-                <Link to="/"><img src={LogoImage} /></Link>    
+            <div onClick={refreshPage} className="site-logo">
+                <Link to="/"><img src={LogoImage} /></Link>
             </div>
             <div className="spacer" />
             <div>
@@ -19,7 +19,6 @@ const toolbar = props => (
             </div>
             <div className="toolbar-nav-items">
                 <ul>
-                    <li onClick={refreshPage}><Link to="/">Home</Link></li>
                     <li><Link to="/discovery">Explore</Link></li>
                     <li><Link to="/articles">Articles</Link></li>
                     <li><Link to="/aboutUs">About Us</Link></li>
