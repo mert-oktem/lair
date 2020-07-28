@@ -11,6 +11,7 @@ import Contact from "./components/classComponents/contact/Contact";
 import Donate from "./components/classComponents/donate/Donate";
 import DiscDetails from "./components/classComponents/discoveryDetails/DiscDetails";
 import ScrollToTop from "./components/classComponents/ScrollToTop";
+import NotFound from "./components/classComponents/NotFound";
 
 
 function App() {
@@ -27,6 +28,9 @@ function App() {
                 <Route path="/contact" component={Contact} />
                 <Route path="/donate" component={Donate} />
                 <Route path="/discovery/:id" exact component={DiscDetails} />
+                <Route path="" component={NotFound} />
+                <Route path="*" component={NotFound} />
+                <Route component={NotFound} />
             </Switch>
             <Footer />
         </div>

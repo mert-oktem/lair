@@ -2235,3 +2235,25 @@ main{
     margin-bottom: 70px;
   }
 }
+
+
+/*not found page 404***********************************/
+.site-not-found{
+  margin-top: 20rem;
+  font-size: 4rem;
+}
+
+/*newsletter response*/
+
+#newsletter-submit{
+  color: #CA7342;
+  margin-top: 1rem;
+}
+
+/*contact form response*/
+
+#response-submit{
+  color: #644a53;
+  margin: auto;
+  font-size: 18px;
+}

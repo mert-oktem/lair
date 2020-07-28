@@ -34,23 +34,20 @@ class NewsletterEmailForm extends Component {
             method: "POST",
             body: JSON.stringify(userData),
             headers: {
-                // 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             }
         }).then((res) => {
-            //console.log(res)
-            res.json().then((data) => {
-                console.log("successful")
+
+            res.json().then(() => {
                 this.setState({
                     newSub: {
                         subscriberEmail: ""
                     }
                 })
-                document.getElementById("newsletter-submit").innerHTML = "Thank you for subscribing";
+                document.getElementById("newsletter-submit").innerHTML = "Thank you for subscribing !";
 
             })
         })
-        console.log("form submitted");
     }
 
     render() {
