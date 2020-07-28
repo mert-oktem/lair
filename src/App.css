@@ -7,6 +7,9 @@ body{
   font-family: 'Montserrat', sans-serif;
 
 }
+p{
+  line-height: 1.5;
+}
 
 
 input::placeholder{
@@ -365,13 +368,16 @@ svg g{
   max-width: 100%;
   height: auto;
 }
-
 .canada-map{
   height: 300px;
 }
 
 .canada-map svg g text{
-  visibility: hidden;
+  /*visibility: hidden;*/
+  font-size: .6rem;
+}
+.canada-map-click-active svg g text{
+  font-size: .6rem;
 }
 
 .canada-map-click-habitat p{
@@ -1630,6 +1636,7 @@ main{
 .aboutUs-intro-text{
   color: #644A53;
   font-weight: 500;
+  line-height: 1.5;
 }
 
 .aboutUs-desc-heading{
@@ -1642,12 +1649,17 @@ main{
   margin: auto;
   font-size: 10pt;
   color: #644A53;
+  line-height: 1.5;
   /* font-weight: 500; */
 }
 
 .aboutUs-title{
   color: #CA7342;
   margin: 50px 0;
+}
+.aboutUs-desc{
+  background-color: #F4F8FF;
+  padding: 20px 20% 50px 20%;
 }
 
 .aboutUs-card{
@@ -1669,9 +1681,9 @@ main{
 
 .aboutUs-card-role p{
   color: #644A53;
-  font-size: 8pt;
+  font-size: 10pt;
   font-weight: 500;
-  margin-top: 0;
+  margin-top: 8px;
 }
 
 .aboutUs-card-desc{
@@ -1679,14 +1691,15 @@ main{
   margin: auto;
   font-size: 10pt;
   color: #644A53;
+  line-height: 1.5;
 }
 
 .aboutUs-card-social{
   max-width: 90%;
-  margin: auto;
+  margin: 25px auto 0px auto;
   font-size: 12pt;
   color: #644A53;
-  margin-bottom: 0px;
+
   display: flex;
   justify-content: center;
   /* position: absolute; */
@@ -1700,7 +1713,6 @@ main{
 .aboutUs-card-social a:first-of-type{
   margin-right: 30px;
 }
-
 @media only screen and (min-width: 780px){
   .aboutUs-image{
     position: relative;
@@ -1752,16 +1764,16 @@ main{
   }
 
   .aboutUs-card-desc{
-    margin: 0;
+    margin: 0 0 25px 0;
   }
 
   .aboutUs-card-social{
-    margin-left: 0;
+
     max-width: 90%;
-    margin: auto;
+    margin: 25px auto 0 0;
     font-size: 12pt;
     color: #644A53;
-    margin-bottom: 0px;
+
     display: flex;
     position: absolute;
     bottom: -23px;
