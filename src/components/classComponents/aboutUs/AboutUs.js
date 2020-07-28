@@ -4,19 +4,13 @@ import AboutUsImage from "./AboutUsImage";
 import AboutUsDesc from "./AboutUsDesc";
 import AboutUsTitle from "./AboutUsTitle";
 import AboutUsCard from "./AboutUsCard";
-import Header from "../header/Header";
-import Footer from "../footer/Footer";
 
 
 class AboutUs extends Component{
-    // constructor(){
-    //     super()
-    // }
     render(){
         return (
-            <div className="site-aboutUs">
-                <Header />
-                <main>
+            <main className="site-aboutUs">
+
                     <AboutUsIntro />
                     <AboutUsImage />
                     <AboutUsDesc />
@@ -119,9 +113,7 @@ class AboutUs extends Component{
                             }}
                         />
                     </div>
-                </main>
-                <Footer />
-            </div>
+            </main>
         )
     }
 

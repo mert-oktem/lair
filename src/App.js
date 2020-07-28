@@ -10,8 +10,8 @@ import Articles from "./components/classComponents/articles/Articles";
 import Contact from "./components/classComponents/contact/Contact";
 import Donate from "./components/classComponents/donate/Donate";
 import DiscDetails from "./components/classComponents/discoveryDetails/DiscDetails";
-import ArticlesDet from "./components/classComponents/articlesDetails/ArticlesDet";
 import ScrollToTop from "./components/classComponents/ScrollToTop";
+import NotFound from "./components/classComponents/NotFound";
 
 
 function App() {
@@ -19,6 +19,7 @@ function App() {
     <Router>
         <ScrollToTop />
         <div className="App">
+            <Header />
             <Switch>
                 <Route path="/" exact component={Home} />
                 <Route path="/discovery" exact component={Discovery} />
@@ -26,9 +27,12 @@ function App() {
                 <Route path="/articles" component={Articles} />
                 <Route path="/contact" component={Contact} />
                 <Route path="/donate" component={Donate} />
-                <Route path="/articlesDetails" component={ArticlesDet} />
                 <Route path="/discovery/:id" exact component={DiscDetails} />
+                <Route path="" component={NotFound} />
+                <Route path="*" component={NotFound} />
+                <Route component={NotFound} />
             </Switch>
+            <Footer />
         </div>
     </Router>
   );

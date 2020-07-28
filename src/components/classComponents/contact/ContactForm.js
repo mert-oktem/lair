@@ -39,19 +39,17 @@ class ContactForm extends Component {
             method: "POST",
             body: JSON.stringify(userData),
             headers: {
-                // 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             }
         }).then((res) => {
-            //console.log(res)
-            res.json().then((data) => {
-                console.log("successful")
+
+            res.json().then(() => {
                 this.handleClearForm();
             })
         })
 
     }
-    handleClearForm(e) {
+    handleClearForm() {
 
         this.setState({
             newUser: {
@@ -62,7 +60,7 @@ class ContactForm extends Component {
                 observationDetails: ""
             }
         })
-        document.getElementById("response-submit").innerHTML = "Thank you for submitting your response";
+        document.getElementById("response-submit").innerHTML = "Thank you for submitting your response !";
     }
     render() {
         return (

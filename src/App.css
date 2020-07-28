@@ -7,9 +7,22 @@ body{
   font-family: 'Montserrat', sans-serif;
 
 }
+p{
+  line-height: 1.5;
+}
+
+
+input::placeholder{
+  font-family: "Montserrat", sans-serif;
+}
+
 img{
   max-width: 100%;
   height: auto;
+}
+
+a{
+  text-decoration: none;
 }
 
 .App {
@@ -71,11 +84,17 @@ img{
   width: 100%;
   top: 0;
   left: 0;
+  position: absolute;
+  background: transparent;
+  z-index: 1;
+  min-width: 100%;
+  /*padding: auto;*/
 }
 
 .toolbar-nav{
   display: flex;
   align-items: center;
+  
 }
 
 .toolbar-nav-items a{
@@ -110,6 +129,7 @@ img{
   background: transparent;
   border: none;
   cursor: pointer;
+  z-index: 1;
 }
 
 .toggle-button:focus{
@@ -157,6 +177,7 @@ img{
 
 .mobile-menu.open{
   transform: translateX(0);
+  z-index: 2;
 }
 
 
@@ -207,6 +228,7 @@ button.close-button{
   background-color: transparent;
   position: absolute;
   top: 0;
+  z-index: 2;
   right: 0;
 }
 
@@ -237,13 +259,14 @@ button.close-button{
     color: #644A53 !important;
     max-width: 40%;
     background-color: #ffeda7;
-    padding: 15px 20px 15px 20px;
+    padding: 12pt 24pt 12pt 24pt;
     border-radius: 50px;
     text-transform: uppercase;
     font-size: 12pt !important;
     font-weight: 600;
     letter-spacing: 2px;
   }
+
 }
 
 /* ***************************************** */
@@ -263,6 +286,7 @@ button.close-button{
 .home-main-map-title{
   max-width: 90%;
   margin: auto;
+  margin-top: 40px;
 }
 
 .home-main-map-title .home-main-map-title-heading{
@@ -286,6 +310,7 @@ button.close-button{
 .home-main-action h2{
   color: #ca7342;
   margin: 0;
+  font-size: 26pt;
   padding-bottom: 50px;
 }
 
@@ -316,6 +341,7 @@ button.close-button{
 
 p.action-block-desc{
   margin-bottom: 30px;
+  line-height: 1.5;
 }
 
 .home-main-action .home-main-action-block .action-block-desc:nth-child(3){
@@ -342,20 +368,32 @@ svg g{
   max-width: 100%;
   height: auto;
 }
+.canada-map{
+  height: 300px;
+}
+
+.canada-map svg g text{
+  /*visibility: hidden;*/
+  font-size: .6rem;
+}
+.canada-map-click-active svg g text{
+  font-size: .6rem;
+}
 
 .canada-map-click-habitat p{
   font-weight: 600;
   color: #644A53;
   max-width: 60%;
-  margin: 20px auto;
-  text-align: left;
+  margin: -30px auto 20px auto;
+  text-align: center;
 }
 
 .canada-map-click-icons{
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  max-width: 60%;
+  /* flex-wrap: wrap; */
+  justify-content: space-around;
+  flex-direction: column;
+  max-width: 90%;
   margin: auto;
   align-items: center;
   margin-bottom: 50px;
@@ -369,11 +407,13 @@ svg g{
 .canada-map-click-card{
   display: flex;
   align-items: center;
+  margin-bottom: 20px;
 }
 
 .canada-map-click-card-icon img{
-  max-width: 50px;
-  margin-right: 20px;
+  max-width: 60px;
+  margin-left: 30px;
+  /* margin-right: px; */
 }
 
 .canada-map-click-card-name{
@@ -394,6 +434,11 @@ svg g{
 /* ***************************************** */
 /* ***************************************** */
 
+.newsletter-intro{
+  max-width: 80%;
+  margin: auto;
+}
+
 .newsletter-intro h2{
   color: #ca7342;
   margin-top: 50px;
@@ -405,6 +450,10 @@ svg g{
 
 .newsletter-image img{
   max-width: 12rem;
+}
+
+.newsletter-form{
+  margin-top: 20px;
 }
 
 .newsletter-form-email input{
@@ -425,16 +474,76 @@ svg g{
   border-radius: 50px;
   border: 0;
   font-weight: bold;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
   margin-bottom: 70px;
 }
 
 @media only screen and (min-width: 781px) {
+  .home-main-image{
+    position: relative;
+  }
+  .canada-map {
+     height: 700px;
+  }
+
+  .home-main-intro{
+    position: absolute;
+    z-index: 1;
+    /* width: 30%; */
+    top: 38%;
+    left: 10%;
+    text-align: left;
+  }
+
+  .home-main-intro .intro-heading{
+    font-size: 3.5vw;
+    width: 60%;
+    margin-bottom: 10px;
+    margin-top: 0;
+  }
+
+  .home-main-intro .intro-text{
+    font-size: 1.5vw;
+    font-weight: 500;
+    width: 52%;
+    margin-top: 10px;
+    margin-bottom: 0;
+  }
+  
+  .home-main-map{
+    margin-top: 50px;
+  }
+
+  .canada-map-click-icons{
+    display: flex;
+    /* flex-wrap: wrap; */
+    justify-content: center;
+    flex-direction: row;
+    max-width: 90%;
+    margin: auto;
+    align-items: center;
+    margin-bottom: 50px;
+  }
+
+  .home-main-map-title{
+    width: 60%;
+  }
+
+  .home-main-map-title-heading{
+    font-size: 24px;
+  }
+
+  .home-main-map-title-text{
+    font-size: 15pt;
+    font-weight: 500;
+    line-height: 1.5;
+  }
+
   .home-main-newsletter{
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 1.3fr 2fr;
     grid-template-rows: 1fr 1fr;
-    width: 60%;
+    width: 90%;
     margin: 50px auto;
   }
 
@@ -447,18 +556,20 @@ svg g{
   .newsletter-intro{
     text-align: left;
     margin-bottom: 0;
+    margin-left: 0;
     align-self: end;
   }
 
   .newsletter-intro h2{
-    font-size: 22pt;
+    font-size: 26pt;
     font-weight: 600;
     margin-bottom: 0;
+    text-transform: capitalize;
   }
 
   .newsletter-intro p{
     color: #644A53;
-    font-size: 14pt;
+    font-size: 15pt;
     font-weight: 500;
     margin-top: 10px;
   }
@@ -467,17 +578,21 @@ svg g{
     display: flex;
     text-align: left;
     align-items: center;
+    justify-content: flex-start;
     /* margin-right: 100px; */
   }
 
   .newsletter-form-email{
     flex-grow: 1;
+    margin-right: -30px;
+    max-width: 75%;
   }
 
   .newsletter-form-email input{
     margin: 0;
     /* padding-right: 40px; */
   }
+
 
   .newsletter-form-submitBtn button{
     margin-bottom: 0;
@@ -494,6 +609,8 @@ svg g{
 footer{
   background-color: #F4F8FF;
   color: #644A53;
+  padding-bottom: 10px;
+  margin-top: 50px;
 }
 
 .site-footer1 .site-logo img{
@@ -507,7 +624,13 @@ footer{
   color: #644A53;
   border-bottom: 1px solid #644A53;
   margin: auto;
+  /* line-height: 1.5; */
+}
 
+.footer2-text2{
+  max-width: 80%;
+  margin: auto;
+  /* line-height: 1.5; */
 }
 
 p.footer2-text1{
@@ -516,15 +639,21 @@ p.footer2-text1{
 }
 
 @media (min-width: 781px) {
+  .site-footer1 .site-logo img{
+    margin: 20px 0 10px 0;
+  }
+
   .footer1-text{
-    max-width: 80%;
+    max-width: 40%;
     font-size: 10pt;
+    font-weight: 500;
+    line-height: 1.5;
   }
   .site-footer2{
     display: flex;
     font-size: 10pt;
     max-width: 80%;
-    margin: auto;
+    margin: 20px auto;
     align-items: center;
     justify-content: space-between;
   }
@@ -533,9 +662,9 @@ p.footer2-text1{
     /* font-size: 10pt; */
   }
   p.footer1-text{
-    padding-left: 0;
-    padding-right: 0;
+    padding: 0 20% 20px 20% !important;
   }
+
 }
 /* ***************************************** */
 /* ***************************************** */
@@ -579,6 +708,7 @@ svg {
 
 .disc-main-intro .intro-heading{
   color: #CA7342;
+  /* font-size: 20px; */
 }
 
 .disc-main-intro .intro-text{
@@ -587,16 +717,25 @@ svg {
 
 /* *******************Search and Filter********************* */
 
-.disc-navigation {
+.disc-main-nav {
   display: flex;
-  justify-content: space-between;
+  flex-direction: row;
+  justify-content: flex-end;
   align-items: center;
-  max-width: 90%;
+  max-width: 80%;
   margin: auto;
+  margin-top: 40px;
+  align-items: center;
+}
+
+
+
+.disc-main-nav .filter-spacer{
+  flex-grow: 1;
 }
 
 .disc-nav-search{
-  max-width: 30%;
+  /* max-width: 30%; */
   height: auto;
 }
 .navigation-filter{
@@ -604,7 +743,7 @@ svg {
   height: auto;
 }
 
-.disc-navigation img{
+.disc-main-navigation img{
   max-width: 17%;
   height: auto;
 }
@@ -617,8 +756,8 @@ svg {
   /* margin-left: 50px; */
 }
 
-.navigation-filter button img{
-  max-width: 12%;
+.toggle-filter-button img{
+  max-width: 26px;
   /* height: 12%; */
   margin: auto 0px;
 }
@@ -630,6 +769,82 @@ svg {
   color: #CA7342;
   font-weight: 600;
   font-family: "Montserrat", sans-serif;
+}
+
+.mobile-filter-menu-form ul{
+  list-style-type: none;
+  text-align: left;
+  padding-left: 0;
+  margin-top: 0;
+}
+
+.mobile-filter-menu-form a{
+  text-decoration: none;
+  color: #CA7342;
+  font-weight: 600;
+}
+
+.mobile-filter-menu-form button{
+  display: block;
+  margin: 20px auto;
+  /* letter-spacing: 2px; */
+}
+
+.mobile-filter-menu-form button:first-of-type{
+  color: #644A53 !important;
+  width: 100%;
+  background-color: #ffeda7;
+  padding: 12pt 24pt 12pt 24pt;
+  border-radius: 50px;
+  border: none;
+  text-transform: uppercase;
+  font-size: 12pt !important;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+.mobile-filter-menu-form button:last-of-type{
+  color: #644A53;
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  background-color: #fff;
+  font-size: 12pt;
+  font-weight: bold;
+  letter-spacing: 2px;
+  padding: 12px 22px;
+  border-radius: 50px;
+  border: 3px solid #ffeda7;
+  margin-top: 25px;
+  margin-bottom: 60px;
+  width: 100%;
+}
+
+.navigation-filter-list-head-risks{
+  padding-top: 30px;
+  border-top: 0.5px solid #644A53;
+}
+
+.navigation-filter-list-head-species, .navigation-filter-list-head-risks{
+  margin-bottom: 15px;
+}
+
+.mobile-filter-menu-form label{
+  color: #644A53;
+}
+
+.filter-species-items{
+  padding-bottom: 20px;
+}
+
+.filter-species-items div, .filter-risks-items div{
+  margin-bottom: 10px;
+  font-size: 12px;
+  display: flex;
+  justify-content: space-between;
+}
+
+main{
+  margin-top: 100px;
 }
 
 .site-disc-main-animalCards{
@@ -647,6 +862,7 @@ svg {
   text-align: left;
 }
 
+
 .disc-main-aniCard img{
   border-top-left-radius: 30px;
   border-top-right-radius: 30px;
@@ -655,6 +871,8 @@ svg {
 .aniCard-name{
   color: #644A53;
   font-size: 14pt;
+  max-width: 82%;
+  margin: auto;
 }
 
 .aniCard-location img, .aniCard-population img, .aniCard-status img{
@@ -814,6 +1032,7 @@ svg {
   letter-spacing: 1px;
   max-width: 90%;
   margin: auto;
+  margin-bottom: 10px;
 }
 
 .popChart-text{
@@ -937,16 +1156,33 @@ svg {
   .disc-main-image{
     position: relative;
   }
+  
 
   .disc-main-intro{
     position: absolute;
     z-index: 1;
     width: 25%;
-    top: 35%;
+    top: 26%;
     left: 10%;
     text-align: left;
   }
 
+  .disc-main-intro .intro-heading{
+    font-size: 20px;
+  }
+
+  .disc-main-intro .intro-heading h1{
+    margin-bottom: 10px;
+  }
+
+  .disc-main-intro .intro-text{
+    font-size: 18px;
+    font-weight: 500;
+  }
+
+  .disc-main-intro .intro-text p{
+    margin-top: 10px;
+  }
   
   .disc-nav-search-type input{
     background-image: url(img/ui_icons/PNG/ui_icons_search.png);
@@ -957,11 +1193,11 @@ svg {
     text-indent: 20px;
     padding: 20px 20px 20px 30px;
     background-size: 15px;
-    width: 150%;
+    width: 19vw;
     border: none;
     border-radius: 25px;
     background-color: #F4F8FF;
-    margin-top: 40px;
+    /* margin-top: 40px; */
   }
 
   .navigation-search-icon{
@@ -971,7 +1207,68 @@ svg {
   .disc-nav-search-type input::placeholder{
     font-family: 'Montserrat', sans-serif;
     color: #644A53;
-    font-weight: 550;
+    font-weight: 600;
+  }
+
+  .disc-main-filter-anicard.open{
+    max-width: 80%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+  }
+
+  .mobile-filter-menu{
+    /* height: 100%; */
+    /* background-color: #F4F8FF; */
+    /* position: fixed; */
+    top: 0;
+    left: 0;
+    height: 0;
+    margin-right: 40px;
+    visibility: hidden;
+    /* width: 100%; */
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .mobile-filter-menu.open{
+    visibility: visible;
+    height: 300px;
+    transform: translateX(0);
+    margin-top: 40px;
+  }
+
+  .site-disc-main-animalCards.open{
+    display: flex;
+    margin: 0;
+    justify-content: space-between;
+    min-width: 100%;
+  }
+
+  .site-disc-main-animalCards.open .disc-main-aniCard{
+    max-width: 30%;
+  }
+
+  .toggle-filter-button{
+    display: flex;
+    /* position: relative; */
+    background-color: transparent;
+    border: none;
+    /* width: 50%; */
+    justify-content: flex-end;
+    align-items: center;
+    /* left: 51%; */
+  }
+
+  .toggle-filter-button p{
+    /* text-align: center; */
+    margin: 0;
+    font-size: 12pt;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #644A53;
+    font-weight: 600;
+    margin-left: 10px;
   }
 
   .site-disc-main-animalCards{
@@ -985,8 +1282,13 @@ svg {
 
   .disc-main-aniCard{
     margin: 40px 0 10px 0;
-    max-width: 22%;
+    max-width: 30%;
   }
+
+  .anicard-spacer{
+    width: 30%;
+  }
+
 
   .disc-main-aniCard:first-of-type{
     margin-left: 0;
@@ -996,16 +1298,29 @@ svg {
     margin-right: 0;
   }
 
+  .aniCard-name{
+    max-width: 75%;
+    /* min-height: 40px; */
+    margin: auto;
+  }
+
   .aniCard-name h2{
     font-size: 12pt;
     text-align: left;
-    padding: 0 30px;
+    height: 36px;
+    /* padding: 0 15px; */
   }
 
   .aniCard-location-text p, .aniCard-population-text p, .aniCard-status-text p{
-    font-size: 10pt;
+    font-size: 9pt;
     margin-left: 20px;
+    max-width: 90%;
     /* align-self: center; */
+  }
+
+  .aniCard-location-text{
+    max-width: 80%;
+    /* margin: auto; */
   }
 
   .aniCard-more-button #readMoreBtn{
@@ -1016,6 +1331,21 @@ svg {
     text-align: left;
     max-width: 80%;
     margin: auto;
+    /* display: block; */
+    grid-column: 2/3;
+
+  }
+  
+  .popChart-heading h3{
+    margin-left: 4%;
+  }
+
+  .popChart-text{
+    margin-left: 4%;
+  }
+
+  .popChart-text-threat, .popChart-text-trend{
+    display: flex;
   }
 
   .discDet-main-relatedAnimals-cards{
@@ -1027,13 +1357,37 @@ svg {
     margin-bottom: 50px;
   }
 
+  #highcharts-rqgz9ty-0{
+    margin-right: 0;
+  }
+
+  /* .chart{
+    width: 90%
+  } */
+
+}
+
+@media only screen and (min-width: 1200px){
+  .disc-main-aniCard{
+    margin: 40px 0 10px 0;
+    max-width: 22%;
+  }
+
+  .anicard-spacer{
+    width: 22%;
+  }
+
+  .disc-nav-search-type input{
+    width: 34.5vw;
+  }
 }
 
 @media (min-width: 781px){
   .discDetails-overview{
     display: flex;
     max-width: 85%;
-    margin: 50px auto;
+    margin: 20px auto;
+    margin-top: 150px;
     text-align: left;
     justify-content: space-between;
   }
@@ -1065,7 +1419,7 @@ svg {
   }
 
   .discDet-main-popChart{
-    padding: 50px 10%;
+    padding: 50px 5%;
   }
 
   .discDet-main-whyMatter{
@@ -1088,12 +1442,23 @@ svg {
     margin-top: 50px;
     margin-bottom: 0;
   }
+
+  .discDet-main-relatedAnimals .discDet-main-relatedAnimals-cards{
+    max-width: 80%;
+    justify-content: space-between;
+  }
+
+  .discDet-main-relatedAnimals .discDet-main-relatedAnimals-cards .disc-main-aniCard{
+    min-width: 30%;
+  }
+
+
 }
 
 
 /* ***************************************** */
 /* ***************************************** */
-/*             Discovery Page                */
+/*             Articles Page                */
 /* ***************************************** */
 /* ***************************************** */
 
@@ -1123,27 +1488,53 @@ svg {
   text-align: left;
 }
 
+.artCard-image{
+  max-height: 141px;
+  overflow: hidden;
+  /* margin-bottom: 10px; */
+}
+
+.artCard-name{
+  margin-bottom: 10px;
+}
+
 .artCard-name h2{
+  /* white-space: nowrap; */
+  /* max-height: 100px; */
+  overflow: hidden;
+  min-height: 60px;
+  text-overflow: ellipsis;
   color: #CA7342;
   margin-bottom: 10px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 
 .artCard-author p{
   color: #644A53;
   font-size: 10pt;
   font-weight: 600;
-  margin-top: 0;;
+  margin-top: 0;
 }
 
 .artCard-description p{
   color: #644A53;
   font-size: 10pt;
+  max-height: 70px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
 }
 
 .artCard-more-button{
   text-align: left;
   max-width: 90%;
   margin: auto;
+  margin-top: 10px;
+  margin-bottom: 50px;
 }
 
 .artCard-more-button button{
@@ -1179,6 +1570,19 @@ svg {
     margin: 0 auto;
   }
 
+  .articles-intro .articles-intro-heading{
+    font-size: 20px;
+  }
+
+  .articles-intro .articles-intro-heading h1{
+    margin-bottom: 10px;
+  }
+
+  .articles-intro .articles-intro-text{
+    font-size: 18px;
+    font-weight: 500;
+  }
+
   .articles-image img{
     width: 100%;
   }
@@ -1194,9 +1598,9 @@ svg {
   .articles-intro{
     position: absolute;
     z-index: 1;
-    width: 27%;
-    top: 35%;
-    left: 15%;
+    width: 35%;
+    top: 28%;
+    left: 10%;
     text-align: left;
   }
 
@@ -1231,6 +1635,8 @@ svg {
 
 .aboutUs-intro-text{
   color: #644A53;
+  font-weight: 500;
+  line-height: 1.5;
 }
 
 .aboutUs-desc-heading{
@@ -1243,11 +1649,22 @@ svg {
   margin: auto;
   font-size: 10pt;
   color: #644A53;
+  line-height: 1.5;
+  /* font-weight: 500; */
 }
 
 .aboutUs-title{
   color: #CA7342;
   margin: 50px 0;
+}
+.aboutUs-desc{
+  background-color: #F4F8FF;
+  padding: 20px 20% 50px 20%;
+}
+
+.aboutUs-card{
+  position: relative;
+  margin-bottom: 50px;
 }
 
 .aboutUs-card-image img{
@@ -1256,16 +1673,17 @@ svg {
   border-radius: 30px;
 }
 
-.aboutUs-card-name{
+.aboutUs-card-name h3{
   color: #CA7342;
   font-size: 16pt;
   margin-bottom: 0;
 }
 
-.aboutUs-card-role{
+.aboutUs-card-role p{
   color: #644A53;
-  font-size: 14pt;
-  margin-top: -10px;
+  font-size: 10pt;
+  font-weight: 500;
+  margin-top: 8px;
 }
 
 .aboutUs-card-desc{
@@ -1273,16 +1691,28 @@ svg {
   margin: auto;
   font-size: 10pt;
   color: #644A53;
+  line-height: 1.5;
 }
 
 .aboutUs-card-social{
   max-width: 90%;
-  margin: auto;
+  margin: 25px auto 0px auto;
   font-size: 12pt;
   color: #644A53;
-  margin-bottom: 100px;
+
+  display: flex;
+  justify-content: center;
+  /* position: absolute; */
+  /* bottom: -23px; */
 }
 
+.aboutUs-card-social a img{
+  max-width: 25px;
+}
+
+.aboutUs-card-social a:first-of-type{
+  margin-right: 30px;
+}
 @media only screen and (min-width: 780px){
   .aboutUs-image{
     position: relative;
@@ -1291,10 +1721,23 @@ svg {
   .aboutUs-intro{
     position: absolute;
     z-index: 1;
-    width: 22%;
-    top: 35%;
-    left: 15%;
+    width: 28%;
+    top: 22%;
+    left: 10%;
     text-align: left;
+  }
+
+  .aboutUs-intro .aboutUs-intro-heading{
+    font-size: 20px;
+  }
+  
+  .aboutUs-intro .aboutUs-intro-heading h1{
+    margin-bottom: 10px;
+  }
+
+  .aboutUs-intro .aboutUs-intro-text{
+    font-size: 18px;
+    font-weight: 500;
   }
 
   .aboutUs-desc{
@@ -1308,20 +1751,32 @@ svg {
     flex-wrap: wrap;
     max-width: 80%;
     margin: auto;
+    justify-content: space-between;
+    margin-bottom: 50px;
   }
 
   .aboutUs-card{
-    max-width: 25%;
+    max-width: 20%;
     /* padding: auto 50px; */
     text-align: left;
+    margin: 30px 2.5%;
+    margin-bottom: 70px;
   }
 
   .aboutUs-card-desc{
-    margin: 0;
+    margin: 0 0 25px 0;
   }
 
   .aboutUs-card-social{
-    margin-left: 0;
+
+    max-width: 90%;
+    margin: 25px auto 0 0;
+    font-size: 12pt;
+    color: #644A53;
+
+    display: flex;
+    position: absolute;
+    bottom: -23px;
   }
 }
 
@@ -1432,14 +1887,16 @@ svg {
   margin: auto 0 auto 30px;
 }
 
-.contact-location-info-phone img{
-  margin-left: 36.5px;
+
+.contact-location-info-phone-icon img{
+  margin-left: 30px;
   max-height: 25px;
 }
 
-.contact-location-info-phone p{
-  margin: auto 0 auto 25px;
+.contact-location-info-phone-text p{
+  margin: auto 0 auto 19px;
 }
+
 
 .contact-location-info-add p, .contact-location-info-phone p{
   font-family: 'Montserrat', sans-serif;
@@ -1461,7 +1918,7 @@ svg {
     z-index: 1;
     width: 40%;
     top: 35%;
-    left: 13.5%;
+    left: 10%;
     text-align: left;
   }
 
@@ -1469,7 +1926,12 @@ svg {
     margin: 0;
   }
 
+  .contact-intro-heading h1{
+    font-size: 26pt;
+  }
+
   .contact-intro p{
+    font-size: 14pt;
     width: 90%;
   }
 
@@ -1478,36 +1940,82 @@ svg {
     margin: 50px auto;
   }
 
+  .contact-desc-heading, .contact-desc-text{
+    margin-left: 0;
+  }
+
+  .contact-desc-heading{
+    font-size: 18pt;
+  }
+
+  .contact-desc-text{
+    font-size: 14pt;
+    font-weight: 500;
+  }
+
   .contact-location-heading, .contact-location-text{
-    max-width: 73%;
+    max-width: 80%;
     margin: auto;
   }
 
   .contact-contactForm{
-    max-width: 73%;
+    max-width: 80%;
     margin: auto;
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
   }
 
   .contact-contactForm-firstName, .contact-contactForm-lastName{
-    flex-grow: 1;
+    /* flex-grow: 1; */
     width: 50%;
   }
 
-  .contact-contactForm-email, .contact-contactForm-where, .contact-contactForm-details{
-    min-width: 100%;
+  .contact-contactForm-firstName{
     flex-grow: 1;
+  }
+
+  .contact-contactForm-email, .contact-contactForm-where, .contact-contactForm-details{
+    width: 96.5%;
+    /* flex-grow: 1; */
     margin-right: 0;
   }
 
+  .contact-contactForm-lastName input{
+    margin-left: 0px;
+    margin-right: 0;
+
+  }
+
+  .contact-contactForm-lastName{
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .contact-contactForm-email input, .contact-contactForm-where input, .contact-contactForm-details textarea{
+    width: 100%
+  }
+
   .contact-location-info-add{
-    width: 73%;
+    width: 80%;
     margin: auto;
   }
 
+  .contact-location-info-add-icon img{
+    margin-left: 0;
+  }
+
+  .contact-location-info-phone-icon img{
+    margin-left: 0px;
+    max-height: 25px;
+  }
+
+  .contact-location-info-phone-text p{
+    margin: auto 0 auto 26px;
+  }
+
   .contact-location-info-phone{
-    width: 74%;
+    width: 80%;
     margin: 10px auto 40px auto;
   }
 }
@@ -1534,7 +2042,7 @@ svg {
 }
 
 .donate-image{
-  margin-top: 50px;
+  /*margin-top: 50px;*/
   margin-bottom: 0;
 }
 
@@ -1577,6 +2085,7 @@ svg {
 }
 
 .donate-how {
+  padding-top: 50px;
   padding-bottom: 70px;
   background-color: #F4F8FF;
 }
@@ -1585,18 +2094,23 @@ svg {
   color: #CA7342;
   /* margin-top: 70px; */
   max-width: 80%;
-  margin: 70px auto 0 auto;
+  margin: 0 auto 0 auto;
 }
 
 .donate-card-link{
-  margin-top: 30px;
+  margin-top: 10px;
   margin-bottom: 70px;
+}
+
+.donate-card:last-of-type .donate-card-link{
+  margin-bottom: 0;
 }
 
 .donate-card-link a{
   text-decoration: none;
   color: #CA7342;
   font-weight: 600;
+  letter-spacing: 1px;
 }
 
 .donate-how-text{
@@ -1638,6 +2152,8 @@ svg {
   margin-bottom: 70px;
 }
 
+
+
 @media only screen and (min-width: 780px){
   .donate-image{
     position: relative;
@@ -1646,14 +2162,23 @@ svg {
   .donate-intro{
     position: absolute;
     z-index: 1;
-    width: 40%;
-    top: 35%;
+    width: 45%;
+    top: 29%;
     left: 10%;
     text-align: left;
   }
 
   .donate-intro h1, .donate-intro p{
     color: #fff;
+  }
+
+  .donate-intro h1{
+    font-size: 26pt;
+  }
+
+  .donate-intro p{
+    font-size: 16pt;
+
   }
 
   .donate-intro-heading, .donate-intro-text{
@@ -1705,4 +2230,30 @@ svg {
   .donate-card{
     max-width: 30%;
   }
+
+  .donate-card:last-of-type .donate-card-link{
+    margin-bottom: 70px;
+  }
+}
+
+
+/*not found page 404***********************************/
+.site-not-found{
+  margin-top: 20rem;
+  font-size: 4rem;
+}
+
+/*newsletter response*/
+
+#newsletter-submit{
+  color: #CA7342;
+  margin-top: 1rem;
+}
+
+/*contact form response*/
+
+#response-submit{
+  color: #644a53;
+  margin: auto;
+  font-size: 18px;
 }

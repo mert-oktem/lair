@@ -3,8 +3,15 @@ import CanadaMap from "../CanadaMap";
 import MapClick from "../MapClick";
 
 class HomeMap extends Component {
-    // constructor(){
-    //     super()
+    //  constructor(){
+    // super()
+    // this.state = {
+    //     renderChild: true
+    // };
+    // this.handleChildUnmount = this.handleChildUnmount.bind(this);
+    //  }
+    // handleChildUnmount(){
+    //     this.setState({renderChild: false});
     // }
     render() {
         return (
@@ -18,6 +25,7 @@ class HomeMap extends Component {
                     </div>
                 </div>
                 <div className="home-main-map-canada">
+                    {/*{this.state.renderChild ? <CanadaMap unmountMe={this.handleChildUnmount} /> : null}*/}
                     <CanadaMap/>
                 </div>
 
