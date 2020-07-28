@@ -1,19 +1,48 @@
-import React, {Component} from 'react'
-import ContactLocationImg from "../../../img/langara-map.png";
+import React, { Component } from 'react';
+import { Map, GoogleApiWrapper, InfoWindow, Marker } from 'google-maps-react';
 
-class ContactLocationMap extends Component {
-    // constructor(){
-    //     super()
-    // }
+const mapStyles = {
+  width: '100%',
+  height: '100%'
+};
+
+export class MapContainer extends Component {
+    state = {
+    showingInfoWindow: false,  //Hides or the shows the infoWindow
+    activeMarker: {},          //Shows the active marker upon click
+    selectedPlace: {}          //Shows the infoWindow to the selected place upon a marker
+    };
+
+    onMarkerClick = (props, marker, e) =>
+        this.setState({
+            selectedPlace: props,
+            activeMarker: marker,
+            showingInfoWindow: true
+    });
+
+    onClose = props => {
+        if (this.state.showingInfoWindow) {
+            this.setState({
+            showingInfoWindow: false,
+            activeMarker: null
+            });
+        }
+    };
+    
     render() {
         return (
-
-                <div className="contact-location-map">
-                    <img src={ContactLocationImg} alt="Contact Location Map"/>
+            <Map google={this.props.google} zoom={14} style={mapStyles} initialCenter={{ lat: 49.224726, lng: -123.108698}} >
+              <Marker onClick={this.onMarkerClick} name={'Langara College'}/>
+              <InfoWindow marker={this.state.activeMarker} visible={this.state.showingInfoWindow} onClose={this.onClose} >
+                <div>
+                  <h4>{this.state.selectedPlace.name}</h4>
                 </div>
-
-        )
+              </InfoWindow>
+            </Map>
+          );
     }
 }
 
-export default ContactLocationMap
+export default GoogleApiWrapper({
+  apiKey: 'AIzaSyAOWiSpvUjvww_EKXfphNg87bpsgqxnG9w'
+})(MapContainer);
