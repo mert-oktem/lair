@@ -6,8 +6,8 @@ import {Link} from "react-router-dom";
 
 
 class CanadaMap extends Component {
-   constructor(props) {
-      super(props)
+   constructor() {
+      super()
       this.myRef = React.createRef()
       this.aniIcons = React.createRef()
       this.handleClick = this.handleClick.bind(this)
@@ -15,9 +15,8 @@ class CanadaMap extends Component {
          data: false,
          mapClick:false,
          items:[],
-         mapAdded:false
       }
-      // this.dismiss = this.dismiss.bind(this);
+      this.mapAdded = false;
    }
 
    handleClick(d){
@@ -30,19 +29,13 @@ class CanadaMap extends Component {
          } )
       })
    }
-   // dismiss() {
-   //    this.props.unmountMe();
-   // }
 
    componentDidMount() {
-
       var files = ["https://gist.githubusercontent.com/Brideau/2391df60938462571ca9/raw/f5a1f3b47ff671eaf2fb7e7b798bacfc6962606a/canadaprovtopo.json"];
 
-      Promise.all(files.map(url => d3.json(url))).then(values => this.setState({
-         data: values[0]
-      }))
-
+      Promise.all(files.map(url => d3.json(url))).then(values => this.setState({ data: values[0]}))
    }
+
 
    componentDidUpdate() {
       var margin = { top: 0, left: 0, right: 0, bottom: 0}
@@ -59,15 +52,12 @@ class CanadaMap extends Component {
       .append("g")
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
 
-
-
       var projection = d3.geoOrthographic().clipAngle(90).rotate([98, -60]).scale(600).translate([500,200])
           .scale(800)
           .translate([width / 2, height / 2]);
 
       var path = d3.geoPath()
           .projection(projection)
-
 
       var data = this.state.data
 
@@ -118,7 +108,7 @@ class CanadaMap extends Component {
       if (!this.state.data) {
          return null;
       }
-      else if (this.state.mapClick != false){
+      else if (this.state.mapClick != false) {
          let items = this.state.items
          return (
              <div className="canada-map-click-active">
@@ -144,12 +134,13 @@ class CanadaMap extends Component {
          )
       }
       else if (this.state.data) {
-            return (<div className="canada-map">
-                   <div style={{ height: 700 }} ref={this.myRef}>
-                   </div>
-                </div>
-            )
+         this.mapAdded = true;
 
+         return (
+            <div className="canada-map">
+               <div style={{ height: 700 }} ref={this.myRef}></div>
+            </div>
+         )
       }
    }
 }

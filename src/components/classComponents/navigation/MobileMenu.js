@@ -9,6 +9,10 @@ const MobileMenu = props => {
         mobileMenuClasses = 'mobile-menu open'
     }
 
+    function refreshPage() {
+        window.location.reload(false);
+    }
+
     return(
         <div className={mobileMenuClasses}>
             <div className="mobile-menu-head">
@@ -16,7 +20,7 @@ const MobileMenu = props => {
             </div>
                 <nav className="mobile-menu-nav">
                     <ul>
-                        <li><Link to="/" onClick={props.close}>Home</Link></li>
+                        <li><Link to="/" onClick={refreshPage}>Home</Link></li>
                         <li><Link to="/discovery" onClick={props.close}>Explore</Link></li>
                         <li><Link to="/articles" onClick={props.close}>Articles</Link></li>
                         <li><Link to="/aboutUs" onClick={props.close}>About Us</Link></li>

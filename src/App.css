@@ -364,7 +364,7 @@ svg g{
   height: 300px;
 }
 
-svg g text{
+.canada-map svg g text{
   visibility: hidden;
 }
 
