@@ -7,22 +7,25 @@ const Joi = require('joi');
 const mysql = require('mysql')
 const cors = require('cors');
 const { stat } = require('fs');
-/******************** Custom Modules ********************/
-
-/******************** End of Modules ******************************/
+/******************** End of Modules ********************/
 
 
-const app = express();
-app.use(cors());
-app.use(express.json());
+/******************** Environmental Variables ***********/
 
-
-var connection = mysql.createConnection({
+const conStr = mysql.createConnection({
     host: 'localhost',
     user: 'lairdbadmin',
     password: '479ghsJO@',
     database: 'lairdb'
 })
+
+/******************** Query Setup ***********************/
+
+const app = express();
+app.use(cors());
+app.use(express.json());
+
+const connection = mysql.createConnection(conStr)
 
 connection.connect()
 
@@ -179,38 +182,7 @@ app.get('/medium/rss', (req, res) => {
 /****************************************************************/
 /******************** POST METHODS ******************************/
 /****************************************************************/
-//
-// app.post('/api/species', (req, res) => {
-//     const { error } = ValidateSpecie(req);
-//     if (error) { return res.status(400).send(result.error.details[0].message)}
 
-//     let lastid = connection.query(`SELECT MAX(speciesID) FROM endangeredSpeciesTable)`, function (err, result) {
-//     if (err) throw res.status(400).send(err)
-//     })
-
-//     connection.query(`INSERT INTO endangeredSpeciesTable
-//     (speciesID, statusID, trendID, familyID, name, scientificName, description, threats, image1, image2, icon, averageAge, averageWeight, averageHeight, speciesSignificance, active)
-//     VALUES
-//     (${lastid + 1},
-//     ${req.body.statusID},
-//     ${req.body.trendID},
-//     ${req.body.familyID},
-//     ${req.body.name},
-//     ${req.body.scientificName},
-//     ${req.body.description},
-//     ${req.body.threats},
-//     ${req.body.image1},
-//     ${req.body.image2}, ${req.body.icon},
-//     ${req.body.averageAge},
-//     ${req.body.averageWeight},
-//     ${req.body.averageHeight},
-//     ${req.body.speciesSignificance},
-//     ${req.body.active});`,
-//     function (err, result) {
-//         if (err) throw res.status(400).send(err)
-//         res.send("ok");
-//     })
-// });
 
 app.post('/api/contact', (req, res) => {
     const { error } = ValidateForm(req);
@@ -243,7 +215,7 @@ app.post('/api/newsletter', (req, res) => {
 /****************************************************************/
 /******************** PUT METHODS *******************************/
 /****************************************************************/
-//
+
 // app.put('/api/species/:id', (req, res) => {
 //     const { error } = ValidateSpecie(req);
 //     if (error) { return res.status(400).send(result.error.details[0].message); }
@@ -283,7 +255,7 @@ app.post('/api/newsletter', (req, res) => {
 /****************************************************************/
 /******************** DELETE METHODS ****************************/
 /****************************************************************/
-//
+
 // app.delete('/api/species/:id', (req, res) => {
 //     const { error } = ValidateSpecie(req);
 //     if (error) { return res.status(400).send(result.error.details[0].message); }
@@ -304,7 +276,8 @@ app.post('/api/newsletter', (req, res) => {
 
 
 
-//Validates Request
+/******************** Request Validations ****************************/
+
 function ValidateSpecie(req) {
     const schema = {
         name: Joi.string().min(3).required()
@@ -333,6 +306,7 @@ function ValidateNewsletter(req) {
 
     return Joi.validate(req.body, schema);
 }
+
 
 
 const port = process.env.port || 3011;
