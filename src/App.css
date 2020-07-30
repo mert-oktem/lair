@@ -5,12 +5,15 @@ body{
   height: auto;
   margin: 0;
   font-family: 'Montserrat', sans-serif;
-
 }
+
 p{
   line-height: 1.5;
 }
 
+h1, h2, h3{
+  text-transform: capitalize;
+}
 
 input::placeholder{
   font-family: "Montserrat", sans-serif;
@@ -610,7 +613,7 @@ footer{
   background-color: #F4F8FF;
   color: #644A53;
   padding-bottom: 10px;
-  margin-top: 50px;
+  margin-top: 100px;
 }
 
 .site-footer1 .site-logo img{
@@ -722,9 +725,8 @@ svg {
   flex-direction: row;
   justify-content: flex-end;
   align-items: center;
-  max-width: 80%;
-  margin: auto;
-  margin-top: 40px;
+  max-width: 90%;
+  margin: 40px auto;
   align-items: center;
 }
 
@@ -762,6 +764,30 @@ svg {
   margin: auto 0px;
 }
 
+
+.toggle-filter-button{
+  display: flex;
+  /* position: relative; */
+  background-color: transparent;
+  border: none;
+  /* width: 50%; */
+  justify-content: flex-end;
+  align-items: center;
+  /* left: 51%; */
+}
+
+.toggle-filter-button p{
+  /* text-align: center; */
+  margin: 0;
+  font-size: 12pt;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #644A53;
+  font-weight: 600;
+  margin-left: 10px;
+  display: none;
+}
+
 .navigation-filter button p{
   margin-left: 10px;
   font-size: 14pt;
@@ -769,6 +795,63 @@ svg {
   color: #CA7342;
   font-weight: 600;
   font-family: "Montserrat", sans-serif;
+}
+
+.mobile-filter-menu{
+  height: 100%;
+  background-color: #fff;
+  position: fixed;
+  margin: 0;
+  top: 0;
+  left: 0;
+  height: 0;
+  /* margin-right: 40px; */
+  z-index: 3;
+  /* visibility: hidden; */
+  width: 100%;
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+}
+
+.filter-header{
+  display: flex;
+  padding: 15px 5%;
+  font-size: 14pt;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 1.5px;
+  font-weight: 600;
+  color: #CA7342;
+  background-color: #F4F8FF;
+}
+
+.filter-header button div{
+  background: #CA7342;
+  height: 3px;
+  width: 25px;
+  margin-top: 5px; 
+}
+
+.filter-header button .close-button-first-line{
+  position: absolute;
+}
+
+.mobile-filter-menu.open{
+  /* visibility: visible; */
+  height: 100%;
+  transform: translateX(0);
+  margin: 0;
+  /* max-width: 90%; */
+}
+
+.mobile-filter-menu-form{
+  max-width: 90%;
+  margin: auto;
+}
+
+.mobile-filter-menu-form label{
+  font-weight: 500;
 }
 
 .mobile-filter-menu-form ul{
@@ -790,33 +873,36 @@ svg {
   /* letter-spacing: 2px; */
 }
 
-.mobile-filter-menu-form button:first-of-type{
+
+.mobile-filter-menu-form button:last-of-type{
   color: #644A53 !important;
-  width: 100%;
+  /* width: 100%; */
   background-color: #ffeda7;
-  padding: 12pt 24pt 12pt 24pt;
+  padding: 12pt 10pt;
   border-radius: 50px;
   border: none;
   text-transform: uppercase;
-  font-size: 12pt !important;
+  font-size: 10.4pt !important;
   font-weight: 600;
   letter-spacing: 2px;
+  margin: auto 0 auto 2%;
 }
 
-.mobile-filter-menu-form button:last-of-type{
+.mobile-filter-menu-form button:first-of-type{
   color: #644A53;
   font-family: 'Montserrat', sans-serif;
   text-transform: uppercase;
   background-color: #fff;
-  font-size: 12pt;
+  font-size: 10.4pt;
   font-weight: bold;
   letter-spacing: 2px;
-  padding: 12px 22px;
+  padding: 12px 10px;
   border-radius: 50px;
   border: 3px solid #ffeda7;
   margin-top: 25px;
   margin-bottom: 60px;
-  width: 100%;
+  margin-right: 2%;
+  /* width: 100%; */
 }
 
 .navigation-filter-list-head-risks{
@@ -850,6 +936,7 @@ main{
 .site-disc-main-animalCards{
   display: flex;
   flex-direction: column;
+  
 }
 
 .disc-main-aniCard{
@@ -873,6 +960,7 @@ main{
   font-size: 14pt;
   max-width: 82%;
   margin: auto;
+  line-height: 1.5;
 }
 
 .aniCard-location img, .aniCard-population img, .aniCard-status img{
@@ -959,6 +1047,7 @@ main{
 
 .animalDet-heading{
   color: #CA7342;
+  letter-spacing: 2px;
 }
 
 .animalDet-name{
@@ -981,6 +1070,11 @@ main{
   font-weight: bold;
   letter-spacing: 1px;
   margin: 50px auto;
+  text-transform: uppercase;
+}
+
+.animalDet-threats{
+  display: none !important;
 }
 
 .animalDet-average{
@@ -1016,6 +1110,7 @@ main{
   color: #644A53;
   font-size: 10pt;
   margin-bottom: 50px;
+  line-height: 1.5;
 }
 
 
@@ -1029,7 +1124,7 @@ main{
 .popChart-heading h3{
   color: #CA7342;
   font-size: 12pt;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
   max-width: 90%;
   margin: auto;
   margin-bottom: 10px;
@@ -1040,6 +1135,16 @@ main{
   max-width: 90%;
   margin: auto;
   flex-direction: column;
+}
+
+
+.popChart-text-threat, .popChart-text-trend{
+  display: flex;
+  
+}
+
+.popChart-text-threat h2{
+  margin-top: 2px;
 }
 
 .popChart-text h2{
@@ -1079,28 +1184,30 @@ main{
   color: #CA7342;
   max-width: 90%;
   margin: 0 auto 30px auto;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
   font-size: 12pt;
 }
 
 .whyMatter-image{
-  max-width: 90%;
+  /* max-width: 90%; */
   margin: auto;
 }
 
 .whyMatter-text{
   text-align: left;
   max-width: 90%;
-  margin: 30px auto 20px auto;
+  margin: 30px auto 30px auto;
   font-size: 10pt;
   color: #644A53;
   font-family: 'Montserrat', sans-serif;
+  line-height: 1.5;
 }
 
 .whyMatter-donate{
   display: flex;
   max-width: 90%;
   margin: auto;
+  
 }
 
 .whyMatter-donate button{
@@ -1113,8 +1220,8 @@ main{
   border: 0;
   font-size: 13pt;
   font-weight: bold;
-  letter-spacing: 1px;
-  margin-bottom: 100px;
+  letter-spacing: 2px;
+  /* margin-bottom: 100px; */
 }
 
 .discDet-main-relatedAnimals-heading{
@@ -1122,8 +1229,9 @@ main{
   color: #CA7342;
   max-width: 90%;
   margin: 0 auto 70px auto;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
   font-size: 12pt;
+  line-height: 1.5;
 }
 
 .disc-nav-search-type input{
@@ -1137,6 +1245,7 @@ main{
   background-size: 15px;
   /* width: 150%; */
   border: none;
+  width: 45vw;
   border-radius: 25px;
   background-color: #F4F8FF;
   /* margin-top: 40px; */
@@ -1150,19 +1259,33 @@ main{
   .site-logo img{
     margin: 20px;
   }
+
+  .mobile-filter-menu-form button{
+    width: 48%;
+    display: initial;
+  }
+
+  
 }
 
 @media only screen and (min-width: 781px){
   .disc-main-image{
     position: relative;
   }
+
+  .disc-main-nav{
+    max-width: 80%;
+  }
   
+  .toggle-filter-button p{
+    display: initial;
+  }
 
   .disc-main-intro{
     position: absolute;
     z-index: 1;
     width: 25%;
-    top: 26%;
+    top: 42%;
     left: 10%;
     text-align: left;
   }
@@ -1173,6 +1296,7 @@ main{
 
   .disc-main-intro .intro-heading h1{
     margin-bottom: 10px;
+    margin-top: 0;
   }
 
   .disc-main-intro .intro-text{
@@ -1220,15 +1344,20 @@ main{
   .mobile-filter-menu{
     /* height: 100%; */
     /* background-color: #F4F8FF; */
-    /* position: fixed; */
+    position: relative;
     top: 0;
     left: 0;
     height: 0;
     margin-right: 40px;
     visibility: hidden;
-    /* width: 100%; */
+    grid-column: 1/2;
+    width: auto;
     transform: translateX(-100%);
     transition: transform 0.3s ease-in-out;
+  }
+
+  .filter-header{
+    display: none;
   }
   
   .mobile-filter-menu.open{
@@ -1236,6 +1365,41 @@ main{
     height: 300px;
     transform: translateX(0);
     margin-top: 40px;
+    grid-column: 1/2;
+  }
+
+  .mobile-filter-menu-form{
+    margin: 0;
+    /* width: 100%; */
+  }
+
+  .mobile-filter-menu-form button:last-of-type{
+    color: #644A53 !important;
+    width: 100%;
+    background-color: #ffeda7;
+    padding: 12pt 24pt 12pt 24pt;
+    border-radius: 50px;
+    border: none;
+    text-transform: uppercase;
+    font-size: 11pt !important;
+    font-weight: 600;
+    letter-spacing: 2px;
+  }
+  
+  .mobile-filter-menu-form button:first-of-type{
+    color: #644A53;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    background-color: #fff;
+    font-size: 11pt;
+    font-weight: bold;
+    letter-spacing: 2px;
+    padding: 12px 22px;
+    border-radius: 50px;
+    border: 3px solid #ffeda7;
+    margin-top: 25px;
+    margin-bottom: 60px;
+    width: 100%;
   }
 
   .site-disc-main-animalCards.open{
@@ -1243,6 +1407,7 @@ main{
     margin: 0;
     justify-content: space-between;
     min-width: 100%;
+    grid-column: 2/3;
   }
 
   .site-disc-main-animalCards.open .disc-main-aniCard{
@@ -1278,6 +1443,9 @@ main{
     flex-wrap: wrap;
     max-width: 80%;
     margin: auto;
+    transition-property: flex;
+    transition-duration: 1s;
+    transition-delay: 2s;
   }
 
   .disc-main-aniCard{
@@ -1344,9 +1512,6 @@ main{
     margin-left: 4%;
   }
 
-  .popChart-text-threat, .popChart-text-trend{
-    display: flex;
-  }
 
   .discDet-main-relatedAnimals-cards{
     display: flex;
@@ -1385,7 +1550,7 @@ main{
 @media (min-width: 781px){
   .discDetails-overview{
     display: flex;
-    max-width: 85%;
+    max-width: 80%;
     margin: 20px auto;
     margin-top: 150px;
     text-align: left;
@@ -1402,12 +1567,15 @@ main{
 
   .discDet-main-animalDet{
     max-width: 45%;
-    margin-right: 0;;
+    margin-right: 0;
+    margin-top: 0;
   }
 
   .animalDet-description-text{
     margin-top: 0;
+    line-height: 1.5;
   }
+
 
   .animalDet-heading{
     margin-top: 0;
@@ -1419,15 +1587,16 @@ main{
   }
 
   .discDet-main-popChart{
-    padding: 50px 5%;
+    padding: 50px 10%;
   }
 
   .discDet-main-whyMatter{
     display: grid;
     max-width: 80%;
     margin: auto;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 0.35fr 1fr 0.35fr;
+    grid-template-columns: 3.5fr 6.5fr;
+    grid-template-rows: 0.35fr 1fr 0.15fr;
+    margin-bottom: 100px;
   }
   .whyMatter-image{
     grid-column: 2/3;
@@ -1470,6 +1639,7 @@ main{
 .articles-intro-heading h1{
   color: #CA7342;
   margin-bottom: 7px;
+  margin-top: 0;
 }
 
 .articles-intro-text p{
@@ -1488,8 +1658,12 @@ main{
   text-align: left;
 }
 
+.artCard-description{
+  line-height: 1.5;
+}
+
 .artCard-image{
-  max-height: 141px;
+  height: 140px;
   overflow: hidden;
   /* margin-bottom: 10px; */
 }
@@ -1499,16 +1673,8 @@ main{
 }
 
 .artCard-name h2{
-  /* white-space: nowrap; */
-  /* max-height: 100px; */
-  overflow: hidden;
-  min-height: 60px;
-  text-overflow: ellipsis;
   color: #CA7342;
-  margin-bottom: 10px;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
+  font-size: 18pt;
 }
 
 .artCard-author p{
@@ -1541,7 +1707,7 @@ main{
   margin-bottom: 20px;
   background-color: #fff;
   border: 0;
-  font-size: 14pt;
+  font-size: 12pt;
   letter-spacing: 2px;
   font-weight: 800;
   text-transform: uppercase;
@@ -1599,9 +1765,22 @@ main{
     position: absolute;
     z-index: 1;
     width: 35%;
-    top: 28%;
+    top: 42%;
     left: 10%;
     text-align: left;
+  }
+
+  .artCard-name h2{
+    /* white-space: nowrap; */
+    /* max-height: 100px; */
+    overflow: hidden;
+    min-height: 60px;
+    text-overflow: ellipsis;
+    color: #CA7342;
+    margin-bottom: 10px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
   }
 
   .articles-intro h1, .articles-intro p{
@@ -1683,7 +1862,7 @@ main{
   color: #644A53;
   font-size: 10pt;
   font-weight: 500;
-  margin-top: 8px;
+  margin-top: 15px;
 }
 
 .aboutUs-card-desc{
@@ -1722,7 +1901,7 @@ main{
     position: absolute;
     z-index: 1;
     width: 28%;
-    top: 22%;
+    top: 42%;
     left: 10%;
     text-align: left;
   }
@@ -1733,11 +1912,13 @@ main{
   
   .aboutUs-intro .aboutUs-intro-heading h1{
     margin-bottom: 10px;
+    margin-top: 0;
   }
 
   .aboutUs-intro .aboutUs-intro-text{
     font-size: 18px;
     font-weight: 500;
+    line-height: 1.5;
   }
 
   .aboutUs-desc{
@@ -1805,7 +1986,10 @@ main{
   text-align: left;
   margin: auto;
   color: #CA7342;
+  margin-top: 50px;
 }
+
+
 
 .contact-desc-text{
   max-width: 90%;
@@ -1839,7 +2023,9 @@ main{
   border-radius: 30px;
 }
 
-
+.contact-contactForm-details textarea::placeholder{
+  font-family: 'Montserrat', sans-serif;
+}
 
 .contact-contactForm button{
   font-family: Montserrat;
@@ -1916,8 +2102,8 @@ main{
   .contact-intro{
     position: absolute;
     z-index: 1;
-    width: 40%;
-    top: 35%;
+    width: 45%;
+    top: 40%;
     left: 10%;
     text-align: left;
   }
@@ -1927,7 +2113,8 @@ main{
   }
 
   .contact-intro-heading h1{
-    font-size: 26pt;
+    font-size: 30pt;
+    margin-top: 0;
   }
 
   .contact-intro p{
@@ -1984,7 +2171,8 @@ main{
   .contact-contactForm-lastName input{
     margin-left: 0px;
     margin-right: 0;
-
+    position: relative;
+    right: 10px;
   }
 
   .contact-contactForm-lastName{
@@ -2163,7 +2351,7 @@ main{
     position: absolute;
     z-index: 1;
     width: 45%;
-    top: 29%;
+    top: 40%;
     left: 10%;
     text-align: left;
   }
@@ -2173,7 +2361,7 @@ main{
   }
 
   .donate-intro h1{
-    font-size: 26pt;
+    font-size: 30pt;
   }
 
   .donate-intro p{
@@ -2184,6 +2372,10 @@ main{
   .donate-intro-heading, .donate-intro-text{
     margin: 0;
     /* margin-top: 0; */
+  }
+
+  .donate-intro-heading h1{
+    margin-top: 0;
   }
 
   .donate-how{
