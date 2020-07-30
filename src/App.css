@@ -1284,14 +1284,17 @@ main{
   .disc-main-intro{
     position: absolute;
     z-index: 1;
-    width: 25%;
+    width: 30%;
     top: 42%;
     left: 10%;
     text-align: left;
   }
 
   .disc-main-intro .intro-heading{
-    font-size: 20px;
+    font-size: 1.7vw;
+    /* width: 70%; */
+    margin-bottom: 10px;
+    margin-top: 0;
   }
 
   .disc-main-intro .intro-heading h1{
@@ -1770,6 +1773,13 @@ main{
     text-align: left;
   }
 
+  .articles-intro .articles-intro-heading{
+    font-size: 1.7vw;
+    /* width: 70%; */
+    margin-bottom: 10px;
+    margin-top: 0;
+  }
+
   .artCard-name h2{
     /* white-space: nowrap; */
     /* max-height: 100px; */
@@ -1900,14 +1910,18 @@ main{
   .aboutUs-intro{
     position: absolute;
     z-index: 1;
-    width: 28%;
+    width: 34%;
     top: 42%;
     left: 10%;
     text-align: left;
   }
 
   .aboutUs-intro .aboutUs-intro-heading{
-    font-size: 20px;
+    font-size: 1.7vw;
+    /* width: 70%; */
+    margin-bottom: 10px;
+    margin-top: 0;
+    
   }
   
   .aboutUs-intro .aboutUs-intro-heading h1{
@@ -2108,14 +2122,18 @@ main{
     text-align: left;
   }
 
+  .contact-intro .contact-intro-heading{
+    font-size: 1.7vw;
+    /* width: 70%; */
+    margin-bottom: 10px;
+    margin-top: 0;
+  }
+
   .contact-intro-heading, .contact-intro-text{
     margin: 0;
   }
 
-  .contact-intro-heading h1{
-    font-size: 30pt;
-    margin-top: 0;
-  }
+  
 
   .contact-intro p{
     font-size: 14pt;
@@ -2360,8 +2378,11 @@ main{
     color: #fff;
   }
 
-  .donate-intro h1{
-    font-size: 30pt;
+  .donate-intro .donate-intro-heading{
+    font-size: 1.7vw;
+    /* width: 70%; */
+    margin-bottom: 10px;
+    margin-top: 0;
   }
 
   .donate-intro p{
