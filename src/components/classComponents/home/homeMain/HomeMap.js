@@ -1,18 +1,7 @@
 import React, {Component} from 'react'
 import CanadaMap from "../CanadaMap";
-import MapClick from "../MapClick";
 
 class HomeMap extends Component {
-    //  constructor(){
-    // super()
-    // this.state = {
-    //     renderChild: true
-    // };
-    // this.handleChildUnmount = this.handleChildUnmount.bind(this);
-    //  }
-    // handleChildUnmount(){
-    //     this.setState({renderChild: false});
-    // }
     render() {
         return (
             <div className="home-main-map">
@@ -25,7 +14,6 @@ class HomeMap extends Component {
                     </div>
                 </div>
                 <div className="home-main-map-canada">
-                    {/*{this.state.renderChild ? <CanadaMap unmountMe={this.handleChildUnmount} /> : null}*/}
                     <CanadaMap/>
                 </div>
 

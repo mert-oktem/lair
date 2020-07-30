@@ -30,10 +30,12 @@ const connection = mysql.createConnection(conStr)
 connection.connect()
 
 
-/****************************************************************/
-/******************** GET METHODS *******************************/
-/****************************************************************/
+/*********************************************************************************************************************************************/
+/******************** GET METHODS ************************************************************************************************************/
+/*********************************************************************************************************************************************/
 
+
+/************** Endpoint for Discovery page ****************************************************/
 
 app.get(`/api/species`, (req, res) => {
     let species
@@ -56,6 +58,8 @@ app.get(`/api/species`, (req, res) => {
     }) 
 });
 
+/************** Endpoint for Discovery Detail page ****************************************************/
+
 app.get('/api/species/:id', (req, res) => {
     let species
     let q = `SELECT e.speciesID, sDT.statusDescription, tDT.trendDescription, fT.familyDescription, e.name, e.scientificName, e.description, e.threats,
@@ -74,6 +78,8 @@ app.get('/api/species/:id', (req, res) => {
     res.send(specie);
     }) 
 });
+
+/************** Endpoint for Related species from Discovery detail page ****************************************************/
 
 app.get('/api/relatedspecies/:id', (req, res) => {
     let q = `SELECT sDT.statusDescription
@@ -112,6 +118,8 @@ app.get('/api/relatedspecies/:id', (req, res) => {
     })
 });
 
+/************** Endpoint for Line graph on Discovery Detail page ****************************************************/
+
 app.get('/api/species/population/:id', (req, res) => {
     let q = `SELECT SUM(speciesCount) as y, YEAR(date) as x
         FROM populationTable AS p
@@ -124,6 +132,8 @@ app.get('/api/species/population/:id', (req, res) => {
         else { res.send(result); }
     }) 
 });
+
+/************** Endpoint for Canada Map ****************************************************/
 
 app.get('/api/locations/:location', (req, res) => {
     let q = `SELECT lT.locationID, lT.habitat, e.speciesID, e.name, e.icon, pT.speciesCount 
@@ -142,6 +152,8 @@ app.get('/api/locations/:location', (req, res) => {
     }) 
 });
 
+/************** Endpoint for Donation page ****************************************************/
+
 app.get('/api/ngos', (req, res) => {
     connection.query('SELECT * FROM NGOsTable', function (err, result) {
         if (err) throw res.status(400).send(err)
@@ -149,6 +161,8 @@ app.get('/api/ngos', (req, res) => {
     })
 
 });
+
+/************** Endpoint for Article page ****************************************************/
 
 app.get('/medium/rss', (req, res) => {
     let Parser = require('rss-parser');
@@ -177,12 +191,16 @@ app.get('/medium/rss', (req, res) => {
     })
 });
 
+/***Reference to articles, which are taken from endpoint provided by Medium.com ********/
+/**************** https://medium.com/wild-without-end *****************/
 
 
-/****************************************************************/
-/******************** POST METHODS ******************************/
-/****************************************************************/
+/*********************************************************************************************************************************************/
+/******************** POST METHODS ***********************************************************************************************************/
+/*********************************************************************************************************************************************/
 
+
+/************** Endpoint for Contact form ****************************************************/
 
 app.post('/api/contact', (req, res) => {
     const { error } = ValidateForm(req);
@@ -198,6 +216,8 @@ app.post('/api/contact', (req, res) => {
     })
 });
 
+/************** Endpoint for Newsletter form ****************************************************/
+
 app.post('/api/newsletter', (req, res) => {
     const { error } = ValidateNewsletter(req);
     if (error) { return res.status(400).send(res.error.details[0].message)}
@@ -212,71 +232,11 @@ app.post('/api/newsletter', (req, res) => {
     })
 });
 
-/****************************************************************/
-/******************** PUT METHODS *******************************/
-/****************************************************************/
 
-// app.put('/api/species/:id', (req, res) => {
-//     const { error } = ValidateSpecie(req);
-//     if (error) { return res.status(400).send(result.error.details[0].message); }
-//
-//     connection.query('SELECT * FROM endangeredSpeciesTable', function (err, result) {
-//         if (err) throw err
-//         let species = result
-//
-//         let specie = species.find(s => s.id === parseInt(req.params.id));
-//         if (!specie) return res.status(404).send("The specie with given id could not found.");
-//
-//
-//
-//         connection.query(`UPDATE endangeredSpeciesTable SET
-//         statusID = ${req.body.statusID}
-//         trendID = ${req.body.trendID}
-//         familyID = ${req.body.familyID}
-//         name = ${req.body.name}
-//         scientificName = ${req.body.scientificName}
-//         description = ${req.body.description}
-//         threats = ${req.body.threats}
-//         image1 = ${req.body.image1}
-//         image2 = ${req.body.image2}
-//         icon = ${req.body.icon}
-//         averageAge = ${req.body.averageAge}
-//         averageWeight = ${req.body.averageWeight}
-//         averageHeight = ${req.body.averageHeight}
-//         speciesSignificance = ${req.body.speciesSignificance}
-//         active = ${req.body.active}
-//         WHERE speciesID = ${req.body.id}`, function (err, result) {
-//             if (err) throw res.status(400).send(err)
-//             res.send("ok");
-//             })
-//     })
-// });
+/*********************************************************************************************************************************************/
+/******************** Request Validations *********************************************************************************************************/
+/*********************************************************************************************************************************************/
 
-/****************************************************************/
-/******************** DELETE METHODS ****************************/
-/****************************************************************/
-
-// app.delete('/api/species/:id', (req, res) => {
-//     const { error } = ValidateSpecie(req);
-//     if (error) { return res.status(400).send(result.error.details[0].message); }
-//
-//     connection.query('SELECT * FROM endangeredSpeciesTable', function (err, result) {
-//         if (err) throw err
-//         let species = result
-//
-//         let specie = species.find(s => s.id === parseInt(req.params.id));
-//         if (!specie) return res.status(404).send("The specie with given id could not found.");
-//
-//         connection.query(`DELETE from endangeredSpeciesTable WHERE speciesID = ${req.body.id}`, function (err, result) {
-//             if (err) throw res.status(400).send(err)
-//             res.send("ok");
-//             })
-//     })
-// });
-
-
-
-/******************** Request Validations ****************************/
 
 function ValidateSpecie(req) {
     const schema = {
@@ -299,14 +259,10 @@ function ValidateForm(req) {
 }
 function ValidateNewsletter(req) {
     const schema = {
-
         subscriberEmail: Joi.string().min(3).required()
-
     };
-
     return Joi.validate(req.body, schema);
 }
-
 
 
 const port = process.env.port || 3011;
