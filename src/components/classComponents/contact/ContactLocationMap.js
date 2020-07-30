@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { Map, GoogleApiWrapper, InfoWindow, Marker } from 'google-maps-react';
 
 const mapStyles = {
-  width: '100%',
-  height: '100%'
+  width: '400px',
+  height: '200px'
 };
 
 export class MapContainer extends Component {
@@ -13,14 +13,14 @@ export class MapContainer extends Component {
     selectedPlace: {}          //Shows the infoWindow to the selected place upon a marker
     };
 
-    onMarkerClick = (props, marker, e) =>
+    onMarkerClick = (props, marker) =>
         this.setState({
             selectedPlace: props,
             activeMarker: marker,
             showingInfoWindow: true
     });
 
-    onClose = props => {
+    onClose = () => {
         if (this.state.showingInfoWindow) {
             this.setState({
             showingInfoWindow: false,
@@ -31,15 +31,18 @@ export class MapContainer extends Component {
     
     render() {
         return (
-            <Map google={this.props.google} zoom={14} style={mapStyles} initialCenter={{ lat: 49.224726, lng: -123.108698}} >
-              <Marker onClick={this.onMarkerClick} name={'Langara College'}/>
-              <InfoWindow marker={this.state.activeMarker} visible={this.state.showingInfoWindow} onClose={this.onClose} >
-                <div>
-                  <h4>{this.state.selectedPlace.name}</h4>
-                </div>
-              </InfoWindow>
-            </Map>
-          );
+            <div className="langara-map">
+                <Map google={this.props.google} zoom={14} style={mapStyles} initialCenter={{ lat: 49.224726, lng: -123.108698}} >
+                    <Marker onClick={this.onMarkerClick} name={'Langara College'}/>
+                    <InfoWindow marker={this.state.activeMarker} visible={this.state.showingInfoWindow} onClose={this.onClose} >
+                        <div>
+                            <h4>{this.state.selectedPlace.name}</h4>
+                        </div>
+                    </InfoWindow>
+                </Map>
+            </div>
+
+          )
     }
 }
 
