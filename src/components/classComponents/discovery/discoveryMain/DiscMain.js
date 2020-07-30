@@ -159,6 +159,8 @@ class DiscMain extends Component {
 
     filterCloseButtonClickHandler = () => {
         this.setState({ mobileFilterOpen: false })
+        this.setState({discMainOpen: false})
+        this.setState({discMainAnimalOpen: false})
     }
 
 
@@ -170,7 +172,7 @@ class DiscMain extends Component {
 
         let closeButton;
         if (this.state.mobileFilterOpen) {
-            closeButton = <CloseButton click={this.filterCloseButtonClickHandler} />;
+            closeButton = <CloseButton click={this.filterCloseButtonClickHandler} />
         }
 
         let mobileFilterMenuClasses = 'mobile-filter-menu'
@@ -187,6 +189,19 @@ class DiscMain extends Component {
         if (this.state.discMainAnimalOpen) {
             discMainAnimalClasses = 'site-disc-main-animalCards open'
         }
+
+
+        // if (this.state.mobileMenuOpen){
+        //     closeButton = <CloseButton click={this.closeButtonClickHandler} />;
+        // }
+        // return (
+        //     <header className="site-header" style={{height: '100%'}}>
+        //         <Toolbar drawerClickHandler={this.drawerToggleClickHandler} />
+        //         <MobileMenu show={this.state.mobileMenuOpen} close={this.closeButtonClickHandler}/>
+        //         {closeButton}
+        //     </header>
+        // )
+    
 
         if (!isLoaded) {
             return <div>Loading...</div>
@@ -225,6 +240,10 @@ class DiscMain extends Component {
 
                     <div className={discMainClasses}>
                         <div className={mobileFilterMenuClasses}>
+                            <div className="filter-header">
+                                <p>Filter</p>
+                                {closeButton}
+                            </div>
                             <form className="mobile-filter-menu-form" >
                                 <ul>
                                     <li className="navigation-filter-list-head-species"><a href="/">Species</a></li>
@@ -295,8 +314,8 @@ class DiscMain extends Component {
                                         </div>
                                     </li>
                                 </ul>
-                                <button type="button" onClick={this.handleSubmit}>APPLY FILTER</button>
                                 <button type="button" onClick={this.handleClear}>DELETE FILTER</button>
+                                <button type="button" onClick={this.handleSubmit}>APPLY FILTER</button>
                             </form>
                         </div>
                         <div className={discMainAnimalClasses}>
@@ -353,7 +372,10 @@ class DiscMain extends Component {
 
                     <div className={discMainClasses}>
                         <div className={mobileFilterMenuClasses}>
-
+                            <div className="filter-header">
+                                <p>Filter</p>
+                                {closeButton}
+                            </div>
                             <form className="mobile-filter-menu-form" >
                                 <ul>
                                     <li className="navigation-filter-list-head-species"><a href="/">Species</a></li>
@@ -424,8 +446,8 @@ class DiscMain extends Component {
                                         </div>
                                     </li>
                                 </ul>
-                                <button type="button" onClick={this.handleSubmit}>APPLY FILTER</button>
                                 <button type="button" onClick={this.handleClear}>DELETE FILTER</button>
+                                <button type="button" onClick={this.handleSubmit}>APPLY FILTER</button>
                             </form>
                         </div>
 
@@ -483,7 +505,10 @@ class DiscMain extends Component {
                     </div>
                     <div className={discMainClasses}>
                         <div className={mobileFilterMenuClasses}>
-
+                            <div className="filter-header">
+                                <p>Filter</p>
+                                {closeButton}
+                            </div>
                             <form className="mobile-filter-menu-form" >
                                 <ul>
                                     <li className="navigation-filter-list-head-species"><a href="/">Species</a></li>
@@ -554,8 +579,8 @@ class DiscMain extends Component {
                                         </div>
                                     </li>
                                 </ul>
-                                <button type="button" onClick={this.handleSubmit}>APPLY FILTER</button>
                                 <button type="button" onClick={this.handleClear}>DELETE FILTER</button>
+                                <button type="button" onClick={this.handleSubmit}>APPLY FILTER</button>
                             </form>
                         </div>
                         <div className={discMainAnimalClasses}>
@@ -612,7 +637,10 @@ class DiscMain extends Component {
                     </div>
                     <div className={discMainClasses}>
                         <div className={mobileFilterMenuClasses}>
-
+                            <div className="filter-header">
+                                <p>Filter</p>
+                                {closeButton}
+                            </div>
                             <form className="mobile-filter-menu-form" >
                                 <ul>
                                     <li className="navigation-filter-list-head-species"><a href="/">Species</a></li>
@@ -683,8 +711,8 @@ class DiscMain extends Component {
                                         </div>
                                     </li>
                                 </ul>
-                                <button type="button" onClick={this.handleSubmit}>APPLY FILTER</button>
                                 <button type="button" onClick={this.handleClear}>DELETE FILTER</button>
+                                <button type="button" onClick={this.handleSubmit}>APPLY FILTER</button>
                             </form>
                         </div>
                         <div className={discMainAnimalClasses}>
