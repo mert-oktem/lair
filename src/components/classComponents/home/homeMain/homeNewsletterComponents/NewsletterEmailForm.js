@@ -34,7 +34,7 @@ class NewsletterEmailForm extends Component {
         if(isValid){
             let userData = this.state.newSub;
 
-            fetch('https://lair.wmdd.ca/api/newsletter',{
+            fetch('http://localhost:3011/api/newsletter',{
                 method: "POST",
                 body: JSON.stringify(userData),
                 headers: {

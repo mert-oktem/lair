@@ -40,7 +40,7 @@ class Chart extends Component {
         }
     }
     componentDidMount() {
-        fetch(`https://lair.wmdd.ca/api/species/population/${this.props.id}`)
+        fetch(`http://localhost:3011/api/species/population/${this.props.id}`)
             .then(res => res.json())
             .then(json => {
 

@@ -43,7 +43,7 @@ class ContactForm extends Component {
         if(isValid){
             let userData = this.state.newUser;
 
-            fetch('https://lair.wmdd.ca/api/contact',{
+            fetch('http://localhost:3011/api/contact',{
                 method: "POST",
                 body: JSON.stringify(userData),
                 headers: {

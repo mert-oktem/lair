@@ -13,7 +13,7 @@ const { stat } = require('fs');
 /******************** Environmental Variables ***********/
 
 const conStr = {
-    host: 'localhost',
+    host: '74.208.228.35',
     user: 'lairdbadmin',
     password: '479ghsJO@',
     database: 'lairdb'
