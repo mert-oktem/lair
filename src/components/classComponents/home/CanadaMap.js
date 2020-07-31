@@ -115,9 +115,9 @@ class CanadaMap extends Component {
          let items = this.state.items
 
          return (
-             <div className="canada-map-click-active">
+             <div ref={this.myRef2} className="canada-map-click-active">
                    <div className="canada-map-click-habitat">
-                      <p ref={this.myRef2} >Endangered Species in {items[0].habitat}</p>
+                      <p>Endangered Species in {items[0].habitat}</p>
                    </div>
                    <div className="canada-map-click-icons">
                       {items.map(item => (
