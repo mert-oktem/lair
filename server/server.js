@@ -12,12 +12,12 @@ const { stat } = require('fs');
 
 /******************** Environmental Variables ***********/
 
-const conStr = mysql.createConnection({
+const conStr = {
     host: 'localhost',
     user: 'lairdbadmin',
     password: '479ghsJO@',
     database: 'lairdb'
-})
+}
 
 /******************** Query Setup ***********************/
 

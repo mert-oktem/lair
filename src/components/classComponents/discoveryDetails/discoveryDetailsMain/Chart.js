@@ -17,10 +17,15 @@ const options = {
     },
     "series": [
         {
-            "name": "Years",
+            "name": "Population",
             "data": []
         }
-    ]
+    ],
+    "yAxis": {
+        title: {
+            text: ''
+        }
+    }
 }
 
 class Chart extends Component {

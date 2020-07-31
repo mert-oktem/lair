@@ -2470,3 +2470,12 @@ main{
   margin: auto;
   font-size: 18px;
 }
+
+/*validate form*/
+
+.validate-form{
+  font-size: .8rem;
+  color: red;
+  display: block;
+  margin: .5rem;
+}

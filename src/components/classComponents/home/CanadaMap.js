@@ -11,12 +11,14 @@ class CanadaMap extends Component {
       this.myRef = React.createRef()
       this.aniIcons = React.createRef()
       this.handleClick = this.handleClick.bind(this)
+      this.scrollToMyRef = this.scrollToMyRef.bind(this)
       this.state = {
          data: false,
          mapClick:false,
          items:[],
       }
       this.mapAdded = false;
+      this.myRef2 = React.createRef()
    }
 
    handleClick(d){
@@ -27,8 +29,11 @@ class CanadaMap extends Component {
             mapClick: true,
             items:json
          } )
+         this.scrollToMyRef()
       })
    }
+
+   scrollToMyRef = () => window.scrollTo(0, this.myRef2.current.offsetTop)
 
    componentDidMount() {
       var files = ["https://gist.githubusercontent.com/Brideau/2391df60938462571ca9/raw/f5a1f3b47ff671eaf2fb7e7b798bacfc6962606a/canadaprovtopo.json"];
@@ -69,11 +74,9 @@ class CanadaMap extends Component {
          .attr("class", "state")
          .attr("d", path)
          .on("mouseover", function(d) {
-            // Add the class selected
             d3.select(this).classed("selected", true)
          })
          .on("mouseout", function(d) {
-            // Remove class selected
             d3.select(this).classed("selected", false)
          })
          .on("click", (d) => this.handleClick(d) )
@@ -110,10 +113,11 @@ class CanadaMap extends Component {
       }
       else if (this.state.mapClick != false) {
          let items = this.state.items
+
          return (
              <div className="canada-map-click-active">
                    <div className="canada-map-click-habitat">
-                      <p>Endangered Species in {items[0].habitat}</p>
+                      <p ref={this.myRef2} >Endangered Species in {items[0].habitat}</p>
                    </div>
                    <div className="canada-map-click-icons">
                       {items.map(item => (
@@ -125,7 +129,7 @@ class CanadaMap extends Component {
                                        imgUrl: require('../../../' + `${item.icon}` + '.png'),
                                        aniId: `${item.speciesID}`,
                                        population:`${item.speciesCount}`
-                                    }}     />
+                                    }}  test={this.myRef2}   />
                           </Link>
                       )
                       )}
