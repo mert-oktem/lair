@@ -10,9 +10,8 @@ class ContactLocation extends Component {
                 <div className="contact-location-heading"><h2>Contact us</h2></div>
                 <div className="contact-location-text"><p>You are welcome to contact us if you have any questions
                     about wildlife.</p></div>
-                <div className="contact-location-map">
                     <ContactLocationMap />
-                </div>
+                
                 <div className="contact-location-info">
                     <div className="contact-location-info-add">
                         <div className="contact-location-info-add-icon"><img src={LocIcon} alt="Location Icon"/></div>
