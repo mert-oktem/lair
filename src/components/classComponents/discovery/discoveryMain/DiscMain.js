@@ -39,8 +39,8 @@ class DiscMain extends Component {
     }
     async handleChange(event) {
         let el = event.target;
-        const { name, value, type, checked } = event.target;
-        await new Promise(async (r, rej) => {
+        const { name, value} = event.target;
+        await new Promise(async (r) => {
 
             if (el.getAttribute('type') === "checkbox") {
                 this.setState({ [name]: el.checked })
@@ -54,29 +54,37 @@ class DiscMain extends Component {
         event.preventDefault()
         let newJson = [];
         for (let value of this.state.items) {
-            if (value.familyDescription == "Mammal" && this.state.isMammals) {
+            if (value.familyDescription === "Mammal" && this.state.isMammals) {
                 newJson.push(value);
             }
-            if (value.familyDescription == "Bird" && this.state.isBirds) {
+            if (value.familyDescription === "Bird" && this.state.isBirds) {
                 newJson.push(value);
             }
-            if (value.familyDescription == "Reptile" && this.state.isReptiles) {
+            if (value.familyDescription === "Reptile" && this.state.isReptiles) {
                 newJson.push(value);
             }
-            if (value.familyDescription == "Fish" && this.state.isFish) {
+            if (value.familyDescription === "Fish" && this.state.isFish) {
                 newJson.push(value);
             }
-            if (value.statusDescription == "Critically Endangared" && this.state.isCriticallyEndangered) {
+            if (value.statusDescription === "Critically Endangared" && this.state.isCriticallyEndangered) {
+
                 newJson.push(value);
+                newJson =  newJson.filter(function(elem, index, self){
+                    return self.indexOf(elem) === index
+                });
             }
-            if (value.statusDescription == "Endangared" && this.state.isEndangered) {
+            if (value.statusDescription === "Endangared" && this.state.isEndangered) {
                 newJson.push(value);
+                newJson =  newJson.filter(function(elem, index, self){
+                    return self.indexOf(elem) === index
+                });
             }
         }
         this.setState({
             filteredItems: newJson,
             isFilter: true
         });
+        this.filterCloseButtonClickHandler()
     }
     handleClear(e) {
         e.preventDefault()
@@ -95,6 +103,7 @@ class DiscMain extends Component {
             isCriticallyEndangered: false,
             isFilter: false
         });
+        this.filterCloseButtonClickHandler()
     }
     handleLoadMore(e) {
         e.preventDefault()
@@ -190,19 +199,6 @@ class DiscMain extends Component {
             discMainAnimalClasses = 'site-disc-main-animalCards open'
         }
 
-
-        // if (this.state.mobileMenuOpen){
-        //     closeButton = <CloseButton click={this.closeButtonClickHandler} />;
-        // }
-        // return (
-        //     <header className="site-header" style={{height: '100%'}}>
-        //         <Toolbar drawerClickHandler={this.drawerToggleClickHandler} />
-        //         <MobileMenu show={this.state.mobileMenuOpen} close={this.closeButtonClickHandler}/>
-        //         {closeButton}
-        //     </header>
-        // )
-    
-
         if (!isLoaded) {
             return <div>Loading...</div>
         } else if (isFilter && isLoaded) {
@@ -215,7 +211,7 @@ class DiscMain extends Component {
                             <div className="disc-main-navigation-search">
                                 <form className="disc-nav-search">
                                     <div className="navigation-search-icon">
-                                        <img src={SearchIconImg} alt="Search icon Image" />
+                                        <img src={SearchIconImg} alt="Search icon" />
                                     </div>
                                     <div className="disc-nav-search-type">
                                         <input
@@ -231,7 +227,7 @@ class DiscMain extends Component {
                             <div className="filter-spacer" />
 
                             <button className="toggle-filter-button" onClick={this.filterToggleClickHandler}>
-                                <img src={FilterIconImg} alt="Filter icon Image" />
+                                <img src={FilterIconImg} alt="Filter icon" />
                                 <p>Filter</p>
                             </button>
 
@@ -347,7 +343,7 @@ class DiscMain extends Component {
                             <div className="disc-main-navigation-search">
                                 <form className="disc-nav-search">
                                     <div className="navigation-search-icon">
-                                        <img src={SearchIconImg} alt="Search icon Image" />
+                                        <img src={SearchIconImg} alt="Search icon" />
                                     </div>
                                     <div className="disc-nav-search-type">
                                         <input
@@ -363,7 +359,7 @@ class DiscMain extends Component {
                             <div className="filter-spacer" />
 
                             <button className="toggle-filter-button" onClick={this.filterToggleClickHandler}>
-                                <img src={FilterIconImg} alt="Filter icon Image" />
+                                <img src={FilterIconImg} alt="Filter icon" />
                                 <p>Filter</p>
                             </button>
 
@@ -481,7 +477,7 @@ class DiscMain extends Component {
                             <div className="disc-main-navigation-search">
                                 <form className="disc-nav-search">
                                     <div className="navigation-search-icon">
-                                        <img src={SearchIconImg} alt="Search icon Image" />
+                                        <img src={SearchIconImg} alt="Search icon" />
                                     </div>
                                     <div className="disc-nav-search-type">
                                         <input
@@ -497,7 +493,7 @@ class DiscMain extends Component {
                             <div className="filter-spacer" />
 
                             <button className="toggle-filter-button" onClick={this.filterToggleClickHandler}>
-                                <img src={FilterIconImg} alt="Filter icon Image" />
+                                <img src={FilterIconImg} alt="Filter icon" />
                                 <p>Filter</p>
                             </button>
 
@@ -613,7 +609,7 @@ class DiscMain extends Component {
                             <div className="disc-main-navigation-search">
                                 <form className="disc-nav-search">
                                     <div className="navigation-search-icon">
-                                        <img src={SearchIconImg} alt="Search icon Image" />
+                                        <img src={SearchIconImg} alt="Search icon" />
                                     </div>
                                     <div className="disc-nav-search-type">
                                         <input
@@ -629,7 +625,7 @@ class DiscMain extends Component {
                             <div className="filter-spacer" />
 
                             <button className="toggle-filter-button" onClick={this.filterToggleClickHandler}>
-                                <img src={FilterIconImg} alt="Filter icon Image" />
+                                <img src={FilterIconImg} alt="Filter icon" />
                                 <p>Filter</p>
                             </button>
 

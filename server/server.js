@@ -91,7 +91,7 @@ app.get('/api/relatedspecies/:id', (req, res) => {
 
     connection.query(q, function (err, result) {
         if (err) throw res.status(400).send(err)
-        else if ( result == [] ) res.status(404).send("The specie with given id could not found.");
+        else if ( result === [] ) res.status(404).send("The specie with given id could not found.");
         else { 
             statusDescription = JSON.stringify(result[0].statusDescription) 
             statusDescription = statusDescription.replace(/^"|"$/g, '').toString()
@@ -107,11 +107,11 @@ app.get('/api/relatedspecies/:id', (req, res) => {
             LEFT JOIN locationTable lT on locationSpeciesLink.locationID = lT.locationID
             WHERE e.active = TRUE AND sDT.statusDescription = '${statusDescription}'
             GROUP BY e.speciesID
-            ORDER BY RAND() LIMIT 3;`
+            ORDER BY RAND() LIMIT 4;`
     
             connection.query(q, function (err, result) {
             if (err) throw res.status(400).send(err)
-            else if ( result == [] ) res.status(404).send("The given status could not found.");
+            else if ( result === [] ) res.status(404).send("The given status could not found.");
             else { res.send(result); }
             }) 
         }
@@ -128,7 +128,7 @@ app.get('/api/species/population/:id', (req, res) => {
 
     connection.query(q, function (err, result) {
         if (err) throw res.status(400).send(err)
-        else if (result == []) res.status(404).send("The specie with given id could not found.");
+        else if (result === []) res.status(404).send("The specie with given id could not found.");
         else { res.send(result); }
     }) 
 });
@@ -147,7 +147,7 @@ app.get('/api/locations/:location', (req, res) => {
 
     connection.query(q, function (err, result) {
         if (err) throw res.status(400).send(err)
-        else if (result == []) res.status(404).send("The location with given id could not found.");
+        else if (result === []) res.status(404).send("The location with given id could not found.");
         else { res.send(result); }
     }) 
 });
@@ -175,7 +175,6 @@ app.get('/medium/rss', (req, res) => {
     });
     parser.parseURL('https://medium.com/feed/wild-without-end', function(err, feed) {
         feed.items.forEach(item => {
-            var urls = []
             var str = item.content
             var rex = /<img.*?src="([^">]*\/([^">]*?))".*?>/g;
             var m = rex.exec( str )
@@ -183,7 +182,7 @@ app.get('/medium/rss', (req, res) => {
             const jsdom = require("jsdom");
             const dom = new jsdom.JSDOM(item.content);
             item.firstp = dom.window.document.querySelector("p").textContent;
-            if (item.firstp == "") {
+            if (item.firstp === "") {
                 item.firstp = item.contentSnippet
             }
         })
@@ -236,15 +235,6 @@ app.post('/api/newsletter', (req, res) => {
 /*********************************************************************************************************************************************/
 /******************** Request Validations *********************************************************************************************************/
 /*********************************************************************************************************************************************/
-
-
-function ValidateSpecie(req) {
-    const schema = {
-        name: Joi.string().min(3).required()
-    };
-
-    return Joi.validate(req.body, schema);
-}
 
 function ValidateForm(req) {
     const schema = {

@@ -2,7 +2,6 @@ import React, {Component} from 'react'
 import ArticlesIntro from "./ArticlesIntro";
 import ArticlesImage from "./ArticlesImage";
 import ArticlesCard from "./ArticlesCard";
-import ArticlesLoadMoreBtn from "../../functionComponents/articlesButtons/ArticlesLoadMoreBtn";
 
 class Articles extends Component{
     constructor(props) {
@@ -41,7 +40,6 @@ class Articles extends Component{
                             Loading.....
 
                         </div>
-                        <ArticlesLoadMoreBtn />
                 </main>
             )
         }
