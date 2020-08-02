@@ -150,13 +150,13 @@ a{
 }
 
 .toggle-line{
-  width: 8vw;
+  width: 30px;
   height: 2px;
   background: #644A53;
 }
 
 .toggle-middle-line{
-  width: 4vw;
+  width: 15px;
   height: 2px;
   background: #644A53;
 }
