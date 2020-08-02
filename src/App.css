@@ -502,8 +502,7 @@ svg g{
   font-weight: bold;
   letter-spacing: 2px;
   margin-bottom: 70px;
-  position: relative;
-  right: 20px;
+
 }
 
 @media only screen and (min-width: 781px) {
@@ -512,6 +511,11 @@ svg g{
   }
   .canada-map {
      height: 700px;
+  }
+
+  .newsletter-form-submitBtn button{
+    position: relative;
+    right: 20px;
   }
 
   .home-main-intro{
