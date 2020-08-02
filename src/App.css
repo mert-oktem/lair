@@ -11,6 +11,14 @@ p{
   line-height: 1.5;
 }
 
+.discNav.active, .articlesNav.active, .aboutUsNav.active, .contactNav.active{
+  box-shadow: 0px 4.05px 0px -1px #CA7342;
+}
+
+.donateNav.active{
+  box-shadow: 4.05px 4.05px 20.24px #FFEDA7;
+}
+
 h1, h2, h3{
   text-transform: capitalize;
 }
@@ -97,6 +105,7 @@ a{
 .toolbar-nav{
   display: flex;
   align-items: center;
+  justify-content: space-between;
   
 }
 
@@ -141,13 +150,13 @@ a{
 }
 
 .toggle-line{
-  width: 30px;
+  width: 8vw;
   height: 2px;
   background: #644A53;
 }
 
 .toggle-middle-line{
-  width: 15px;
+  width: 4vw;
   height: 2px;
   background: #644A53;
 }
@@ -227,7 +236,7 @@ a{
 }
 
 button.close-button{
-  margin: 40px 30px;
+  margin: 40px 3vw;
   border: none;
   background-color: transparent;
   position: absolute;
@@ -260,7 +269,7 @@ button.close-button{
   }
 
   .toolbar-nav-items a:hover{
-    box-shadow: 0px 4.05px 0px -1px #644A53;
+    box-shadow: 0px 4.05px 0px -1px #CA7342;
   }
 
   .donate-desktop-button a{
@@ -842,6 +851,10 @@ svg {
   background-color: #F4F8FF;
 }
 
+.filter-header button{
+  margin-right: 3vw;
+}
+
 .filter-header button div{
   background: #CA7342;
   height: 3px;
@@ -895,7 +908,7 @@ svg {
 }
 
 
-.mobile-filter-menu-form button:last-of-type{
+.mobile-filter-menu-form button:first-of-type{
   color: #644A53 !important;
   /* width: 100%; */
   background-color: #ffeda7;
@@ -906,10 +919,12 @@ svg {
   font-size: 10.4pt !important;
   font-weight: 600;
   letter-spacing: 2px;
-  margin: auto 0 auto 2%;
+  margin-top: 25px;
+  margin-bottom: 60px;
+  margin-right: 2%;
 }
 
-.mobile-filter-menu-form button:first-of-type{
+.mobile-filter-menu-form button:last-of-type{
   color: #644A53;
   font-family: 'Montserrat', sans-serif;
   text-transform: uppercase;
@@ -920,9 +935,9 @@ svg {
   padding: 12px 10px;
   border-radius: 50px;
   border: 3px solid #ffeda7;
-  margin-top: 25px;
-  margin-bottom: 60px;
-  margin-right: 2%;
+  
+
+  margin: auto 0 auto 2%;
   /* width: 100%; */
 }
 
@@ -1096,6 +1111,7 @@ main{
   letter-spacing: 2px;
   margin: 30px auto;
   text-transform: uppercase;
+  font-size: 11pt;
 }
 
 .animalDet-threats{
@@ -1629,6 +1645,7 @@ main{
 
   .animalDet-status-text{
     margin: 30px 0;
+    font-size: 12pt;
   }
 
   .discDet-main-popChart{
@@ -1908,7 +1925,7 @@ main{
 }
 .aboutUs-desc{
   background-color: #F4F8FF;
-  padding: 20px 20% 50px 20%;
+  padding: 20px 10% 50px 10%;
   margin-top: -5px;
 }
 
