@@ -96,7 +96,7 @@ const MobileMenu = props => {
             <nav className="mobile-menu-nav">
                 <ul>
                     <li onClick={refreshPage}><Link to="/">Home</Link></li>
-                    <li><NavLink activeClassName="discNav-active" className="discNav" to="/discovery" onClick={props.close}>Explore</NavLink></li>
+                    <li><NavLink activeClassName="active" className="discNav" to="/discovery" onClick={props.close}>Explore</NavLink></li>
                     <li><NavLink activeClassName="active" className="articlesNav" to="/articles" onClick={props.close}>Articles</NavLink></li>
                     <li><NavLink activeClassName="active" className="aboutUsNav" to="/aboutUs" onClick={props.close}>About Us</NavLink></li>
                     <li><NavLink activeClassName="active" className="contactNav" to="/contact" onClick={props.close}>Contact</NavLink></li>
