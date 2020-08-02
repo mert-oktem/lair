@@ -881,6 +881,11 @@ svg {
   font-weight: 600;
 }
 
+.mobile-filter-menu-form button:hover{
+  box-shadow: 4.05px 4.05px 20.24px #FFEDA7;
+  /* letter-spacing: 2px; */
+}
+
 .mobile-filter-menu-form button{
   display: block;
   margin: 20px auto;
@@ -1047,6 +1052,10 @@ main{
   border: 5px solid #ffeda7;
   margin-top: 25px;
   margin-bottom: 60px;
+}
+
+.discLoadMore-button button:hover{
+  box-shadow: 4.05px 4.05px 20.24px #FFEDA7;
 }
 
 .animalDet-sciName-text{
