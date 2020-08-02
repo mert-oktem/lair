@@ -16,8 +16,6 @@ class HomeMap extends Component {
                 <div className="home-main-map-canada">
                     <CanadaMap/>
                 </div>
-
-
             </div>
         )
     }

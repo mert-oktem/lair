@@ -1,9 +1,7 @@
 import React, {Component} from 'react'
 
 class DonateIntro extends Component {
-    // constructor(){
-    //     super()
-    // }
+
     render() {
         return (
             <div className="donate-intro">

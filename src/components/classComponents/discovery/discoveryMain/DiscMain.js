@@ -6,7 +6,6 @@ import FilterIconImg from "../../../../img/ui_icons/PNG/ui_icons_filter.png";
 import SearchIconImg from "../../../../img/ui_icons/PNG/ui_icons_search.png";
 import CloseButton from "../../navigation/closeButton/CloseButton";
 
-
 class DiscMain extends Component {
     constructor(props) {
         super(props);
@@ -115,16 +114,13 @@ class DiscMain extends Component {
 
     handleInput(event) {
         event.preventDefault()
-        console.log(event.target.value);
         let value = event.target.value;
         let name = event.target.name;
         this.setState({
             [name]: value,
             searchLoad: true
-
         }
         )
-        console.log(this.state.search)
         let itemSearch = this.state.items.filter((item) => {
             return item.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
         });
@@ -132,10 +128,6 @@ class DiscMain extends Component {
             searchedItems: itemSearch
 
         })
-
-        console.log(this.state.searchedItems)
-
-        //this.setState({search: e.target.value})
     }
     componentDidMount() {
         fetch('https://lair.wmdd.ca/api/species')
@@ -172,33 +164,24 @@ class DiscMain extends Component {
         this.setState({discMainAnimalOpen: false})
     }
 
-
-    ////////////////////////////////////////////////////////////
     render() {
-
-
         var { isLoaded, items, filteredItems, isFilter, lessItems, isMore, searchLoad, searchedItems } = this.state;
-
         let closeButton;
         if (this.state.mobileFilterOpen) {
             closeButton = <CloseButton click={this.filterCloseButtonClickHandler} />
         }
-
         let mobileFilterMenuClasses = 'mobile-filter-menu'
         if (this.state.mobileFilterOpen) {
             mobileFilterMenuClasses = 'mobile-filter-menu open'
         }
-
         let discMainClasses = 'disc-main-filter-anicard'
         if (this.state.discMainOpen) {
             discMainClasses = 'disc-main-filter-anicard open'
         }
-
         let discMainAnimalClasses = 'site-disc-main-animalCards'
         if (this.state.discMainAnimalOpen) {
             discMainAnimalClasses = 'site-disc-main-animalCards open'
         }
-
         if (!isLoaded) {
             return <div>Loading...</div>
         } else if (isFilter && isLoaded) {

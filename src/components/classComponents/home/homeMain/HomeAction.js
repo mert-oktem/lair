@@ -4,9 +4,7 @@ import ActionHeading from "./HomeActionComponents/ActionHeading";
 import {Link} from "react-router-dom";
 
 class HomeAction extends Component {
-    // constructor(){
-    //     super()
-    // }
+
     render() {
         return (
             <div className="home-main-action">
@@ -33,10 +31,7 @@ class HomeAction extends Component {
                                 imgUrl: require('../../../../img/feature_icons/Illustration_Donate.png')}}
                         />
                     </Link>
-
                 </div>
-
-
             </div>
         )
     }

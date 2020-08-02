@@ -4,9 +4,6 @@ import AvgHeight from "./animalAverage/AvgHeight";
 import AvgWeight from "./animalAverage/AvgWeight";
 
 class AnimalAvg extends Component{
-    // constructor(){
-    //     super()
-    // }
     render(){
         return (
             <div className="animalDet-average">

@@ -1,8 +1,8 @@
 import React, {Component} from "react"
 
 class ContactForm extends Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         this.state = {
             newUser: {
                 contactFirstName: "",
@@ -16,16 +16,13 @@ class ContactForm extends Component {
             emailError: "",
             pOError: "",
             oDError: ""
-
         }
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
         this.handleClearForm = this.handleClearForm.bind(this)
         this.validate = this.validate.bind(this)
     }
-
     handleChange(event) {
-
         let value = event.target.value;
         let name = event.target.name;
         this.setState( prevState => {
@@ -42,7 +39,6 @@ class ContactForm extends Component {
         const isValid = this.validate();
         if(isValid){
             let userData = this.state.newUser;
-
             fetch('https://lair.wmdd.ca/api/contact',{
                 method: "POST",
                 body: JSON.stringify(userData),
@@ -50,7 +46,6 @@ class ContactForm extends Component {
                     'Content-Type': 'application/json'
                 }
             }).then((res) => {
-
                 res.json().then(() => {
                     this.handleClearForm();
                 })
@@ -64,7 +59,6 @@ class ContactForm extends Component {
         let  emailError = "";
         let  pOError = "";
         let  oDError = "";
-
         if(!this.state.newUser.contactFirstName){
             fNameError =  "First Name cannot be blank";
         }
@@ -109,7 +103,6 @@ class ContactForm extends Component {
         return true;
     }
     handleClearForm() {
-
         this.setState({
             newUser: {
                 contactFirstName: "",
@@ -190,11 +183,9 @@ class ContactForm extends Component {
                     </div>
 
                     <button type="button" onClick={this.handleSubmit}>Send Now</button>
-
                 </form>
                 <div id="response-submit"></div>
             </div>
-
         )
     }
 }

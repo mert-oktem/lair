@@ -2,9 +2,7 @@ import React, {Component} from 'react'
 import DonateHowImage from "./DonateHowImage";
 
 class DonateHow extends Component {
-    // constructor(){
-    //     super()
-    // }
+
     render() {
         return (
             <div className="donate-how">

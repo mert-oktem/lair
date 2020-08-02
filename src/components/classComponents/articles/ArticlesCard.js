@@ -3,18 +3,12 @@ import ArticlesReadMoreBtn from "../../functionComponents/articlesButtons/Articl
 import {Link} from "react-router-dom";
 
 class ArticlesCard extends Component {
-    // constructor(){
-    //     super()
-    // }
     render() {
         return (
-
-
-
                 <div className="articles-artCard">
                     <Link to={{ pathname: `${this.props.article.link}` }} target="_blank">
                         <div className="artCard-image">
-                            <img src={this.props.article.imgUrl} alt="Article Card Image"/>
+                            <img src={this.props.article.imgUrl} alt="Article Card"/>
                         </div>
                     </Link>
                     <Link to={{ pathname: `${this.props.article.link}` }} target="_blank">
@@ -30,10 +24,7 @@ class ArticlesCard extends Component {
                     </div>
                     <ArticlesReadMoreBtn item={this.props.article.link} />
                 </div>
-
-
         )
     }
 }
-
 export default ArticlesCard

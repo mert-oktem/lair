@@ -1,9 +1,6 @@
 import React, {Component} from 'react'
 
 class AvgWeight extends Component{
-    // constructor(){
-    //     super()
-    // }
     render(){
         return (
             <div className="animalDet-average-weight">

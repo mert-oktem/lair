@@ -17,7 +17,6 @@ class Donate extends Component{
         fetch('https://lair.wmdd.ca/api/ngos')
             .then(res => res.json())
             .then(json => {
-                console.log(json);
                 this.setState({
                     isLoaded: true,
                     items: json
@@ -65,6 +64,5 @@ class Donate extends Component{
             )
         }
     }
-
 }
 export default Donate

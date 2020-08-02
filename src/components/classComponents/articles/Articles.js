@@ -15,18 +15,13 @@ class Articles extends Component{
         fetch('https://lair.wmdd.ca/medium/rss')
             .then(res => res.json())
             .then(json => {
-                // console.log(json);
                 const less = json.items.slice(0,9)
                 this.setState({
                     isLoaded: true,
                     dataSets: less
-
                 })
-
             })
-
     }
-
     render(){
         var { isLoaded, dataSets } = this.state;
 
@@ -36,23 +31,18 @@ class Articles extends Component{
                         <ArticlesIntro />
                         <ArticlesImage />
                         <div className="articles-block">
-
                             Loading.....
-
                         </div>
                 </main>
             )
         }
         else {
-
             return (
                 <main className="site-articles">
                         <ArticlesIntro />
                         <ArticlesImage />
                         <div className="articles-block">
-
                             {dataSets.map(item => (
-
                                 <ArticlesCard
                                     article={{name:`${item.title}`,
                                         author:`${item.creator}` + ' | 3 min read',
@@ -65,11 +55,8 @@ class Articles extends Component{
                             ))}
                         </div>
                 </main>
-
             )
         }
-
     }
-
 }
 export default Articles

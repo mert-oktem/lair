@@ -1,9 +1,6 @@
 import React, {Component} from 'react'
 
 class AboutUsTitle extends Component {
-    // constructor(){
-    //     super()
-    // }
     render() {
         return (
             <div className="aboutUs-title">

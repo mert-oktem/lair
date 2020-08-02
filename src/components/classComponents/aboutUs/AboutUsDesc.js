@@ -1,9 +1,6 @@
 import React, {Component} from 'react'
 
 class AboutUsDesc extends Component {
-    // constructor(){
-    //     super()
-    // }
     render() {
         return (
             <div className="aboutUs-desc">

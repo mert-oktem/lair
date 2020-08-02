@@ -18,6 +18,5 @@ class Contact extends Component{
             </main>
         )
     }
-
 }
 export default Contact

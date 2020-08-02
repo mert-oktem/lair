@@ -1,9 +1,6 @@
 import React, {Component} from 'react'
 
 class AnimalName extends Component{
-    // constructor(){
-    //     super()
-    // }
     render(){
         return (
             <div className="animalDet-name">

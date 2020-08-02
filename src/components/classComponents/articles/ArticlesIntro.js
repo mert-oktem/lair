@@ -1,9 +1,6 @@
 import React, {Component} from 'react'
 
 class ArticlesIntro extends Component {
-    // constructor(){
-    //     super()
-    // }
     render() {
         return (
             <div className="articles-intro">

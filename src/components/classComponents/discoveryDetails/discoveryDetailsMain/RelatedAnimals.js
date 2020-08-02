@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
 import AnimalCard from "../../discovery/discoveryMain/AnimalCard";
 
-
 class RelatedAnimals extends Component {
     constructor(props){
         super(props);
@@ -14,23 +13,19 @@ class RelatedAnimals extends Component {
         fetch(`https://lair.wmdd.ca/api/relatedspecies/${this.props.id}`)
             .then(res => res.json())
             .then(json => {
-                // console.log( json );
                 this.setState({
                     isLoaded: true,
                     items:json
                 })
             })
     }
-
     render() {
         var {isLoaded, items } = this.state;
 
         if(!isLoaded){
             return <div>Loading...</div>
         }
-
         else{
-            // console.log(items);
             return (
                 <div className="discDet-main-relatedAnimals">
                             <h2 className="discDet-main-relatedAnimals-heading">SEE RELATED ANIMALS BY EXTINCTION RISKS</h2>
@@ -47,14 +42,10 @@ class RelatedAnimals extends Component {
                                                 }}
                                     />
                                 ))}
-
                             </div>
                 </div>
             )
-
-
         }
-
     }
 }
 

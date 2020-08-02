@@ -31,8 +31,6 @@ const options = {
 class Chart extends Component {
     constructor(props){
         super(props);
-
-        console.log(this.props.id );
         this.state = {
             item: {},
             isLoaded : false,
@@ -43,10 +41,7 @@ class Chart extends Component {
         fetch(`https://lair.wmdd.ca/api/species/population/${this.props.id}`)
             .then(res => res.json())
             .then(json => {
-
-                console.log( json );
                 options.series[0].data = json ;
-                console.log( options.series );
                 this.setState({
                     isLoaded: true,
                     item:json,
@@ -54,33 +49,19 @@ class Chart extends Component {
                 })
             })
     }
-
-
-
-
     render() {
         return (
-
             <div className="chart">
-
                 { this.state.isLoaded &&
-
                 <HighchartsReact
                     highcharts={Highcharts}
                     options={this.state.hOptions}
                 />
-
-
                 }
-
                 { !this.state.isLoaded &&
                 <div>Chart is loading</div>
                 }
-
-
-
             </div>
-
         )
     }
 }

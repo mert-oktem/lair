@@ -1,7 +1,5 @@
 import React, {Component} from 'react'
 
-
-
 class MapClick extends Component{
     constructor(props){
         super(props)
@@ -10,7 +8,7 @@ class MapClick extends Component{
         return (
             <div className="canada-map-click-card">
                 <div className="canada-map-click-card-icon">
-                    <img src={process.env.PUBLIC_URL + `${this.props.animal.imgUrl}`} alt="Animal Icon Image"/>
+                    <img src={process.env.PUBLIC_URL + `${this.props.animal.imgUrl}`} alt="Animal Icon"/>
                 </div>
                 <div className="canada-map-click-card-name">
                     <p>{this.props.animal.name}</p>

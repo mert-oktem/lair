@@ -6,9 +6,7 @@ import HomeIntro from "./HomeIntro";
 import HomeImage from "./HomeImage";
 
 class HomeMain extends Component{
-    // constructor(){
-    //     super()
-    // }
+
     render(){
         return (
                 <main className="site-home-main">

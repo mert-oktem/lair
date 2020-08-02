@@ -2,9 +2,7 @@ import React, {Component} from 'react'
 
 
 class Footer2 extends Component {
-    // constructor(){
-    //     super()
-    // }
+
     render() {
         return (
             <div className="site-footer2">

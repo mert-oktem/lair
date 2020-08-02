@@ -11,7 +11,6 @@ class ContactLocation extends Component {
                 <div className="contact-location-text"><p>You are welcome to contact us if you have any questions
                     about wildlife.</p></div>
                     <ContactLocationMap />
-                
                 <div className="contact-location-info">
                     <div className="contact-location-info-add">
                         <div className="contact-location-info-add-icon"><img src={LocIcon} alt="Location Icon"/></div>

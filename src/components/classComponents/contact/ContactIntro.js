@@ -1,9 +1,6 @@
 import React, {Component} from 'react'
 
 class ContactIntro extends Component {
-    // constructor(){
-    //     super()
-    // }
     render() {
         return (
             <div className="contact-intro">

@@ -2,14 +2,11 @@ import React, {Component} from 'react'
 import {Link} from "react-router-dom";
 
 class AboutUsCard extends Component {
-    // constructor(){
-    //     super()
-    // }
     render() {
         return (
             <div className="aboutUs-card">
                 <div className="aboutUs-card-image">
-                    <img src={this.props.about.imgUrl} alt="About Us Card Image"/>
+                    <img src={this.props.about.imgUrl} alt="About Us Card"/>
                 </div>
                 <div className="aboutUs-card-name">
                     <h3>{this.props.about.name}</h3>

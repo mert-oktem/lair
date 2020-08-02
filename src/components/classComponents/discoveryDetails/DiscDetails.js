@@ -8,18 +8,12 @@ import RelatedAnimals from "./discoveryDetailsMain/RelatedAnimals";
 class DiscDetails extends Component{
     constructor(props){
         super(props);
-
-        //console.log(this.props.match.params.id );
         this.state = {
             item: {},
             isLoaded : false,
         }
     }
-
-
     componentDidMount() {
-
-
         fetch(`https://lair.wmdd.ca/api/species/${this.props.match.params.id}`)
             .then(res => res.json())
             .then(json => {
@@ -68,6 +62,5 @@ class DiscDetails extends Component{
             </div>
         )
     }
-
 }
 export default DiscDetails

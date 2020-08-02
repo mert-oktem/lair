@@ -2,9 +2,7 @@ import React, {Component} from 'react'
 
 
 class HomeIntro extends Component {
-    // constructor(){
-    //     super()
-    // }
+
     render() {
         return (
             <div className="home-main-intro">

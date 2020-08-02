@@ -1,9 +1,6 @@
 import React, {Component} from 'react'
 
 class DiscIntro extends Component {
-    // constructor(){
-    //     super()
-    // }
     render() {
         return (
             <div className="disc-main-intro">

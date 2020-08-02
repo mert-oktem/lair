@@ -9,9 +9,6 @@ import AnimalDescription from "./animalDetails/AnimalDescription";
 
 
 class AnimalDet extends Component{
-    // constructor(){
-    //     super()
-    // }
     render(){
         return (
             <div className="discDet-main-animalDet">

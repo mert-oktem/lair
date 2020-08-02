@@ -3,9 +3,6 @@ import Footer1 from "./Footer1";
 import Footer2 from "./Footer2";
 
 class Footer extends Component{
-    // constructor(){
-    //     super()
-    // }
     render(){
         return (
             <footer className="site-footer">

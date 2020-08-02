@@ -4,16 +4,12 @@ import MobileMenu from '../navigation/MobileMenu'
 import CloseButton from '../navigation/closeButton/CloseButton'
 
 class Header extends Component{
-    constructor(){
-        super()
+    constructor(props){
+        super(props)
         this.state = {
             mobileMenuOpen: false
         }
     }
-
-    // state = {
-    //     mobileMenuOpen: false
-    // }
 
    drawerToggleClickHandler = () => {
        this.setState((prevState) => {
@@ -24,7 +20,6 @@ class Header extends Component{
    closeButtonClickHandler = () => {
        this.setState({mobileMenuOpen: false})
    }
-
 
     render(){
         let closeButton;

@@ -3,9 +3,7 @@ import NewsletterImg from '../../../../img/feature_icons/Illustration_Newsletter
 import NewsletterEmailForm from "./homeNewsletterComponents/NewsletterEmailForm";
 
 class HomeNewsletter extends Component {
-    // constructor(){
-    //     super()
-    // }
+
     render() {
         return (
             <div className="home-main-newsletter">
