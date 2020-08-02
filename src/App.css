@@ -493,6 +493,8 @@ svg g{
   font-weight: bold;
   letter-spacing: 2px;
   margin-bottom: 70px;
+  position: relative;
+  right: 20px;
 }
 
 @media only screen and (min-width: 781px) {
@@ -1241,7 +1243,12 @@ main{
   font-size: 13pt;
   font-weight: bold;
   letter-spacing: 2px;
+
   /* margin-bottom: 100px; */
+}
+
+.whyMatter-donate button:hover{
+  box-shadow: 4.05px 4.05px 20.24px #FFEDA7;
 }
 
 .discDet-main-relatedAnimals-heading{
@@ -1396,7 +1403,7 @@ main{
     /* width: 100%; */
   }
 
-  .mobile-filter-menu-form button:last-of-type{
+  .mobile-filter-menu-form button:first-of-type{
     color: #644A53 !important;
     width: 100%;
     background-color: #ffeda7;
@@ -1408,9 +1415,11 @@ main{
     font-weight: 600;
     margin-left: 0;
     letter-spacing: 2px;
+    margin-top: 50px;
+    margin-bottom: 20px;
   }
   
-  .mobile-filter-menu-form button:first-of-type{
+  .mobile-filter-menu-form button:last-of-type{
     color: #644A53;
     font-family: 'Montserrat', sans-serif;
     text-transform: uppercase;
@@ -1421,8 +1430,6 @@ main{
     padding: 12px 22px;
     border-radius: 50px;
     border: 3px solid #ffeda7;
-    margin-top: 50px;
-    margin-bottom: 20px;
     margin-left: 0;
     width: 100%;
   }
@@ -1500,7 +1507,7 @@ main{
   .aniCard-name h2{
     font-size: 12pt;
     text-align: left;
-    height: 36px;
+    /* height: 36px; */
     /* padding: 0 15px; */
   }
 
@@ -1598,6 +1605,7 @@ main{
   }
 
   .animalDet-sciName-text{
+    font-size: 12pt;
     margin-top: 10px;
   }
 
@@ -1608,6 +1616,7 @@ main{
   }
 
   .animalDet-description-text{
+    font-size: 12pt;
     margin-top: 0;
     line-height: 1.5;
   }
@@ -1642,6 +1651,9 @@ main{
   .whyMatter-heading h3, .whyMatter-text, .whyMatter-donate{
     margin: 0;
     margin-right: 100px;
+  }
+  .whyMatter-text{
+    font-size: 12pt;
   }
   .discDet-main-relatedAnimals-heading{
     max-width: 80%;
@@ -1833,6 +1845,10 @@ main{
 
   .articles-intro h1, .articles-intro p{
     color: #fff;
+  }
+
+  .artCard-description p{
+    font-size: 12pt;
   }
 
   .articles-LoadMore-button{
@@ -2078,7 +2094,7 @@ main{
   margin: auto auto 20px auto;
   border: 0;
   background-color: #F4F8FF;
-  padding: 15px;
+  padding: 15px 20px;
   border-radius: 50px;
 }
 
@@ -2373,6 +2389,7 @@ main{
 .donate-card-image{
   max-width: 35%;
   margin: auto;
+  margin-bottom: 25px;
 }
 
 .donate-card-name{
@@ -2459,6 +2476,10 @@ main{
 
 
 @media only screen and (min-width: 780px){
+  .site-donate p{
+    font-size: 12pt;
+  }
+
   .donate-image{
     position: relative;
   }
@@ -2506,6 +2527,7 @@ main{
   }
 
   .donate-how-heading{
+    max-width: 50%;
     margin-top: 0;
     font-size: 2vw;
   }
