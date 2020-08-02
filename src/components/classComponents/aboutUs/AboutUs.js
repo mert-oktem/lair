@@ -19,7 +19,7 @@ class AboutUs extends Component{
                         <AboutUsCard
                             about={{name:"Mert Oktem",
                                 role:"Lead Developer",
-                                desc:"Bachelor’s degree in Advertisement. Worked as a Product Manager / Game Designer in a company back in Istanbul, Turkey for 3 years.",
+                                desc:"Bachelor’s degree in Advertisement. 3+ years experience as a Product Manager. I love leading teams to build amazing stuff!",
                                 imgUrl: require('../../../img/teamImg/Mert.jpg'),
                                 socialIcon1: require('../../../img/ui_icons/PNG/ui_icons_linkedin.png'),
                                 socialIcon2: require('../../../img/ui_icons/PNG/ui_icons_github.png'),
