@@ -8,6 +8,11 @@ class Header extends Component{
         super(props)
         this.state = {
             mobileMenuOpen: false
+            // discNavActive: false,
+            // articlesNavActive: false,
+            // aboutUsNavActive: false,
+            // contactNavActive: false,
+            // donateNavActive: false
         }
     }
 

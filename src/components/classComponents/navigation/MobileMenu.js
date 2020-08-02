@@ -1,6 +1,8 @@
 import React from 'react'
 import Logo from '../Logo'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
+import { render } from '@testing-library/react'
 
 const MobileMenu = props => {
 
@@ -36,74 +38,74 @@ const MobileMenu = props => {
 
     // logoClickHandler = () => {
     //     this.setState({ discNavActive: false })
-    //     this.setState({articlesNavActive: false})
-    //     this.setState({aboutUsNavActive: false})
-    //     this.setState({contactNavActive: false})
-    //     this.setState({donateNavActive: false})
+    //     this.setState({ articlesNavActive: false })
+    //     this.setState({ aboutUsNavActive: false })
+    //     this.setState({ contactNavActive: false })
+    //     this.setState({ donateNavActive: false })
     // }
 
     // exploreClickHandler = () => {
     //     this.setState({ discNavActive: true })
-    //     this.setState({articlesNavActive: false})
-    //     this.setState({aboutUsNavActive: false})
-    //     this.setState({contactNavActive: false})
-    //     this.setState({donateNavActive: false})
+    //     this.setState({ articlesNavActive: false })
+    //     this.setState({ aboutUsNavActive: false })
+    //     this.setState({ contactNavActive: false })
+    //     this.setState({ donateNavActive: false })
     // }
 
     // articlesClickHandler = () => {
     //     this.setState({ discNavActive: false })
-    //     this.setState({articlesNavActive: true})
-    //     this.setState({aboutUsNavActive: false})
-    //     this.setState({contactNavActive: false})
-    //     this.setState({donateNavActive: false})
+    //     this.setState({ articlesNavActive: true })
+    //     this.setState({ aboutUsNavActive: false })
+    //     this.setState({ contactNavActive: false })
+    //     this.setState({ donateNavActive: false })
     // }
 
     // aboutUsClickHandler = () => {
     //     this.setState({ discNavActive: false })
-    //     this.setState({articlesNavActive: false})
-    //     this.setState({aboutUsNavActive: true})
-    //     this.setState({contactNavActive: false})
-    //     this.setState({donateNavActive: false})
+    //     this.setState({ articlesNavActive: false })
+    //     this.setState({ aboutUsNavActive: true })
+    //     this.setState({ contactNavActive: false })
+    //     this.setState({ donateNavActive: false })
     // }
 
     // contactClickHandler = () => {
     //     this.setState({ discNavActive: false })
-    //     this.setState({articlesNavActive: false})
-    //     this.setState({aboutUsNavActive: false})
-    //     this.setState({contactNavActive: true})
-    //     this.setState({donateNavActive: false})
+    //     this.setState({ articlesNavActive: false })
+    //     this.setState({ aboutUsNavActive: false })
+    //     this.setState({ contactNavActive: true })
+    //     this.setState({ donateNavActive: false })
     // }
 
     // donateClickHandler = () => {
     //     this.setState({ discNavActive: false })
-    //     this.setState({articlesNavActive: false})
-    //     this.setState({aboutUsNavActive: false})
-    //     this.setState({contactNavActive: false})
-    //     this.setState({donateNavActive: true})
+    //     this.setState({ articlesNavActive: false })
+    //     this.setState({ aboutUsNavActive: false })
+    //     this.setState({ contactNavActive: false })
+    //     this.setState({ donateNavActive: true })
     // }
 
 
     function refreshPage() {
         window.location.reload(false);
     }
-
-    return(
+    return (
         <div className={mobileMenuClasses}>
             <div className="mobile-menu-head">
                 <Logo />
             </div>
-                <nav className="mobile-menu-nav">
-                    <ul>
-                        <li onClick={refreshPage}><Link to="/">Home</Link></li>
-                        <li><Link to="/discovery" onClick={props.close}>Explore</Link></li>
-                        <li><Link to="/articles" onClick={props.close}>Articles</Link></li>
-                        <li><Link to="/aboutUs" onClick={props.close}>About Us</Link></li>
-                        <li><Link to="/contact" onClick={props.close}>Contact</Link></li>
-                        <li onClick={props.close}><Link to="/donate">Donate</Link></li>
-                    </ul>
-                </nav>
+            <nav className="mobile-menu-nav">
+                <ul>
+                    <li onClick={refreshPage}><Link to="/">Home</Link></li>
+                    <li><NavLink activeClassName="discNav-active" className="discNav" to="/discovery" onClick={props.close}>Explore</NavLink></li>
+                    <li><NavLink activeClassName="active" className="articlesNav" to="/articles" onClick={props.close}>Articles</NavLink></li>
+                    <li><NavLink activeClassName="active" className="aboutUsNav" to="/aboutUs" onClick={props.close}>About Us</NavLink></li>
+                    <li><NavLink activeClassName="active" className="contactNav" to="/contact" onClick={props.close}>Contact</NavLink></li>
+                    <li className="donate-button" onClick={props.close}><NavLink activeClassName="active" className="donateNav" to="/donate">Donate</NavLink></li>
+                </ul>
+            </nav>
         </div>
     )
+
 }
 
 export default MobileMenu

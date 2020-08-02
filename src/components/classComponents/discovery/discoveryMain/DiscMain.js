@@ -81,7 +81,8 @@ class DiscMain extends Component {
         }
         this.setState({
             filteredItems: newJson,
-            isFilter: true
+            isFilter: true,
+            mobileFilterOpen: false
         });
         this.filterCloseButtonClickHandler()
     }
@@ -100,7 +101,8 @@ class DiscMain extends Component {
             isFish: false,
             isEndangered: false,
             isCriticallyEndangered: false,
-            isFilter: false
+            isFilter: false,
+            mobileFilterOpen: false
         });
         this.filterCloseButtonClickHandler()
     }
