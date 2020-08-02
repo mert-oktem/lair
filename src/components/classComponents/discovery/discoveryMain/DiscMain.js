@@ -293,8 +293,8 @@ class DiscMain extends Component {
                                         </div>
                                     </li>
                                 </ul>
-                                <button type="button" onClick={this.handleClear}>DELETE FILTER</button>
                                 <button type="button" onClick={this.handleSubmit}>APPLY FILTER</button>
+                                <button type="button" onClick={this.handleClear}>DELETE FILTER</button>
                             </form>
                         </div>
                         <div className={discMainAnimalClasses}>
@@ -425,8 +425,8 @@ class DiscMain extends Component {
                                         </div>
                                     </li>
                                 </ul>
-                                <button type="button" onClick={this.handleClear}>DELETE FILTER</button>
                                 <button type="button" onClick={this.handleSubmit}>APPLY FILTER</button>
+                                <button type="button" onClick={this.handleClear}>DELETE FILTER</button>
                             </form>
                         </div>
 
@@ -558,8 +558,8 @@ class DiscMain extends Component {
                                         </div>
                                     </li>
                                 </ul>
-                                <button type="button" onClick={this.handleClear}>DELETE FILTER</button>
                                 <button type="button" onClick={this.handleSubmit}>APPLY FILTER</button>
+                                <button type="button" onClick={this.handleClear}>DELETE FILTER</button>
                             </form>
                         </div>
                         <div className={discMainAnimalClasses}>
@@ -690,8 +690,8 @@ class DiscMain extends Component {
                                         </div>
                                     </li>
                                 </ul>
-                                <button type="button" onClick={this.handleClear}>DELETE FILTER</button>
                                 <button type="button" onClick={this.handleSubmit}>APPLY FILTER</button>
+                                <button type="button" onClick={this.handleClear}>DELETE FILTER</button>
                             </form>
                         </div>
                         <div className={discMainAnimalClasses}>
