@@ -275,6 +275,10 @@ button.close-button{
     letter-spacing: 2px;
   }
 
+  .donate-desktop-button{
+    padding-right: 0 !important;
+  }
+
   .donate-desktop-button a:hover, .contact-contactForm button:hover, .newsletter-form-submitBtn button:hover{
     box-shadow: 4.05px 4.05px 20.24px #FFEDA7;
   }
@@ -503,7 +507,7 @@ svg g{
     position: absolute;
     z-index: 1;
     /* width: 30%; */
-    top: 38%;
+    top: 26vw;
     left: 10%;
     text-align: left;
   }
@@ -1078,8 +1082,8 @@ main{
   border-radius: 50px;
   border: 0;
   font-weight: bold;
-  letter-spacing: 1px;
-  margin: 50px auto;
+  letter-spacing: 2px;
+  margin: 30px auto;
   text-transform: uppercase;
 }
 
@@ -1153,19 +1157,16 @@ main{
   
 }
 
-.popChart-text-threat h2{
-  margin-top: 2px;
-}
-
 .popChart-text h2{
   font-size: 12pt;
   color: #644A53;
   margin-right: 5px;
+  margin-top: 2px;
 }
 
 .popChart-text p{
   color: #644A53;
-  margin: auto 0;
+  margin: 0;
 }
 
 .highcharts-background{
@@ -1238,7 +1239,7 @@ main{
   text-align: left;
   color: #CA7342;
   max-width: 90%;
-  margin: 0 auto 70px auto;
+  margin: 50px auto 70px auto;
   letter-spacing: 2px;
   font-size: 12pt;
   line-height: 1.5;
@@ -1295,7 +1296,7 @@ main{
     position: absolute;
     z-index: 1;
     width: 30%;
-    top: 42%;
+    top: 27vw;
     left: 10%;
     text-align: left;
   }
@@ -1313,7 +1314,7 @@ main{
   }
 
   .disc-main-intro .intro-text{
-    font-size: 18px;
+    font-size: 1.5vw;
     font-weight: 500;
   }
 
@@ -1396,6 +1397,7 @@ main{
     text-transform: uppercase;
     font-size: 11pt !important;
     font-weight: 600;
+    margin-left: 0;
     letter-spacing: 2px;
   }
   
@@ -1410,8 +1412,9 @@ main{
     padding: 12px 22px;
     border-radius: 50px;
     border: 3px solid #ffeda7;
-    margin-top: 25px;
-    margin-bottom: 60px;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    margin-left: 0;
     width: 100%;
   }
 
@@ -1514,7 +1517,10 @@ main{
     margin: auto;
     /* display: block; */
     grid-column: 2/3;
+  }
 
+  .disc-main-filter-anicard.open .discLoadMore-button{
+    margin: 0;
   }
   
   .popChart-heading h3{
@@ -1578,6 +1584,14 @@ main{
     display: none;
   }
 
+  .animalDet-name-text{
+    margin-bottom: 0;
+  }
+
+  .animalDet-sciName-text{
+    margin-top: 10px;
+  }
+
   .discDet-main-animalDet{
     max-width: 45%;
     margin-right: 0;
@@ -1596,7 +1610,7 @@ main{
   }
 
   .animalDet-status-text{
-    margin: 20px 0;
+    margin: 30px 0;
   }
 
   .discDet-main-popChart{
@@ -1607,8 +1621,8 @@ main{
     display: grid;
     max-width: 80%;
     margin: auto;
-    grid-template-columns: 3.5fr 6.5fr;
-    grid-template-rows: 0.35fr 1fr 0.15fr;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 0.35fr 1fr 0.7fr;
     margin-bottom: 100px;
   }
   .whyMatter-image{
@@ -1618,6 +1632,7 @@ main{
   }
   .whyMatter-heading h3, .whyMatter-text, .whyMatter-donate{
     margin: 0;
+    margin-right: 100px;
   }
   .discDet-main-relatedAnimals-heading{
     max-width: 80%;
@@ -1708,12 +1723,16 @@ main{
   -webkit-box-orient: vertical;
 }
 
+.articles-artCard{
+  margin-top: 50px;
+}
+
 .artCard-more-button{
   text-align: left;
   max-width: 90%;
   margin: auto;
   margin-top: 10px;
-  margin-bottom: 50px;
+  /* margin-bottom: 50px; */
 }
 
 .artCard-more-button button{
@@ -1758,7 +1777,7 @@ main{
   }
 
   .articles-intro .articles-intro-text{
-    font-size: 18px;
+    font-size: 1.5vw;
     font-weight: 500;
   }
 
@@ -1778,7 +1797,7 @@ main{
     position: absolute;
     z-index: 1;
     width: 35%;
-    top: 42%;
+    top: 26vw;
     left: 10%;
     text-align: left;
   }
@@ -1813,6 +1832,10 @@ main{
     margin: auto;
   }
 
+  .artCard-more-button button{
+    font-size: 10pt;
+  }
+
 }
 
 
@@ -1841,6 +1864,7 @@ main{
 .aboutUs-desc-heading{
   color: #CA7342;
   margin-top: 50px;
+  font-size: 1.4em;
 }
 
 .aboutUs-desc-text{
@@ -1855,10 +1879,12 @@ main{
 .aboutUs-title{
   color: #CA7342;
   margin: 50px 0;
+  font-size: 1.4em;
 }
 .aboutUs-desc{
   background-color: #F4F8FF;
   padding: 20px 20% 50px 20%;
+  margin-top: -5px;
 }
 
 .aboutUs-card{
@@ -1921,7 +1947,7 @@ main{
     position: absolute;
     z-index: 1;
     width: 34%;
-    top: 42%;
+    top: 26vw;
     left: 10%;
     text-align: left;
   }
@@ -1940,15 +1966,24 @@ main{
   }
 
   .aboutUs-intro .aboutUs-intro-text{
-    font-size: 18px;
+    font-size: 1.5vw;
     font-weight: 500;
     line-height: 1.5;
   }
 
+  .aboutUs-intro-text p{
+    margin-top: 0;
+  }
+
   .aboutUs-desc{
     /* max-width: 60%; */
+    margin-top: -5px;
     padding: 20px 20% 50px 20%;
     background-color: #F4F8FF;
+  }
+
+  .aboutUs-title, .aboutUs-desc-heading{
+    font-size: 2.1vw;
   }
 
   .aboutUs-block{
@@ -2060,7 +2095,7 @@ main{
   border-radius: 50px;
   border: 0;
   font-weight: bold;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
   margin-bottom: 70px;
   margin-top: 50px;
 }
@@ -2136,7 +2171,7 @@ main{
     position: absolute;
     z-index: 1;
     width: 45%;
-    top: 40%;
+    top: 24vw;
     left: 10%;
     text-align: left;
   }
@@ -2152,11 +2187,14 @@ main{
     margin: 0;
   }
 
-  
+  .contact-intro-heading h1{
+    margin-bottom: 0;
+  }
 
   .contact-intro p{
-    font-size: 14pt;
+    font-size: 1.5vw;
     width: 90%;
+    margin-top: 0;
   }
 
   .contact-desc{
@@ -2244,6 +2282,7 @@ main{
 
   .contact-contactForm button{
     width: fit-content;
+    letter-spacing: 2px;
   }  
 
   .contact-location-info-add{
@@ -2315,7 +2354,11 @@ main{
   color: #644A53;
   font-size: 11pt;
   font-weight: 500;
-  margin-bottom: 70px;
+  /* margin-bottom: 70px; */
+}
+
+.donate-card{
+  margin-top: 70px;
 }
 
 .donate-card-image{
@@ -2324,6 +2367,7 @@ main{
 }
 
 .donate-card-name{
+  display: none;
   color: #CA7342;
 }
 
@@ -2349,7 +2393,7 @@ main{
 
 .donate-card-link{
   margin-top: 10px;
-  margin-bottom: 70px;
+  /* margin-bottom: 70px; */
 }
 
 .donate-card:last-of-type .donate-card-link{
@@ -2360,7 +2404,8 @@ main{
   text-decoration: none;
   color: #CA7342;
   font-weight: 600;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
+  font-size: 12pt;
 }
 
 .donate-how-text{
@@ -2413,7 +2458,7 @@ main{
     position: absolute;
     z-index: 1;
     width: 45%;
-    top: 40%;
+    top: 24vw;
     left: 10%;
     text-align: left;
   }
@@ -2429,9 +2474,13 @@ main{
     margin-top: 0;
   }
 
-  .donate-intro p{
-    font-size: 16pt;
+  .donate-intro h1{
+    margin-bottom: 0;
+  }
 
+  .donate-intro p{
+    font-size: 1.5vw;
+    margin-top: 0;
   }
 
   .donate-intro-heading, .donate-intro-text{
@@ -2449,6 +2498,11 @@ main{
 
   .donate-how-heading{
     margin-top: 0;
+    font-size: 2vw;
+  }
+
+  .donate-desc-heading{
+    font-size: 2vw;
   }
 
   .donate-how-text{
@@ -2477,7 +2531,8 @@ main{
     flex-wrap: wrap;
     justify-content: space-evenly;
     margin: auto;
-    align-items: flex-end;
+    align-items: baseline;
+    padding-bottom: 0;
   }
 
   .donate-desc{
@@ -2486,6 +2541,10 @@ main{
   }
   .donate-card{
     max-width: 30%;
+  }
+
+  .donate-card-link a{
+    font-size: 10pt;
   }
 
   .donate-card:last-of-type .donate-card-link{

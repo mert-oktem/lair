@@ -9,7 +9,7 @@ class NotFound extends Component {
         return (
             <main className="site-home-main">
                 <div className="home-main-intro">
-                    <h1 className="intro-heading">Lost In The Wood?</h1>
+                    <h1 className="intro-heading">Lost In The Woods?</h1>
                     <h2 className="intro-sub-heading">Error 404</h2>
                     <p className="intro-text">
                         Oops, the page you are looking for is not available right now.
