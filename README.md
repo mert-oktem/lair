@@ -1,68 +1,76 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Lair - Protecting Species At Risk
+https://lair.wmdd.ca/
 
-## Available Scripts
+Lair is a responsive and data-driven web application, that provides information about endangered species in Canada to encourage users to discover their local threatened animals. This online platform will let the user take an active and meaningful role in providing relief to the wildlife and natural ecosystems of our planet.
 
-In the project directory, you can run:
+*-----Main Features-----*
 
-### `npm start`
+Interactive Map - There is an interactive map of Canada, where users can click on a province to see a list of endangered species and their locations on the map. 
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Animal Wiki - The website provides a list of Canada’s endangered species with information such as general and scientific names, species descriptions, habitats, threats, population trends, genus, and average characteristics. Users can see the animal’s location and population on a map of Canada. To access more details about a specific animal, the user can click on the animal to see a line graph of population changes over time. 
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+Wildlife Articles - Users can see instructions and tips on wildlife conservation. Practical measures on how users can help save wildlife will be listed. 
 
-### `npm test`
+Donation Portal - Through our responsive data-driven web application, we will also point users in the right direction to donate to wildlife protection agencies and NGOs that are best positioned to take on an active role in saving the ecological integrity of the environment and wildlife. Moreover, information on why and how donation helps will also be presented. 
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+*-----Tech Stack-----*
 
-### `npm run build`
+React framework is used to develop the front-end of this web application Node.js for the backend. The interactive map was created using D3.js and the data-driven feature that displays the number of species over the past ten years is depicted by the line graph made using Highcharts. 
+The database was created using MySQL. Express.js was used for our API along with Joi.js for validation requests.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+*-----Team Member-----*
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+Mert Oktem (Lead Developer)
+https://www.linkedin.com/in/mert-oktem/
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Antriksh Saini (Full-stack Developer)
+https://www.linkedin.com/in/antriksh-saini/
 
-### `npm run eject`
+Arjun Dhingra (Front-end Developer)
+https://www.linkedin.com/in/arjun-dhingra-617749159/
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Milad Mokhtari (Developer & Quality Assurance)
+https://www.linkedin.com/in/milad-mokhtari/
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Chloe Bui (Lead Designer) 
+https://www.linkedin.com/in/chloe-buii/
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Harmanpreet Kaur (Designer & Project Manager) 
+https://www.linkedin.com/in/harman-jhita/
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Bokai Hsu (UI/UX Designer) 
+https://www.linkedin.com/in/bokai-hsu/
 
-## Learn More
+Manpreet Kaur (UI/UX Designer) 
+https://www.linkedin.com/in/manpreet-kaur-b42a21136/
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+*-----References-----*
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+“Protected Places.” Nature Canada, September 5, 2019. https://naturecanada.ca/ defend-nature/how-you-help-us-take-action/protect-wildlife-habitat/ 
 
-### Code Splitting
+“Significant Canadian Wildlife Declines Revealed in New WWF-Canada Study.” WWF. Accessed May 13, 2020. http://www.wwf.ca/?25881/Significant-Canadian-wildlife-declines-revealed-in-new-WWF-Canada-study. 
+Reports - Wild Species: The General Status of Species in Canada. Accessed May 15, 2020. https://www.wildspecies.ca/reports 
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+“List of Wildlife Species at Risk (Canada).” Wikipedia. Wikimedia Foundation, March 6, 2020. https://en.wikipedia.org/wiki/List_of_Wildlife_Species_at_Risk_ (Canada)#Endangered_mosses.
 
-### Analyzing the Bundle Size
+Images are taken from Unsplash https://unsplash.com/
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+Articles are integrated from Medium https://medium.com/wild-without-end
 
-### Making a Progressive Web App
+*-----Available Scripts-----*
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+npm start - Runs the app in the development mode. Open http://localhost:3000 to view it in the browser. The page will reload if you make edits. You will also see any lint errors in the console.
 
-### Advanced Configuration
+npm test - Launches the test runner in the interactive watch mode. See the section about running tests for more information.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+npm run builds - Builds the app for production to the build folder. It correctly bundles React in production mode and optimizes the build for the best performance. The build is minified and the filenames include the hashes. Your app is ready to be deployed!
+ 
 
-### Deployment
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
 
-### `npm run build` fails to minify
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+
+
+
+
